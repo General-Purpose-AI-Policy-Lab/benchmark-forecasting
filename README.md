@@ -1,11 +1,11 @@
 # Benchmark Progress Forecasting Pipeline
 
-This repository contains a four-stage workflow for cleaning benchmark data, fitting two sigmoidal forecasting models (Logistic and Harvey), and generating unified plots. The implementation is structured as sequential Jupyter notebooks.
+This repository contains a four-stage workflow for cleaning benchmark data, fitting two sigmoidal forecasting models (Logistic and Harvey), and generating unified plots.
 
 ## Repository Structure
 
 - **0_Clean_EpochAI_benchmarks.ipynb**  
-  Cleans and standardizes EpochAI benchmark data. Tasks include: ingesting raw benchmark timelines, harmonizing benchmark identifiers, handling missing/irregular data, computing per-benchmark lower bounds (random-chance baselines), producing long-format tables for modeling, and exporting cleaned CSV/Parquet outputs.
+  Cleans and standardizes EpochAI benchmark data. Includes: selecting and formating benchmark scores for modeling, harmonizing benchmark identifiers, handling missing/irregular data, loading per-benchmark lower bounds (random-chance baselines), and exporting cleaned outputs.
 
 - **1_Logistic_forecast.ipynb**  
   Loads the cleaned dataset and fits Bayesian shifted logistic growth models in PyMC. Provides:
@@ -14,16 +14,16 @@ This repository contains a four-stage workflow for cleaning benchmark data, fitt
   Outputs posterior samples, asymptote distributions, and forward forecasts.
 
 - **2_Harvey_forecast.ipynb**  
-  Implements the Harvey growth model (a generalized logistic / Harvey-type sigmoid with decaying effective growth rate). As with the logistic notebook, it supports both independent and joint hierarchical variants and generates predictive distributions and long-horizon forecasts.
+  Implements the Harvey growth model (a generalized logistic with decaying effective growth rate). As with the logistic notebook, it supports both independent and joint hierarchical variants.
 
 - **3_Plot_forecasts.ipynb**  
-  Aggregates outputs from both model families and produces figures: historical data and posterior predictive envelopes of the Logistic / Harvey forecasts for each benchmark (single panels and multi-benchmark panels).
+  Aggregates outputs produces figures: historical data and posterior predictive envelopes of the Logistic / Harvey forecasts for each benchmark (single panels and multi-benchmark panels).
 
 ## Model Details
 
 ### Time and lower bounds
 
-For each benchmark $i$, scores $y_{i,t}$ are modeled as functions of a time variable $t$ (e.g. days since first observation). A benchmark-specific random-chance **lower bound** $\ell_i$ is estimated from metadata (or set to 0 if unknown), and all sigmoids are defined on the shifted range $[\ell_i, 1]$.
+For each benchmark $i$, scores $y_{i,t}$ are modeled as functions of a time variable $t$ (e.g. days since first observation). Benchmark-specific random-chance **lower bound** $\ell_i$ have been gathered manually (or set to 0 if unknown, see `benchmarks_lower_bounds.csv`), and all sigmoids are defined on the shifted range $[\ell_i, 1]$.
 
 ### Shifted Logistic model
 
@@ -41,13 +41,13 @@ where:
 
 ### Harvey model
 
-The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$ that controls how sharply growth slows down. For benchmark $i$,
+The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$ that controls how sharply growth slows down (it converges to the logistic function when $\alpha_i = 2$). For benchmark $i$,
 
 $$
-h_i(t) = \left[1 - (1 - \alpha_i)\exp\big(-r_i (t - t_{\mathrm{i},i})\big) \right]^{\!\frac{1}{1 - \alpha_i}} ,
+h_i(t) = \left[1 - (1 - \alpha^{\text{harvey}}_i)\exp\big(-r_i (t - t_{0,i})\big) \right]^{\frac{1}{1 - \alpha^{\text{harvey}}_i}} ,
 $$
 
-and the shifted mean is
+and the shifted mean is still
 
 $$
 \mu_i^{\text{harv}}(t) = \ell_i + (L_i - \ell_i)h_i(t),
@@ -56,8 +56,8 @@ $$
 with:
 - $L_i$ asymptote,
 - $r_i$ growth-rate parameter (comparable scale to $k_i$),
-- $t_{\mathrm{i},i}$ time offset (start of growth),
-- $\alpha_i > 1$ controlling asymmetry (larger $\alpha_i$ gives faster early growth and stronger late slowdown).
+- $t_{0,i}$ time offset (close to the inflection point),
+- $\alpha^{\text{harvey}}_i > 1$ controlling asymmetry (larger $\alpha^{\text{harvey}}_i$ gives faster early growth and stronger late slowdown).
 
 ### Observation model and heteroskedastic noise
 
@@ -73,7 +73,7 @@ $$
 \sigma_i(t) = \sigma_0 + \sigma^{\text{base}}_i\frac{\sqrt{\big(\mu_i(t) - \ell_i\big)\big(L_i - \mu_i(t)\big)}}{(L_i - \ell_i)/2},
 $$
 
-peaking near the inflection point and shrinking near the bounds. The skewness parameter $\alpha^{\text{skew}}_i \le 0$ allows slightly asymmetric residuals and is weakly informed by priors.
+peaking near the inflection point and shrinking near the bounds. The skewness parameter $\alpha^{\text{skew}}_i \le 0$ allows asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
 
 ### Hierarchical (joint) models
 
@@ -98,7 +98,7 @@ r_i \sim \text{Gamma}(r_{\mu}, r_{\sigma}).
 $$
 
 - **Inflection / start times:**
-  - Task-level $t_{0,i}$ and $t_{\mathrm{i},i}$ are centered on empirical midpoints or first-observation dates with broad priors (e.g. Gumbel/Normal with year-scale spreads).
+  - Time offsets $t_{0,i}$ are centered on empirical midpoints with broad priors (e.g. Gumbel - an asymetric distribution - with year-scale spreads).
 
 - **Noise scales and skewness:**
   - Shared hyperpriors:
@@ -106,13 +106,13 @@ $$
     - $\sigma^{\text{base}}_{\sigma}$
     - $\alpha^{\text{skew}}_{\mu}$
     - $\alpha^{\text{skew}}_{\sigma}$
-  - Task-level $\sigma^{\text{base}}_i$ and $\alpha^{\text{skew}}_i$ are drawn from these distributions.
+  - Benchmark-level parameters $\sigma^{\text{base}}_i$ and $\alpha^{\text{skew}}_i$ are drawn from the same distributions (resp. Gamma and Truncated-Normal).
 
 - **Harvey shape parameter:**
-  - Hyperpriors for a base parameter:
-    - $\alpha^{\text{base}}_{\mu}$
-    - $\alpha^{\text{base}}_{\sigma}$
-  - Task-level $\alpha_i = 1 + \alpha^{\text{base}}_i$ enforce $\alpha_i > 1$.
+  - Hyperpriors for the shape parameter (Gamma distribution):
+    - $\alpha^{\text{harvey,base}}_{\mu}$
+    - $\alpha^{\text{harvey,base}}_{\sigma}$
+  - Benchmark-level parameter $\alpha^{\text{harvey}}_i = 1 + \alpha^{\text{harvey,base}}_i$, enforcing $\alpha_i > 1$.
 
 These hierarchical models allow benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories.
 
