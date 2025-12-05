@@ -116,7 +116,7 @@ $$
 \xi^{\text{base}}_i \sim \text{Gamma}(\sigma^{\text{base}}_{\mu}, \sigma^{\text{base}}_{\sigma}),
 $$
 
-where $\sigma^{\text{base}}_{\mu}, \sigma^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+where $\sigma^{\text{base}}_ {\mu}, \sigma^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
 
 #### Skewness parameters $\lambda_i$:
 
@@ -126,7 +126,7 @@ $$
 \lambda_i \sim \text{TruncatedNormal}(\alpha^{\text{skew}}_{\mu}, \alpha^{\text{skew}}_{\sigma}, 0, \infty),
 $$
 
-where $\alpha^{\text{skew}}_{\mu}, \alpha^{\text{skew}}_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
+where $\alpha^{\text{skew}}_ {\mu}, \alpha^{\text{skew}}_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
 
 #### Harvey shape parameters $\alpha_i$:
 
@@ -137,7 +137,7 @@ $$
 \alpha^{\text{raw}}_i \sim \text{Gamma}(\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma}),
 $$
 
-where $\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean and standard deviation hyperparameters.
+where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean and standard deviation hyperparameters.
 
 ## Dependencies
 
