@@ -113,27 +113,27 @@ Inflection times $\tau_i$ follow a Gumbel distribution centered on empirical mid
 Noise scales $\xi^{\text{base}}_i$ follow a Gamma distribution:
 
 $$
-\xi^{\text{base}}_i \sim \text{Gamma}(\sigma^{\text{base}}_{\mu}, \sigma^{\text{base}}_{\sigma}),
+\xi^{\text{base}}_i \sim \text{Gamma}(\xi^{\text{base}}_{\mu}, \xi^{\text{base}}_{\sigma}),
 $$
 
-where $\sigma^{\text{base}}_ {\mu}, \sigma^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
 
 #### Skewness parameters $\lambda_i$:
 
 Skewness parameters $\lambda_i$ follow a Truncated-Normal distribution (truncated at 0):
 
 $$
-\lambda_i \sim \text{TruncatedNormal}(\alpha^{\text{skew}}_{\mu}, \alpha^{\text{skew}}_{\sigma}, 0, \infty),
+\lambda_i \sim \text{TruncatedNormal}(\lambda_{\mu}, \lambda_{\sigma}, -\infty, 0),
 $$
 
-where $\alpha^{\text{skew}}_ {\mu}, \alpha^{\text{skew}}_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
+where $\lambda_ {\mu}, \lambda_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
 
 #### Harvey shape parameters $\alpha_i$:
 
 Harvey shape parameters $\alpha_i$ follow a shifted Gamma distribution to enforce $\alpha_i > 1$: 
 
 $$
-\alpha^{\text{harvey}}_i = 1 + \alpha^{\text{raw}}_i, \quad
+\alpha_i = 1 + \alpha^{\text{raw}}_i, \quad
 \alpha^{\text{raw}}_i \sim \text{Gamma}(\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma}),
 $$
 
