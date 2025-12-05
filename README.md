@@ -47,7 +47,7 @@ $$
 \mu_i(t) = \ell_i + (L_i - \ell_i) \sigma_i(t),
 $$
 
-where $\sigma_i(t) \in \left\{\sigma_i^{\text{log}}(t), \sigma_i^{\text{harv}}(t)\right\}$ is the sigmoid function (Logistic or Harvey). We indicate with the exponents $\text{log}$ and $\text{harv}$ the two variants when necessary.
+where $\sigma_i(t) \in \left\\{ \sigma_i^{\text{log}}(t), \sigma_i^{\text{harv}}(t) \right\\}$ is the sigmoid function (Logistic or Harvey). We indicate with the exponent $\text{log}$ and $\text{harv}$ the two variants when necessary.
 
 #### Logistic function
 
