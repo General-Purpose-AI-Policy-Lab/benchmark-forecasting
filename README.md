@@ -21,59 +21,64 @@ This repository contains a four-stage workflow for cleaning benchmark data, fitt
 
 ## Model Details
 
-### Time and lower bounds
+Let $y_{i}(t)$ be the observed score for benchmark $i$ at time $t$. 
 
-For each benchmark $i$, scores $y_{i,t}$ are modeled as functions of a time variable $t$ (e.g. days since first observation). Benchmark-specific random-chance **lower bound** $\ell_i$ have been gathered manually (or set to 0 if unknown, see `benchmarks_lower_bounds.csv`), and all sigmoids are defined on the shifted range $[\ell_i, 1]$.
-
-### Shifted Logistic model
-
-For benchmark $i$, the latent mean performance at time $t$ is
+The score is modeled as a sigmoidal growth curve $\mu_i(t)$ plus skewed heteroskedastic noise $\xi_i(t)$:
 
 $$
-\mu_i^{\text{log}}(t) = \ell_i + (L_i - \ell_i)\sigma_i(t), \quad
-\sigma_i(t) = \frac{1}{1 + \exp\big(-k_i (t - t_{0,i})\big)} ,
+y_{i}(t) \sim \text{SkewNormal}\big(\mu_i(t), \xi_i(t), \lambda_i\big),
 $$
 
-where:
-- $L_i$ is the upper asymptote (final performance),
-- $k_i$ is the growth rate,
-- $t_{0,i}$ is the inflection time.
+where $\lambda_i \le 0$ is the skewness parameter allowing asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
 
-### Harvey model
+### Sigmoidal growth curves
 
-The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$ that controls how sharply growth slows down (it converges to the logistic function when $\alpha_i = 2$). For benchmark $i$,
+The sigmoidal curves model the latent mean performance $\mu_i(t)$ over time. Two families of sigmoids are implemented: a shifted logistic function, and a generalization allowing asymmetric growth, the Harvey curve.
 
-$$
-h_i(t) = \left[1 - (1 - \alpha^{\text{harvey}}_i)\exp\big(-r_i (t - t_{0,i})\big) \right]^{\frac{1}{1 - \alpha^{\text{harvey}}_i}} ,
-$$
+The sigmoids are defined on the range $[\ell_i, L_i]$, where $\ell_i$ is a benchmark-specific lower bound (random-chance performance) and $L_i$ is the upper asymptote (final performance).
 
-and the shifted mean is still
+The lower bound $\ell_i$ is manually gathered per benchmark (or set to 0 if unknown). See `benchmarks_lower_bounds.csv` for details. It is not necessarily 0, as some benchmarks may have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
 
-$$
-\mu_i^{\text{harv}}(t) = \ell_i + (L_i - \ell_i)h_i(t),
-$$
+The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores.
 
-with:
-- $L_i$ asymptote,
-- $r_i$ growth-rate parameter (comparable scale to $k_i$),
-- $t_{0,i}$ time offset (close to the inflection point),
-- $\alpha^{\text{harvey}}_i > 1$ controlling asymmetry (larger $\alpha^{\text{harvey}}_i$ gives faster early growth and stronger late slowdown).
-
-### Observation model and heteroskedastic noise
-
-Both model families share the same likelihood structure. For an observation at time $t$ on benchmark $i$,
+The latent mean performance on benchmark $i$ at time $t$ is then the shifted sigmoid:
 
 $$
-y_{i,t} \sim \text{SkewNormal}\big(\mu_i(t), \sigma_i(t), \alpha^{\text{skew}}_i\big),
+\mu_i(t) = \ell_i + (L_i - \ell_i) \sigma_i(t),
 $$
 
-where the scale is heteroskedastic and approximately Beta-shaped over the interval $[\ell_i, L_i]$:
+where $\sigma_i(t) \in \\{\sigma_i^{\text{log}}(t), \sigma_i^{\text{harv}}(t)\\}$ is the sigmoid function (Logistic or Harvey). We indicate with the exponents $\text{log}$ and $\text{harv}$ the two variants when necessary.
+
+#### Logistic function
+
+The logistic function is defined as:
 
 $$
-\sigma_i(t) = \sigma_0 + \sigma^{\text{base}}_i\frac{\sqrt{\big(\mu_i(t) - \ell_i\big)\big(L_i - \mu_i(t)\big)}}{(L_i - \ell_i)/2},
+\sigma_i^{\text{log}}(t) = \frac{1}{1 + \exp\big(-k_i (t - \tau_i)\big)},
 $$
 
-peaking near the inflection point and shrinking near the bounds. The skewness parameter $\alpha^{\text{skew}}_i \le 0$ allows asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
+where $k_i$ is the growth rate and $\tau_i$ is the inflection time. 
+
+#### Harvey function
+
+The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$ that controls how sharply growth slows down (it reduces to the logistic function when $\alpha_i = 2$). It is defined as:
+
+$$
+\sigma_i^{\text{harv}}(t) = \left[1 - (1 - \alpha_i)\exp\big(-k_i (t - \tau_i)\big) \right]^{\frac{1}{1 - \alpha_i}} ,
+$$
+
+where $k_i$ is the growth-rate, $\tau_i$ is the inflection time and $\alpha_i > 1$ controls asymmetry (larger $\alpha_i$ gives earlier growth).
+
+### Heteroskedastic noise
+
+The observation noise $\xi_i(t)$ is heteroskedastic and approximately Beta-shaped over the interval $[\ell_i, L_i]$:
+
+$$
+\xi_i(t) = \xi_0 + \xi^{\text{base}}_i\frac{\sqrt{\big(\mu_i(t) - \ell_i\big)\big(L_i - \mu_i(t)\big)}}{(L_i - \ell_i)/2},
+$$
+
+peaking near the inflection point and shrinking near the bounds. 
+[TODO explain $xi_0$ et $\xi^{base}_i$]
 
 ### Hierarchical (joint) models
 
