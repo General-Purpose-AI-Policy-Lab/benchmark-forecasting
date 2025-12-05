@@ -47,7 +47,7 @@ $$
 \mu_i(t) = \ell_i + (L_i - \ell_i) \sigma_i(t),
 $$
 
-where $\sigma_i(t) \in \\{\sigma_i^{\text{log}}(t), \sigma_i^{\text{harv}}(t)\\}$ is the sigmoid function (Logistic or Harvey). We indicate with the exponents $\text{log}$ and $\text{harv}$ the two variants when necessary.
+where $\sigma_i(t) \in \left\{\sigma_i^{\text{log}}(t), \sigma_i^{\text{harv}}(t)\right\}$ is the sigmoid function (Logistic or Harvey). We indicate with the exponents $\text{log}$ and $\text{harv}$ the two variants when necessary.
 
 #### Logistic function
 
@@ -77,49 +77,67 @@ $$
 \xi_i(t) = \xi_0 + \xi^{\text{base}}_i\frac{\sqrt{\big(\mu_i(t) - \ell_i\big)\big(L_i - \mu_i(t)\big)}}{(L_i - \ell_i)/2},
 $$
 
-peaking near the inflection point and shrinking near the bounds. 
-[TODO explain $xi_0$ et $\xi^{base}_i$]
+peaking near the inflection point and shrinking near the bounds, where $\xi_0$ is a fixed parameter and $\xi^{\text{base}}_i$ is inferred per benchmark.
 
 ### Hierarchical (joint) models
 
-The joint notebooks define hierarchical versions where benchmarks share hyperpriors:
+The joint notebooks define hierarchical versions where benchmarks share hyperpriors over parameters, allowing benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories.
 
-- **Asymptotes:**
-  - Hyperparameters $L_{\mu}, L_{\sigma}$ control the distribution of upper asymptotes close to 1.
-  - Task-level $L_i$ are obtained via shifted Beta draws:
+#### Upper asymptotes $L_i$:
 
-$$
-L^{\text{raw}}_i \sim \text{Beta}(L_{\mu}, L_{\sigma}), \quad
-L_i = \ell_i + (1 - \ell_i) L^{\text{raw}}_i.
-$$
-
-- **Growth rates (logistic and Harvey):**
-  - Hyperparameters $k_{\mu}, k_{\sigma}$ (or $r_{\mu}, r_{\sigma}$ for Harvey).
-  - Task-level parameters:
+Upper asymptotes $L_i$ are drawn from a Beta distribution shifted to $[\ell_i, 1]$:
 
 $$
-k_i \sim \text{Gamma}(k_{\mu}, k_{\sigma}) \quad \text{or} \quad
-r_i \sim \text{Gamma}(r_{\mu}, r_{\sigma}).
+L_i = \ell_i + (1 - \ell_i) L^{\text{raw}}_i, \quad
+L^{\text{raw}}_i \sim \text{Beta}(L_{\mu}, L_{\sigma}),
 $$
 
-- **Inflection / start times:**
-  - Time offsets $t_{0,i}$ are centered on empirical midpoints with broad priors (e.g. Gumbel - an asymetric distribution - with year-scale spreads).
+where $L_{\mu}, L_{\sigma}$ are the mean and standard deviation hyperparameters, respectively (instead of the usual shape parameters $\alpha, \beta$).
 
-- **Noise scales and skewness:**
-  - Shared hyperpriors:
-    - $\sigma^{\text{base}}_{\mu}$
-    - $\sigma^{\text{base}}_{\sigma}$
-    - $\alpha^{\text{skew}}_{\mu}$
-    - $\alpha^{\text{skew}}_{\sigma}$
-  - Benchmark-level parameters $\sigma^{\text{base}}_i$ and $\alpha^{\text{skew}}_i$ are drawn from the same distributions (resp. Gamma and Truncated-Normal).
+#### Growth rates $k_i$:
 
-- **Harvey shape parameter:**
-  - Hyperpriors for the shape parameter (Gamma distribution):
-    - $\alpha^{\text{harvey,base}}_{\mu}$
-    - $\alpha^{\text{harvey,base}}_{\sigma}$
-  - Benchmark-level parameter $\alpha^{\text{harvey}}_i = 1 + \alpha^{\text{harvey,base}}_i$, enforcing $\alpha_i > 1$.
+Growth rates $k_i$ follow a Gamma distribution:
 
-These hierarchical models allow benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories.
+$$
+k_i \sim \text{Gamma}(k_{\mu}, k_{\sigma}),
+$$
+
+where $k_{\mu}, k_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+
+#### Inflection times $\tau_i$:
+
+Inflection times $\tau_i$ follow a Gumbel distribution centered on empirical midpoint of each benchmark, with a scale of several years. The rationale is that for saturated benchmarks, the inflection point is roughly at the midpoint of observed data, and for unsaturated benchmarks, the inflection point is likely greater than the empirical midpoint.
+
+#### Noise scales $\xi^{\text{base}}_i$:
+
+Noise scales $\xi^{\text{base}}_i$ follow a Gamma distribution:
+
+$$
+\xi^{\text{base}}_i \sim \text{Gamma}(\sigma^{\text{base}}_{\mu}, \sigma^{\text{base}}_{\sigma}),
+$$
+
+where $\sigma^{\text{base}}_{\mu}, \sigma^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+
+#### Skewness parameters $\lambda_i$:
+
+Skewness parameters $\lambda_i$ follow a Truncated-Normal distribution (truncated at 0):
+
+$$
+\lambda_i \sim \text{TruncatedNormal}(\alpha^{\text{skew}}_{\mu}, \alpha^{\text{skew}}_{\sigma}, 0, \infty),
+$$
+
+where $\alpha^{\text{skew}}_{\mu}, \alpha^{\text{skew}}_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
+
+#### Harvey shape parameters $\alpha_i$:
+
+Harvey shape parameters $\alpha_i$ follow a shifted Gamma distribution to enforce $\alpha_i > 1$: 
+
+$$
+\alpha^{\text{harvey}}_i = 1 + \alpha^{\text{raw}}_i, \quad
+\alpha^{\text{raw}}_i \sim \text{Gamma}(\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma}),
+$$
+
+where $\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean and standard deviation hyperparameters.
 
 ## Dependencies
 
