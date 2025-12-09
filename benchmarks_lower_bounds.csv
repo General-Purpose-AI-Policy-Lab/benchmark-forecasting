@@ -1,46 +1,59 @@
 Benchmark;Lower bound;Concise reason;Source URL
-bench.task.frontiermath.frontiermath_2025_02_28_private;0 %;"Free-form math solutions; random exact-match virtually zero";https://epoch.ai/benchmarks/frontiermath
-bench.task.frontiermath.frontiermath_tier_4_2025_07_01_private;0 %;"Free-form math solutions; random exact-match virtually zero";https://epoch.ai/benchmarks/frontiermath
-bench.task.gpqa.gpqa_diamond;25 %;4-option MCQ;https://epoch.ai/benchmarks/gpqa-diamond
-GPQA-Diamond;25 %;4-option MCQ;https://epoch.ai/benchmarks/gpqa-diamond
-bench.task.hendrycks_math.hendrycks_math_lvl_5;0 %;Exact-match numeric/expression answers;https://epoch.ai/benchmarks/math-level-5
-bench.task.otis_mock_aime.otis_mock_aime_24_25;0,1 %;AIME format: 000–999 integers (1/1000);https://epoch.ai/benchmarks/otis-mock-aime-2024-2025
-bench.task.swe_bench.swe_bench_verified;0 %;Program-repair task pass rate;https://www.swebench.com
-Aider polyglot;0 %;Agentic coding tasks;https://epoch.ai/benchmarks/aider-polyglot
-Balrog;0 %;Long-horizon agent tasks;https://epoch.ai/benchmarks/balrog
-DeepResearch Bench;NA;"Research/agent workflow; heterogeneous formats";https://epoch.ai/benchmarks/deepresearchbench
+FrontierMath;0 %;"Free-form math solutions; random exact-match virtually zero";https://epoch.ai/benchmarks/frontiermath
+FrontierMath Tier 4;0 %;"Free-form math solutions; random exact-match virtually zero";https://epoch.ai/benchmarks/frontiermath
+GPQA Diamond;25 %;4-option MCQ;https://epoch.ai/benchmarks/gpqa-diamond
+MATH Level 5;0 %;Exact-match numeric/expression answers;https://epoch.ai/benchmarks/math-level-5
+OTIS Mock AIME 2024-2025;0,1 %;AIME format: 000–999 integers (1/1000);https://epoch.ai/benchmarks/otis-mock-aime-2024-2025
+SWE-Bench Verified;0 %;Program-repair task pass rate;https://www.swebench.com
+Aider Polyglot;0 %;Agentic coding tasks;https://epoch.ai/benchmarks/aider-polyglot
+BALROG;0 %;Long-horizon agent tasks;https://epoch.ai/benchmarks/balrog
+DeepResearchBench;NA;"Research/agent workflow; heterogeneous formats";https://epoch.ai/benchmarks/deepresearchbench
 Factorio Learning Environment;0 %;Simulator/agent tasks;https://epoch.ai/benchmarks/factorio-learning-environment
 Fiction.LiveBench;NA;"Mixed tasks; heterogeneous formats";https://livebench.ai
 GeoBench;NA;"Geospatial tasks; heterogeneous formats";https://epoch.ai/benchmarks/geobench
 GSO-Bench;0 %;Software speedups against humans;https://epoch.ai/benchmarks/gso
 SimpleBench;16,6 %;6-option MCQ;https://epoch.ai/benchmarks/simplebench
-Terminal Bench;0 %;CLI/agent tasks;https://epoch.ai/benchmarks/terminal-bench
+TerminalBench;0 %;CLI/agent tasks;https://epoch.ai/benchmarks/terminal-bench
 VPCT;33,3 %;Three buckets;https://epoch.ai/benchmarks/vpct
-WeirdML V2;0 %;Specialized ML tasks;https://epoch.ai/benchmarks/weirdml
+WeirdML;0 %;Specialized ML tasks;https://epoch.ai/benchmarks/weirdml
 Adversarial NLI;33,3 %;3-label NLI (E/N/C);https://arxiv.org/abs/1910.14599
-ARC AI2;25 %;4-option science MCQ;https://epoch.ai/benchmarks/arc-ai2
-ARC AGI;0 %;Programmatic pattern tasks;https://epoch.ai/benchmarks/arc-agi
-BBH;25 %;4-optionMCQ;https://github.com/suzgunmirac/BIG-Bench-Hard
+ARC (AI2);25 %;4-option science MCQ;https://epoch.ai/benchmarks/arc-ai2
+ARC-AGI;0 %;Programmatic pattern tasks;https://epoch.ai/benchmarks/arc-agi
+BIG-Bench Hard (BBH);25 %;4-optionMCQ;https://github.com/suzgunmirac/BIG-Bench-Hard
 BoolQ;50 %;Yes/No;https://epoch.ai/benchmarks/bool-q
-CadEval;0 %;Valid parametric 3D designs;https://epoch.ai/benchmarks/cad-eval
+CAD-Eval;0 %;Valid parametric 3D designs;https://epoch.ai/benchmarks/cad-eval
 Cybench;0 %;CTFs;https://epoch.ai/benchmarks/cybench
 GSM8K;0 %;Exact-match numeric answers;https://epoch.ai/benchmarks/gsm8k
+Epoch Capabilities Index;NA;Elo-like score;https://epoch.ai/benchmarks/eci
 HellaSwag;25 %;4-option sentence continuation;https://huggingface.co/datasets/Rowan/hellaswag
 LAMBADA;0 %;Open-vocabulary last-word prediction;https://arxiv.org/abs/1606.06031
 Lech Mazur Writing;NA;Judged creative writing;https://epoch.ai/benchmarks/lech-mazur-writing
 LiveBench;NA;Mixed contamination-free tasks;https://epoch.ai/benchmarks/live-bench
+METR Time Horizons;0;Zero time horizon if fails all tasks;https://epoch.ai/benchmarks/metr-time-horizons
 MMLU;25 %;4-option MCQ across subjects;https://epoch.ai/benchmarks/mmlu
 OpenBookQA;25 %;4-option science MCQ;https://epoch.ai/benchmarks/open-book-qa
 OS World (Screenshot);0 %;GUI agent tasks;https://epoch.ai/benchmarks/os-world
 OSUniverse;0 %;GUI agent tasks;https://epoch.ai/benchmarks/os-universe
 PIQA;50 %;2-option physical commonsense;https://epoch.ai/benchmarks/piqa
 ScienceQA;39,83 %;multimodal MCQ;https://arxiv.org/abs/2209.09513
-SuperGlue;44,3 %;Aggregate of diverse tasks;https://arxiv.org/abs/1905.00537
+SuperGLUE;44,3 %;Aggregate of diverse tasks;https://arxiv.org/abs/1905.00537
 TriviaQA;12,7 %;Random baseline from the paper;https://nlp.cs.washington.edu/triviaqa/
-VideoMME;25 %;"Multimodal/video QA; 4 choices";https://arxiv.org/pdf/2405.21075
+Video-MME;25 %;"Multimodal/video QA; 4 choices";https://arxiv.org/pdf/2405.21075
 WinoGrande;50 %;Binary fill-in-the-blank;https://epoch.ai/benchmarks/wino-grande
-CommonSenseQA 2;50 %;Yes/no questions;https://arxiv.org/abs/2201.05320
+CommonsenseQA 2.0;50 %;Yes/no questions;https://arxiv.org/abs/2201.05320
 EnigmaEval;0 %;Exact string match on open-ended answers;https://scale.com/leaderboard/enigma_eval
 The Agent Company;0 %;Long-horizon agentic tasks;https://the-agent-company.com/
 ToolComp;0 %;Long-horizon agentic tasks;https://arxiv.org/abs/2501.01290
-VISTA;NA;"Mixed tasks; heterogeneous formats";https://scale.com/leaderboard/visual_language_understanding
+WebDev Arena;NA;Elo score;https://epoch.ai/benchmarks/webdev-arena
+Remote Labor Index;0 %;Task automation success rate;https://scale.com/leaderboard/rli
+MCP Atlas;0 %;Tool use success rate;https://scale.com/leaderboard/mcp_atlas
+SWE-Bench Pro;0 %;Success rate;https://scale.com/leaderboard/swe_bench_pro_public
+PRBench Finance;0 %;Minimum normalized at 0;https://scale.com/research/prbench
+PRBench Legal;0 %;Minimum normalized at 0;https://scale.com/research/prbench
+Humanity's Last Exam;NA;Inconsistent number of categories;https://scale.com/leaderboard/humanitys_last_exam
+VisualToolBench;0 %;Score;https://scale.com/leaderboard/vtb
+MultiNRC;0 %;LLM-judged short-answer tasks;https://scale.com/research/multinrc
+MultiChallenge;0 %;LLM-judged multi-turn conversations;https://scale.com/leaderboard/multichallenge
+EnigmaEval;0 %;Exact-match puzzle answers;https://scale.com/leaderboard/enigma_eval
+Visual Task Assessment (VISTA);0 %;LLM-judged visual tasks;https://scale.com/leaderboard/visual_language_understanding
+TutorBench;0 %;LLM-judged tutoring;https://scale.com/leaderboard/tutorbench
