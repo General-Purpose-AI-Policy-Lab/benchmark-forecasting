@@ -1,0 +1,2454 @@
+model_version,score,release_date,organization,benchmark,stderr,training_compute
+Phi-3-mini-4k-instruct,0.528,2024-04-23,Microsoft,Adversarial NLI,,7.524e+22
+Phi-3-small-8k-instruct,0.581,2024-04-23,Microsoft,Adversarial NLI,,2.1312e+23
+Phi-3-medium-128k-instruct,0.558,2024-04-23,Microsoft,Adversarial NLI,,4.032e+23
+phi-2,0.425,2023-12-12,Microsoft,Adversarial NLI,,2.27e+22
+Mistral-7B-v0.1,0.471,2023-09-27,Mistral AI,Adversarial NLI,,
+gemma-7b,0.487,2024-02-21,Google DeepMind,Adversarial NLI,,3.07e+23
+Meta-Llama-3-8B-Instruct,0.573,2024-04-18,Meta AI,Adversarial NLI,,7.2e+23
+Mixtral-8x7B-v0.1,0.552,2023-12-11,Mistral AI,Adversarial NLI,,7.74e+23
+gpt-3.5-turbo-1106,0.581,2023-11-06,OpenAI,Adversarial NLI,,
+text-davinci-001,0.354,2022-01-27,OpenAI,Adversarial NLI,,3.19181e+23
+Megatron-Turing NLG 530B,0.366,2022-01-28,"Microsoft,NVIDIA",Adversarial NLI,,8.586e+23
+UNICORN,0.873,,,Adversarial NLI,,
+gpt-5-2025-08-07_high,0.88,2025-08-07,OpenAI,Aider Polyglot,,6.6e+25
+gpt-5-2025-08-07_medium,0.867,2025-08-07,OpenAI,Aider Polyglot,,6.6e+25
+o3-pro-2025-06-10_high,0.8490000000000001,2025-06-10,OpenAI,Aider Polyglot,,
+gemini-2.5-pro-preview-06-05_32K,0.831,,Google DeepMind,Aider Polyglot,,
+o3-2025-04-16_high,0.813,2025-04-16,OpenAI,Aider Polyglot,,
+gpt-5-2025-08-07_low,0.813,2025-08-07,OpenAI,Aider Polyglot,,6.6e+25
+grok-4-0709,0.7959999999999999,2025-07-09,xAI,Aider Polyglot,,5.0000000000001e+26
+gemini-2.5-pro-preview-06-05,0.7909999999999999,2025-06-05,Google DeepMind,Aider Polyglot,,
+gemini-2.5-pro-preview-05-06,0.769,2025-05-06,Google DeepMind,Aider Polyglot,,
+o3-2025-04-16_medium,0.769,2025-04-16,OpenAI,Aider Polyglot,,
+DeepSeek-V3.2-Exp_thinking,0.742,2025-09-29,,Aider Polyglot,,
+gemini-2.5-pro-exp-03-25,0.7290000000000001,2025-03-25,Google DeepMind,Aider Polyglot,,
+o4-mini-2025-04-16_high,0.72,2025-04-16,OpenAI,Aider Polyglot,,
+claude-opus-4-20250514_32K,0.72,2025-05-22,Anthropic,Aider Polyglot,,
+DeepSeek-R1-0528,0.7140000000000001,2025-05-28,DeepSeek,Aider Polyglot,,4.020010000000001e+24
+claude-opus-4-20250514,0.7070000000000001,2025-05-22,Anthropic,Aider Polyglot,,
+DeepSeek-V3.2-Exp,0.7020000000000001,2025-09-29,,Aider Polyglot,,
+claude-3-7-sonnet-20250219_32K,0.649,2025-02-24,Anthropic,Aider Polyglot,,3.3499999999999998e+25
+o1-2024-12-17_high,0.617,2024-12-17,OpenAI,Aider Polyglot,,
+claude-sonnet-4-20250514_32K,0.613,2025-05-22,Anthropic,Aider Polyglot,,
+claude-3-7-sonnet-20250219,0.604,2025-02-24,Anthropic,Aider Polyglot,,3.3499999999999998e+25
+o3-mini-2025-01-31_high,0.604,2025-01-31,OpenAI,Aider Polyglot,,
+Kimi-K2-Instruct,0.591,2025-07-12,Moonshot,Aider Polyglot,,2.976e+24
+DeepSeek-R1,0.569,2025-01-20,DeepSeek,Aider Polyglot,,4.020010000000001e+24
+claude-sonnet-4-20250514,0.564,2025-05-22,Anthropic,Aider Polyglot,,
+DeepSeek-V3-0324,0.551,2025-03-24,DeepSeek,Aider Polyglot,,3.4078e+24
+gemini-2.5-flash-preview-05-20_23K,0.551,2025-05-20,Google DeepMind,Aider Polyglot,,
+o3-mini-2025-01-31_medium,0.5379999999999999,2025-01-31,OpenAI,Aider Polyglot,,
+grok-3-beta,0.5329999999999999,2025-04-09,xAI,Aider Polyglot,,3.5000000000000006e+26
+gpt-4.1-2025-04-14,0.524,2025-04-14,OpenAI,Aider Polyglot,,
+claude-3-5-sonnet-20241022,0.516,2024-10-22,Anthropic,Aider Polyglot,,
+qwen3-235b-a22b,0.498,2025-04-29,Alibaba,Aider Polyglot,,4.752e+24
+grok-3-mini-beta_high,0.493,2025-04-09,xAI,Aider Polyglot,,
+DeepSeek-V3,0.484,2024-12-26,DeepSeek,Aider Polyglot,,3.4078e+24
+gemini-2.5-flash-preview-04-17,0.47100000000000003,2025-04-17,Google DeepMind,Aider Polyglot,,
+chatgpt-4o-03-27-2025,0.45299999999999996,2025-03-27,OpenAI,Aider Polyglot,,
+gpt-4.5-preview-2025-02-27,0.449,2025-02-27,OpenAI,Aider Polyglot,,3.8e+26
+gemini-2.5-flash-preview-05-20,0.44,2025-05-20,Google DeepMind,Aider Polyglot,,
+Qwen3-32B,0.4,2025-04-29,Alibaba,Aider Polyglot,,7.0848e+24
+gemini-exp-1206,0.382,2024-12-06,"Google DeepMind,Google",Aider Polyglot,,
+gemini-2.0-pro-exp-02-05,0.35600000000000004,2025-02-05,Google DeepMind,Aider Polyglot,,
+grok-3-mini-beta_low,0.34700000000000003,2025-04-09,xAI,Aider Polyglot,,
+gpt-4.1-mini-2025-04-14,0.324,2025-04-14,OpenAI,Aider Polyglot,,
+claude-3-5-haiku-20241022,0.28,2024-10-22,Anthropic,Aider Polyglot,,
+chatgpt-4o-01-29-2025,0.271,2025-01-29,OpenAI,Aider Polyglot,,
+gpt-4o-2024-08-06,0.231,2024-08-06,OpenAI,Aider Polyglot,,
+gemini-2.0-flash-exp,0.222,2024-12-11,"Google DeepMind,Google",Aider Polyglot,,
+qwen-max-2025-01-25,0.218,2025-01-25,Alibaba,Aider Polyglot,,
+QwQ-32B,0.209,2025-03-05,Alibaba,Aider Polyglot,,3.51e+24
+gemini-2.0-flash-thinking-exp-01-21,0.182,2025-01-21,"Google DeepMind,Google",Aider Polyglot,,
+gpt-4o-2024-11-20,0.182,2024-11-20,OpenAI,Aider Polyglot,,
+DeepSeek-V2.5,0.17800000000000002,2024-09-06,DeepSeek,Aider Polyglot,,1.7892e+24
+Qwen2.5-Coder-32B-Instruct,0.16399999999999998,2024-11-21,Alibaba,Aider Polyglot,,1.0725e+24
+Llama-4-Maverick-17B-128E-Instruct,0.156,2025-04-05,Meta AI,Aider Polyglot,,2.244000000001e+24
+yi-lightning,0.129,2024-12-02,01.AI,Aider Polyglot,,1.5e+24
+c4ai-command-a-03-2025,0.12,2025-03-13,Cohere,Aider Polyglot,,
+codestral-2501,0.111,2025-01-13,Mistral AI,Aider Polyglot,,
+openhands-lm-32b-v0.1,0.102,2024-03-26,,Aider Polyglot,,
+gpt-4.1-nano-2025-04-14,0.08900000000000001,2025-04-14,OpenAI,Aider Polyglot,,
+gemma-3-27b-it,0.049,2025-03-12,Google DeepMind,Aider Polyglot,,2.268e+24
+gpt-4o-mini-2024-07-18,0.036000000000000004,2024-07-18,OpenAI,Aider Polyglot,,
+o4-mini-2025-04-16_medium,0.418,2025-04-16,OpenAI,ARC-AGI,,
+o4-mini-2025-04-16_low,0.213,2025-04-16,OpenAI,ARC-AGI,,
+o4-mini-2025-04-16_high,0.587,2025-04-16,OpenAI,ARC-AGI,,
+o3-pro-2025-06-10_medium,0.57,2025-06-10,OpenAI,ARC-AGI,,
+o3-pro-2025-06-10_low,0.443,2025-06-10,OpenAI,ARC-AGI,,
+o3-pro-2025-06-10_high,0.593,2025-06-10,OpenAI,ARC-AGI,,
+o3-preview (Low)*,0.757,,,ARC-AGI,,
+o3-mini-2025-01-31_medium,0.223,2025-01-31,OpenAI,ARC-AGI,,
+o3-mini-2025-01-31_low,0.145,2025-01-31,OpenAI,ARC-AGI,,
+o3-mini-2025-01-31_high,0.345,2025-01-31,OpenAI,ARC-AGI,,
+o3-2025-04-16_medium,0.538,2025-04-16,OpenAI,ARC-AGI,,
+o3-2025-04-16_low,0.415,2025-04-16,OpenAI,ARC-AGI,,
+o3-2025-04-16_high,0.608,2025-04-16,OpenAI,ARC-AGI,,
+o1-pro-2025-03-19_low,0.233,2025-03-19,OpenAI,ARC-AGI,,
+o1-preview-2024-09-12,0.18,2024-09-12,OpenAI,ARC-AGI,,
+o1-mini-2024-09-12_medium,0.14,2024-09-12,OpenAI,ARC-AGI,,
+o1-2024-12-17_medium,0.307,2024-12-17,OpenAI,ARC-AGI,,
+o1-2024-12-17_low,0.272,2024-12-17,OpenAI,ARC-AGI,,
+Llama-4-Scout-17B-16E-Instruct,0.005,2025-04-05,Meta AI,ARC-AGI,,4.08e+24
+Llama-4-Maverick-17B-128E-Instruct,0.044,2025-04-05,Meta AI,ARC-AGI,,2.244000000001e+24
+grok-3-mini-beta_low,0.165,2025-04-09,xAI,ARC-AGI,,
+grok-3,0.055,2025-04-09,xAI,ARC-AGI,,3.5000000000000006e+26
+gpt-5.1_medium,0.577,2025-11-13,OpenAI,ARC-AGI,,
+GPT-5.1 (Low),0.331,,,ARC-AGI,,
+gpt-5.1_high,0.728,2025-11-13,OpenAI,ARC-AGI,,
+gpt-5-pro-2025-10-06_high,0.702,2025-10-07,OpenAI,ARC-AGI,,
+gpt-5-2025-08-07_medium,0.562,2025-08-07,OpenAI,ARC-AGI,,6.6e+25
+gpt-5-2025-08-07_low,0.44,2025-08-07,OpenAI,ARC-AGI,,6.6e+25
+gpt-5-2025-08-07_high,0.657,2025-08-07,OpenAI,ARC-AGI,,6.6e+25
+gpt-4o-2024-11-20,0.045,2024-11-20,OpenAI,ARC-AGI,,
+gpt-4.5-preview-2025-02-27,0.103,2025-02-27,OpenAI,ARC-AGI,,3.8e+26
+gpt-4.1-nano-2025-04-14,0.0,2025-04-14,OpenAI,ARC-AGI,,
+gpt-4.1-mini-2025-04-14,0.035,2025-04-14,OpenAI,ARC-AGI,,
+gpt-4.1-2025-04-14,0.055,2025-04-14,OpenAI,ARC-AGI,,
+gemini-3-pro-preview,0.75,2025-11-18,Google DeepMind,ARC-AGI,,
+gemini-2.5-pro-preview-03-25,0.33,2025-04-09,Google DeepMind,ARC-AGI,,
+gemini-2.5-pro-preview-06-05_1K,0.313,2025-06-05,Google DeepMind,ARC-AGI,,
+gemini-2.5-flash-preview-04-17 (24K thinking),0.323,2025-04-17,Google DeepMind,ARC-AGI,,
+gemini-2.5-flash-preview-05-20_16K,0.333,2025-05-20,Google DeepMind,ARC-AGI,,
+gemini-2.5-flash-preview-05-20_8K,0.258,2025-05-20,Google DeepMind,ARC-AGI,,
+gemini-2.5-flash-preview-05-20_1K,0.16,2025-05-20,Google DeepMind,ARC-AGI,,
+gemini-2.5-flash-preview-05-20,0.333,2025-05-20,Google DeepMind,ARC-AGI,,
+DeepSeek-R1-0528,0.212,2025-05-28,DeepSeek,ARC-AGI,,4.020010000000001e+24
+DeepSeek-R1,0.158,2025-01-20,DeepSeek,ARC-AGI,,4.020010000000001e+24
+codex-mini-2025-05-16,0.273,2025-05-16,,ARC-AGI,,
+claude-sonnet-4-20250514_16K,0.4,2025-05-22,Anthropic,ARC-AGI,,
+claude-sonnet-4-20250514_8K,0.29,2025-05-22,Anthropic,ARC-AGI,,
+claude-sonnet-4-20250514_1K,0.28,2025-05-22,Anthropic,ARC-AGI,,
+claude-sonnet-4-20250514,0.238,2025-05-22,Anthropic,ARC-AGI,,
+claude-opus-4-20250514_16K,0.357,2025-05-22,Anthropic,ARC-AGI,,
+claude-opus-4-20250514_8K,0.307,2025-05-22,Anthropic,ARC-AGI,,
+claude-opus-4-20250514_1K,0.27,2025-05-22,Anthropic,ARC-AGI,,
+claude-opus-4-20250514,0.225,2025-05-22,Anthropic,ARC-AGI,,
+claude-3-7-sonnet-20250219_16K,0.286,2025-02-24,Anthropic,ARC-AGI,,3.3499999999999998e+25
+claude-3-7-sonnet-20250219_8K,0.212,2025-02-24,Anthropic,ARC-AGI,,3.3499999999999998e+25
+claude-3-7-sonnet-20250219_1K,0.116,2025-02-24,Anthropic,ARC-AGI,,3.3499999999999998e+25
+claude-3-7-sonnet-20250219,0.136,2025-02-24,Anthropic,ARC-AGI,,3.3499999999999998e+25
+Yi-6B,0.503,2023-11-02,01.AI,ARC (AI2),,1.26e+23
+Yi-9B,0.556,2024-03-01,,ARC (AI2),,
+PaLM 540B,0.601,2022-04-04,Google Research,ARC (AI2),,2.5272e+24
+PaLM 2-S,0.596,2023-05-17,,ARC (AI2),,
+PaLM 2-M,0.649,2023-05-17,,ARC (AI2),,
+PaLM 2-L,0.692,2023-05-17,,ARC (AI2),,
+falcon-180B,0.678,2023-09-06,Technology Innovation Institute,ARC (AI2),,3.76e+24
+text-davinci-001,0.514,2022-01-27,OpenAI,ARC (AI2),,3.19181e+23
+Llama-2-7b,0.459,2023-07-18,Meta AI,ARC (AI2),,8.4e+22
+Llama-2-13b,0.494,2023-07-18,Meta AI,ARC (AI2),,1.6e+23
+Llama-2-34b,0.545,2023-07-18,Meta AI,ARC (AI2),,4.08e+23
+Llama-2-70b-hf,0.574,2023-07-18,Meta AI,ARC (AI2),,8.1e+23
+falcon-7b,0.445,2023-04-24,Technology Innovation Institute,ARC (AI2),,6.3e+22
+falcon-40b,0.567,2023-03-15,Technology Innovation Institute,ARC (AI2),,2.4e+23
+mpt-7b,0.426,2023-05-05,MosaicML,ARC (AI2),,4.2e+22
+chatglm2-6b,0.61,2023-06-24,,ARC (AI2),,
+internlm-7b,0.695,2023-07-05,,ARC (AI2),,
+internlm-20b,0.817,2023-09-18,,ARC (AI2),,
+Baichuan-2-7B-Base,0.325,2023-09-20,Baichuan,ARC (AI2),,1.092e+23
+Baichuan-2-13B-Base,0.38,2023-09-06,Baichuan,ARC (AI2),,2.03e+23
+LLaMA-7B,0.476,2023-02-24,Meta AI,ARC (AI2),,4.00000001e+22
+LLaMA-13B,0.527,2023-02-24,Meta AI,ARC (AI2),,7.8e+22
+LLaMA-33B,0.675,2023-02-24,Meta AI,ARC (AI2),,2.7300000000001e+23
+LLaMA-65B,0.695,2023-02-24,Meta AI,ARC (AI2),,5.5e+23
+StableBeluga2,0.861,2023-07-20,Stability AI,ARC (AI2),,
+Qwen-1_8B,0.532,2023-11-30,,ARC (AI2),,
+Qwen-7B,0.753,2023-09-28,Alibaba,ARC (AI2),,1.01e+23
+Qwen-14B,0.844,2023-09-28,Alibaba,ARC (AI2),,2.5e+23
+Mistral-7B-v0.1,0.555,2023-09-27,Mistral AI,ARC (AI2),,
+gemma-7b,0.532,2024-02-21,Google DeepMind,ARC (AI2),,3.07e+23
+Nemotron-4 15B,0.555,2024-02-26,NVIDIA,ARC (AI2),,7.5005116e+23
+mpt-30b,0.506,2023-06-22,MosaicML,ARC (AI2),,1.8900000000001e+23
+PaLM 62B,0.525,2022-04-04,,ARC (AI2),,
+DeepSeek-V2,0.922,2024-05-07,DeepSeek,ARC (AI2),,1.02e+24
+Qwen2.5-72B,0.945,2024-09-19,Alibaba,ARC (AI2),,7.8e+24
+Llama-3.1-405B,0.953,2024-07-23,Meta AI,ARC (AI2),,3.8e+25
+DeepSeek-V3,0.953,2024-12-26,DeepSeek,ARC (AI2),,3.4078e+24
+Mixtral-8x7B-v0.1,0.597,2023-12-11,Mistral AI,ARC (AI2),,7.74e+23
+Phi-3-mini-4k-instruct,0.849,2024-04-23,Microsoft,ARC (AI2),,7.524e+22
+Phi-3-small-8k-instruct,0.907,2024-04-23,Microsoft,ARC (AI2),,2.1312e+23
+Phi-3-medium-128k-instruct,0.916,2024-04-23,Microsoft,ARC (AI2),,4.032e+23
+phi-2,0.759,2023-12-12,Microsoft,ARC (AI2),,2.27e+22
+Meta-Llama-3-8B-Instruct,0.828,2024-04-18,Meta AI,ARC (AI2),,7.2e+23
+gpt-3.5-turbo-1106,0.874,2023-11-06,OpenAI,ARC (AI2),,
+gemma-2b,0.421,2024-02-21,Google DeepMind,ARC (AI2),,4.5115822e+22
+Qwen2.5-Coder-0.5B,0.344,2024-09-18,,ARC (AI2),,
+deepseek-coder-1.3b-base,0.254,2023-11-02,"DeepSeek,Peking University",ARC (AI2),,1.56e+22
+Qwen2.5-Coder-1.5B,0.452,2024-09-18,Alibaba,ARC (AI2),,5.082e+22
+starcoder2-3b,0.342,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",ARC (AI2),,5.94e+22
+Qwen2.5-Coder-3B,0.529,2024-09-18,,ARC (AI2),,
+starcoder2-7b,0.387,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",ARC (AI2),,1.55e+23
+deepseek-coder-6.7b-base,0.364,2023-11-02,"DeepSeek,Peking University",ARC (AI2),,8.04e+22
+DeepSeek-Coder-V2-Lite-Base,0.573,2024-06-13,,ARC (AI2),,
+CodeQwen1.5-7B,0.357,2024-04-15,,ARC (AI2),,
+Qwen2.5-Coder-7B,0.609,2024-09-18,Alibaba,ARC (AI2),,2.5113e+23
+starcoder2-15b,0.472,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",ARC (AI2),,3.87e+23
+Qwen2.5-Coder-14B,0.66,2024-09-18,,ARC (AI2),,
+deepseek-coder-33b-base,0.422,2023-11-02,"DeepSeek,Peking University",ARC (AI2),,3.96e+23
+DeepSeek-Coder-V2-Base,0.643,2024-06-17,DeepSeek,ARC (AI2),,1.2852e+24
+Qwen2.5-Coder-32B,0.705,2024-09-18,Alibaba,ARC (AI2),,1.0725e+24
+vicuna-13b-v1.1,0.432,2023-04-12,,ARC (AI2),,
+Falcon-rw-1.3B,0.282,,,ARC (AI2),,
+opt-1.3b,0.232,2022-05-11,Meta AI,ARC (AI2),,
+GPT-Neo-2.7B,0.274,,,ARC (AI2),,
+gpt2-xl,0.25,2019-11-05,OpenAI,ARC (AI2),,1.920000000001e+21
+phi-1.5-web-only (1.3B),0.329,,,ARC (AI2),,
+phi-1.5-web (1.3B),0.449,,,ARC (AI2),,
+phi-1_5,0.444,2023-09-11,Microsoft,ARC (AI2),,1.17e+21
+GPT-4,0.963,,,ARC (AI2),,
+text-davinci-002,0.852,2022-03-15,OpenAI,ARC (AI2),,2.578e+24
+GLaM (64B/64E) (Zero-shot),0.48,,,ARC (AI2),,
+GLaM (64B/64E) (One-shot),0.503,,,ARC (AI2),,
+GLaM (64B/64E) (3-shot),0.52,,,ARC (AI2),,
+claude-instant-1.1,0.857,,Anthropic,ARC (AI2),,
+claude-instant-1.2,0.863,2023-08-09,Anthropic,ARC (AI2),,
+xgen-7b-8k-base,0.412,2023-06-27,Salesforce,ARC (AI2),,8.02e+22
+open_llama_7b,0.387,2023-06-07,,ARC (AI2),,
+RedPajama-INCITE-7B-Base,0.391,2023-05-04,,ARC (AI2),,
+gpt-neox-20b,0.411,2022-04-07,EleutherAI,ARC (AI2),,9.31627008e+22
+opt-13b,0.358,2022-05-11,,ARC (AI2),,
+gpt-j-6b,0.363,2021-08-05,"EleutherAI,LAION",ARC (AI2),,1.5e+22
+dolly-v2-12b,0.396,2023-04-11,Databricks,ARC (AI2),,
+Cerebras-GPT-13B,0.324,2023-03-20,Cerebras Systems,ARC (AI2),,2.3e+22
+stablelm-tuned-alpha-7b,0.27,2023-04-19,,ARC (AI2),,
+grok-4-0709,0.436,2025-07-09,xAI,BALROG,,5.0000000000001e+26
+gemini-2.5-pro-exp-03-25,0.433,2025-03-25,Google DeepMind,BALROG,,
+DeepSeek-R1,0.349,2025-01-20,DeepSeek,BALROG,,4.020010000000001e+24
+gemini-2.5-flash,0.335,2025-06-17,Google DeepMind,BALROG,,
+gpt-5-2025-08-07_minimal,0.328,2025-08-07,OpenAI,BALROG,,6.6e+25
+claude-3-5-sonnet-20241022,0.326,2024-10-22,Anthropic,BALROG,,
+gpt-4o-2024-05-13,0.323,2024-05-13,OpenAI,BALROG,,
+grok-3-beta,0.295,2025-04-09,xAI,BALROG,,3.5000000000000006e+26
+reka-flash-3,0.292,2025-03-10,Reka AI,BALROG,,
+Llama-3.1-70B-Instruct,0.279,2024-07-23,Meta AI,BALROG,,7.929e+24
+Llama-3.2-90B-Vision-Instruct,0.273,2024-09-24,Meta AI,BALROG,,
+Llama-3.3-70B-Instruct,0.23,2024-12-06,Meta AI,BALROG,,6.8649768e+24
+gemini-1.5-pro-002,0.21,2024-09-24,Google DeepMind,BALROG,,
+DeepSeek-R1-Distill-Qwen-32B,0.195,2025-01-20,DeepSeek,BALROG,,
+claude-3-5-haiku-20241022,0.193,2024-10-22,Anthropic,BALROG,,
+Mistral-Nemo-Instruct-2407,0.176,2024-07-18,Mistral AI,BALROG,,
+gpt-4o-mini-2024-07-18,0.174,2024-07-18,OpenAI,BALROG,,
+Llama-3.2-11B-Vision-Instruct,0.168,2024-09-24,Meta AI,BALROG,,5.79e+23
+qwen2.5-72b-instruct,0.162,2024-09-19,Alibaba,BALROG,,7.8e+24
+Llama-3.1-8B-Instruct,0.151,2024-07-23,Meta AI,BALROG,,1.224e+24
+gemini-1.5-flash-002,0.146,2024-09-24,Google DeepMind,BALROG,,
+Qwen2-VL-72B-Instruct,0.128,2024-08-29,,BALROG,,
+phi-4,0.116,2024-12-12,Microsoft Research,BALROG,,9.3202015e+23
+Llama-3.2-3B-Instruct,0.101,2024-09-24,Meta AI,BALROG,,1.7334e+23
+qwen2.5-7b-instruct,0.078,2025-02-26,Alibaba,BALROG,,8.2188e+23
+Llama-3.2-1B-Instruct,0.066,2024-09-24,Meta AI,BALROG,,6.642e+22
+Qwen2-VL-7B-Instruct,0.037,2024-08-29,,BALROG,,
+Qwen-1_8B,0.282,2023-11-30,,BIG-Bench Hard (BBH),,
+Qwen-7B,0.45,2023-09-28,Alibaba,BIG-Bench Hard (BBH),,1.01e+23
+Qwen-14B,0.534,2023-09-28,Alibaba,BIG-Bench Hard (BBH),,2.5e+23
+gemma-2b,0.352,2024-02-21,Google DeepMind,BIG-Bench Hard (BBH),,4.5115822e+22
+gemma-7b,0.551,2024-02-21,Google DeepMind,BIG-Bench Hard (BBH),,3.07e+23
+Mistral-7B-v0.1,0.561,2023-09-27,Mistral AI,BIG-Bench Hard (BBH),,
+Llama-2-7b,0.326,2023-07-18,Meta AI,BIG-Bench Hard (BBH),,8.4e+22
+Llama-2-13b,0.394,2023-07-18,Meta AI,BIG-Bench Hard (BBH),,1.6e+23
+DeepSeek-V2,0.788,2024-05-07,DeepSeek,BIG-Bench Hard (BBH),,1.02e+24
+Qwen2.5-72B,0.798,2024-09-19,Alibaba,BIG-Bench Hard (BBH),,7.8e+24
+Llama-3.1-405B,0.829,2024-07-23,Meta AI,BIG-Bench Hard (BBH),,3.8e+25
+DeepSeek-V3,0.829,2024-12-26,DeepSeek,BIG-Bench Hard (BBH),,3.4078e+24
+Yi-6B,0.428,2023-11-02,01.AI,BIG-Bench Hard (BBH),,1.26e+23
+Yi-34B,0.543,2023-11-02,01.AI,BIG-Bench Hard (BBH),,6.1e+23
+Llama-2-34b,0.441,2023-07-18,Meta AI,BIG-Bench Hard (BBH),,4.08e+23
+Baichuan-2-13B-Base,0.488,2023-09-06,Baichuan,BIG-Bench Hard (BBH),,2.03e+23
+Nemotron-4 15B,0.587,2024-02-26,NVIDIA,BIG-Bench Hard (BBH),,7.5005116e+23
+gpt-4-0613,0.7512,2023-06-13,OpenAI,BIG-Bench Hard (BBH),,2.1e+25
+gpt-3.5-turbo-0613,0.6159,2023-06-13,OpenAI,BIG-Bench Hard (BBH),,
+LLaMA-7B,0.3238,2023-02-24,Meta AI,BIG-Bench Hard (BBH),,4.00000001e+22
+mpt-7b,0.352,2023-05-05,MosaicML,BIG-Bench Hard (BBH),,4.2e+22
+falcon-7b,0.2877,2023-04-24,Technology Innovation Institute,BIG-Bench Hard (BBH),,6.3e+22
+chatglm2-6b,0.3368,2023-06-24,,BIG-Bench Hard (BBH),,
+Baichuan-7B,0.3248,2023-06-01,Baichuan,BIG-Bench Hard (BBH),,5.04e+22
+Baichuan-2-7B-Base,0.4156,2023-09-20,Baichuan,BIG-Bench Hard (BBH),,1.092e+23
+LLaMA-13B,0.3789,2023-02-24,Meta AI,BIG-Bench Hard (BBH),,7.8e+22
+vicuna-13b-v1.1,0.4304,2023-04-12,,BIG-Bench Hard (BBH),,
+Chinese-Alpaca-Plus-13B,0.2894,,,BIG-Bench Hard (BBH),,
+XVERSE-13B,0.3806,,,BIG-Bench Hard (BBH),,
+Baichuan-13B-Base,0.4301,2023-07-11,Baichuan,BIG-Bench Hard (BBH),,9.36e+22
+Phi-3-mini-4k-instruct,0.717,2024-04-23,Microsoft,BIG-Bench Hard (BBH),,7.524e+22
+Phi-3-small-8k-instruct,0.791,2024-04-23,Microsoft,BIG-Bench Hard (BBH),,2.1312e+23
+Phi-3-medium-128k-instruct,0.814,2024-04-23,Microsoft,BIG-Bench Hard (BBH),,4.032e+23
+phi-2,0.594,2023-12-12,Microsoft,BIG-Bench Hard (BBH),,2.27e+22
+mpt-30b,0.38,2023-06-22,MosaicML,BIG-Bench Hard (BBH),,1.8900000000001e+23
+falcon-40b,0.371,2023-03-15,Technology Innovation Institute,BIG-Bench Hard (BBH),,2.4e+23
+internlm-7b,0.37,2023-07-05,,BIG-Bench Hard (BBH),,
+internlm-20b,0.525,2023-09-18,,BIG-Bench Hard (BBH),,
+LLaMA-33B,0.5,2023-02-24,Meta AI,BIG-Bench Hard (BBH),,2.7300000000001e+23
+LLaMA-65B,0.584,2023-02-24,Meta AI,BIG-Bench Hard (BBH),,5.5e+23
+Llama-2-70b-hf,0.649,2023-07-18,Meta AI,BIG-Bench Hard (BBH),,8.1e+23
+StableBeluga2,0.693,2023-07-20,Stability AI,BIG-Bench Hard (BBH),,
+Llama-2-13b-chat,0.329,2023-07-18,Meta AI,BIG-Bench Hard (BBH),,1.6e+23
+Llama-2-70b-chat,0.424,2023-07-18,Meta AI,BIG-Bench Hard (BBH),,8.1e+23
+Baichuan2-13B-Chat,0.388,2023-09-06,,BIG-Bench Hard (BBH),,
+Qwen-14B-Chat,0.497,2023-09-24,Alibaba,BIG-Bench Hard (BBH),,2.5e+23
+internlm-chat-20b,0.424,2023-09-17,,BIG-Bench Hard (BBH),,
+AquilaChat2 34B,0.201,,,BIG-Bench Hard (BBH),,
+Yi-6B-Chat,0.397,2023-11-22,01.AI,BIG-Bench Hard (BBH),,1.26e+23
+Yi-34B-Chat,0.514,2023-11-22,01.AI,BIG-Bench Hard (BBH),,6.1e+23
+mpt-7b,0.75,2023-05-05,MosaicML,BoolQ,,4.2e+22
+falcon-7b,0.675,2023-04-24,Technology Innovation Institute,BoolQ,,6.3e+22
+chatglm2-6b,0.79,2023-06-24,,BoolQ,,
+internlm-7b,0.641,2023-07-05,,BoolQ,,
+internlm-20b,0.875,2023-09-18,,BoolQ,,
+XVerse,0.642,,,BoolQ,,
+Baichuan-2-7B-Base,0.632,2023-09-20,Baichuan,BoolQ,,1.092e+23
+Baichuan-2-13B-Base,0.67,2023-09-06,Baichuan,BoolQ,,2.03e+23
+LLaMA-7B,0.765,2023-02-24,Meta AI,BoolQ,,4.00000001e+22
+LLaMA-13B,0.787,2023-02-24,Meta AI,BoolQ,,7.8e+22
+LLaMA-33B,0.844,2023-02-24,Meta AI,BoolQ,,2.7300000000001e+23
+LLaMA-65B,0.866,2023-02-24,Meta AI,BoolQ,,5.5e+23
+Llama-2-7b,0.774,2023-07-18,Meta AI,BoolQ,,8.4e+22
+Llama-2-13b,0.824,2023-07-18,Meta AI,BoolQ,,1.6e+23
+Llama-2-70b-hf,0.877,2023-07-18,Meta AI,BoolQ,,8.1e+23
+StableBeluga2,0.894,2023-07-20,Stability AI,BoolQ,,
+Qwen-1_8B,0.68,2023-11-30,,BoolQ,,
+Qwen-7B,0.764,2023-09-28,Alibaba,BoolQ,,1.01e+23
+Qwen-14B,0.862,2023-09-28,Alibaba,BoolQ,,2.5e+23
+Mistral-7B-Instruct-v0.2,0.832,,Mistral AI,BoolQ,,
+gemma-2b,0.694,2024-02-21,Google DeepMind,BoolQ,,4.5115822e+22
+gemma-7b,0.832,2024-02-21,Google DeepMind,BoolQ,,3.07e+23
+Palmyra X (43B),0.896,,,BoolQ,,
+text-davinci-003,0.881,2022-11-28,OpenAI,BoolQ,,2.578e+24
+text-davinci-002,0.877,2022-03-15,OpenAI,BoolQ,,2.578e+24
+Mistral-7B-v0.1,0.874,2023-09-27,Mistral AI,BoolQ,,
+gpt-3.5-turbo-0613,0.87,2023-06-13,OpenAI,BoolQ,,
+Cohere Command beta (52.4B),0.856,,,BoolQ,,
+mpt-30b-instruct,0.85,2023-06-22,MosaicML,BoolQ,,1.8900000000001e+23
+Jurassic-2 Jumbo (178B),0.829,,,BoolQ,,
+Falcon-Instruct (40B),0.829,,,BoolQ,,
+Jurassic-2 Grande (17B),0.826,,,BoolQ,,
+falcon-40b,0.819,2023-03-15,Technology Innovation Institute,BoolQ,,2.4e+23
+Anthropic-LM v4-s3 (52B),0.815,,,BoolQ,,
+J1-Grande v2 beta (17B),0.812,,,BoolQ,,
+TNLG v2 (530B),0.809,,,BoolQ,,
+vicuna-13b-v1.3,0.808,2023-06-18,"Large Model Systems Organization,University of California (UC) Berkeley",BoolQ,,
+Cohere Command beta (6.1B),0.798,,,BoolQ,,
+opt-175b,0.793,2022-05-02,Meta AI,BoolQ,,4.3e+23
+GLM (130B),0.784,,,BoolQ,,
+Alpaca (7B),0.778,,,BoolQ,,
+J1-Jumbo v1 (178B),0.776,,,BoolQ,,
+Luminous Supreme (70B),0.775,,,BoolQ,,
+Luminous Extended (30B),0.767,,,BoolQ,,
+Cohere xlarge v20221108 (52.4B),0.762,,,BoolQ,,
+T5-11B,0.761,,Google,BoolQ,,3.3e+22
+opt-66b,0.76,2022-05-03,Meta AI,BoolQ,,1.100000000001e+23
+Vicuna v1.3 (7B),0.76,,,BoolQ,,
+InstructPalmyra (30B),0.751,,,BoolQ,,
+UL2 (20B),0.746,,,BoolQ,,
+Jurassic-2 Large (7.5B),0.742,,,BoolQ,,
+gpt-3.5-turbo-0301,0.74,,,BoolQ,,
+Cohere large v20220720 (13.1B),0.725,,,BoolQ,,
+davinci,0.722,,OpenAI,BoolQ,,3.14e+23
+J1-Grande v1 (17B),0.722,,,BoolQ,,
+Falcon-Instruct (7B),0.72,,,BoolQ,,
+Luminous Base (13B),0.719,,,BoolQ,,
+Cohere xlarge v20220609 (52.4B),0.718,,,BoolQ,,
+RedPajama-INCITE-Base (7B),0.713,,,BoolQ,,
+RedPajama-INCITE-Instruct (7B),0.705,,,BoolQ,,
+bloom,0.704,2022-07-06,"Hugging Face,BigScience",BoolQ,,3.65664e+23
+mpt-30b,0.704,2023-06-22,MosaicML,BoolQ,,1.8900000000001e+23
+Cohere medium v20221108 (6.1B),0.7,,,BoolQ,,
+TNLG v2 (6.7B),0.698,,,BoolQ,,
+RedPajama-INCITE-Base-v1 (3B),0.685,,,BoolQ,,
+J1-Large v1 (7.5B),0.683,,,BoolQ,,
+GPT-NeoX (20B),0.683,,,BoolQ,,
+RedPajama-INCITE-Instruct-v1 (3B),0.677,,,BoolQ,,
+Pythia (12B),0.662,,,BoolQ,,
+Cohere medium v20220720 (6.1B),0.659,,,BoolQ,,
+curie,0.656,,OpenAI,BoolQ,,1.2e+22
+GPT-J (6B),0.649,,,BoolQ,,
+YaLM (100B),0.634,,,BoolQ,,
+Pythia (6.9B),0.631,,,BoolQ,,
+text-curie-001,0.62,,OpenAI,BoolQ,,
+ada,0.581,,OpenAI,BoolQ,,6.41e+20
+babbage,0.574,,OpenAI,BoolQ,,2.38e+21
+text-ada-001,0.464,,OpenAI,BoolQ,,
+Cohere small v20220720 (410M),0.457,,,BoolQ,,
+text-babbage-001,0.451,,OpenAI,BoolQ,,
+T0pp (11B),0.0,,,BoolQ,,
+GLaM (MoE) 0.1B/64E,0.566,,,BoolQ,,
+GLaM (MoE) 1.7B/64E,0.627,,,BoolQ,,
+GLaM (MoE) 8B/64E,0.722,,,BoolQ,,
+GLaM (MoE) 64B/64E,0.831,,,BoolQ,,
+GLaM (Dense) 0.1B,0.566,,,BoolQ,,
+GLaM (Dense) 1.7B,0.561,,,BoolQ,,
+GLaM (Dense) 8B,0.736,,,BoolQ,,
+GLaM (Dense) 137B,0.78,,,BoolQ,,
+GPT3 175B,0.605,,,BoolQ,,
+text-davinci-001,0.767,2022-01-27,OpenAI,BoolQ,,3.19181e+23
+Phi-3.5-mini-instruct,0.78,2024-08-16,Microsoft,BoolQ,,3.7101154e+22
+Phi-3.5-MoE-instruct,0.846,2024-08-17,Microsoft,BoolQ,,3.0202896e+23
+Mistral-Nemo-Base-2407,0.825,2024-07-18,Mistral AI,BoolQ,,
+Llama-3.1-8B-Instruct,0.828,2024-07-23,Meta AI,BoolQ,,1.224e+24
+gemma-2-9b,0.857,,Google DeepMind,BoolQ,,4.32e+23
+gemini-1.5-flash-001,0.858,2024-05-23,Google DeepMind,BoolQ,,
+gpt-4o-mini-2024-07-18,0.887,2024-07-18,OpenAI,BoolQ,,
+Megatron-Turing NLG 530B,0.782,2022-01-28,"Microsoft,NVIDIA",BoolQ,,8.586e+23
+Llama-2-34b,0.837,2023-07-18,Meta AI,BoolQ,,4.08e+23
+Gopher (280B),0.793,2021-12-08,DeepMind,BoolQ,,6.31e+23
+Chinchilla (70B),0.837,2022-03-29,DeepMind,BoolQ,,5.76e+23
+PaLM 62B,0.848,2022-04-04,,BoolQ,,
+PaLM-cont 62B,0.839,,,BoolQ,,
+PaLM 540B,0.88,2022-04-04,Google Research,BoolQ,,2.5272e+24
+vicuna-13b-v1.1,0.835,2023-04-12,,BoolQ,,
+Falcon-rw-1.3B,0.632,,,BoolQ,,
+opt-1.3b,0.596,2022-05-11,Meta AI,BoolQ,,
+gpt-neo-2.7B,0.618,2023-03-30,EleutherAI,BoolQ,,7.9e+21
+gpt2-xl,0.618,2019-11-05,OpenAI,BoolQ,,1.920000000001e+21
+phi-1.5-web-only (1.3B),0.632,,,BoolQ,,
+phi-1.5-web (1.3B),0.728,,,BoolQ,,
+phi-1_5,0.758,2023-09-11,Microsoft,BoolQ,,1.17e+21
+PaLM 2-S,0.881,2023-05-17,,BoolQ,,
+PaLM 2-M,0.886,2023-05-17,,BoolQ,,
+PaLM 2-L,0.909,2023-05-17,,BoolQ,,
+falcon-180B,0.89,2023-09-06,Technology Innovation Institute,BoolQ,,3.76e+24
+Inflection-1,0.897,2023-06-22,Inflection AI,BoolQ,,1.0001e+24
+xgen-7b-8k-base,0.743,2023-06-27,Salesforce,BoolQ,,8.02e+22
+open_llama_7b,0.706,2023-06-07,,BoolQ,,
+RedPajama-INCITE-7B-Base,0.693,2023-05-04,,BoolQ,,
+gpt-neox-20b,0.649,2022-04-07,EleutherAI,BoolQ,,9.31627008e+22
+opt-13b,0.65,2022-05-11,,BoolQ,,
+gpt-j-6b,0.654,2021-08-05,"EleutherAI,LAION",BoolQ,,1.5e+22
+dolly-v2-12b,0.563,2023-04-11,Databricks,BoolQ,,
+Cerebras-GPT-13B,0.611,2023-03-20,Cerebras Systems,BoolQ,,2.3e+22
+stablelm-tuned-alpha-7b,0.59,2023-04-19,,BoolQ,,
+T5-Small,0.764,,,BoolQ,,
+T5-Base,0.814,,,BoolQ,,
+T5-Large,0.854,,,BoolQ,,
+T5-3B,0.899,,Google,BoolQ,,9.0000000001e+21
+claude-3-5-haiku-20241022,0.32,2024-10-22,Anthropic,CAD-Eval,,
+claude-3-5-sonnet-20241022,0.48,2024-10-22,Anthropic,CAD-Eval,,
+claude-3-7-sonnet-20250219,0.54,2025-02-24,Anthropic,CAD-Eval,,3.3499999999999998e+25
+claude-3-haiku-20240307,0.12,2024-03-07,Anthropic,CAD-Eval,,
+gemini-1.5-pro-002,0.34,2024-09-24,Google DeepMind,CAD-Eval,,
+gemini-2.0-flash-001,0.3,2025-02-05,"Google DeepMind,Google",CAD-Eval,,
+gemini-2.5-pro-preview-03-25,0.64,2025-04-09,Google DeepMind,CAD-Eval,,
+gpt-4.1-2025-04-14,0.42,2025-04-14,OpenAI,CAD-Eval,,
+gpt-4.1-mini-2025-04-14,0.16,2025-04-14,OpenAI,CAD-Eval,,
+gpt-4o-2024-08-06,0.26,2024-08-06,OpenAI,CAD-Eval,,
+o1-2024-12-17_medium,0.56,2024-12-17,OpenAI,CAD-Eval,,
+o3-2025-04-16_medium,0.74,2025-04-16,OpenAI,CAD-Eval,,
+o3-mini-2025-01-31_medium,0.54,2025-01-31,OpenAI,CAD-Eval,,
+o4-mini-2025-04-16_medium,0.62,2025-04-16,OpenAI,CAD-Eval,,
+ml-elephant,0.2,,,CAD-Eval,,
+text-davinci-001,0.529,2022-01-27,OpenAI,CommonsenseQA 2.0,,3.19181e+23
+T5-Large,0.546,,,CommonsenseQA 2.0,,
+Unicorn-Large,0.549,,,CommonsenseQA 2.0,,
+T5-11B,0.678,,Google,CommonsenseQA 2.0,,3.3e+22
+Unicorn-11B,0.702,,,CommonsenseQA 2.0,,
+Unicorn 770M,0.549,,,CommonsenseQA 2.0,,
+T5-3B,0.602,,Google,CommonsenseQA 2.0,,9.0000000001e+21
+RACo,0.618,,,CommonsenseQA 2.0,,
+gpt-3.5-turbo-0613,0.57,2023-06-13,OpenAI,CommonsenseQA 2.0,,
+Llama-2-70b-hf,0.5,2023-07-18,Meta AI,CommonsenseQA 2.0,,8.1e+23
+o3-mini-2025-01-31_medium,0.225,2025-01-31,OpenAI,Cybench,,
+claude-3-7-sonnet-20250219,0.2,2025-02-24,Anthropic,Cybench,,3.3499999999999998e+25
+gpt-4.5-preview-2025-02-27,0.175,2025-02-27,OpenAI,Cybench,,3.8e+26
+claude-3-5-sonnet-20240620,0.175,2024-06-20,Anthropic,Cybench,,2.700000000000001e+25
+gpt-4o-2024-11-20,0.125,2024-11-20,OpenAI,Cybench,,
+o1-mini-2024-09-12_medium,0.1,2024-09-12,OpenAI,Cybench,,
+claude-3-opus-20240229,0.1,2024-02-29,Anthropic,Cybench,,
+o1-preview-2024-09-12,0.1,2024-09-12,OpenAI,Cybench,,
+Llama-3.1-405B-Instruct,0.075,2024-07-23,Meta AI,Cybench,,3.8e+25
+Mixtral-8x22B-Instruct-v0.1,0.075,2024-04-17,Mistral AI,Cybench,,2.34e+24
+gemini-1.5-pro-001,0.075,2024-05-24,Google DeepMind,Cybench,,
+Meta-Llama-3-70B-Instruct,0.05,2024-04-18,Meta AI,Cybench,,7.861e+24
+claude-sonnet-4-5-20250929,0.55,2025-09-29,Anthropic,Cybench,,
+claude-opus-4-1-20250805,0.38,2025-08-05,Anthropic,Cybench,,
+claude-opus-4-20250514,0.38,2025-05-22,Anthropic,Cybench,,
+claude-sonnet-4-20250514,0.35,2025-05-22,Anthropic,Cybench,,
+gpt-5-2025-08-07_low,0.536,2025-08-07,OpenAI,DeepResearchBench,,6.6e+25
+claude-sonnet-4-5-20250929_2K,0.534,2025-09-29,Anthropic,DeepResearchBench,,
+gpt-5-2025-08-07_minimal,0.515,2025-08-07,OpenAI,DeepResearchBench,,6.6e+25
+gpt-5-2025-08-07_high,0.51,2025-08-07,OpenAI,DeepResearchBench,,6.6e+25
+gpt-5-2025-08-07_medium,0.509,2025-08-07,OpenAI,DeepResearchBench,,6.6e+25
+claude-opus-4-1-20250805,0.506,2025-08-05,Anthropic,DeepResearchBench,,
+claude-opus-4-20250514_2K,0.503,2025-05-22,Anthropic,DeepResearchBench,,
+grok-4-0709,0.503,2025-07-09,xAI,DeepResearchBench,,5.0000000000001e+26
+claude-sonnet-4-20250514_2K,0.497,2025-05-22,Anthropic,DeepResearchBench,,
+o3-2025-04-16_medium,0.484,2025-04-16,OpenAI,DeepResearchBench,,
+claude-3-7-sonnet-20250219_2K,0.462,2025-02-24,Anthropic,DeepResearchBench,,3.3499999999999998e+25
+gemini-2.5-pro-preview-06-05,0.442,2025-06-05,Google DeepMind,DeepResearchBench,,
+DeepSeek-R1-0528,0.348,2025-05-28,DeepSeek,DeepResearchBench,,4.020010000000001e+24
+gemini-2.5-pro,146.00771987825598,2025-06-17,Google DeepMind,Epoch Capabilities Index,,
+gemini-3-pro-preview,154.35662248487947,2025-11-18,Google DeepMind,Epoch Capabilities Index,,
+gpt-5.1_medium,148.7611556311927,2025-11-13,OpenAI,Epoch Capabilities Index,,
+o3-2025-04-16_high,147.536578847891,2025-04-16,OpenAI,Epoch Capabilities Index,,
+o3-2025-04-16_medium,146.84390540889513,2025-04-16,OpenAI,Epoch Capabilities Index,,
+claude-sonnet-4-5-20250929,141.25642661057762,2025-09-29,Anthropic,Epoch Capabilities Index,,
+claude-sonnet-4-5-20250929_32K,144.9060917306518,2025-09-29,Anthropic,Epoch Capabilities Index,,
+o3-mini-2025-01-31_high,142.11660252556564,2025-01-31,OpenAI,Epoch Capabilities Index,,
+gpt-5.1_high,151.30095489691575,2025-11-13,OpenAI,Epoch Capabilities Index,,
+gpt-5-2025-08-07_high,150.71550473923938,2025-08-07,OpenAI,Epoch Capabilities Index,,6.6e+25
+gpt-5-mini-2025-08-07_high,147.03669545536573,2025-08-07,OpenAI,Epoch Capabilities Index,,
+o4-mini-2025-04-16_medium,144.58041010264304,2025-04-16,OpenAI,Epoch Capabilities Index,,
+o4-mini-2025-04-16_high,146.1588337317987,2025-04-16,OpenAI,Epoch Capabilities Index,,
+gpt-5-mini-2025-08-07_medium,143.95713034275178,2025-08-07,OpenAI,Epoch Capabilities Index,,
+grok-4-0709,147.44612522899772,2025-07-09,xAI,Epoch Capabilities Index,,5.0000000000001e+26
+gpt-5-2025-08-07_medium,150.0,2025-08-07,OpenAI,Epoch Capabilities Index,,6.6e+25
+gpt-5-nano-2025-08-07_high,142.93910015622072,2025-08-07,OpenAI,Epoch Capabilities Index,,
+gpt-4-0613,121.45286570149771,2023-06-13,OpenAI,Epoch Capabilities Index,,2.1e+25
+gpt-4-0314,125.88567044419582,2023-03-14,OpenAI,Epoch Capabilities Index,,2.1e+25
+claude-haiku-4-5-20251001_32K,141.73863998137205,2025-10-15,Anthropic,Epoch Capabilities Index,,
+claude-haiku-4-5-20251001,137.45719226023175,2025-10-15,Anthropic,Epoch Capabilities Index,,
+qwen3-max-2025-09-23,142.8258639601152,2025-09-24,Alibaba,Epoch Capabilities Index,,1.512e+25
+gpt-5-pro-2025-10-06_high,151.0913582411909,2025-10-07,OpenAI,Epoch Capabilities Index,,
+DeepSeek-V3.1,139.1139504443119,2025-08-21,DeepSeek,Epoch Capabilities Index,,3.594058e+24
+gpt-5-nano-2025-08-07_medium,140.30607813478542,2025-08-07,OpenAI,Epoch Capabilities Index,,
+gpt-4o-2024-11-20,128.8617803897407,2024-11-20,OpenAI,Epoch Capabilities Index,,
+claude-opus-4-1-20250805_27K,142.53800833739888,2025-08-05,Anthropic,Epoch Capabilities Index,,
+claude-opus-4-1-20250805,140.62504674646584,2025-08-05,Anthropic,Epoch Capabilities Index,,
+claude-opus-4-1-20250805_16K,141.61852978437395,2025-08-05,Anthropic,Epoch Capabilities Index,,
+gpt-4o-mini-2024-07-18,126.293960574252,2024-07-18,OpenAI,Epoch Capabilities Index,,
+claude-opus-4-20250514,139.7946204818778,2025-05-22,Anthropic,Epoch Capabilities Index,,
+claude-sonnet-4-20250514,137.90553196520733,2025-05-22,Anthropic,Epoch Capabilities Index,,
+gemini-2.5-pro-preview-06-05,148.0831144110257,2025-06-05,Google DeepMind,Epoch Capabilities Index,,
+gpt-4.1-2025-04-14,137.32712185156765,2025-04-14,OpenAI,Epoch Capabilities Index,,
+grok-3-mini-beta_high,142.04579655134285,2025-04-09,xAI,Epoch Capabilities Index,,
+claude-3-5-sonnet-20241022,134.18581389246512,2024-10-22,Anthropic,Epoch Capabilities Index,,
+claude-3-5-sonnet-20240620,130.0,2024-06-20,Anthropic,Epoch Capabilities Index,,2.700000000000001e+25
+claude-3-7-sonnet-20250219_64K,140.87234100908552,2025-02-24,Anthropic,Epoch Capabilities Index,,3.35e+25
+DeepSeek-R1-0528,141.59927945294606,2025-05-28,DeepSeek,Epoch Capabilities Index,,4.020010000000001e+24
+grok-3-beta,139.6025109349968,2025-04-09,xAI,Epoch Capabilities Index,,3.5000000000000006e+26
+qwen3-235b-a22b,137.26553309904727,2025-04-29,Alibaba,Epoch Capabilities Index,,4.752e+24
+gemini-2.5-pro-preview-05-06,142.29844336633028,2025-05-06,Google DeepMind,Epoch Capabilities Index,,
+DeepSeek-R1,139.66588149484457,2025-01-20,DeepSeek,Epoch Capabilities Index,,4.020010000000001e+24
+claude-sonnet-4-20250514_32K,142.04688022583906,2025-05-22,Anthropic,Epoch Capabilities Index,,
+claude-opus-4-20250514_16K,141.69449945526242,2025-05-22,Anthropic,Epoch Capabilities Index,,
+claude-sonnet-4-20250514_16K,141.45269606016907,2025-05-22,Anthropic,Epoch Capabilities Index,,
+gemini-2.5-flash-preview-05-20,141.92423628838742,2025-05-20,Google DeepMind,Epoch Capabilities Index,,
+o3-mini-2025-01-31_medium,139.52892304559973,2025-01-31,OpenAI,Epoch Capabilities Index,,
+DeepSeek-V3-0324,137.21709699854208,2025-03-24,DeepSeek,Epoch Capabilities Index,,3.4078e+24
+gemini-2.5-pro-preview-03-25,143.00042052767435,2025-04-09,Google DeepMind,Epoch Capabilities Index,,
+mistral-medium-2505,135.48272072910214,2025-05-07,Mistral AI,Epoch Capabilities Index,,
+gpt-4.1-mini-2025-04-14,135.26826343398477,2025-04-14,OpenAI,Epoch Capabilities Index,,
+gemini-2.0-flash-001,135.16129432065335,2025-02-05,"Google DeepMind,Google",Epoch Capabilities Index,,
+grok-3-mini-beta_low,138.68368363500375,2025-04-09,xAI,Epoch Capabilities Index,,
+claude-3-7-sonnet-20250219,137.01746057381325,2025-02-24,Anthropic,Epoch Capabilities Index,,3.35e+25
+gemini-2.5-flash-preview-04-17,140.38900759203085,2025-04-17,Google DeepMind,Epoch Capabilities Index,,
+gpt-4.1-nano-2025-04-14,130.18362938554492,2025-04-14,OpenAI,Epoch Capabilities Index,,
+Llama-4-Maverick-17B-128E-Instruct-FP8,134.19076431745415,2025-04-05,Meta AI,Epoch Capabilities Index,,2.244000000001e+24
+Llama-4-Scout-17B-16E-Instruct,130.06942557369075,2025-04-05,Meta AI,Epoch Capabilities Index,,4.08e+24
+qwen-max-2025-01-25,133.17171042178452,2025-01-25,Alibaba,Epoch Capabilities Index,,
+gemini-2.5-pro-exp-03-25,145.2478054172638,2025-03-25,Google DeepMind,Epoch Capabilities Index,,
+gemma-3-27b-it,130.72443434923272,2025-03-12,Google DeepMind,Epoch Capabilities Index,,2.268e+24
+claude-3-7-sonnet-20250219_32K,140.71342673972703,2025-02-24,Anthropic,Epoch Capabilities Index,,3.35e+25
+claude-3-5-haiku-20241022,127.04475039797433,2024-10-22,Anthropic,Epoch Capabilities Index,,
+DeepSeek-V3,132.9074415146318,2024-12-26,DeepSeek,Epoch Capabilities Index,,3.4078e+24
+gemma-2-27b-it,121.81269614789444,2024-06-24,Google DeepMind,Epoch Capabilities Index,,2.106e+24
+gemma-2-9b-it,118.14601130536408,2024-06-24,Google DeepMind,Epoch Capabilities Index,,4.32e+23
+claude-2.1,117.3543173034603,2023-11-21,Anthropic,Epoch Capabilities Index,,
+claude-2.0,118.81545846135673,2023-07-11,Anthropic,Epoch Capabilities Index,,3.866e+24
+gemini-2.0-flash-thinking-exp-01-21,136.31702142501297,2025-01-21,"Google DeepMind,Google",Epoch Capabilities Index,,
+o1-preview-2024-09-12,135.35676167778314,2024-09-12,OpenAI,Epoch Capabilities Index,,
+gemini-2.0-pro-exp-02-05,135.21353111106174,2025-02-05,Google DeepMind,Epoch Capabilities Index,,
+o1-2024-12-17_high,142.0045964048485,2024-12-17,OpenAI,Epoch Capabilities Index,,
+gpt-4o-2024-08-06,128.70018066181854,2024-08-06,OpenAI,Epoch Capabilities Index,,
+gemini-1.5-flash-002,129.83301230960512,2024-09-24,Google DeepMind,Epoch Capabilities Index,,
+o1-mini-2024-09-12_high,138.00833350602082,2024-09-12,OpenAI,Epoch Capabilities Index,,
+o1-mini-2024-09-12_medium,135.85031088366216,2024-09-12,OpenAI,Epoch Capabilities Index,,
+claude-3-7-sonnet-20250219_16K,139.6158425063318,2025-02-24,Anthropic,Epoch Capabilities Index,,3.35e+25
+grok-2-1212,130.4894395327878,2024-12-12,xAI,Epoch Capabilities Index,,2.9599999999999996e+25
+mistral-large-2411,128.40621782831866,2024-11-18,Mistral AI,Epoch Capabilities Index,,2.13e+25
+gpt-4.5-preview-2025-02-27,137.13275917234594,2025-02-27,OpenAI,Epoch Capabilities Index,,3.8e+26
+gpt-4-turbo-2024-04-09,127.09126406131224,2024-04-09,OpenAI,Epoch Capabilities Index,,
+o1-2024-12-17_medium,142.83914826829536,2024-12-17,OpenAI,Epoch Capabilities Index,,
+Meta-Llama-3-70B-Instruct,117.59568918754692,2024-04-18,Meta AI,Epoch Capabilities Index,,7.861e+24
+gemini-1.5-pro-001,126.28523284558604,2024-05-24,Google DeepMind,Epoch Capabilities Index,,
+Llama-3.3-70B-Instruct,126.8551494341873,2024-12-06,Meta AI,Epoch Capabilities Index,,6.8649768e+24
+Llama-3.2-90B-Vision-Instruct,125.15742411650518,2024-09-24,Meta AI,Epoch Capabilities Index,,
+gemini-1.5-pro-002,132.33959747400257,2024-09-24,Google DeepMind,Epoch Capabilities Index,,
+claude-3-sonnet-20240229,119.39948461808694,2024-02-29,Anthropic,Epoch Capabilities Index,,
+gemini-1.0-pro-001,116.20561250527648,2024-02-15,Google DeepMind,Epoch Capabilities Index,,
+Llama-3.1-8B-Instruct,115.39258003718516,2024-07-23,Meta AI,Epoch Capabilities Index,,1.224e+24
+Llama-3.1-405B-Instruct,126.88042989374608,2024-07-23,Meta AI,Epoch Capabilities Index,,3.8e+25
+qwen2.5-72b-instruct,129.70087235486136,2024-09-19,Alibaba,Epoch Capabilities Index,,7.8e+24
+gpt-4o-2024-05-13,128.49676154847063,2024-05-13,OpenAI,Epoch Capabilities Index,,
+Llama-3.1-70B-Instruct,124.83230423653907,2024-07-23,Meta AI,Epoch Capabilities Index,,7.929e+24
+gemini-1.5-flash-001,121.98280974401008,2024-05-23,Google DeepMind,Epoch Capabilities Index,,
+claude-3-haiku-20240307,117.1161045625431,2024-03-07,Anthropic,Epoch Capabilities Index,,
+Meta-Llama-3-8B-Instruct,114.89912034883614,2024-04-18,Meta AI,Epoch Capabilities Index,,7.2e+23
+claude-3-opus-20240229,126.54545246610402,2024-02-29,Anthropic,Epoch Capabilities Index,,
+phi-4,130.86473593004263,2024-12-12,Microsoft Research,Epoch Capabilities Index,,9.3202015e+23
+mistral-large-2407,127.0879278168362,2024-07-24,Mistral AI,Epoch Capabilities Index,,2.13e+25
+Phi-3-medium-128k-instruct,121.15182666660598,2024-04-23,Microsoft,Epoch Capabilities Index,,4.032e+23
+gpt-3.5-turbo-1106,118.36688231147646,2023-11-06,OpenAI,Epoch Capabilities Index,,
+gpt-3.5-turbo-0125,113.29311564518834,2024-01-25,OpenAI,Epoch Capabilities Index,,
+Yi-34B-Chat,116.96082399414011,2023-11-22,01.AI,Epoch Capabilities Index,,6.1e+23
+qwen2-72b-instruct,125.04427714664482,2024-06-07,Alibaba,Epoch Capabilities Index,,3.02e+24
+mpt-7b,91.50140113634473,2023-05-05,MosaicML,Epoch Capabilities Index,,4.2e+22
+Baichuan-2-7B-Base,94.8737027317056,2023-09-20,Baichuan,Epoch Capabilities Index,,1.092e+23
+Baichuan-2-13B-Base,102.14420174739875,2023-09-06,Baichuan,Epoch Capabilities Index,,2.03e+23
+LLaMA-7B,93.99457254680748,2023-02-24,Meta AI,Epoch Capabilities Index,,4.00000001e+22
+LLaMA-13B,98.69675413246368,2023-02-24,Meta AI,Epoch Capabilities Index,,7.8e+22
+LLaMA-33B,106.71202633661656,2023-02-24,Meta AI,Epoch Capabilities Index,,2.7300000000001e+23
+LLaMA-65B,109.80774601192748,2023-02-24,Meta AI,Epoch Capabilities Index,,5.5e+23
+Llama-2-7b,96.83763242018988,2023-07-18,Meta AI,Epoch Capabilities Index,,8.4e+22
+Llama-2-13b,103.87519841230277,2023-07-18,Meta AI,Epoch Capabilities Index,,1.6e+23
+Llama-2-70b-hf,114.4809505380145,2023-07-18,Meta AI,Epoch Capabilities Index,,8.1e+23
+StableBeluga2,116.62322772137188,2023-07-20,Stability AI,Epoch Capabilities Index,,
+Qwen-7B,106.2102883419992,2023-09-28,Alibaba,Epoch Capabilities Index,,1.01e+23
+Qwen-14B,112.22227837721944,2023-09-28,Alibaba,Epoch Capabilities Index,,2.5e+23
+falcon-7b,92.18057092973166,2023-04-24,Technology Innovation Institute,Epoch Capabilities Index,,6.3e+22
+falcon-40b,102.34006339210916,2023-03-15,Technology Innovation Institute,Epoch Capabilities Index,,2.4e+23
+falcon-180B,111.76794610490916,2023-09-06,Technology Innovation Institute,Epoch Capabilities Index,,3.76e+24
+gemma-2b,92.40516785152562,2024-02-21,Google DeepMind,Epoch Capabilities Index,,4.5115822e+22
+gemma-7b,111.1792767338701,2024-02-21,Google DeepMind,Epoch Capabilities Index,,3.07e+23
+Baichuan-7B,89.11479910055193,2023-06-01,Baichuan,Epoch Capabilities Index,,5.04e+22
+Mistral-7B-v0.1,111.5246822538384,2023-09-27,Mistral AI,Epoch Capabilities Index,,
+DeepSeek-V2,125.14645236637618,2024-05-07,DeepSeek,Epoch Capabilities Index,,1.02e+24
+Qwen2.5-72B,125.7478928269382,2024-09-19,Alibaba,Epoch Capabilities Index,,7.8e+24
+Llama-3.1-405B,130.50495449571338,2024-07-23,Meta AI,Epoch Capabilities Index,,3.8e+25
+mpt-30b,97.04055512907564,2023-06-22,MosaicML,Epoch Capabilities Index,,1.8900000000001e+23
+Llama-2-34b,104.2704073869009,2023-07-18,Meta AI,Epoch Capabilities Index,,4.08e+23
+Mixtral-8x7B-v0.1,119.3472807944632,2023-12-11,Mistral AI,Epoch Capabilities Index,,7.74e+23
+Nemotron-4 15B,106.64893976740066,2024-02-26,NVIDIA,Epoch Capabilities Index,,7.5005116e+23
+xgen-7b-8k-base,89.13305221749786,2023-06-27,Salesforce,Epoch Capabilities Index,,8.02e+22
+dolly-v2-12b,83.69764674230967,2023-04-11,Databricks,Epoch Capabilities Index,,
+Cerebras-GPT-13B,74.82278791775269,2023-03-20,Cerebras Systems,Epoch Capabilities Index,,2.3e+22
+Yi-6B,101.72403269789346,2023-11-02,01.AI,Epoch Capabilities Index,,1.26e+23
+gpt-3.5-turbo-0613,112.79396282322688,2023-06-13,OpenAI,Epoch Capabilities Index,,
+Phi-3-mini-4k-instruct,117.47460152109556,2024-04-23,Microsoft,Epoch Capabilities Index,,7.524e+22
+Phi-3-small-8k-instruct,122.83661243859608,2024-04-23,Microsoft,Epoch Capabilities Index,,2.1312e+23
+phi-2,107.04243985869758,2023-12-12,Microsoft,Epoch Capabilities Index,,2.27e+22
+deepseek-coder-1.3b-base,55.88931455211881,2023-11-02,"DeepSeek,Peking University",Epoch Capabilities Index,,1.56e+22
+Qwen2.5-Coder-1.5B,102.5967785909876,2024-09-18,Alibaba,Epoch Capabilities Index,,5.082e+22
+starcoder2-3b,86.93980226406802,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",Epoch Capabilities Index,,5.94e+22
+starcoder2-7b,92.3817096639846,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",Epoch Capabilities Index,,1.55e+23
+deepseek-coder-6.7b-base,87.9862831118516,2023-11-02,"DeepSeek,Peking University",Epoch Capabilities Index,,8.04e+22
+Qwen2.5-Coder-7B,112.51565689207598,2024-09-18,Alibaba,Epoch Capabilities Index,,2.5113e+23
+starcoder2-15b,104.41886655763814,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",Epoch Capabilities Index,,3.87e+23
+deepseek-coder-33b-base,95.33399362425764,2023-11-02,"DeepSeek,Peking University",Epoch Capabilities Index,,3.96e+23
+Qwen2.5-Coder-32B,119.436211660789,2024-09-18,Alibaba,Epoch Capabilities Index,,1.0725e+24
+phi-1_5,87.27806181943674,2023-09-11,Microsoft,Epoch Capabilities Index,,1.17e+21
+claude-instant-1.2,120.90254367623167,2023-08-09,Anthropic,Epoch Capabilities Index,,
+Qwen2.5-VL-72B-Instruct,118.16437439712104,2024-09-19,Alibaba,Epoch Capabilities Index,,7.8e+24
+falcon-11b,108.99091155069172,2024-05-09,Technology Innovation Institute,Epoch Capabilities Index,,3.6e+23
+gemini-2.0-flash-exp,128.16895510488612,2024-12-11,"Google DeepMind,Google",Epoch Capabilities Index,,
+Llama-4-Maverick-17B-128E-Instruct,127.48536024476758,2025-04-05,Meta AI,Epoch Capabilities Index,,2.244000000001e+24
+Kimi-K2-Instruct,139.38024102730586,2025-07-12,Moonshot,Epoch Capabilities Index,,2.976e+24
+claude-3-5-sonnet-20240620,0.219,2024-06-20,Anthropic,Factorio Learning Environment,,2.700000000000001e+25
+gemini-2.0-flash-02-05,0.13,2025-02-05,"Google DeepMind,Google",Factorio Learning Environment,,
+gpt-4o-2024-11-20,0.166,2024-11-20,OpenAI,Factorio Learning Environment,,
+Llama-3.3-70B-Instruct,0.052,2024-12-06,Meta AI,Factorio Learning Environment,,6.8649768e+24
+DeepSeek-V3,0.151,2024-12-26,DeepSeek,Factorio Learning Environment,,3.4078e+24
+gpt-4o-mini-2024-07-18,0.042,2024-07-18,OpenAI,Factorio Learning Environment,,
+gemini-2.5-pro-exp-03-25,0.184,2025-03-25,Google DeepMind,Factorio Learning Environment,,
+claude-3-7-sonnet-20250219,0.291,2025-02-24,Anthropic,Factorio Learning Environment,,3.3499999999999998e+25
+o3-2025-04-16_medium,0.889,2025-04-16,OpenAI,Fiction.LiveBench,,
+o4-mini-2025-04-16_medium,0.778,2025-04-16,OpenAI,Fiction.LiveBench,,
+o1-2024-12-17_medium,0.833,2024-12-17,OpenAI,Fiction.LiveBench,,
+o3-mini-2025-01-31_medium,0.5,2025-01-31,OpenAI,Fiction.LiveBench,,
+claude-3-7-sonnet-20250219_8K,0.833,2025-02-24,Anthropic,Fiction.LiveBench,,3.3499999999999998e+25
+DeepSeek-R1,0.694,2025-01-20,DeepSeek,Fiction.LiveBench,,4.020010000000001e+24
+gemini-2.5-pro-preview-05-06,0.667,2025-05-06,Google DeepMind,Fiction.LiveBench,,
+gemini-2.5-pro-preview-03-25,0.667,2025-04-09,Google DeepMind,Fiction.LiveBench,,
+gemini-2.5-pro-exp-03-25,0.667,2025-03-25,Google DeepMind,Fiction.LiveBench,,
+gemini-2.0-flash-thinking-exp-01-21,0.528,2025-01-21,"Google DeepMind,Google",Fiction.LiveBench,,
+chutes/QwQ-32B,0.833,2025-03-05,Alibaba,Fiction.LiveBench,,3.51e+24
+chutes/Qwen3-235B-A22B,0.677,2025-04-28,Alibaba,Fiction.LiveBench,,4.752e+24
+chutes/Qwen3-32B,0.742,2025-04-28,Alibaba,Fiction.LiveBench,,7.0848e+24
+chutes/Qwen3-30B-A3B,0.406,2025-04-28,Alibaba,Fiction.LiveBench,,6.48e+23
+chutes/Qwen3-14B,0.625,2025-04-28,Alibaba,Fiction.LiveBench,,3.1968e+24
+chutes/Qwen3-8B,0.621,2025-04-28,Alibaba,Fiction.LiveBench,,1.7712e+24
+grok-3-mini-beta_medium,0.667,2025-04-09,xAI,Fiction.LiveBench,,
+gpt-4.1-2025-04-14,0.639,2025-04-14,OpenAI,Fiction.LiveBench,,
+gpt-4.1-mini-2025-04-14,0.444,2025-04-14,OpenAI,Fiction.LiveBench,,
+gpt-4.1-nano-2025-04-14,0.25,2025-04-14,OpenAI,Fiction.LiveBench,,
+chatgpt-4o-01-29-2025,0.667,2025-01-29,OpenAI,Fiction.LiveBench,,
+gpt-4.5-preview-2025-02-27,0.639,2025-02-27,OpenAI,Fiction.LiveBench,,3.8e+26
+claude-3-7-sonnet-20250219,0.5,2025-02-24,Anthropic,Fiction.LiveBench,,3.3499999999999998e+25
+chutes/DeepSeek-V3-0324,0.5,2025-03-24,DeepSeek,Fiction.LiveBench,,3.4078e+24
+qwen-max-2025-01-25,0.667,2025-01-25,Alibaba,Fiction.LiveBench,,
+chutes/Gemma-3-27b-It,0.333,2025-03-11,Google DeepMind,Fiction.LiveBench,,2.268e+24
+gemini-2.5-flash-preview-04-17,0.472,2025-04-17,Google DeepMind,Fiction.LiveBench,,
+gemini-2.0-pro-exp-02-05,0.417,2025-02-05,Google DeepMind,Fiction.LiveBench,,
+gemini-2.0-flash-001,0.611,2025-02-05,"Google DeepMind,Google",Fiction.LiveBench,,
+chutes/Llama-4-Maverick-17B-128E-Instruct,0.462,2025-04-06,Meta AI,Fiction.LiveBench,,2.244000000001e+24
+chutes/Llama-4-Scout-17B-16E Instruct,0.36,2025-04-06,Meta AI,Fiction.LiveBench,,4.08e+24
+Llama-3.3-70B-Instruct,0.333,2024-12-06,Meta AI,Fiction.LiveBench,,6.8649768e+24
+grok-3-beta,0.583,2025-04-09,xAI,Fiction.LiveBench,,3.5000000000000006e+26
+claude-opus-4-20250514,0.611,2025-05-22,Anthropic,Fiction.LiveBench,,
+claude-sonnet-4-20250514,0.469,2025-05-22,Anthropic,Fiction.LiveBench,,
+chutes/DeepSeek-R1-0528,0.75,2025-05-28,DeepSeek,Fiction.LiveBench,,4.020010000000001e+24
+gemini-2.5-flash-preview-05-20,0.778,2025-05-20,Google DeepMind,Fiction.LiveBench,,
+gemini-2.5-pro-preview-06-05,0.917,2025-06-05,Google DeepMind,Fiction.LiveBench,,
+o3-pro-2025-06-10_medium,0.972,2025-06-10,OpenAI,Fiction.LiveBench,,
+MiniMax-M1-80k,0.694,2025-06-13,MiniMax,Fiction.LiveBench,,4.3240062e+24
+gemini-2.5-flash-lite-preview-06-17-thinking,0.472,2025-06-17,Google DeepMind,Fiction.LiveBench,,
+Kimi-K2-Instruct,0.611,2025-07-12,Moonshot,Fiction.LiveBench,,2.976e+24
+grok-4-0709,0.944,2025-07-09,xAI,Fiction.LiveBench,,5.0000000000001e+26
+chutes/GLM-4.5-FP8,0.583,2025-07-27,,Fiction.LiveBench,,
+chutes/Qwen3-235B-A22B-Thinking-2507,0.75,2025-07-25,Alibaba,Fiction.LiveBench,,4.752e+24
+gpt-5-2025-08-07_medium,0.972,2025-08-07,OpenAI,Fiction.LiveBench,,6.6e+25
+gpt-5-mini-2025-08-07_medium,0.694,2025-08-07,OpenAI,Fiction.LiveBench,,
+gpt-5-nano-2025-08-07_medium,0.444,2025-08-07,OpenAI,Fiction.LiveBench,,
+qwen3-max-2025-09-23,0.667,2025-09-24,Alibaba,Fiction.LiveBench,,1.512e+25
+chutes/gpt-oss-120b_high,0.444,2025-08-05,OpenAI,Fiction.LiveBench,,4.94e+24
+chutes/Qwen3-Next-80B-A3B-Instruct,0.417,2025-09-11,,Fiction.LiveBench,,
+chutes/gpt-oss-120b,0.361,2025-08-05,OpenAI,Fiction.LiveBench,,4.94e+24
+DeepSeek-V3.2-Exp,0.528,2025-09-29,,Fiction.LiveBench,,
+fireworks/Kimi-K2-Instruct-0905,0.667,2025-09-05,Moonshot,Fiction.LiveBench,,2.976e+24
+parasail-qwen3-235b-a22b-instruct-2507,0.529,2025-09-01,Alibaba,Fiction.LiveBench,,4.752e+24
+DeepSeek-V3.1,0.528,2025-08-21,DeepSeek,Fiction.LiveBench,,3.594058e+24
+grok-4-fast,0.944,2025-09-19,xAI,Fiction.LiveBench,,
+nvidia-nemotron-nano-9b-v2,0.25,2025-08-18,,Fiction.LiveBench,,
+deepinfra/Qwen3-Next-80B-A3B-Instruct,0.556,,,Fiction.LiveBench,,
+gpt-5.1_none,0.0209790209790209,2025-11-13,OpenAI,FrontierMath,0.0084891885128235,
+gpt-5.1_low,0.1730103806228373,2025-11-13,OpenAI,FrontierMath,0.0222889631397639,
+claude-opus-4-5-20251101,0.2068965517241379,2025-11-24,Anthropic,FrontierMath,0.023828276114545,
+claude-opus-4-5-20251101_32K,0.2068965517241379,2025-11-24,Anthropic,FrontierMath,0.023828276114545,
+claude-opus-4-5-20251101_16K,0.2034482758620689,2025-11-24,Anthropic,FrontierMath,0.023680184210831,
+gemini-2.5-pro,0.1413793103448276,2025-06-17,Google DeepMind,FrontierMath,0.0204948470991314,
+gemini-3-pro-preview,0.375862069,2025-11-18,Google DeepMind,FrontierMath,0.02849086384,
+gpt-5.1_medium,0.2689655172413793,2025-11-13,OpenAI,FrontierMath,0.0260836469057663,
+o3-2025-04-16_low,0.0972222222222222,2025-04-16,OpenAI,FrontierMath,0.0174876822481575,
+o3-2025-04-16_high,0.1868512110726643,2025-04-16,OpenAI,FrontierMath,0.0229687163448992,
+o3-2025-04-16_medium,0.1689655172413793,2025-04-16,OpenAI,FrontierMath,0.0220424387167992,
+claude-sonnet-4-5-20250929,0.093103448275862,2025-09-29,Anthropic,FrontierMath,0.0170927852801478,
+claude-sonnet-4-5-20250929_32K,0.1522491349480969,2025-09-29,Anthropic,FrontierMath,0.0211697287692937,
+o4-mini-2025-04-16_low,0.1068965517241379,2025-04-16,OpenAI,FrontierMath,0.0181753929771584,
+o3-mini-2025-01-31_high,0.1241379310344827,2025-01-31,OpenAI,FrontierMath,0.0193964025766846,
+gpt-5.1_high,0.3103448275862069,2025-11-13,OpenAI,FrontierMath,0.0272138090567925,
+gpt-5-2025-08-07_high,0.3241379310344827,2025-08-07,OpenAI,FrontierMath,0.0275324616648391,6.6e+25
+claude-sonnet-4-5-20250929_59K,0.1349480968858131,,Anthropic,FrontierMath,0.020132987375676,
+gpt-5-mini-2025-08-07_high,0.2724137931034482,2025-08-07,OpenAI,FrontierMath,0.0261883329652028,
+o4-mini-2025-04-16_medium,0.1896551724137931,2025-04-16,OpenAI,FrontierMath,0.0230604807320528,
+o4-mini-2025-04-16_high,0.2482758620689655,2025-04-16,OpenAI,FrontierMath,0.025412510772196,
+gpt-5-mini-2025-08-07_medium,0.2034482758620689,2025-08-07,OpenAI,FrontierMath,0.023680184210831,
+grok-4-0709,0.196551724137931,2025-07-09,xAI,FrontierMath,0.0233759069084721,5.0000000000001e+26
+gpt-5-2025-08-07_medium,0.2724137931034482,2025-08-07,OpenAI,FrontierMath,0.0261883329652028,6.6e+25
+gpt-5-nano-2025-08-07_high,0.0827586206896551,2025-08-07,OpenAI,FrontierMath,0.0162068838583676,
+claude-haiku-4-5-20251001_32K,0.0590277777777777,2025-10-15,Anthropic,FrontierMath,0.0139115547727958,
+claude-haiku-4-5-20251001,0.0413793103448275,2025-10-15,Anthropic,FrontierMath,0.0117156422541124,
+gpt-5-nano-2025-08-07_medium,0.0724137931034482,2025-08-07,OpenAI,FrontierMath,0.0152454015611468,
+claude-opus-4-20250514_27K,0.0413793103448275,2025-05-22,Anthropic,FrontierMath,0.0117156422541124,
+claude-opus-4-1-20250805_27K,0.0724137931034482,2025-08-05,Anthropic,FrontierMath,0.0152454015611468,
+claude-opus-4-1-20250805,0.0586206896551724,2025-08-05,Anthropic,FrontierMath,0.0138184351563903,
+claude-opus-4-20250514,0.0448275862068965,2025-05-22,Anthropic,FrontierMath,0.0121720756094746,
+claude-sonnet-4-20250514,0.0413793103448275,2025-05-22,Anthropic,FrontierMath,0.0117156422541124,
+gemini-2.5-pro-preview-06-05,0.1034482758620689,2025-06-05,Google DeepMind,FrontierMath,0.0179143222440727,
+qwen-plus-2025-04-28,0.0172413793103448,2025-04-28,Alibaba,FrontierMath,0.0076570328958121,
+mistral-medium-2505,0.0034602076124567,2025-05-07,Mistral AI,FrontierMath,0.0034602076124567,
+gpt-4.1-nano-2025-04-14,0.0103448275862068,2025-04-14,OpenAI,FrontierMath,0.0059518867144507,
+gpt-4.1-mini-2025-04-14,0.0448275862068965,2025-04-14,OpenAI,FrontierMath,0.0121720756094746,
+gpt-4.1-2025-04-14,0.0551724137931034,2025-04-14,OpenAI,FrontierMath,0.0134303816285978,
+grok-3-mini-beta_low,0.0275862068965517,2025-04-09,xAI,FrontierMath,0.0096343546345135,
+grok-3-mini-beta_high,0.0586206896551724,2025-04-09,xAI,FrontierMath,0.0138184351563903,
+grok-3-beta,0.0379310344827586,2025-04-09,xAI,FrontierMath,0.0112370296019996,3.5000000000000006e+26
+Llama-4-Maverick-17B-128E-Instruct-FP8,0.0068965517241379,2025-04-05,Meta AI,FrontierMath,0.004868154158215,2.244000000001e+24
+Llama-4-Scout-17B-16E-Instruct,0.0,2025-04-05,Meta AI,FrontierMath,0.0,4.08e+24
+qwen-max-2025-01-25,0.0103448275862068,2025-01-25,Alibaba,FrontierMath,0.0059518867144507,
+claude-3-7-sonnet-20250219_64K,0.0310344827586206,2025-02-24,Anthropic,FrontierMath,0.0102006417530873,3.3499999999999998e+25
+claude-3-7-sonnet-20250219_32K,0.0344827586206896,2025-02-24,Anthropic,FrontierMath,0.0107332710388015,3.3499999999999998e+25
+gemini-2.0-flash-001,0.0172413793103448,2025-02-05,"Google DeepMind,Google",FrontierMath,0.0076570328958121,
+DeepSeek-V3,0.0172413793103448,2024-12-26,DeepSeek,FrontierMath,0.0076570328958121,3.4078e+24
+o1-2024-12-17_high,0.093103448275862,2024-12-17,OpenAI,FrontierMath,0.0170927852801478,
+gpt-4o-2024-08-06,0.0034482758620689,2024-08-06,OpenAI,FrontierMath,0.0034482758620689,
+claude-3-5-sonnet-20240620,0.0103448275862068,2024-06-20,Anthropic,FrontierMath,0.0059518867144507,2.700000000000001e+25
+gemini-1.5-flash-002,0.0,2024-09-24,Google DeepMind,FrontierMath,0.0,
+claude-3-5-haiku-20241022,0.0034482758620689,2024-10-22,Anthropic,FrontierMath,0.0034482758620689,
+claude-3-5-sonnet-20241022,0.0206896551724137,2024-10-22,Anthropic,FrontierMath,0.0083731308075254,
+o1-mini-2024-09-12_medium,0.0172413793103448,2024-09-12,OpenAI,FrontierMath,0.0076570328958121,
+o1-mini-2024-09-12_high,0.0137931034482758,2024-09-12,OpenAI,FrontierMath,0.006860663093423,
+claude-3-7-sonnet-20250219_16K,0.0413793103448275,2025-02-24,Anthropic,FrontierMath,0.0117156422541124,3.3499999999999998e+25
+grok-2-1212,0.0068965517241379,2024-12-12,xAI,FrontierMath,0.004868154158215,2.9599999999999996e+25
+o3-mini-2025-01-31_medium,0.0808189655172413,2025-01-31,OpenAI,FrontierMath,0.012761417139125,
+claude-3-7-sonnet-20250219,0.0310344827586206,2025-02-24,Anthropic,FrontierMath,0.0102006417530873,3.3499999999999998e+25
+mistral-large-2411,0.0034482758620689,2024-11-18,Mistral AI,FrontierMath,0.0034482758620689,2.13e+25
+gpt-4o-2024-11-20,0.0034482758620689,2024-11-20,OpenAI,FrontierMath,0.0034482758620689,
+gemini-2.5-deep-think-2025-08-01-webapp,0.29,2025-08-01,"Google,Google DeepMind",FrontierMath,0.027,
+claude-opus-4-5-20251101,0.0416666666666666,2025-11-24,Anthropic,FrontierMath Tier 4,0.029147663515556,
+claude-opus-4-5-20251101_16K,0.0208333333333333,2025-11-24,Anthropic,FrontierMath Tier 4,0.0208333333333333,
+claude-opus-4-5-20251101_32K,0.0416666666666666,2025-11-24,Anthropic,FrontierMath Tier 4,0.029147663515556,
+gemini-3-pro-preview,0.1875,2025-11-18,Google DeepMind,FrontierMath Tier 4,0.05693291125,
+gpt-5.1_medium,0.0416666666666666,2025-11-13,OpenAI,FrontierMath Tier 4,0.029147663515556,
+gpt-5.1_high,0.125,2025-11-13,OpenAI,FrontierMath Tier 4,0.0482403115617474,
+gpt-5-mini-2025-08-07_high,0.0625,2025-08-07,OpenAI,FrontierMath Tier 4,0.035308292679127,
+gpt-5-nano-2025-08-07_high,0.0,2025-08-07,OpenAI,FrontierMath Tier 4,0.0,
+gpt-5-2025-08-07_high,0.125,2025-08-07,OpenAI,FrontierMath Tier 4,0.0482403115617474,6.6e+25
+claude-haiku-4-5-20251001_32K,0.0208333333333333,2025-10-15,Anthropic,FrontierMath Tier 4,0.0208333333333333,
+claude-sonnet-4-5-20250929_32K,0.0416666666666666,2025-09-29,Anthropic,FrontierMath Tier 4,0.029147663515556,
+gpt-5-pro-2025-10-06_high,0.125,2025-10-07,OpenAI,FrontierMath Tier 4,0.048,
+claude-sonnet-4-5-20250929,0.0208333333333333,2025-09-29,Anthropic,FrontierMath Tier 4,0.0208333333333333,
+grok-4-0709,0.0208333333333333,2025-07-09,xAI,FrontierMath Tier 4,0.0208333333333333,5.0000000000001e+26
+o4-mini-2025-04-16_medium,0.0208333333333333,2025-04-16,OpenAI,FrontierMath Tier 4,0.0208333333333333,
+gpt-5-2025-08-07_medium,0.0625,2025-08-07,OpenAI,FrontierMath Tier 4,0.035308292679127,6.6e+25
+gpt-5-mini-2025-08-07_medium,0.0416666666666666,2025-08-07,OpenAI,FrontierMath Tier 4,0.029147663515556,
+gpt-5-nano-2025-08-07_medium,0.0208333333333333,2025-08-07,OpenAI,FrontierMath Tier 4,0.0208333333333333,
+claude-opus-4-1-20250805_27K,0.0416666666666666,2025-08-05,Anthropic,FrontierMath Tier 4,0.029147663515556,
+gemini-2.5-pro,0.0416666666666666,2025-06-17,Google DeepMind,FrontierMath Tier 4,0.029147663515556,
+gemini-2.5-pro-preview-06-05,0.0208333333333333,2025-06-05,Google DeepMind,FrontierMath Tier 4,0.0208333333333333,
+gpt-4.1-2025-04-14,0.0,2025-04-14,OpenAI,FrontierMath Tier 4,0.0,
+claude-opus-4-20250514,0.0,2025-05-22,Anthropic,FrontierMath Tier 4,0.0,
+o3-2025-04-16_high,0.0208333333333333,2025-04-16,OpenAI,FrontierMath Tier 4,0.0208333333333333,
+claude-3-5-sonnet-20240620,0.0,2024-06-20,Anthropic,FrontierMath Tier 4,0.0,2.700000000000001e+25
+o3-mini-2025-01-31_high,0.0416666666666666,2025-01-31,OpenAI,FrontierMath Tier 4,0.029147663515556,
+claude-opus-4-20250514_27K,0.0416666666666666,2025-05-22,Anthropic,FrontierMath Tier 4,0.029147663515556,
+claude-3-5-sonnet-20241022,0.0,2024-10-22,Anthropic,FrontierMath Tier 4,0.0,
+o4-mini-2025-04-16_high,0.0625,2025-04-16,OpenAI,FrontierMath Tier 4,0.035308292679127,
+grok-3-beta,0.0,2025-04-09,xAI,FrontierMath Tier 4,0.0,3.5000000000000006e+26
+claude-sonnet-4-20250514,0.0,2025-05-22,Anthropic,FrontierMath Tier 4,0.0,
+gemini-2.5-deep-think-2025-08-01-webapp,0.104,2025-08-01,"Google,Google DeepMind",FrontierMath Tier 4,0.044,
+gemini-2.5-pro-preview-05-06,0.86,2025-05-06,Google DeepMind,GeoBench,,
+gemini-3-pro-preview,0.84,2025-11-18,Google DeepMind,GeoBench,,
+gemini-2.5-pro-exp-03-25,0.81,2025-03-25,Google DeepMind,GeoBench,,
+gpt-5-2025-08-07_medium,0.81,2025-08-07,OpenAI,GeoBench,,6.6e+25
+o1-2024-12-17_medium,0.8,2024-12-17,OpenAI,GeoBench,,
+gemini-2.0-flash-001,0.77,2025-02-05,"Google DeepMind,Google",GeoBench,,
+gemini-1.5-flash-002,0.76,2024-09-24,Google DeepMind,GeoBench,,
+gemini-2.5-flash-preview-05-20,0.76,2025-05-20,Google DeepMind,GeoBench,,
+o3-2025-04-16_medium,0.74,2025-04-16,OpenAI,GeoBench,,
+gemini-2.5-flash-preview-04-17,0.73,2025-04-17,Google DeepMind,GeoBench,,
+gpt-4.1-2025-04-14,0.72,2025-04-14,OpenAI,GeoBench,,
+gpt-4o-2024-11-20,0.71,2024-11-20,OpenAI,GeoBench,,
+claude-3-7-sonnet-20250219,0.68,2025-02-24,Anthropic,GeoBench,,3.3499999999999998e+25
+claude-3-7-sonnet-20250219_15K,0.65,2025-02-24,Anthropic,GeoBench,,3.3499999999999998e+25
+o4-mini-2025-04-16_high,0.64,2025-04-16,OpenAI,GeoBench,,
+o4-mini-2025-04-16_medium,0.64,2025-04-16,OpenAI,GeoBench,,
+gpt-4o-mini-2024-07-18,0.64,2024-07-18,OpenAI,GeoBench,,
+claude-3-5-sonnet-20241022,0.62,2024-10-22,Anthropic,GeoBench,,
+Qwen2.5-VL-72B-Instruct,0.62,2024-09-19,Alibaba,GeoBench,,7.8e+24
+o3-2025-04-16_high,0.6,2025-04-16,OpenAI,GeoBench,,
+gemma-3-27b-it,0.52,2025-03-12,Google DeepMind,GeoBench,,2.268e+24
+Llama-4-Maverick-17B-128E-Instruct,0.52,2025-04-05,Meta AI,GeoBench,,2.244000000001e+24
+Llama-3.2-90B-Vision-Instruct,0.52,2024-09-24,Meta AI,GeoBench,,
+claude-opus-4-20250514_32K,0.49,2025-05-22,Anthropic,GeoBench,,
+grok-4-0709,0.45,2025-07-09,xAI,GeoBench,,5.0000000000001e+26
+Pixtral-12B-2409,0.37,2024-09-17,Mistral AI,GeoBench,,
+claude-sonnet-4-20250514,0.37,2025-05-22,Anthropic,GeoBench,,
+claude-3-5-haiku-20241022,0.34,2024-10-22,Anthropic,GeoBench,,
+claude-sonnet-4-20250514_32K,0.32,2025-05-22,Anthropic,GeoBench,,
+claude-opus-4-5-20251101_16K,0.8547979797979798,2025-11-24,Anthropic,GPQA Diamond,0.0215081477207232,
+claude-opus-4-5-20251101_32K,0.860479797979798,2025-11-24,Anthropic,GPQA Diamond,0.0206869596713939,
+claude-opus-4-5-20251101,0.8068181818181818,2025-11-24,Anthropic,GPQA Diamond,0.0239094796537667,
+gemini-3-pro-preview,0.9261363636363636,2025-11-18,Google DeepMind,GPQA Diamond,0.016526963574741,
+gpt-5.1_medium,0.8503787878787878,2025-11-13,OpenAI,GPQA Diamond,0.0212504220822498,
+gemini-2.5-pro,0.8529040404040404,2025-06-17,Google DeepMind,GPQA Diamond,0.0211701084234858,
+gpt-5.1_high,0.8762626262626263,2025-11-13,OpenAI,GPQA Diamond,0.0187536828107759,
+kimi-k2-thinking-turbo,0.8421717171717171,2025-11-06,Moonshot,GPQA Diamond,0.0208798457319857,4.1999999999999997e+24
+gpt-oss-120b_high,0.7077020202020202,2025-08-05,OpenAI,GPQA Diamond,0.0270775146893759,4.94e+24
+gpt-5-nano-2025-08-07_high,0.6944444444444444,2025-08-07,OpenAI,GPQA Diamond,0.027594508998251,
+gpt-5-mini-2025-08-07_high,0.75,2025-08-07,OpenAI,GPQA Diamond,0.0227672954271138,
+gpt-5-2025-08-07_high,0.8617424242424242,2025-08-07,OpenAI,GPQA Diamond,0.0207878360998519,6.6e+25
+claude-sonnet-4-5-20250929_16K,0.7878787878787878,2025-09-29,Anthropic,GPQA Diamond,0.0291265228345867,
+claude-sonnet-4-5-20250929_59K,0.8232323232323232,,Anthropic,GPQA Diamond,0.0271787526390449,
+gpt-4-0314,0.3573232323232323,2023-03-14,OpenAI,GPQA Diamond,0.0236309937559932,2.1e+25
+claude-haiku-4-5-20251001_32K,0.7121212121212122,2025-10-15,Anthropic,GPQA Diamond,0.0322588351230099,
+claude-sonnet-4-5-20250929_32K,0.817258883248731,2025-09-29,Anthropic,GPQA Diamond,0.0276038670205573,
+claude-haiku-4-5-20251001,0.6047979797979798,2025-10-15,Anthropic,GPQA Diamond,0.0281545350230208,
+qwen3-max-2025-09-23,0.726010101010101,2025-09-24,Alibaba,GPQA Diamond,0.0273452810317123,1.512e+25
+claude-sonnet-4-5-20250929,0.7373737373737373,2025-09-29,Anthropic,GPQA Diamond,0.0313530500953308,
+gpt-5-mini-2025-08-07_medium,0.7165404040404041,2025-08-07,OpenAI,GPQA Diamond,0.0231927418780833,
+gpt-5-2025-08-07_medium,0.8535353535353535,2025-08-07,OpenAI,GPQA Diamond,0.0213148252979844,6.6e+25
+gpt-5-nano-2025-08-07_medium,0.6742424242424242,2025-08-07,OpenAI,GPQA Diamond,0.026607011205052,
+claude-opus-4-1-20250805_27K,0.7676767676767676,2025-08-05,Anthropic,GPQA Diamond,0.0300886294902174,
+claude-opus-4-1-20250805_16K,0.7727272727272727,2025-08-05,Anthropic,GPQA Diamond,0.0298575156733864,
+claude-opus-4-1-20250805,0.7323232323232324,2025-08-05,Anthropic,GPQA Diamond,0.0315444988827028,
+magistral-small-2506,0.4842171717171717,2025-06-10,Mistral AI,GPQA Diamond,0.0226424140169823,
+gemini-2.5-pro-preview-06-05,0.8484848484848485,2025-06-05,Google DeepMind,GPQA Diamond,0.0255456504266036,
+qwen3-235b-a22b,0.7070707070707071,2025-04-29,Alibaba,GPQA Diamond,0.0271242093935069,4.752e+24
+gemini-2.5-pro-preview-05-06,0.6666666666666666,2025-05-06,Google DeepMind,GPQA Diamond,0.0335861814573252,
+DeepSeek-R1-0528,0.7632575757575758,2025-05-28,DeepSeek,GPQA Diamond,0.024023818843083,4.020010000000001e+24
+claude-3-7-sonnet-20250219_64K,0.7850378787878788,2025-02-24,Anthropic,GPQA Diamond,0.02650688312306,3.3499999999999998e+25
+grok-3-mini-beta_high,0.7462121212121212,2025-04-09,xAI,GPQA Diamond,0.0276755218200414,
+DeepSeek-R1,0.6922348484848484,2025-01-20,DeepSeek,GPQA Diamond,0.0307048569332127,4.020010000000001e+24
+claude-sonnet-4-20250514_59K,0.7781991873045173,2025-05-22,Anthropic,GPQA Diamond,0.0267482143432109,
+grok-3-beta,0.6758207070707071,2025-04-09,xAI,GPQA Diamond,0.0268630787463403,3.5000000000000006e+26
+claude-sonnet-4-20250514_32K,0.7828282828282829,2025-05-22,Anthropic,GPQA Diamond,0.0293766164849456,
+claude-opus-4-20250514_16K,0.7626262626262627,2025-05-22,Anthropic,GPQA Diamond,0.0303137105381989,
+claude-sonnet-4-20250514_16K,0.7575757575757576,2025-05-22,Anthropic,GPQA Diamond,0.030532892233932,
+claude-sonnet-4-20250514,0.6666666666666666,2025-05-22,Anthropic,GPQA Diamond,0.0335861814573252,
+claude-opus-4-20250514,0.6919191919191919,2025-05-22,Anthropic,GPQA Diamond,0.0328947733009861,
+mistral-medium-2505,0.5953282828282829,2025-05-07,Mistral AI,GPQA Diamond,0.0282469722965464,
+o4-mini-2025-04-16_high,0.7960858585858586,2025-04-16,OpenAI,GPQA Diamond,0.0240347640961219,
+o3-2025-04-16_high,0.8181818181818182,2025-04-16,OpenAI,GPQA Diamond,0.0212671238463872,
+gpt-4.1-mini-2025-04-14,0.6584595959595959,2025-04-14,OpenAI,GPQA Diamond,0.0270515009652959,
+gpt-4.1-nano-2025-04-14,0.4892676767676767,2025-04-14,OpenAI,GPQA Diamond,0.0248497349504353,
+gpt-4.1-2025-04-14,0.6691919191919192,2025-04-14,OpenAI,GPQA Diamond,0.028214400938559,
+qwq-plus,0.6540404040404041,2025-04-08,Alibaba,GPQA Diamond,0.0284692387708299,
+grok-3-mini-beta_low,0.7626262626262627,2025-04-09,xAI,GPQA Diamond,0.0303137105381989,
+Llama-4-Scout-17B-16E-Instruct,0.5183080808080808,2025-04-05,Meta AI,GPQA Diamond,0.0315490201249947,4.08e+24
+Llama-4-Maverick-17B-128E-Instruct-FP8,0.6698232323232324,2025-04-05,Meta AI,GPQA Diamond,0.0282448235297281,2.244000000001e+24
+qwen-turbo-2024-11-01,0.4179292929292929,2024-11-01,Alibaba,GPQA Diamond,0.0261772750887025,
+qwen-plus-2025-01-25,0.4810606060606061,2025-01-25,Alibaba,GPQA Diamond,0.0271449368122779,
+qwen-max-2025-01-25,0.5612373737373737,2025-01-25,Alibaba,GPQA Diamond,0.0278588314757094,
+DeepSeek-V3-0324,0.6761363636363636,2025-03-24,DeepSeek,GPQA Diamond,0.02683630252503,3.4078e+24
+gemini-2.5-pro-exp-03-25,0.8383838383838383,2025-03-25,Google DeepMind,GPQA Diamond,0.0262259198636292,
+mistral-small-2503,0.4747474747474747,2025-03-17,Mistral AI,GPQA Diamond,0.0276164951400122,
+gemma-3-27b-it,0.4886363636363636,2025-03-12,Google DeepMind,GPQA Diamond,0.0302633469589555,2.268e+24
+claude-3-5-haiku-20241022,0.3813131313131313,2024-10-22,Anthropic,GPQA Diamond,0.0263515153905115,
+gemini-1.5-flash-8b-001,0.3295454545454545,2024-10-03,Google DeepMind,GPQA Diamond,0.0241655111621175,
+DeepSeek-R1-Distill-Qwen-14B,0.4469696969696969,2025-01-20,DeepSeek,GPQA Diamond,0.0286309467819037,
+claude-3-7-sonnet-20250219_32K,0.7676767676767676,2025-02-24,Anthropic,GPQA Diamond,0.0300886294902174,3.3499999999999998e+25
+DeepSeek-R1-Distill-Llama-70B,0.5574494949494949,2025-01-20,DeepSeek,GPQA Diamond,0.0297346521917906,
+gpt-4.5-preview-2025-02-27,0.6868686868686869,2025-02-27,OpenAI,GPQA Diamond,0.0330420508781365,3.8e+26
+gpt-4-turbo-2024-04-09,0.4659090909090909,2024-04-09,OpenAI,GPQA Diamond,0.0265768833325805,
+claude-3-7-sonnet-20250219_16K,0.7676767676767676,2025-02-24,Anthropic,GPQA Diamond,0.0300886294902174,3.3499999999999998e+25
+mistral-large-2411,0.5132575757575758,2024-11-18,Mistral AI,GPQA Diamond,0.026887818295509,2.13e+25
+claude-3-7-sonnet-20250219,0.6603535353535354,2025-02-24,Anthropic,GPQA Diamond,0.0267038586840609,3.3499999999999998e+25
+o1-2024-12-17_high,0.7676767676767676,2024-12-17,OpenAI,GPQA Diamond,0.0300886294902174,
+o1-mini-2024-09-12_high,0.6237373737373737,2024-09-12,OpenAI,GPQA Diamond,0.0274277235112307,
+o3-mini-2025-01-31_high,0.7702020202020202,2025-01-31,OpenAI,GPQA Diamond,0.0258553326988784,
+gemini-2.0-pro-exp-02-05,0.6565656565656566,2025-02-05,Google DeepMind,GPQA Diamond,0.0338320122324444,
+gemini-2.0-flash-thinking-exp-01-21,0.5707070707070707,2025-01-21,"Google DeepMind,Google",GPQA Diamond,0.0352655272460119,
+gemini-2.0-flash-001,0.6414141414141414,2025-02-05,"Google DeepMind,Google",GPQA Diamond,0.0273956181790275,
+gpt-4o-2024-11-20,0.4788510101010101,2024-11-20,OpenAI,GPQA Diamond,0.0263369721787261,
+phi-4,0.5606060606060606,2024-12-12,Microsoft Research,GPQA Diamond,0.0259027466413267,9.3202015e+23
+Phi-3-medium-128k-instruct,0.2758838383838384,2024-04-23,Microsoft,GPQA Diamond,0.0161176855002927,4.032e+23
+o3-mini-2025-01-31_medium,0.742739898989899,2025-01-31,OpenAI,GPQA Diamond,0.025411943362857,
+mistral-small-2501,0.4529671717171717,2025-01-25,Mistral AI,GPQA Diamond,0.0247946886770578,1.152e+24
+qwen2.5-32b-instruct,0.4608585858585858,2024-09-17,Alibaba,GPQA Diamond,0.0259578300457906,3.51e+24
+gemini-1.5-flash-001,0.4037247474747474,2024-05-23,Google DeepMind,GPQA Diamond,0.0238524756040244,
+claude-2.0,0.3465909090909091,2023-07-11,Anthropic,GPQA Diamond,0.0250762559835514,3.866e+24
+claude-3-opus-20240229,0.4715909090909091,2024-02-29,Anthropic,GPQA Diamond,0.0263953939565335,
+o1-mini-2024-09-12_medium,0.5950126262626263,2024-09-12,OpenAI,GPQA Diamond,0.0279512423863727,
+gpt-4o-2024-08-06,0.4921085858585858,2024-08-06,OpenAI,GPQA Diamond,0.0259992702772717,
+o1-preview-2024-09-12,0.5031565656565656,2024-09-12,OpenAI,GPQA Diamond,0.0282578210729093,
+claude-3-sonnet-20240229,0.4059343434343434,2024-02-29,Anthropic,GPQA Diamond,0.0239202234917488,
+claude-3-5-sonnet-20241022,0.553030303030303,2024-10-22,Anthropic,GPQA Diamond,0.0282080901470788,
+gpt-4-0125-preview,0.4226641414141414,2024-01-25,OpenAI,GPQA Diamond,0.026795949166711,
+claude-2.1,0.3295454545454545,2023-11-21,Anthropic,GPQA Diamond,0.0232488508326528,
+gemma-2-27b-it,0.3648989898989899,2024-06-24,Google DeepMind,GPQA Diamond,0.0238978844286916,2.106e+24
+claude-3-haiku-20240307,0.3630050505050505,2024-03-07,Anthropic,GPQA Diamond,0.0241809106720749,
+claude-3-5-sonnet-20240620,0.5404040404040404,2024-06-20,Anthropic,GPQA Diamond,0.0275285554533486,2.700000000000001e+25
+gpt-4o-2024-05-13,0.4889520202020202,2024-05-13,OpenAI,GPQA Diamond,0.0262541098733719,
+gemini-1.5-flash-002,0.4731691919191919,2024-09-24,Google DeepMind,GPQA Diamond,0.0277374082770409,
+gpt-4-0613,0.3065025252525252,2023-06-13,OpenAI,GPQA Diamond,0.0233732294827062,2.1e+25
+gemma-2-9b-it,0.2746212121212121,2024-06-24,Google DeepMind,GPQA Diamond,0.0230324679547787,4.32e+23
+gpt-3.5-turbo-1106,0.2803030303030303,2023-11-06,OpenAI,GPQA Diamond,0.018720372561004,
+gemini-1.5-pro-001,0.4586489898989899,2024-05-24,Google DeepMind,GPQA Diamond,0.0261729563955832,
+gpt-4-1106-preview,0.4236111111111111,2023-11-06,OpenAI,GPQA Diamond,0.0240761426183016,
+gpt-4o-mini-2024-07-18,0.3772095959595959,2024-07-18,OpenAI,GPQA Diamond,0.0240689254246201,
+gemini-1.5-pro-002,0.5722853535353535,2024-09-24,Google DeepMind,GPQA Diamond,0.0279597096365042,
+gpt-3.5-turbo-0125,0.271780303030303,2024-01-25,OpenAI,GPQA Diamond,0.0195357996878873,
+Llama-3.1-8B-Instruct,0.2594696969696969,2024-07-23,Meta AI,GPQA Diamond,0.0167496639925874,1.224e+24
+Llama-3.1-70B-Instruct,0.4419191919191919,2024-07-23,Meta AI,GPQA Diamond,0.0245228634721493,7.929e+24
+Llama-3.1-405B-Instruct,0.5091540404040404,2024-07-23,Meta AI,GPQA Diamond,0.0258619927027706,3.8e+25
+Yi-1.5-34B-Chat,0.319760101010101,2024-05-13,01.AI,GPQA Diamond,0.0200052916619008,7.344e+23
+Yi-34B-Chat,0.1474116161616161,2023-11-22,01.AI,GPQA Diamond,0.0113728237214483,6.1e+23
+grok-2-1212,0.5378787878787878,2024-12-12,xAI,GPQA Diamond,0.0270663423166071,2.9599999999999996e+25
+qwen2-72b-instruct,0.4078282828282828,2024-06-07,Alibaba,GPQA Diamond,0.02574288051254,3.02e+24
+qwen1.5-72b-chat,0.2881944444444444,2024-02-04,Alibaba,GPQA Diamond,0.0199369122812249,1.3e+24
+qwen1.5-32b-chat,0.307449494949495,2024-04-03,Alibaba,GPQA Diamond,0.0202005179734244,
+Hermes-2-Theta-Llama-3-70B,0.3746843434343434,2024-06-20,"Nous Research,Arcee AI",GPQA Diamond,0.0248030099939483,
+Llama-2-70b-chat-hf,0.2632575757575757,2023-07-18,Meta AI,GPQA Diamond,0.0199018085582841,8.1e+23
+Meta-Llama-3-70B-Instruct,0.4056186868686868,2024-04-18,Meta AI,GPQA Diamond,0.026224849492112,7.861e+24
+Meta-Llama-3-8B-Instruct,0.2607323232323232,2024-04-18,Meta AI,GPQA Diamond,0.0170304336177357,7.2e+23
+Mistral-7B-Instruct-v0.3,0.1518308080808081,2024-05-27,Mistral AI,GPQA Diamond,0.0101488910372273,
+deepseek-llm-67b-chat,0.2462121212121212,2023-11-29,DeepSeek,GPQA Diamond,0.0136233519507619,8.04e+23
+Mixtral-8x7B-Instruct-v0.1,0.3058712121212121,2023-12-11,Mistral AI,GPQA Diamond,0.0193705960394135,7.74e+23
+qwen2.5-72b-instruct,0.4914772727272727,2024-09-19,Alibaba,GPQA Diamond,0.0269477674041786,7.8e+24
+WizardLM-2-8x22B,0.4343434343434343,2024-04-15,Microsoft,GPQA Diamond,0.0232320933334442,
+dbrx-instruct,0.3289141414141414,2024-03-27,Databricks,GPQA Diamond,0.0325694433356493,2.6e+24
+gemini-1.0-pro-001,0.3396464646464646,2024-02-15,Google DeepMind,GPQA Diamond,0.0201109334051767,
+ministral-3b-2410,0.2525252525252525,2024-10-16,Mistral AI,GPQA Diamond,0.0193056147227972,
+mistral-large-2402,0.3876262626262626,2024-02-26,Mistral AI,GPQA Diamond,0.0247765985354172,1.1199999999999999e+25
+open-mixtral-8x22b,0.3405934343434343,2024-04-17,Mistral AI,GPQA Diamond,0.0206813477915864,2.34e+24
+ministral-8b-2410,0.2714646464646464,2024-10-16,Mistral AI,GPQA Diamond,0.0208637066715537,
+mistral-large-2407,0.4902146464646464,2024-07-24,Mistral AI,GPQA Diamond,0.0259188409886569,2.13e+25
+open-mixtral-8x7b,0.2982954545454545,2023-12-11,Mistral AI,GPQA Diamond,0.0191469980379236,7.74e+23
+open-mistral-7b,0.132260101010101,2023-09-27,Mistral AI,GPQA Diamond,0.0098880862130403,
+open-mistral-nemo-2407,0.2989267676767677,2024-07-18,Mistral AI,GPQA Diamond,0.0209619109876166,
+Llama-3.2-90B-Vision-Instruct,0.4103535353535353,2024-09-24,Meta AI,GPQA Diamond,0.0229483410910256,
+Llama-3.1-Tulu-3-70B-DPO,0.4627525252525252,2024-11-21,"Allen Institute for AI,University of Washington",GPQA Diamond,0.0240583636209396,
+Eurus-2-7B-PRIME,0.3390151515151515,2024-12-31,"Tsinghua University,University of Illinois Urbana-Champaign (UIUC),Shanghai AI Lab,Peking University,Shanghai Jiao Tong University,CUHK Shenzhen Research Institute",GPQA Diamond,0.0210731743939474,
+Llama-3.3-70B-Instruct,0.4744318181818182,2024-12-06,Meta AI,GPQA Diamond,0.028523027562061,6.8649768e+24
+o1-2024-12-17_medium,0.7575757575757576,2024-12-17,OpenAI,GPQA Diamond,0.030532892233932,
+DeepSeek-V3,0.5653409090909091,2024-12-26,DeepSeek,GPQA Diamond,0.0276399002995089,3.4078e+24
+grok-4-0709,0.87,2025-07-09,xAI,GPQA Diamond,0.02,5.0000000000001e+26
+Palmyra X (43B),0.633,,,GSM8K,,
+code-davinci-002,0.568,,OpenAI,GSM8K,,2.578e+24
+gpt-3.5-turbo-0301,0.531,,,GSM8K,,
+text-davinci-003,0.506,2022-11-28,OpenAI,GSM8K,,2.578e+24
+Llama-2-70b-hf,0.484,2023-07-18,Meta AI,GSM8K,,8.1e+23
+gpt-3.5-turbo-0613,0.469,2023-06-13,OpenAI,GSM8K,,
+LLaMA-65B,0.466,2023-02-24,Meta AI,GSM8K,,5.5e+23
+text-davinci-002,0.415,2022-03-15,OpenAI,GSM8K,,2.578e+24
+Mistral-7B-v0.1,0.381,2023-09-27,Mistral AI,GSM8K,,
+mpt-30b-instruct,0.344,2023-06-22,MosaicML,GSM8K,,1.8900000000001e+23
+falcon-40b-instruct,0.338,2023-05-25,Technology Innovation Institute,GSM8K,,2.4e+23
+LLaMA-33B,0.32,2023-02-24,Meta AI,GSM8K,,2.7300000000001e+23
+falcon-40b,0.25,2023-03-15,Technology Innovation Institute,GSM8K,,2.4e+23
+Llama-2-13b,0.245,2023-07-18,Meta AI,GSM8K,,1.6e+23
+vicuna-13b-v1.3,0.226,2023-06-18,"Large Model Systems Organization,University of California (UC) Berkeley",GSM8K,,
+Jurassic-2 Jumbo (178B),0.225,,,GSM8K,,
+Anthropic-LM v4-s3 (52B),0.171,,,GSM8K,,
+mpt-30b,0.164,2023-06-22,MosaicML,GSM8K,,1.8900000000001e+23
+LLaMA-13B,0.154,2023-02-24,Meta AI,GSM8K,,7.8e+22
+TNLG v2 (530B),0.146,,,GSM8K,,
+Cohere Command beta (52.4B),0.138,,,GSM8K,,
+Vicuna v1.3 (7B),0.134,,,GSM8K,,
+Jurassic-2 Grande (17B),0.133,,,GSM8K,,
+Luminous Supreme (70B),0.112,,,GSM8K,,
+Cohere xlarge v20221108 (52.4B),0.1,,,GSM8K,,
+J1-Grande v2 beta (17B),0.096,,,GSM8K,,
+bloom,0.095,2022-07-06,"Hugging Face,BigScience",GSM8K,,3.65664e+23
+davinci,0.09,,OpenAI,GSM8K,,3.14e+23
+LLaMA-7B,0.08,2023-02-24,Meta AI,GSM8K,,4.00000001e+22
+Cohere xlarge v20220609 (52.4B),0.07,,,GSM8K,,
+Luminous Extended (30B),0.067,,,GSM8K,,
+InstructPalmyra (30B),0.063,,,GSM8K,,
+GLM (130B),0.061,,,GSM8K,,
+J1-Jumbo v1 (178B),0.054,,,GSM8K,,
+J1-Grande v1 (17B),0.054,,,GSM8K,,
+GPT-NeoX (20B),0.053,,,GSM8K,,
+Falcon-Instruct (7B),0.052,,,GSM8K,,
+code-cushman-001 (12B),0.049,,,GSM8K,,
+opt-175b,0.04,2022-05-02,Meta AI,GSM8K,,4.3e+23
+falcon-7b,0.04,2023-04-24,Technology Innovation Institute,GSM8K,,6.3e+22
+Cohere Command beta (6.1B),0.036,,,GSM8K,,
+GPT-J (6B),0.036,,,GSM8K,,
+Pythia (12B),0.032,,,GSM8K,,
+Jurassic-2 Large (7.5B),0.03,,,GSM8K,,
+Luminous Base (13B),0.026,,,GSM8K,,
+UL2 (20B),0.024,,,GSM8K,,
+T5 (11B),0.023,,,GSM8K,,
+RedPajama-INCITE-Base (7B),0.021,,,GSM8K,,
+TNLG v2 (6.7B),0.018,,,GSM8K,,
+opt-66b,0.018,2022-05-03,Meta AI,GSM8K,,1.100000000001e+23
+Cohere large v20220720 (13.1B),0.018,,,GSM8K,,
+Cohere medium v20221108 (6.1B),0.017,,,GSM8K,,
+RedPajama-INCITE-Instruct (7B),0.016,,,GSM8K,,
+curie,0.016,,OpenAI,GSM8K,,1.2e+22
+Cohere medium v20220720 (6.1B),0.015,,,GSM8K,,
+Pythia (6.9B),0.014,,,GSM8K,,
+J1-Large v1 (7.5B),0.014,,,GSM8K,,
+Alpaca (7B),0.012,,,GSM8K,,
+RedPajama-INCITE-Instruct-v1 (3B),0.011,,,GSM8K,,
+RedPajama-INCITE-Base-v1 (3B),0.01,,,GSM8K,,
+babbage,0.007,,OpenAI,GSM8K,,2.38e+21
+ada,0.006,,OpenAI,GSM8K,,6.41e+20
+text-curie-001,0.006,,OpenAI,GSM8K,,
+Cohere small v20220720 (410M),0.004,,,GSM8K,,
+text-ada-001,0.004,,OpenAI,GSM8K,,
+text-babbage-001,0.0,,OpenAI,GSM8K,,
+T0pp (11B),0.0,,,GSM8K,,
+YaLM (100B),0.0,,,GSM8K,,
+Llama-2-7b,0.146,2023-07-18,Meta AI,GSM8K,,8.4e+22
+Mistral-7B-Instruct-v0.2,0.354,,Mistral AI,GSM8K,,
+gemma-2b,0.177,2024-02-21,Google DeepMind,GSM8K,,4.5115822e+22
+gemma-7b,0.464,2024-02-21,Google DeepMind,GSM8K,,3.07e+23
+Qwen-14B,0.601,2023-09-28,Alibaba,GSM8K,,2.5e+23
+Nemotron-4 15B,0.46,2024-02-26,NVIDIA,GSM8K,,7.5005116e+23
+Llama-2-34b,0.422,2023-07-18,Meta AI,GSM8K,,4.08e+23
+Baichuan-2-13B-Base,0.528,2023-09-06,Baichuan,GSM8K,,2.03e+23
+gpt-4-0613,0.8999,2023-06-13,OpenAI,GSM8K,,2.1e+25
+mpt-7b,0.0864,2023-05-05,MosaicML,GSM8K,,4.2e+22
+chatglm2-6b,0.289,2023-06-24,,GSM8K,,
+Baichuan-7B,0.092,2023-06-01,Baichuan,GSM8K,,5.04e+22
+Baichuan-2-7B-Base,0.245,2023-09-20,Baichuan,GSM8K,,1.092e+23
+vicuna-13b-v1.1,0.2813,2023-04-12,,GSM8K,,
+Chinese-Alpaca-Plus-13B,0.12,,,GSM8K,,
+XVERSE-13B,0.18,,,GSM8K,,
+Baichuan-13B-Base,0.268,2023-07-11,Baichuan,GSM8K,,9.36e+22
+Phi-3.5-mini-instruct,0.862,2024-08-16,Microsoft,GSM8K,,3.7101154e+22
+Phi-3.5-MoE-instruct,0.887,2024-08-17,Microsoft,GSM8K,,3.0202896e+23
+Mistral-Nemo-Base-2407,0.842,2024-07-18,Mistral AI,GSM8K,,
+Llama-3.1-8B-Instruct,0.824,2024-07-23,Meta AI,GSM8K,,1.224e+24
+gemma-2-9b,0.849,,Google DeepMind,GSM8K,,4.32e+23
+gemini-1.5-flash-001,0.824,2024-05-23,Google DeepMind,GSM8K,,
+gpt-4o-mini-2024-07-18,0.913,2024-07-18,OpenAI,GSM8K,,
+GPT-4,0.92,,,GSM8K,,
+falcon-180B,0.544,2023-09-06,Technology Innovation Institute,GSM8K,,3.76e+24
+Qwen-7B,0.517,2023-09-28,Alibaba,GSM8K,,1.01e+23
+internlm-20b,0.629,2023-09-18,,GSM8K,,
+Skywork 7B,0.558,,,GSM8K,,
+Yi-6B,0.325,2023-11-02,01.AI,GSM8K,,1.26e+23
+Yi-34B,0.672,2023-11-02,01.AI,GSM8K,,6.1e+23
+PaLM 8B,0.041,,,GSM8K,,
+PaLM 62B,0.33,2022-04-04,,GSM8K,,
+PaLM 540B,0.565,2022-04-04,Google Research,GSM8K,,2.5272e+24
+Minerva 8B,0.162,,,GSM8K,,
+Minerva 62B,0.524,,,GSM8K,,
+Minerva 540B,0.685,,,GSM8K,,
+Mixtral-8x7B-v0.1,0.744,2023-12-11,Mistral AI,GSM8K,,7.74e+23
+GPT-4 (8-shot),0.914,,,GSM8K,,
+InternLM-Chat 7B (8-shot),0.33,,,GSM8K,,
+Baichuan2-Chat 7B (8-shot),0.328,,,GSM8K,,
+Baichuan2-Chat 13B (8-shot),0.553,,,GSM8K,,
+LLAMA 2-CHAT 7B (8-shot),0.263,,,GSM8K,,
+LLAMA 2-CHAT 13B (8-shot),0.371,,,GSM8K,,
+LLAMA 2-CHAT 70B (8-shot),0.593,,,GSM8K,,
+QWEN-CHAT 1.8B (0-shot),0.278,,,GSM8K,,
+QWEN-CHAT 1.8B (8-shot),0.195,,,GSM8K,,
+QWEN-CHAT 7B (0-shot),0.503,,,GSM8K,,
+QWEN-CHAT 7B (8-shot),0.541,,,GSM8K,,
+QWEN-CHAT 14B (0-shot),0.601,,,GSM8K,,
+QWEN-CHAT 14B (8-shot),0.593,,,GSM8K,,
+internlm-7b,0.312,2023-07-05,,GSM8K,,
+StableBeluga2,0.696,2023-07-20,Stability AI,GSM8K,,
+Qwen-1_8B,0.212,2023-11-30,,GSM8K,,
+DeepSeek-Coder-V2-Lite-Instruct,0.876,2024-06-13,,GSM8K,,
+DeepSeek-Coder-V2-Instruct,0.945,2024-06-17,DeepSeek,GSM8K,,1.2852e+24
+Qwen2.5-Coder-3B-Instruct,0.807,2024-11-06,,GSM8K,,
+Qwen2.5-Coder-7B-Instruct,0.867,2024-09-17,Alibaba,GSM8K,,2.5113e+23
+Qwen2.5-Coder-14B-Instruct,0.942,2024-11-06,,GSM8K,,
+Qwen2.5-Coder-32B-Instruct,0.93,2024-11-21,Alibaba,GSM8K,,1.0725e+24
+Qwen2.5-Coder-0.5B,0.345,2024-09-18,,GSM8K,,
+deepseek-coder-1.3b-base,0.044,2023-11-02,"DeepSeek,Peking University",GSM8K,,1.56e+22
+Qwen2.5-Coder-1.5B,0.658,2024-09-18,Alibaba,GSM8K,,5.082e+22
+starcoder2-3b,0.216,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",GSM8K,,5.94e+22
+Qwen2.5-Coder-3B,0.757,2024-09-18,,GSM8K,,
+starcoder2-7b,0.327,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",GSM8K,,1.55e+23
+deepseek-coder-6.7b-base,0.213,2023-11-02,"DeepSeek,Peking University",GSM8K,,8.04e+22
+DeepSeek-Coder-V2-Lite-Base,0.671,2024-06-13,,GSM8K,,
+CodeQwen1.5-7B,0.377,2024-04-15,,GSM8K,,
+Qwen2.5-Coder-7B,0.839,2024-09-18,Alibaba,GSM8K,,2.5113e+23
+starcoder2-15b,0.577,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",GSM8K,,3.87e+23
+Qwen2.5-Coder-14B,0.887,2024-09-18,,GSM8K,,
+deepseek-coder-33b-base,0.354,2023-11-02,"DeepSeek,Peking University",GSM8K,,3.96e+23
+DeepSeek-Coder-V2-Base,0.858,2024-06-17,DeepSeek,GSM8K,,1.2852e+24
+Qwen2.5-Coder-32B,0.911,2024-09-18,Alibaba,GSM8K,,1.0725e+24
+falcon-11b,0.5383,2024-05-09,Technology Innovation Institute,GSM8K,,3.6e+23
+gpt-4-0314,0.92,2023-03-14,OpenAI,GSM8K,,2.1e+25
+8-shot Minerva,0.588,,,GSM8K,,
+claude-instant-1.1,0.809,,Anthropic,GSM8K,,
+claude-instant-1.2,0.867,2023-08-09,Anthropic,GSM8K,,
+Llama-2-13b-chat,0.369,2023-07-18,Meta AI,GSM8K,,1.6e+23
+Llama-2-70b-chat,0.471,2023-07-18,Meta AI,GSM8K,,8.1e+23
+Baichuan2-13B-Chat,0.457,2023-09-06,,GSM8K,,
+Qwen-14B-Chat,0.595,2023-09-24,Alibaba,GSM8K,,2.5e+23
+internlm-chat-20b,0.157,2023-09-17,,GSM8K,,
+AquilaChat2 34B,0.115,,,GSM8K,,
+Yi-6B-Chat,0.384,2023-11-22,01.AI,GSM8K,,1.26e+23
+Yi-34B-Chat,0.717,2023-11-22,01.AI,GSM8K,,6.1e+23
+claude-sonnet-4-5-20250929,0.147,2025-09-29,Anthropic,GSO-Bench,,
+o3-2025-04-16_high,0.088,2025-04-16,OpenAI,GSO-Bench,,
+claude-opus-4-20250514,0.069,2025-05-22,Anthropic,GSO-Bench,,
+gpt-5-2025-08-07_high,0.069,2025-08-07,OpenAI,GSO-Bench,,6.6e+25
+claude-sonnet-4-20250514,0.049,2025-05-22,Anthropic,GSO-Bench,,
+Kimi-K2-Instruct,0.049,2025-07-12,Moonshot,GSO-Bench,,2.976e+24
+Qwen3-Coder-480B-A35B-Instruct,0.049,2025-07-31,Alibaba,GSO-Bench,,1.575e+24
+claude-3-5-sonnet-20241022,0.046,2024-10-22,Anthropic,GSO-Bench,,
+gemini-2.5-pro,0.039,2025-06-17,Google DeepMind,GSO-Bench,,
+claude-3-7-sonnet-20250219,0.038,2025-02-24,Anthropic,GSO-Bench,,3.3499999999999998e+25
+o4-mini-2025-04-16_high,0.036,2025-04-16,OpenAI,GSO-Bench,,
+o3-mini-2025-01-31_high,0.013,2025-01-31,OpenAI,GSO-Bench,,
+gpt-4o-2024-11-20,0.0,2024-11-20,OpenAI,GSO-Bench,,
+gpt-4-0314,0.953,2023-03-14,OpenAI,HellaSwag,,2.1e+25
+PaLM 540B,0.834,2022-04-04,Google Research,HellaSwag,,2.5272e+24
+PaLM 2-S,0.82,2023-05-17,,HellaSwag,,
+PaLM 2-M,0.84,2023-05-17,,HellaSwag,,
+PaLM 2-L,0.868,2023-05-17,,HellaSwag,,
+LLaMA-7B,0.761,2023-02-24,Meta AI,HellaSwag,,4.00000001e+22
+LLaMA-13B,0.792,2023-02-24,Meta AI,HellaSwag,,7.8e+22
+LLaMA-33B,0.828,2023-02-24,Meta AI,HellaSwag,,2.7300000000001e+23
+LLaMA-65B,0.842,2023-02-24,Meta AI,HellaSwag,,5.5e+23
+Qwen2.5-Coder-0.5B,0.484,2024-09-18,,HellaSwag,,
+Qwen2.5-Coder-1.5B,0.618,2024-09-18,Alibaba,HellaSwag,,5.082e+22
+Qwen2.5-Coder-3B,0.709,2024-09-18,,HellaSwag,,
+Qwen2.5-Coder-7B,0.768,2024-09-18,Alibaba,HellaSwag,,2.5113e+23
+Qwen2.5-Coder-14B,0.802,2024-09-18,,HellaSwag,,
+Qwen2.5-Coder-32B,0.83,2024-09-18,Alibaba,HellaSwag,,1.0725e+24
+Mixtral-8x7B-v0.1,0.867,2023-12-11,Mistral AI,HellaSwag,,7.74e+23
+Mistral-7B-v0.1,0.81,2023-09-27,Mistral AI,HellaSwag,,
+gemma-7b,0.822,2024-02-21,Google DeepMind,HellaSwag,,3.07e+23
+gemma-2b,0.714,2024-02-21,Google DeepMind,HellaSwag,,4.5115822e+22
+Llama-2-7b,0.772,2023-07-18,Meta AI,HellaSwag,,8.4e+22
+Llama-2-13b,0.807,2023-07-18,Meta AI,HellaSwag,,1.6e+23
+DeepSeek-V2,0.871,2024-05-07,DeepSeek,HellaSwag,,1.02e+24
+Qwen2.5-72B,0.848,2024-09-19,Alibaba,HellaSwag,,7.8e+24
+Llama-3.1-405B,0.892,2024-07-23,Meta AI,HellaSwag,,3.8e+25
+DeepSeek-V3,0.889,2024-12-26,DeepSeek,HellaSwag,,3.4078e+24
+phi-1_5,0.476,2023-09-11,Microsoft,HellaSwag,,1.17e+21
+Yi-6B,0.744,2023-11-02,01.AI,HellaSwag,,1.26e+23
+Yi-9B,0.764,2024-03-01,,HellaSwag,,
+falcon-7b,0.7631,2023-04-24,Technology Innovation Institute,HellaSwag,,6.3e+22
+falcon-40b,0.828,2023-03-15,Technology Innovation Institute,HellaSwag,,2.4e+23
+falcon-11b,0.8207,2024-05-09,Technology Innovation Institute,HellaSwag,,3.6e+23
+falcon-180B,0.89,2023-09-06,Technology Innovation Institute,HellaSwag,,3.76e+24
+text-davinci-003,0.855,2022-11-28,OpenAI,HellaSwag,,2.578e+24
+gpt-4-32k-0314,0.953,2023-03-14,OpenAI,HellaSwag,,2.1e+25
+Nemotron-4 15B,0.824,2024-02-26,NVIDIA,HellaSwag,,7.5005116e+23
+Phi-3-mini-4k-instruct,0.767,2024-04-23,Microsoft,HellaSwag,,7.524e+22
+Phi-3-small-8k-instruct,0.77,2024-04-23,Microsoft,HellaSwag,,2.1312e+23
+Phi-3-medium-128k-instruct,0.824,2024-04-23,Microsoft,HellaSwag,,4.032e+23
+phi-2,0.536,2023-12-12,Microsoft,HellaSwag,,2.27e+22
+text-davinci-001,0.789,2022-01-27,OpenAI,HellaSwag,,3.19181e+23
+GLaM (MoE),0.766,2021-12-13,Google,HellaSwag,,3.6363112434e+23
+Gopher (280B),0.792,2021-12-08,DeepMind,HellaSwag,,6.31e+23
+Megatron-Turing NLG 530B,0.824,2022-01-28,"Microsoft,NVIDIA",HellaSwag,,8.586e+23
+mpt-7b,0.764,2023-05-05,MosaicML,HellaSwag,,4.2e+22
+chatglm2-6b,0.57,2023-06-24,,HellaSwag,,
+internlm-7b,0.706,2023-07-05,,HellaSwag,,
+internlm-20b,0.781,2023-09-18,,HellaSwag,,
+Baichuan-2-7B-Base,0.68,2023-09-20,Baichuan,HellaSwag,,1.092e+23
+Baichuan-2-13B-Base,0.708,2023-09-06,Baichuan,HellaSwag,,2.03e+23
+Llama-2-70b-hf,0.853,2023-07-18,Meta AI,HellaSwag,,8.1e+23
+StableBeluga2,0.841,2023-07-20,Stability AI,HellaSwag,,
+text-davinci-002,0.815,2022-03-15,OpenAI,HellaSwag,,2.578e+24
+Cohere xlarge v20220609 (52.4B),0.811,,,HellaSwag,,
+Cohere Command beta (52.4B),0.811,,,HellaSwag,,
+Cohere xlarge v20221108 (52.4B),0.81,,,HellaSwag,,
+Anthropic-LM v4-s3 (52B),0.807,,,HellaSwag,,
+TNLG v2 (530B),0.799,,,HellaSwag,,
+opt-175b,0.791,2022-05-02,Meta AI,HellaSwag,,4.3e+23
+Jurassic-2 Jumbo (178B),0.788,,,HellaSwag,,
+Jurassic-2 Grande (17B),0.781,,,HellaSwag,,
+davinci,0.775,,OpenAI,HellaSwag,,3.14e+23
+J1-Jumbo v1 (178B),0.765,,,HellaSwag,,
+J1-Grande v2 beta (17B),0.764,,,HellaSwag,,
+Cohere Command beta (6.1B),0.752,,,HellaSwag,,
+opt-66b,0.745,2022-05-03,Meta AI,HellaSwag,,1.100000000001e+23
+bloom,0.744,2022-07-06,"Hugging Face,BigScience",HellaSwag,,3.65664e+23
+J1-Grande v1 (17B),0.739,,,HellaSwag,,
+Cohere large v20220720 (13.1B),0.736,,,HellaSwag,,
+Jurassic-2 Large (7.5B),0.729,,,HellaSwag,,
+Cohere medium v20221108 (6.1B),0.726,,,HellaSwag,,
+GPT-NeoX (20B),0.718,,,HellaSwag,,
+Cohere medium v20220720 (6.1B),0.706,,,HellaSwag,,
+TNLG v2 (6.7B),0.704,,,HellaSwag,,
+J1-Large v1 (7.5B),0.7,,,HellaSwag,,
+curie,0.682,,OpenAI,HellaSwag,,1.2e+22
+text-curie-001,0.676,,OpenAI,HellaSwag,,
+GPT-J (6B),0.663,,,HellaSwag,,
+text-babbage-001,0.561,,OpenAI,HellaSwag,,
+babbage,0.555,,OpenAI,HellaSwag,,2.38e+21
+Cohere small v20220720 (410M),0.483,,,HellaSwag,,
+ada,0.435,,OpenAI,HellaSwag,,6.41e+20
+text-ada-001,0.429,,OpenAI,HellaSwag,,
+vicuna-13b-v1.1,0.578,2023-04-12,,HellaSwag,,
+Falcon-rw-1.3B,0.466,,,HellaSwag,,
+opt-1.3b,0.415,2022-05-11,Meta AI,HellaSwag,,
+gpt-neo-2.7B,0.427,2023-03-30,EleutherAI,HellaSwag,,7.9e+21
+gpt2-xl,0.4,2019-11-05,OpenAI,HellaSwag,,1.920000000001e+21
+UNICORN,0.866,,,HellaSwag,,
+xgen-7b-8k-base,0.742,2023-06-27,Salesforce,HellaSwag,,8.02e+22
+open_llama_7b,0.718,2023-06-07,,HellaSwag,,
+RedPajama-INCITE-7B-Base,0.703,2023-05-04,,HellaSwag,,
+gpt-neox-20b,0.705,2022-04-07,EleutherAI,HellaSwag,,9.31627008e+22
+opt-13b,0.699,2022-05-11,,HellaSwag,,
+gpt-j-6b,0.662,2021-08-05,"EleutherAI,LAION",HellaSwag,,1.5e+22
+dolly-v2-12b,0.708,2023-04-11,Databricks,HellaSwag,,
+Cerebras-GPT-13B,0.594,2023-03-20,Cerebras Systems,HellaSwag,,2.3e+22
+stablelm-tuned-alpha-7b,0.407,2023-04-19,,HellaSwag,,
+mpt-7b,0.7,2023-05-05,MosaicML,LAMBADA,,4.2e+22
+chatglm2-6b,0.543,2023-06-24,,LAMBADA,,
+internlm-7b,0.67,2023-07-05,,LAMBADA,,
+internlm-20b,0.718,2023-09-18,,LAMBADA,,
+XVerse,0.482,,,LAMBADA,,
+Baichuan-2-7B-Base,0.733,2023-09-20,Baichuan,LAMBADA,,1.092e+23
+Baichuan-2-13B-Base,0.74,2023-09-06,Baichuan,LAMBADA,,2.03e+23
+LLaMA-7B,0.733,2023-02-24,Meta AI,LAMBADA,,4.00000001e+22
+LLaMA-13B,0.752,2023-02-24,Meta AI,LAMBADA,,7.8e+22
+LLaMA-33B,0.772,2023-02-24,Meta AI,LAMBADA,,2.7300000000001e+23
+LLaMA-65B,0.777,2023-02-24,Meta AI,LAMBADA,,5.5e+23
+Llama-2-7b,0.733,2023-07-18,Meta AI,LAMBADA,,8.4e+22
+Llama-2-13b,0.765,2023-07-18,Meta AI,LAMBADA,,1.6e+23
+Llama-2-70b-hf,0.789,2023-07-18,Meta AI,LAMBADA,,8.1e+23
+StableBeluga2,0.713,2023-07-20,Stability AI,LAMBADA,,
+Qwen-1_8B,0.584,2023-11-30,,LAMBADA,,
+Qwen-7B,0.679,2023-09-28,Alibaba,LAMBADA,,1.01e+23
+Qwen-14B,0.711,2023-09-28,Alibaba,LAMBADA,,2.5e+23
+GLaM (MoE) 0.1B/64E,0.414,,,LAMBADA,,
+GLaM (MoE) 1.7B/64E,0.637,,,LAMBADA,,
+GLaM (MoE) 8B/64E,0.673,,,LAMBADA,,
+GLaM (MoE) 64B/64E,0.642,,,LAMBADA,,
+GLaM (Dense) 0.1B,0.378,,,LAMBADA,,
+GLaM (Dense) 1.7B,0.601,,,LAMBADA,,
+GLaM (Dense) 8B,0.693,,,LAMBADA,,
+GLaM (Dense) 137B,0.709,,,LAMBADA,,
+GPT3 175B,0.762,,,LAMBADA,,
+text-davinci-001,0.725,2022-01-27,OpenAI,LAMBADA,,3.19181e+23
+Gopher (280B),0.745,2021-12-08,DeepMind,LAMBADA,,6.31e+23
+Megatron-Turing NLG 530B,0.7656,2022-01-28,"Microsoft,NVIDIA",LAMBADA,,8.586e+23
+XVERSE 13B,0.482,,,LAMBADA,,
+Chinchilla (70B),0.774,2022-03-29,DeepMind,LAMBADA,,5.76e+23
+PaLM 540B,0.779,2022-04-04,Google Research,LAMBADA,,2.5272e+24
+Inflection-1,0.785,2023-06-22,Inflection AI,LAMBADA,,1.0001e+24
+falcon-7b,0.749,2023-04-24,Technology Innovation Institute,LAMBADA,,6.3e+22
+falcon-40b,0.773,2023-03-15,Technology Innovation Institute,LAMBADA,,2.4e+23
+falcon-180B,0.798,2023-09-06,Technology Innovation Institute,LAMBADA,,3.76e+24
+o3-2025-04-16_medium,0.8390000000000001,2025-04-16,OpenAI,Lech Mazur Writing,,
+qwen3-235b-a22b,0.8300000000000001,2025-04-29,Alibaba,Lech Mazur Writing,,4.752e+24
+DeepSeek-R1,0.8300000000000001,2025-01-20,DeepSeek,Lech Mazur Writing,,4.020010000000001e+24
+gpt-4o-2024-11-20,0.818,2024-11-20,OpenAI,Lech Mazur Writing,,
+claude-3-7-sonnet-20250219_16K,0.8109999999999999,2025-02-24,Anthropic,Lech Mazur Writing,,3.3499999999999998e+25
+QwQ-32B (16K thinking),0.807,2025-03-05,Alibaba,Lech Mazur Writing,,3.51e+24
+gemini-2.5-pro-exp-03-25,0.805,2025-03-25,Google DeepMind,Lech Mazur Writing,,
+claude-3-5-sonnet-20241022,0.8029999999999999,2024-10-22,Anthropic,Lech Mazur Writing,,
+gemma-3-27b-it,0.799,2025-03-12,Google DeepMind,Lech Mazur Writing,,2.268e+24
+claude-3-7-sonnet-20250219,0.794,2025-02-24,Anthropic,Lech Mazur Writing,,3.3499999999999998e+25
+DeepSeek-V3-0324,0.77,2025-03-24,DeepSeek,Lech Mazur Writing,,3.4078e+24
+gemini-2.5-flash-preview-04-17 (24K thinking),0.765,2025-04-17,Google DeepMind,Lech Mazur Writing,,
+grok-3-beta,0.764,2025-04-09,xAI,Lech Mazur Writing,,3.5000000000000006e+26
+gpt-4.5-preview-2025-02-27,0.756,2025-02-27,OpenAI,Lech Mazur Writing,,3.8e+26
+Qwen3-30B-A3B,0.753,2025-04-29,Alibaba,Lech Mazur Writing,,6.48e+23
+o4-mini-2025-04-16_medium,0.75,2025-04-16,OpenAI,Lech Mazur Writing,,
+gemini-2.0-flash-thinking-exp-01-21,0.738,2025-01-21,"Google DeepMind,Google",Lech Mazur Writing,,
+claude-3-5-haiku-20241022,0.735,2024-10-22,Anthropic,Lech Mazur Writing,,
+grok-3-mini-beta_low,0.735,2025-04-09,xAI,Lech Mazur Writing,,
+qwen2.5-max,0.729,2025-01-28,Alibaba,Lech Mazur Writing,,
+gemini-2.0-flash-exp,0.7150000000000001,2024-12-11,"Google DeepMind,Google",Lech Mazur Writing,,
+o1-2024-12-17_medium,0.702,2024-12-17,OpenAI,Lech Mazur Writing,,
+mistral-large-2407,0.6900000000000001,2024-07-24,Mistral AI,Lech Mazur Writing,,2.13e+25
+gpt-4o-mini-2024-07-18,0.6719999999999999,2024-07-18,OpenAI,Lech Mazur Writing,,
+o1-mini-2024-09-12_medium,0.649,2024-09-12,OpenAI,Lech Mazur Writing,,
+grok-2-1212,0.636,2024-12-12,xAI,Lech Mazur Writing,,2.9599999999999996e+25
+phi-4,0.626,2024-12-12,Microsoft Research,Lech Mazur Writing,,9.3202015e+23
+Llama-4-Maverick-17B-128E-Instruct,0.62,2025-04-05,Meta AI,Lech Mazur Writing,,2.244000000001e+24
+o3-mini-2025-01-31_high,0.617,2025-01-31,OpenAI,Lech Mazur Writing,,
+o3-mini-2025-01-31_medium,0.615,2025-01-31,OpenAI,Lech Mazur Writing,,
+amazon.nova-pro-v1:0,0.605,2024-12-03,Amazon,Lech Mazur Writing,,6.000010000000001e+24
+gpt-5-2025-08-07_medium,0.8723000000000001,2025-08-07,OpenAI,Lech Mazur Writing,,6.6e+25
+moonshotai/kimi-k2-0905,0.8728999999999999,2025-09-05,Moonshot,Lech Mazur Writing,,2.976e+24
+qwen3-max-2025-09-23,0.8711,2025-09-24,Alibaba,Lech Mazur Writing,,1.512e+25
+Kimi-K2-Instruct,0.8693,2025-07-12,Moonshot,Lech Mazur Writing,,2.976e+24
+o3-pro-2025-06-10_medium,0.8628,2025-06-10,OpenAI,Lech Mazur Writing,,
+gemini-2.5-pro,0.8602000000000001,2025-06-17,Google DeepMind,Lech Mazur Writing,,
+claude-opus-4-1-20250805,0.8538,2025-08-05,Anthropic,Lech Mazur Writing,,
+DeepSeek-V3.1_thinking,0.8516999999999999,2025-08-21,DeepSeek,Lech Mazur Writing,,3.594058e+24
+DeepSeek-V3.1,0.8507,2025-08-21,DeepSeek,Lech Mazur Writing,,3.594058e+24
+Qwen3-235B-A22B-Thinking-2507,0.8494999999999999,2025-07-25,,Lech Mazur Writing,,
+grok-4-fast,0.8114000000000001,2025-09-19,xAI,Lech Mazur Writing,,
+grok-4-0709,0.8068,2025-07-09,xAI,Lech Mazur Writing,,5.0000000000001e+26
+glm-4.5,0.7803,2025-08-03,"Zhipu AI,Tsinghua University",Lech Mazur Writing,,4.42e+24
+gpt-oss-120b,0.7726,2025-08-05,OpenAI,Lech Mazur Writing,,4.94e+24
+gemini-2.5-pro-exp-03-25,0.8234999999999999,2025-03-25,Google DeepMind,LiveBench,,
+claude-3-7-sonnet-20250219,0.7609999999999999,2025-02-24,Anthropic,LiveBench,,3.3499999999999998e+25
+o3-mini-2025-01-31_high,0.7587999999999999,2025-01-31,OpenAI,LiveBench,,
+o1-2024-12-17_high,0.7567,2024-12-17,OpenAI,LiveBench,,
+QwQ-32B,0.7195999999999999,2025-03-05,Alibaba,LiveBench,,3.51e+24
+DeepSeek-R1,0.7156999999999999,2025-01-20,DeepSeek,LiveBench,,4.020010000000001e+24
+o3-mini-2025-01-31_medium,0.7001000000000001,2025-01-31,OpenAI,LiveBench,,
+gpt-4.5-preview-2025-02-27,0.6895,2025-02-27,OpenAI,LiveBench,,3.8e+26
+gemini-2.0-flash-thinking-exp-01-21,0.6692,2025-01-21,"Google DeepMind,Google",LiveBench,,
+DeepSeek-V3-0324,0.6686,2025-03-24,DeepSeek,LiveBench,,3.4078e+24
+gemini-2.0-pro-exp-02-05,0.6513,2025-02-05,Google DeepMind,LiveBench,,
+gemini-exp-1206,0.6409,2024-12-06,"Google DeepMind,Google",LiveBench,,
+o3-mini-2025-01-31_low,0.6245,2025-01-31,OpenAI,LiveBench,,
+qwen2.5-max,0.6229,2025-01-28,Alibaba,LiveBench,,
+gemini-2.0-flash-001,0.6147,2025-02-05,"Google DeepMind,Google",LiveBench,,
+DeepSeek-V3,0.6045,2024-12-26,DeepSeek,LiveBench,,3.4078e+24
+gemini-2.0-flash-exp,0.5926,2024-12-11,"Google DeepMind,Google",LiveBench,,
+claude-3-5-sonnet-20241022,0.5903,2024-10-22,Anthropic,LiveBench,,
+o1-mini-2024-09-12_medium,0.5776,2024-09-12,OpenAI,LiveBench,,
+gpt-4o-2024-08-06,0.5533,2024-08-06,OpenAI,LiveBench,,
+DeepSeek-R1-Distill-Llama-70B,0.545,2025-01-20,DeepSeek,LiveBench,,
+grok-2-1212,0.5429999999999999,2024-12-12,xAI,LiveBench,,2.9599999999999996e+25
+gemini-2.0-flash-lite,0.5428999999999999,2025-02-05,Google DeepMind,LiveBench,,
+gemini-2.0-flash-lite-preview-02-05,0.5324,2025-02-05,Google DeepMind,LiveBench,,
+Dracarys2-72B-Instruct,0.5264,2024-09-30,,LiveBench,,
+gpt-4o-2024-11-20,0.5219,2024-11-20,OpenAI,LiveBench,,
+learnlm-1.5-pro-experimental,0.5219,,,LiveBench,,
+Llama-3.3-70B-Instruct,0.5015999999999999,2024-12-06,Meta AI,LiveBench,,6.8649768e+24
+gemma-3-27b-it,0.4999,2025-03-12,Google DeepMind,LiveBench,,2.268e+24
+claude-3-opus-20240229,0.4916,2024-02-29,Anthropic,LiveBench,,
+mistral-large-2411,0.4843,2024-11-18,Mistral AI,LiveBench,,2.13e+25
+sonar,0.46880000000000005,,,LiveBench,,
+Qwen2.5-Coder-32B-Instruct,0.4623,2024-11-21,Alibaba,LiveBench,,1.0725e+24
+Dracarys2-Llama-3.1-70B-Instruct,0.4621,2024-08-14,,LiveBench,,
+DeepSeek-R1-Distill-Qwen-32B,0.45549999999999996,2025-01-20,DeepSeek,LiveBench,,
+mistral-small-2503,0.4396,2025-03-17,Mistral AI,LiveBench,,
+amazon.nova-pro-v1:0,0.4353,2024-12-03,Amazon,LiveBench,,6.000010000000001e+24
+claude-3-5-haiku-20241022,0.43450000000000005,2024-10-22,Anthropic,LiveBench,,
+mistral-small-2501,0.4255,2025-01-25,Mistral AI,LiveBench,,1.152e+24
+phi-4,0.41609999999999997,2024-12-12,Microsoft Research,LiveBench,,9.3202015e+23
+gpt-4o-mini-2024-07-18,0.41259999999999997,2024-07-18,OpenAI,LiveBench,,
+QwQ-32B-Preview,0.4025,2024-11-28,Alibaba,LiveBench,,3.51e+24
+gemma-2-27b-it,0.3818,2024-06-24,Google DeepMind,LiveBench,,2.106e+24
+amazon.nova-lite-v1:0,0.3635,2024-12-03,Amazon,LiveBench,,
+c4ai-command-r-plus-08-2024,0.3176,2024-08-30,"Cohere,Cohere for AI",LiveBench,,
+amazon.nova-micro-v1:0,0.2959,2024-12-03,Amazon,LiveBench,,
+gemma-2-9b-it,0.2866,2024-06-24,Google DeepMind,LiveBench,,4.32e+23
+c4ai-command-r-08-2024,0.2748,2024-08-30,,LiveBench,,
+Phi-3-small-8k-instruct,0.2403,2024-04-23,Microsoft,LiveBench,,2.1312e+23
+Phi-3-mini-4k-instruct,0.2236,2024-04-23,Microsoft,LiveBench,,7.524e+22
+OLMo-2-1124-13B-Instruct,0.2212,2024-12-31,"Allen Institute for AI,University of Washington,New York University (NYU)",LiveBench,,4.6e+23
+gpt-5.1_high,0.7879,2025-11-13,OpenAI,LiveBench,,
+gpt-5-mini-2025-08-07_high,0.978474320241692,2025-08-07,OpenAI,MATH Level 5,0.0033694224141454,
+gpt-5-2025-08-07_high,0.9813066465256798,2025-08-07,OpenAI,MATH Level 5,0.0031922231523012,6.6e+25
+claude-haiku-4-5-20251001_32K,0.9636087945413192,2025-10-15,Anthropic,MATH Level 5,0.0051581134892311,
+claude-sonnet-4-5-20250929_32K,0.9773413897280968,2025-09-29,Anthropic,MATH Level 5,0.0040912861748122,
+claude-haiku-4-5-20251001,0.8691465256797583,2025-10-15,Anthropic,MATH Level 5,0.0077475516872147,
+qwen3-max-2025-09-23,0.9712990936555892,2025-09-24,Alibaba,MATH Level 5,0.0042006948157449,1.512e+25
+gpt-5-2025-08-07_medium,0.9792296072507553,2025-08-07,OpenAI,MATH Level 5,0.0034462562644399,6.6e+25
+gpt-5-nano-2025-08-07_medium,0.952416918429003,2025-08-07,OpenAI,MATH Level 5,0.0046270568930495,
+gpt-5-nano-2025-08-07_high,0.9490181268882176,2025-08-07,OpenAI,MATH Level 5,0.0048488515751137,
+gpt-5-mini-2025-08-07_medium,0.9679003021148036,2025-08-07,OpenAI,MATH Level 5,0.0038534757473536,
+qwen3-235b-a22b,0.6885699899295065,2025-04-29,Alibaba,MATH Level 5,0.0094870673760183,4.752e+24
+DeepSeek-R1-0528,0.9663897280966768,2025-05-28,DeepSeek,MATH Level 5,0.0042156161735636,4.020010000000001e+24
+claude-sonnet-4-20250514,0.8436555891238671,2025-05-22,Anthropic,MATH Level 5,0.0099849030433969,
+claude-opus-4-20250514,0.850453172205438,2025-05-22,Anthropic,MATH Level 5,0.0098046903676609,
+gemini-2.5-pro-preview-05-06,0.959025679758308,2025-05-06,Google DeepMind,MATH Level 5,0.004221388011004,
+gemini-2.5-pro-preview-03-25,0.9556268882175226,2025-04-09,Google DeepMind,MATH Level 5,0.0044751692608145,
+mistral-medium-2505,0.8162764350453172,2025-05-07,Mistral AI,MATH Level 5,0.0089956516510095,
+o4-mini-2025-04-16_high,0.978285498489426,2025-04-16,OpenAI,MATH Level 5,0.0033204985518619,
+o3-2025-04-16_high,0.9777190332326284,2025-04-16,OpenAI,MATH Level 5,0.0033230338273894,
+gpt-4.1-mini-2025-04-14,0.8729229607250756,2025-04-14,OpenAI,MATH Level 5,0.0072984847587743,
+gpt-4.1-nano-2025-04-14,0.6999622356495468,2025-04-14,OpenAI,MATH Level 5,0.0102315913503028,
+gpt-4.1-2025-04-14,0.8300604229607251,2025-04-14,OpenAI,MATH Level 5,0.0084901460443183,
+grok-3-mini-beta_low,0.9093655589123868,2025-04-09,xAI,MATH Level 5,0.0078928883466236,
+grok-3-mini-beta_high,0.8806646525679759,2025-04-09,xAI,MATH Level 5,0.0089127127854116,
+grok-3-beta,0.8874622356495468,2025-04-09,xAI,MATH Level 5,0.0086884870933244,3.5000000000000006e+26
+Llama-4-Maverick-17B-128E-Instruct-FP8,0.7301737160120846,2025-04-05,Meta AI,MATH Level 5,0.0108357369963628,2.244000000001e+24
+Llama-4-Scout-17B-16E-Instruct,0.6227341389728097,2025-04-05,Meta AI,MATH Level 5,0.0120224058737839,4.08e+24
+qwen-turbo-2024-11-01,0.5623111782477341,2024-11-01,Alibaba,MATH Level 5,0.0113646309475505,
+qwen-plus-2025-01-25,0.6527567975830816,2025-01-25,Alibaba,MATH Level 5,0.0113346547740465,
+qwen-max-2025-01-25,0.6718277945619335,2025-01-25,Alibaba,MATH Level 5,0.0111439674428821,
+DeepSeek-V3-0324,0.75547583081571,2025-03-24,DeepSeek,MATH Level 5,0.0086031731065772,3.4078e+24
+mistral-small-2503,0.4677114803625378,2025-03-17,Mistral AI,MATH Level 5,0.0119957003779657,
+claude-3-7-sonnet-20250219_64K,0.9116314199395772,2025-02-24,Anthropic,MATH Level 5,0.007803306377082,3.3499999999999998e+25
+gemma-3-27b-it,0.740370090634441,2025-03-12,Google DeepMind,MATH Level 5,0.0111958575257272,2.268e+24
+claude-3-5-haiku-20241022,0.4635574018126888,2024-10-22,Anthropic,MATH Level 5,0.0116117281055262,
+claude-3-7-sonnet-20250219_32K,0.9003021148036254,2025-02-24,Anthropic,MATH Level 5,0.0082367746846782,3.3499999999999998e+25
+DeepSeek-R1-Distill-Qwen-14B,0.8712235649546828,2025-01-20,DeepSeek,MATH Level 5,0.0074862172041552,
+DeepSeek-R1-Distill-Llama-70B,0.8989803625377644,2025-01-20,DeepSeek,MATH Level 5,0.0068180152001744,
+gpt-4.5-preview-2025-02-27,0.7862537764350453,2025-02-27,OpenAI,MATH Level 5,0.0112706944281362,3.8e+26
+gpt-4-turbo-2024-04-09,0.467333836858006,2024-04-09,OpenAI,MATH Level 5,0.0114282589303959,
+claude-3-7-sonnet-20250219_16K,0.8625377643504532,2025-02-24,Anthropic,MATH Level 5,0.0094667484833971,3.3499999999999998e+25
+mistral-large-2411,0.5028323262839879,2024-11-18,Mistral AI,MATH Level 5,0.0114694516234809,2.13e+25
+claude-3-7-sonnet-20250219,0.6818353474320241,2025-02-24,Anthropic,MATH Level 5,0.0106696518619303,3.3499999999999998e+25
+grok-2-1212,0.6351963746223565,2024-12-12,xAI,MATH Level 5,0.0132343816959083,2.9599999999999996e+25
+o1-2024-12-17_high,0.947129909365559,2024-12-17,OpenAI,MATH Level 5,0.0061521920059655,
+o1-mini-2024-09-12_high,0.8918051359516617,2024-09-12,OpenAI,MATH Level 5,0.0068028201660656,
+o3-mini-2025-01-31_high,0.9648791540785498,2025-01-31,OpenAI,MATH Level 5,0.0042652634619846,
+gemini-2.0-pro-exp-02-05,0.8345921450151057,2025-02-05,Google DeepMind,MATH Level 5,0.0102149275150492,
+gemini-2.0-flash-001,0.8216578549848943,2025-02-05,"Google DeepMind,Google",MATH Level 5,0.0087340815051769,
+gpt-4o-2024-11-20,0.4977341389728096,2024-11-20,OpenAI,MATH Level 5,0.0111028196180965,
+Phi-3-medium-128k-instruct,0.1756042296072507,2024-04-23,Microsoft,MATH Level 5,0.0072956576610985,4.032e+23
+DeepSeek-R1,0.9305135951661632,2025-01-20,DeepSeek,MATH Level 5,0.0069908721600314,4.020010000000001e+24
+phi-4,0.6493580060422961,2024-12-12,Microsoft Research,MATH Level 5,0.0106568713840848,9.3202015e+23
+o3-mini-2025-01-31_medium,0.9516616314199396,2025-01-31,OpenAI,MATH Level 5,0.0046519178576215,
+qwen2.5-32b-instruct,0.5607061933534743,2024-09-17,Alibaba,MATH Level 5,0.0107672079887217,3.51e+24
+mistral-small-2501,0.4481684290030212,2025-01-25,Mistral AI,MATH Level 5,0.0108549272339936,1.152e+24
+gpt-4-0613,0.2297016616314199,2023-06-13,OpenAI,MATH Level 5,0.0084655340270774,2.1e+25
+gemini-1.5-flash-001,0.2512273413897281,2024-05-23,Google DeepMind,MATH Level 5,0.0094563932465263,
+gemini-1.5-pro-002,0.7039274924471299,2024-09-24,Google DeepMind,MATH Level 5,0.0101748934155157,
+gpt-3.5-turbo-0125,0.1163141993957704,2024-01-25,OpenAI,MATH Level 5,0.0055439459138513,
+gemini-1.5-pro-001,0.4074773413897281,2024-05-24,Google DeepMind,MATH Level 5,0.0105749024591458,
+gpt-4-1106-preview,0.4002077039274924,2023-11-06,OpenAI,MATH Level 5,0.0105387946323973,
+gpt-3.5-turbo-1106,0.158893504531722,2023-11-06,OpenAI,MATH Level 5,0.0069594085160011,
+gemini-1.5-flash-002,0.6186744712990937,2024-09-24,Google DeepMind,MATH Level 5,0.0112012212758022,
+claude-2.0,0.1172583081570997,2023-07-11,Anthropic,MATH Level 5,0.0065956709139699,3.866e+24
+claude-3-5-sonnet-20241022,0.5694864048338368,2024-10-22,Anthropic,MATH Level 5,0.011091284283577,
+claude-3-5-sonnet-20240620,0.5168051359516617,2024-06-20,Anthropic,MATH Level 5,0.0116250120233614,2.700000000000001e+25
+claude-3-opus-20240229,0.3748111782477341,2024-02-29,Anthropic,MATH Level 5,0.0105872842637639,
+claude-3-haiku-20240307,0.1487915407854985,2024-03-07,Anthropic,MATH Level 5,0.0072299659137194,
+claude-3-sonnet-20240229,0.1817409365558912,2024-02-29,Anthropic,MATH Level 5,0.0079818173440472,
+Llama-3.1-8B-Instruct,0.2287575528700906,2024-07-23,Meta AI,MATH Level 5,0.0085194576319953,1.224e+24
+Llama-3.1-405B-Instruct,0.4977341389728096,2024-07-23,Meta AI,MATH Level 5,0.0121852759365695,3.8e+25
+Llama-3.1-70B-Instruct,0.366786253776435,2024-07-23,Meta AI,MATH Level 5,0.0102296048596909,7.929e+24
+gpt-4o-2024-05-13,0.5104796072507553,2024-05-13,OpenAI,MATH Level 5,0.011208419842185,
+gpt-4o-mini-2024-07-18,0.5263406344410876,2024-07-18,OpenAI,MATH Level 5,0.0112752756968717,
+gpt-4o-2024-08-06,0.5327605740181269,2024-08-06,OpenAI,MATH Level 5,0.0112212902144101,
+o1-mini-2024-09-12_medium,0.8425226586102719,2024-09-12,OpenAI,MATH Level 5,0.0082567150837881,
+Hermes-2-Theta-Llama-3-70B,0.226869335347432,2024-06-20,"Nous Research,Arcee AI",MATH Level 5,0.0081277080892373,
+Meta-Llama-3-8B-Instruct,0.0612726586102719,2024-04-18,Meta AI,MATH Level 5,0.0037433164863856,7.2e+23
+Meta-Llama-3-70B-Instruct,0.225547583081571,2024-04-18,Meta AI,MATH Level 5,0.0082576399397808,7.861e+24
+Llama-2-70b-chat-hf,0.0328549848942598,2023-07-18,Meta AI,MATH Level 5,0.0025422297741566,8.1e+23
+Yi-1.5-34B-Chat,0.2548149546827795,2024-05-13,01.AI,MATH Level 5,0.0087723689877396,7.344e+23
+Yi-34B-Chat,0.0514539274924471,2023-11-22,01.AI,MATH Level 5,0.0033693214361751,6.1e+23
+gpt-4-0125-preview,0.3541351963746224,2024-01-25,OpenAI,MATH Level 5,0.0108552375620858,
+gemma-2-9b-it,0.2100641993957704,2024-06-24,Google DeepMind,MATH Level 5,0.0089907248462561,4.32e+23
+gemma-2-27b-it,0.2788897280966767,2024-06-24,Google DeepMind,MATH Level 5,0.0099394743068041,2.106e+24
+qwen2-72b-instruct,0.3906722054380664,2024-06-07,Alibaba,MATH Level 5,0.0103172588614644,3.02e+24
+Mistral-7B-Instruct-v0.3,0.0359705438066465,2024-05-27,Mistral AI,MATH Level 5,0.0026669434464957,
+Mixtral-8x7B-Instruct-v0.1,0.0929003021148036,2023-12-11,Mistral AI,MATH Level 5,0.0051024645463178,7.74e+23
+deepseek-llm-67b-chat,0.0639161631419939,2023-11-29,DeepSeek,MATH Level 5,0.0040168441495506,8.04e+23
+WizardLM-2-8x22B,0.2573640483383685,2024-04-15,Microsoft,MATH Level 5,0.0087195215751901,
+dbrx-instruct,0.1165030211480362,2024-03-27,Databricks,MATH Level 5,0.0073558537081513,2.6e+24
+gemini-1.0-pro-001,0.1124433534743202,2024-02-15,Google DeepMind,MATH Level 5,0.0059909492707317,
+ministral-3b-2410,0.1444486404833836,2024-10-16,Mistral AI,MATH Level 5,0.0074462876171129,
+open-mistral-7b,0.0368202416918429,2023-09-27,Mistral AI,MATH Level 5,0.0027715208474754,
+ministral-8b-2410,0.149358006042296,2024-10-16,Mistral AI,MATH Level 5,0.0074545346705844,
+mistral-large-2407,0.4481684290030212,2024-07-24,Mistral AI,MATH Level 5,0.0107034886864154,2.13e+25
+open-mistral-nemo-2407,0.1082892749244713,2024-07-18,Mistral AI,MATH Level 5,0.0060925987120546,
+open-mixtral-8x7b,0.0995090634441087,2023-12-11,Mistral AI,MATH Level 5,0.0053032722455159,7.74e+23
+open-mixtral-8x22b,0.2424471299093655,2024-04-17,Mistral AI,MATH Level 5,0.0082968841122321,2.34e+24
+mistral-large-2402,0.2446185800604229,2024-02-26,Mistral AI,MATH Level 5,0.0089233478664317,1.1199999999999999e+25
+Llama-3.2-90B-Vision-Instruct,0.3943542296072507,2024-09-24,Meta AI,MATH Level 5,0.0102930530947018,
+Llama-3.1-Tulu-3-70B-DPO,0.426642749244713,2024-11-21,"Allen Institute for AI,University of Washington",MATH Level 5,0.0104058546835758,
+Llama-3.3-70B-Instruct,0.4159743202416918,2024-12-06,Meta AI,MATH Level 5,0.0118166702648866,6.8649768e+24
+qwen2.5-72b-instruct,0.631703172205438,2024-09-19,Alibaba,MATH Level 5,0.0107142493311476,7.8e+24
+o1-preview-2024-09-12,0.8164652567975831,2024-09-12,OpenAI,MATH Level 5,0.0106426082581615,
+o1-2024-12-17_medium,0.9441087613293052,2024-12-17,OpenAI,MATH Level 5,0.0063154304853334,
+DeepSeek-V3,0.6485083081570997,2024-12-26,DeepSeek,MATH Level 5,0.010485766934209,3.4078e+24
+claude-3-5-sonnet-20240620,18.21683,2024-06-20,Anthropic,METR Time Horizons,,2.700000000000001e+25
+claude-3-5-sonnet-20241022,28.983512,2024-10-22,Anthropic,METR Time Horizons,,
+claude-3-7-sonnet-20250219_16K,54.226342,2025-02-24,Anthropic,METR Time Horizons,,3.3499999999999998e+25
+claude-3-opus-20240229,6.422825,2024-02-29,Anthropic,METR Time Horizons,,
+claude-opus-4-1-20250805_16K,105.499169,2025-08-05,Anthropic,METR Time Horizons,,
+claude-opus-4-20250514_16K,79.862937,2025-05-22,Anthropic,METR Time Horizons,,
+claude-sonnet-4-5-20250929_16K,113.303764,2025-09-29,Anthropic,METR Time Horizons,,
+claude-sonnet-4-20250514_16K,67.705892,2025-05-22,Anthropic,METR Time Horizons,,
+davinci-002,0.14886,,OpenAI,METR Time Horizons,,3.14e+23
+DeepSeek-R1,26.932599,2025-01-20,DeepSeek,METR Time Horizons,,4.020010000000001e+24
+DeepSeek-R1-0528,31.167847,2025-05-28,DeepSeek,METR Time Horizons,,4.020010000000001e+24
+DeepSeek-V3,18.472532,2024-12-26,DeepSeek,METR Time Horizons,,3.4078e+24
+DeepSeek-V3-0324,23.117113,2025-03-24,DeepSeek,METR Time Horizons,,3.4078e+24
+gemini-2.5-pro-preview-06-05,38.734274,2025-06-05,Google DeepMind,METR Time Horizons,,
+gpt-3.5-turbo-instruct,0.604514,2023-09-18,OpenAI,METR Time Horizons,,
+gpt-4-0125-preview,5.366063,2024-01-25,OpenAI,METR Time Horizons,,
+gpt-4-0314,5.364045,2023-03-14,OpenAI,METR Time Horizons,,2.1e+25
+gpt-4-1106-preview,8.557433,2023-11-06,OpenAI,METR Time Horizons,,
+gpt-4-turbo-2024-04-09,6.567339,2024-04-09,OpenAI,METR Time Horizons,,
+gpt-4o-2024-11-20,9.17045,2024-11-20,OpenAI,METR Time Horizons,,
+gpt-5-2025-08-07_medium,137.318539,2025-08-07,OpenAI,METR Time Horizons,,6.6e+25
+gpt-oss-120b,41.983451,2025-08-05,OpenAI,METR Time Horizons,,4.94e+24
+gpt2-xl,0.039792,2019-11-05,OpenAI,METR Time Horizons,,1.920000000001e+21
+grok-4-0709,110.075251,2025-07-09,xAI,METR Time Horizons,,5.0000000000001e+26
+o1-2024-12-17_medium,39.206576,2024-12-17,OpenAI,METR Time Horizons,,
+o1-preview-2024-09-12,22.221357,2024-09-12,OpenAI,METR Time Horizons,,
+o3-2025-04-16_medium,91.271355,2025-04-16,OpenAI,METR Time Horizons,,
+o4-mini-2025-04-16_medium,76.509015,2025-04-16,OpenAI,METR Time Horizons,,
+qwen2-72b-instruct,2.24432,2024-06-07,Alibaba,METR Time Horizons,,3.02e+24
+qwen2.5-72b-instruct,5.165813,2024-09-19,Alibaba,METR Time Horizons,,7.8e+24
+amazon.nova-lite-v1:0,0.77,2024-12-03,Amazon,MMLU,,
+amazon.nova-micro-v1:0,0.708,2024-12-03,Amazon,MMLU,,
+amazon.nova-pro-v1:0,0.82,2024-12-03,Amazon,MMLU,,6.000010000000001e+24
+AquilaChat2 34B,0.652,,,MMLU,,
+Arctic Instruct,0.677,,,MMLU,,
+Baichuan-7B,0.423,2023-06-01,Baichuan,MMLU,,5.04e+22
+Baichuan-13B-Base,0.516,2023-07-11,Baichuan,MMLU,,9.36e+22
+Baichuan-2-7B-Base,0.5416,2023-09-20,Baichuan,MMLU,,1.092e+23
+Baichuan-2-13B-Base,0.5917,2023-09-06,Baichuan,MMLU,,2.03e+23
+Baichuan2-13B-Chat,0.551,2023-09-06,,MMLU,,
+Cerebras-GPT-13B,0.262,2023-03-20,Cerebras Systems,MMLU,,2.3e+22
+ChatGLM 2-6B (base)*,0.4786,,,MMLU,,
+chatglm2-6b,0.479,2023-06-24,,MMLU,,
+Chinchilla (70B),0.675,2022-03-29,DeepMind,MMLU,,5.76e+23
+Chinese-Alpaca-Plus-13B,0.439,,,MMLU,,
+claude-1.3,0.77,2023-04-18,Anthropic,MMLU,,
+claude-2.0,0.785,2023-07-11,Anthropic,MMLU,,3.866e+24
+claude-2.1,0.735,2023-11-21,Anthropic,MMLU,,
+claude-3-haiku-20240307,0.738,2024-03-07,Anthropic,MMLU,,
+claude-3-opus-20240229,0.846,2024-02-29,Anthropic,MMLU,,
+claude-3-sonnet-20240229,0.759,2024-02-29,Anthropic,MMLU,,
+claude-3-5-haiku-20241022,0.743,2024-10-22,Anthropic,MMLU,,
+claude-3-5-sonnet-20240620,0.865,2024-06-20,Anthropic,MMLU,,2.700000000000001e+25
+claude-3-5-sonnet-20241022,0.873,2024-10-22,Anthropic,MMLU,,
+claude-instant-1.1,0.734,,Anthropic,MMLU,,
+claude-instant-1.2,0.688,2023-08-09,Anthropic,MMLU,,
+CodeQwen1.5-7B,0.405,2024-04-15,,MMLU,,
+c4ai-command-r-08-2024,0.652,2024-08-30,,MMLU,,
+c4ai-command-r-plus-08-2024,0.694,2024-08-30,"Cohere,Cohere for AI",MMLU,,
+DBRX Instruct,0.741,,,MMLU,,
+DeepSeek LLM Chat (67B),0.725,,,MMLU,,
+DeepSeek-V3,0.872,2024-12-26,DeepSeek,MMLU,,3.4078e+24
+DeepSeek-V2,0.784,2024-05-07,DeepSeek,MMLU,,1.02e+24
+dolly-v2-12b,0.262,2023-04-11,Databricks,MMLU,,
+deepseek-coder-1.3b-base,0.258,2023-11-02,"DeepSeek,Peking University",MMLU,,1.56e+22
+deepseek-coder-6.7b-base,0.364,2023-11-02,"DeepSeek,Peking University",MMLU,,8.04e+22
+deepseek-coder-33b-base,0.394,2023-11-02,"DeepSeek,Peking University",MMLU,,3.96e+23
+DeepSeek-Coder-V2-Lite-Base,0.605,2024-06-13,,MMLU,,
+falcon-7b,0.35,2023-04-24,Technology Innovation Institute,MMLU,,6.3e+22
+falcon-40b,0.569,2023-03-15,Technology Innovation Institute,MMLU,,2.4e+23
+falcon-180B,0.706,2023-09-06,Technology Innovation Institute,MMLU,,3.76e+24
+Falcon-rw-1.3B,0.259,,,MMLU,,
+falcon-11b,0.584,2024-05-09,Technology Innovation Institute,MMLU,,3.6e+23
+gemini-1.0-pro-001,0.7,2024-02-15,Google DeepMind,MMLU,,
+gemini-1.5-flash-001,0.779,2024-05-23,Google DeepMind,MMLU,,
+gemini-1.5-flash-002,0.739,2024-09-24,Google DeepMind,MMLU,,
+gemini-1.5-flash-0514,0.778,2024-05-14,Google DeepMind,MMLU,,
+gemini-1.5-pro-001,0.827,2024-05-24,Google DeepMind,MMLU,,
+gemini-1.5-pro-002,0.869,2024-09-24,Google DeepMind,MMLU,,
+Gemini 1.5 Pro (0409 preview),0.81,,,MMLU,,
+gemini-2.0-flash-exp,0.797,2024-12-11,"Google DeepMind,Google",MMLU,,
+gemma-7b,0.661,2024-02-21,Google DeepMind,MMLU,,3.07e+23
+gemma-2-9b-it,0.721,2024-06-24,Google DeepMind,MMLU,,4.32e+23
+gemma-2-27b-it,0.757,2024-06-24,Google DeepMind,MMLU,,2.106e+24
+gemma-2b,0.423,2024-02-21,Google DeepMind,MMLU,,4.5115822e+22
+Gopher (280B),0.6,2021-12-08,DeepMind,MMLU,,6.31e+23
+gpt-4o-mini-2024-07-18,0.818,2024-07-18,OpenAI,MMLU,,
+text-davinci-001,0.439,2022-01-27,OpenAI,MMLU,,3.19181e+23
+text-davinci-002,0.7,2022-03-15,OpenAI,MMLU,,2.578e+24
+GPT-3.5 Turbo,0.6854,,,MMLU,,
+gpt-3.5-turbo-0125,0.673,2024-01-25,OpenAI,MMLU,,
+gpt-3.5-turbo-0613,0.689,2023-06-13,OpenAI,MMLU,,
+gpt-3.5-turbo-1106,0.714,2023-11-06,OpenAI,MMLU,,
+GPT-4,0.8393,,,MMLU,,
+gpt-4-0613,0.824,2023-06-13,OpenAI,MMLU,,2.1e+25
+gpt-4-0314,0.864,2023-03-14,OpenAI,MMLU,,2.1e+25
+gpt-4-turbo,0.796,2023-11-06,OpenAI,MMLU,,
+gpt-4-turbo-2024-04-09,0.813,2024-04-09,OpenAI,MMLU,,
+gpt-4o-2024-11-20,0.881,2024-11-20,OpenAI,MMLU,,
+gpt-4o-2024-05-13,0.842,2024-05-13,OpenAI,MMLU,,
+gpt-4o-2024-08-06,0.843,2024-08-06,OpenAI,MMLU,,
+gpt-j-6b,0.251,2021-08-05,"EleutherAI,LAION",MMLU,,1.5e+22
+GPT-NeoX 20B,0.336,,,MMLU,,
+Inflection-1,0.727,2023-06-22,Inflection AI,MMLU,,1.0001e+24
+InternLM (104B),0.672,,,MMLU,,
+internlm-7b,0.51,2023-07-05,,MMLU,,
+internlm-chat-20b,0.556,2023-09-17,,MMLU,,
+Jamba 1.5 Large,0.782,,,MMLU,,
+Jamba 1.5 Mini,0.699,,,MMLU,,
+Jamba Instruct,0.659,,,MMLU,,
+LLaMA-7B,0.351,2023-02-24,Meta AI,MMLU,,4.00000001e+22
+LLaMA-13B,0.469,2023-02-24,Meta AI,MMLU,,7.8e+22
+LLaMA-33B,0.578,2023-02-24,Meta AI,MMLU,,2.7300000000001e+23
+LLaMA-65B,0.634,2023-02-24,Meta AI,MMLU,,5.5e+23
+Llama-2-7b,0.458,2023-07-18,Meta AI,MMLU,,8.4e+22
+Llama-2-13b,0.554,2023-07-18,Meta AI,MMLU,,1.6e+23
+Llama-2-70b-hf,0.695,2023-07-18,Meta AI,MMLU,,8.1e+23
+Llama-2-34b,0.626,2023-07-18,Meta AI,MMLU,,4.08e+23
+Meta-Llama-3-8B-Instruct,0.688,2024-04-18,Meta AI,MMLU,,7.2e+23
+Meta-Llama-3-70B-Instruct,0.793,2024-04-18,Meta AI,MMLU,,7.861e+24
+Llama-3.1-8B-Instruct,0.561,2024-07-23,Meta AI,MMLU,,1.224e+24
+Llama-3.1-70B-Instruct,0.801,2024-07-23,Meta AI,MMLU,,7.929e+24
+Llama-3.1-405B-Instruct,0.845,2024-07-23,Meta AI,MMLU,,3.8e+25
+Llama-3.2-11B-Vision-Instruct,0.565,2024-09-24,Meta AI,MMLU,,5.79e+23
+Llama-3.2-90B-Vision-Instruct,0.803,2024-09-24,Meta AI,MMLU,,
+Llama-3.3-70B-Instruct,0.791,2024-12-06,Meta AI,MMLU,,6.8649768e+24
+Llama-3.1-405B,0.844,2024-07-23,Meta AI,MMLU,,3.8e+25
+Llama-2-13b-chat,0.509,2023-07-18,Meta AI,MMLU,,1.6e+23
+Llama-2-70b-chat,0.594,2023-07-18,Meta AI,MMLU,,8.1e+23
+Mistral-7B-Instruct-v0.2,0.625,,Mistral AI,MMLU,,
+Mistral-7B-v0.1,0.625,2023-09-27,Mistral AI,MMLU,,
+Mistral-7B-Instruct-v0.3,0.599,2024-05-27,Mistral AI,MMLU,,
+mistral-large-2402,0.688,2024-02-26,Mistral AI,MMLU,,1.1199999999999999e+25
+mistral-large-2407,0.8,2024-07-24,Mistral AI,MMLU,,2.13e+25
+Mistral NeMo (2402),0.653,,,MMLU,,
+mistral-small-2402,0.687,2024-02-26,,MMLU,,
+Mixtral (8x7B 32K seqlen),0.717,,,MMLU,,
+Mixtral-8x22B-v0.1,0.778,2024-04-17,Mistral AI,MMLU,,2.34e+24
+Mixtral-8x7B-v0.1,0.706,2023-12-11,Mistral AI,MMLU,,7.74e+23
+mpt-7b,0.308,2023-05-05,MosaicML,MMLU,,4.2e+22
+mpt-30b,0.479,2023-06-22,MosaicML,MMLU,,1.8900000000001e+23
+Nemotron-4 15B,0.587,2024-02-26,NVIDIA,MMLU,,7.5005116e+23
+OLMo (7B),0.295,,,MMLU,,
+OLMo 1.7 (7B),0.538,,,MMLU,,
+open_llama_7b,0.299,2023-06-07,,MMLU,,
+opt-13b,0.251,2022-05-11,,MMLU,,
+PaLM 8B,0.254,,,MMLU,,
+PaLM 62B,0.537,2022-04-04,,MMLU,,
+PaLM 540B,0.693,2022-04-04,Google Research,MMLU,,2.5272e+24
+PaLM-2 (Bison),0.692,,,MMLU,,
+PaLM-2 (Unicorn),0.786,,,MMLU,,
+Palmyra X V2 (33B),0.621,,,MMLU,,
+Palmyra X V3 (72B),0.786,,,MMLU,,
+Palmyra-X-004,0.739,,,MMLU,,
+phi-1_5,0.376,2023-09-11,Microsoft,MMLU,,1.17e+21
+phi-2,0.584,2023-12-12,Microsoft,MMLU,,2.27e+22
+Phi-3 (7B),0.757,,,MMLU,,
+Phi-3-medium-128k-instruct,0.775,2024-04-23,Microsoft,MMLU,,4.032e+23
+Phi-3-mini-4k-instruct,0.688,2024-04-23,Microsoft,MMLU,,7.524e+22
+Phi-3-small-8k-instruct,0.757,2024-04-23,Microsoft,MMLU,,2.1312e+23
+phi-4,0.848,2024-12-12,Microsoft Research,MMLU,,9.3202015e+23
+Qwen-1_8B,0.282,2023-11-30,,MMLU,,
+Qwen-7B,0.45,2023-09-28,Alibaba,MMLU,,1.01e+23
+Qwen-14B,0.663,2023-09-28,Alibaba,MMLU,,2.5e+23
+Qwen-14B-Chat,0.64,2023-09-24,Alibaba,MMLU,,2.5e+23
+Qwen1.5-7B,0.626,2024-02-04,Alibaba,MMLU,,1.68e+23
+qwen1.5-14B,0.686,2024-02-04,Alibaba,MMLU,,3.36e+23
+qwen1.5-32B,0.744,2024-02-04,Alibaba,MMLU,,
+Qwen1.5 (72B),0.774,,,MMLU,,
+Qwen1.5 Chat (110B),0.768,,,MMLU,,
+qwen2-72b-instruct,0.824,2024-06-07,Alibaba,MMLU,,3.02e+24
+qwen2.5-14b-instruct,0.799,2025-02-26,Alibaba,MMLU,,1.58760000000001e+24
+Qwen2.5-72B,0.85,2024-09-19,Alibaba,MMLU,,7.8e+24
+qwen2.5-72b-instruct,0.853,2024-09-19,Alibaba,MMLU,,7.8e+24
+qwen2.5-7b-instruct,0.729,2025-02-26,Alibaba,MMLU,,8.2188e+23
+Qwen2.5-Coder-0.5B,0.42,2024-09-18,,MMLU,,
+Qwen2.5-Coder-1.5B,0.536,2024-09-18,Alibaba,MMLU,,5.082e+22
+Qwen2.5-Coder-32B,0.612,2024-09-18,Alibaba,MMLU,,1.0725e+24
+Qwen2.5-Coder-7B,0.68,2024-09-18,Alibaba,MMLU,,2.5113e+23
+Qwen2.5-Coder-14B,0.752,2024-09-18,,MMLU,,
+RedPajama-INCITE-7B-Base,0.263,2023-05-04,,MMLU,,
+Solar Pro,0.776,,,MMLU,,
+StableBeluga2,0.686,2023-07-20,Stability AI,MMLU,,
+starcoder2-3b,0.366,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",MMLU,,5.94e+22
+starcoder2-7b,0.388,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",MMLU,,1.55e+23
+starcoder2-15b,0.641,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",MMLU,,3.87e+23
+Vicuna-13B,0.52,,,MMLU,,
+xgen-7b-8k-base,0.363,2023-06-27,Salesforce,MMLU,,8.02e+22
+XVERSE-13B,0.5521,,,MMLU,,
+Yi-6B,0.64,2023-11-02,01.AI,MMLU,,1.26e+23
+Yi-34B,0.762,2023-11-02,01.AI,MMLU,,6.1e+23
+Yi-large,0.793,2024-05-13,01.AI,MMLU,,1.8e+24
+Yi-9B,0.684,2024-03-01,,MMLU,,
+Yi-6B-Chat,0.582,2023-11-22,01.AI,MMLU,,1.26e+23
+Yi-34B-Chat,0.676,2023-11-22,01.AI,MMLU,,6.1e+23
+PaLM 540B,0.534,2022-04-04,Google Research,OpenBookQA,,2.5272e+24
+PaLM 2-S,0.536,2023-05-17,,OpenBookQA,,
+PaLM 2-M,0.574,2023-05-17,,OpenBookQA,,
+Meta-Llama-3-8B-Instruct,0.45,2024-04-18,Meta AI,OpenBookQA,,7.2e+23
+Meta-Llama-3-70B-Instruct,0.476,2024-04-18,Meta AI,OpenBookQA,,7.861e+24
+Llama-3.1-405B-Instruct,0.492,2024-07-23,Meta AI,OpenBookQA,,3.8e+25
+phi-1_5,0.372,2023-09-11,Microsoft,OpenBookQA,,1.17e+21
+vicuna-13b-v1.1,0.33,2023-04-12,,OpenBookQA,,
+Llama-2-7b,0.314,2023-07-18,Meta AI,OpenBookQA,,8.4e+22
+LLaMA-7B,0.284,2023-02-24,Meta AI,OpenBookQA,,4.00000001e+22
+mpt-7b,0.314,2023-05-05,MosaicML,OpenBookQA,,4.2e+22
+falcon-7b,0.32,2023-04-24,Technology Innovation Institute,OpenBookQA,,6.3e+22
+Falcon-rw-1.3B,0.244,,,OpenBookQA,,
+opt-1.3b,0.24,2022-05-11,Meta AI,OpenBookQA,,
+gpt-neo-2.7B,0.232,2023-03-30,EleutherAI,OpenBookQA,,7.9e+21
+gpt2-xl,0.224,2019-11-05,OpenAI,OpenBookQA,,1.920000000001e+21
+falcon-180B,0.642,2023-09-06,Technology Innovation Institute,OpenBookQA,,3.76e+24
+Phi-3-mini-4k-instruct,0.832,2024-04-23,Microsoft,OpenBookQA,,7.524e+22
+Phi-3-medium-128k-instruct,0.874,2024-04-23,Microsoft,OpenBookQA,,4.032e+23
+phi-2,0.736,2023-12-12,Microsoft,OpenBookQA,,2.27e+22
+text-davinci-001,0.576,2022-01-27,OpenAI,OpenBookQA,,3.19181e+23
+GLaM (MoE),0.534,2021-12-13,Google,OpenBookQA,,3.6363112434e+23
+mpt-30b,0.52,2023-06-22,MosaicML,OpenBookQA,,1.8900000000001e+23
+falcon-40b,0.566,2023-03-15,Technology Innovation Institute,OpenBookQA,,2.4e+23
+LLaMA-13B,0.564,2023-02-24,Meta AI,OpenBookQA,,7.8e+22
+LLaMA-33B,0.586,2023-02-24,Meta AI,OpenBookQA,,2.7300000000001e+23
+LLaMA-65B,0.602,2023-02-24,Meta AI,OpenBookQA,,5.5e+23
+Llama-2-13b,0.57,2023-07-18,Meta AI,OpenBookQA,,1.6e+23
+Llama-2-34b,0.582,2023-07-18,Meta AI,OpenBookQA,,4.08e+23
+Llama-2-70b-hf,0.602,2023-07-18,Meta AI,OpenBookQA,,8.1e+23
+PaLM 62B,0.504,2022-04-04,,OpenBookQA,,
+Phi-3-small-8k-instruct,0.88,2024-04-23,Microsoft,OpenBookQA,,2.1312e+23
+Mistral-7B-v0.1,0.798,2023-09-27,Mistral AI,OpenBookQA,,
+gemma-7b,0.786,2024-02-21,Google DeepMind,OpenBookQA,,3.07e+23
+Mixtral-8x7B-v0.1,0.858,2023-12-11,Mistral AI,OpenBookQA,,7.74e+23
+gpt-3.5-turbo-1106,0.86,2023-11-06,OpenAI,OpenBookQA,,
+xgen-7b-8k-base,0.402,2023-06-27,Salesforce,OpenBookQA,,8.02e+22
+open_llama_7b,0.39,2023-06-07,,OpenBookQA,,
+RedPajama-INCITE-7B-Base,0.4,2023-05-04,,OpenBookQA,,
+gpt-neox-20b,0.388,2022-04-07,EleutherAI,OpenBookQA,,9.31627008e+22
+opt-13b,0.398,2022-05-11,,OpenBookQA,,
+gpt-j-6b,0.382,2021-08-05,"EleutherAI,LAION",OpenBookQA,,1.5e+22
+dolly-v2-12b,0.392,2023-04-11,Databricks,OpenBookQA,,
+Cerebras-GPT-13B,0.358,2023-03-20,Cerebras Systems,OpenBookQA,,2.3e+22
+stablelm-tuned-alpha-7b,0.324,2023-04-19,,OpenBookQA,,
+computer-use-preview-2025-03-11,0.478,2025-03-11,,OSUniverse,,
+claude-3-5-sonnet-20241022,0.2836,2024-10-22,Anthropic,OSUniverse,,
+Qwen2.5-VL-72B-Instruct,0.1864,2024-09-19,Alibaba,OSUniverse,,7.8e+24
+gemini-2.5-pro-exp-03-25,0.0959,2025-03-25,Google DeepMind,OSUniverse,,
+gemini-2.0-flash-001,0.0826,2025-02-05,"Google DeepMind,Google",OSUniverse,,
+gpt-4o-2024-11-20,0.0679,2024-11-20,OpenAI,OSUniverse,,
+gemini-1.5-pro-002,0.0612,2024-09-24,Google DeepMind,OSUniverse,,
+claude-sonnet-4-5-20250929,0.629,2025-09-29,Anthropic,OS World (Screenshot),,
+claude-sonnet-4-20250514,0.439,2025-05-22,Anthropic,OS World (Screenshot),,
+claude-3-7-sonnet-20250219,0.358,2025-02-24,Anthropic,OS World (Screenshot),,3.3499999999999998e+25
+computer-use-preview-2025-03-11,0.313,2025-03-11,,OS World (Screenshot),,
+o3-2025-04-16_medium,0.23,2025-04-16,OpenAI,OS World (Screenshot),,
+Qwen2.5-VL-72B-Instruct,0.05,2024-09-19,Alibaba,OS World (Screenshot),,7.8e+24
+claude-opus-4-5-20251101,0.6629999999999999,2025-11-24,Anthropic,OS World (Screenshot),,
+gpt-5.1_low,0.6388888888888888,2025-11-13,OpenAI,OTIS Mock AIME 2024-2025,0.058821311521534,
+claude-opus-4-5-20251101,0.4805555555555555,2025-11-24,Anthropic,OTIS Mock AIME 2024-2025,0.0640533675500403,
+claude-opus-4-5-20251101_32K,0.8611111111111112,2025-11-24,Anthropic,OTIS Mock AIME 2024-2025,0.042644255740946,
+claude-opus-4-5-20251101_16K,0.8166666666666667,2025-11-24,Anthropic,OTIS Mock AIME 2024-2025,0.0501890365910663,
+gemini-3-pro-preview,0.9138888888888888,2025-11-18,Google DeepMind,OTIS Mock AIME 2024-2025,0.0365887218675541,
+gpt-5.1_medium,0.8555555555555555,2025-11-13,OpenAI,OTIS Mock AIME 2024-2025,0.0438725835969373,
+gemini-2.5-pro,0.8416666666666667,2025-06-17,Google DeepMind,OTIS Mock AIME 2024-2025,0.0481431960547113,
+gpt-5.1_high,0.8861111111111111,2025-11-13,OpenAI,OTIS Mock AIME 2024-2025,0.040479727089927,
+kimi-k2-thinking-turbo,0.8305555555555556,2025-11-06,Moonshot,OTIS Mock AIME 2024-2025,0.0481926432580485,4.1999999999999997e+24
+gpt-oss-120b_high,0.7097222222222223,2025-08-05,OpenAI,OTIS Mock AIME 2024-2025,0.0553212585033026,4.94e+24
+gpt-5-nano-2025-08-07_high,0.8111111111111111,2025-08-07,OpenAI,OTIS Mock AIME 2024-2025,0.0462655621890506,
+gpt-5-mini-2025-08-07_high,0.8666666666666667,2025-08-07,OpenAI,OTIS Mock AIME 2024-2025,0.0428616519994413,
+gpt-5-2025-08-07_high,0.9138888888888888,2025-08-07,OpenAI,OTIS Mock AIME 2024-2025,0.0365887218675541,6.6e+25
+claude-sonnet-4-5-20250929_59K,0.7777777777777778,,Anthropic,OTIS Mock AIME 2024-2025,0.0626751194241962,
+claude-sonnet-4-5-20250929_16K,0.7111111111111111,2025-09-29,Anthropic,OTIS Mock AIME 2024-2025,0.0683294324254051,
+gpt-4-0613,0.0111111111111111,2023-06-13,OpenAI,OTIS Mock AIME 2024-2025,0.0053628183286856,2.1e+25
+gpt-4-0314,0.0055555555555555,2023-03-14,OpenAI,OTIS Mock AIME 2024-2025,0.0038834738634418,2.1e+25
+claude-haiku-4-5-20251001_32K,0.6666666666666666,2025-10-15,Anthropic,OTIS Mock AIME 2024-2025,0.0710669054518701,
+claude-sonnet-4-5-20250929_32K,0.7777777777777778,2025-09-29,Anthropic,OTIS Mock AIME 2024-2025,0.0626751194241962,
+claude-haiku-4-5-20251001,0.3583333333333333,2025-10-15,Anthropic,OTIS Mock AIME 2024-2025,0.0623862601423218,
+qwen3-max-2025-09-23,0.7333333333333333,2025-09-24,Alibaba,OTIS Mock AIME 2024-2025,0.0591394517008295,1.512e+25
+claude-sonnet-4-5-20250929,0.3555555555555555,2025-09-29,Anthropic,OTIS Mock AIME 2024-2025,0.0721639236343101,
+gpt-5-2025-08-07_medium,0.8722222222222222,2025-08-07,OpenAI,OTIS Mock AIME 2024-2025,0.0388211892688954,6.6e+25
+gpt-5-mini-2025-08-07_medium,0.7833333333333333,2025-08-07,OpenAI,OTIS Mock AIME 2024-2025,0.0479043132956024,
+gpt-5-nano-2025-08-07_medium,0.7416666666666667,2025-08-07,OpenAI,OTIS Mock AIME 2024-2025,0.0523138836662164,
+claude-opus-4-1-20250805_27K,0.6888888888888889,2025-08-05,Anthropic,OTIS Mock AIME 2024-2025,0.0697920592732311,
+claude-opus-4-1-20250805_16K,0.6444444444444445,2025-08-05,Anthropic,OTIS Mock AIME 2024-2025,0.0721639236343101,
+claude-opus-4-1-20250805,0.4,2025-08-05,Anthropic,OTIS Mock AIME 2024-2025,0.0738548945875996,
+gpt-4o-mini-2024-07-18,0.0694444444444444,2024-07-18,OpenAI,OTIS Mock AIME 2024-2025,0.0273963714244758,
+magistral-small-2506,0.3,2025-06-10,Mistral AI,OTIS Mock AIME 2024-2025,0.0583062707787182,
+DeepSeek-R1-0528,0.6638888888888889,2025-05-28,DeepSeek,OTIS Mock AIME 2024-2025,0.0491117795557599,4.020010000000001e+24
+claude-opus-4-20250514_27K,0.6444444444444445,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.0721639236343101,
+claude-sonnet-4-20250514_59K,0.6888888888888889,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.0697920592732311,
+claude-sonnet-4-20250514_32K,0.7111111111111111,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.068329432425405,
+claude-opus-4-20250514_16K,0.6,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.0738548945875996,
+claude-sonnet-4-20250514_16K,0.5333333333333333,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.0752101433090354,
+claude-opus-4-20250514,0.4222222222222222,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.074460272702958,
+claude-sonnet-4-20250514,0.2888888888888888,2025-05-22,Anthropic,OTIS Mock AIME 2024-2025,0.068329432425405,
+gemini-2.5-flash-preview-05-20,0.7083333333333334,2025-05-20,Google DeepMind,OTIS Mock AIME 2024-2025,0.0571580742725422,
+mistral-medium-2505,0.3222222222222222,2025-05-07,Mistral AI,OTIS Mock AIME 2024-2025,0.0596561179848226,
+gemini-2.5-flash-preview-04-17,0.7305555555555555,2025-04-17,Google DeepMind,OTIS Mock AIME 2024-2025,0.0553278160407031,
+o4-mini-2025-04-16_high,0.8166666666666667,2025-04-16,OpenAI,OTIS Mock AIME 2024-2025,0.0469391396201808,
+o3-2025-04-16_high,0.8388888888888889,2025-04-16,OpenAI,OTIS Mock AIME 2024-2025,0.0438125855058716,
+gpt-4.1-nano-2025-04-14,0.2888888888888888,2025-04-14,OpenAI,OTIS Mock AIME 2024-2025,0.0597001956092274,
+gpt-4.1-mini-2025-04-14,0.4472222222222222,2025-04-14,OpenAI,OTIS Mock AIME 2024-2025,0.0614801757396534,
+gpt-4.1-2025-04-14,0.3833333333333333,2025-04-14,OpenAI,OTIS Mock AIME 2024-2025,0.0632405620378937,
+grok-3-mini-beta_low,0.6222222222222222,2025-04-09,xAI,OTIS Mock AIME 2024-2025,0.0730911212732345,
+grok-3-mini-beta_high,0.7777777777777778,2025-04-09,xAI,OTIS Mock AIME 2024-2025,0.0626751194241962,
+grok-3-beta,0.5555555555555556,2025-04-09,xAI,OTIS Mock AIME 2024-2025,0.0749110958292491,3.5000000000000006e+26
+Llama-4-Maverick-17B-128E-Instruct-FP8,0.2055555555555555,2025-04-05,Meta AI,OTIS Mock AIME 2024-2025,0.0494852855954187,2.244000000001e+24
+Llama-4-Scout-17B-16E-Instruct,0.0777777777777777,2025-04-05,Meta AI,OTIS Mock AIME 2024-2025,0.030069597533844,4.08e+24
+qwen-turbo-2024-11-01,0.0611111111111111,2024-11-01,Alibaba,OTIS Mock AIME 2024-2025,0.0223402798383272,
+qwen-plus-2025-01-25,0.1777777777777777,2025-01-25,Alibaba,OTIS Mock AIME 2024-2025,0.0436079745381748,
+qwen-max-2025-01-25,0.1611111111111111,2025-01-25,Alibaba,OTIS Mock AIME 2024-2025,0.0410219480822996,
+Hermes-2-Theta-Llama-3-70B,0.025,2024-06-20,"Nous Research,Arcee AI",OTIS Mock AIME 2024-2025,0.0123091490979332,
+DeepSeek-V3-0324,0.3777777777777777,2025-03-24,DeepSeek,OTIS Mock AIME 2024-2025,0.0623722038007193,3.4078e+24
+mistral-small-2501,0.0527777777777777,2025-01-25,Mistral AI,OTIS Mock AIME 2024-2025,0.025895845946049,1.152e+24
+mistral-small-2503,0.0583333333333333,2025-03-17,Mistral AI,OTIS Mock AIME 2024-2025,0.0226830377599695,
+claude-3-7-sonnet-20250219_64K,0.5777777777777777,2025-02-24,Anthropic,OTIS Mock AIME 2024-2025,0.074460272702958,3.3499999999999998e+25
+gemma-3-27b-it,0.1972222222222222,2025-03-12,Google DeepMind,OTIS Mock AIME 2024-2025,0.0542523926660269,2.268e+24
+claude-3-7-sonnet-20250219_32K,0.5333333333333333,2025-02-24,Anthropic,OTIS Mock AIME 2024-2025,0.0752101433090354,3.3499999999999998e+25
+Llama-3.1-Tulu-3-70B-DPO,0.0444444444444444,2024-11-21,"Allen Institute for AI,University of Washington",OTIS Mock AIME 2024-2025,0.0182727803183086,
+gemma-2-27b-it,0.0138888888888888,2024-06-24,Google DeepMind,OTIS Mock AIME 2024-2025,0.0090786252587108,2.106e+24
+gemma-2-9b-it,0.0055555555555555,2024-06-24,Google DeepMind,OTIS Mock AIME 2024-2025,0.0038834738634418,4.32e+23
+DeepSeek-R1-Distill-Llama-70B,0.5138888888888888,2025-01-20,DeepSeek,OTIS Mock AIME 2024-2025,0.0605402631047315,
+claude-2.1,0.0194444444444444,2023-11-21,Anthropic,OTIS Mock AIME 2024-2025,0.0104775158766286,
+claude-2.0,0.025,2023-07-11,Anthropic,OTIS Mock AIME 2024-2025,0.0151798976587226,3.866e+24
+gemini-2.0-flash-thinking-exp-01-21,0.5777777777777777,2025-01-21,"Google DeepMind,Google",OTIS Mock AIME 2024-2025,0.074460272702958,
+o1-preview-2024-09-12,0.3111111111111111,2024-09-12,OpenAI,OTIS Mock AIME 2024-2025,0.0697920592732311,
+o1-mini-2024-09-12_high,0.4694444444444444,2024-09-12,OpenAI,OTIS Mock AIME 2024-2025,0.0645687368103824,
+o1-mini-2024-09-12_medium,0.4472222222222222,2024-09-12,OpenAI,OTIS Mock AIME 2024-2025,0.0631267675131195,
+gpt-4.5-preview-2025-02-27,0.3777777777777777,2025-02-27,OpenAI,OTIS Mock AIME 2024-2025,0.0730911212732345,3.8e+26
+o3-mini-2025-01-31_high,0.7694444444444445,2025-01-31,OpenAI,OTIS Mock AIME 2024-2025,0.052397620768288,
+gpt-4-turbo-2024-04-09,0.0666666666666666,2024-04-09,OpenAI,OTIS Mock AIME 2024-2025,0.024034381938205,
+o1-2024-12-17_medium,0.7333333333333333,2024-12-17,OpenAI,OTIS Mock AIME 2024-2025,0.0666666666666666,
+claude-3-7-sonnet-20250219_16K,0.4666666666666667,2025-02-24,Anthropic,OTIS Mock AIME 2024-2025,0.0752101433090354,3.3499999999999998e+25
+DeepSeek-R1,0.5333333333333333,2025-01-20,DeepSeek,OTIS Mock AIME 2024-2025,0.0752101433090354,4.020010000000001e+24
+Meta-Llama-3-70B-Instruct,0.0430555555555555,2024-04-18,Meta AI,OTIS Mock AIME 2024-2025,0.0219242971059842,7.861e+24
+gemini-1.5-pro-001,0.0680555555555555,2024-05-24,Google DeepMind,OTIS Mock AIME 2024-2025,0.0189303429551487,
+grok-2-1212,0.1152777777777777,2024-12-12,xAI,OTIS Mock AIME 2024-2025,0.0338242470093031,2.9599999999999996e+25
+Llama-3.3-70B-Instruct,0.0513888888888888,2024-12-06,Meta AI,OTIS Mock AIME 2024-2025,0.0236111111111111,6.8649768e+24
+Llama-3.2-90B-Vision-Instruct,0.0263888888888888,2024-09-24,Meta AI,OTIS Mock AIME 2024-2025,0.0094199027543406,
+Llama-2-70b-chat-hf,0.0,2023-07-18,Meta AI,OTIS Mock AIME 2024-2025,0.0,8.1e+23
+claude-3-5-sonnet-20240620,0.0652777777777777,2024-06-20,Anthropic,OTIS Mock AIME 2024-2025,0.02229313181566,2.700000000000001e+25
+gemini-1.5-pro-002,0.2305555555555555,2024-09-24,Google DeepMind,OTIS Mock AIME 2024-2025,0.0518678201121603,
+gpt-4o-2024-08-06,0.0638888888888888,2024-08-06,OpenAI,OTIS Mock AIME 2024-2025,0.0256303801392615,
+gemini-1.5-flash-002,0.1625,2024-09-24,Google DeepMind,OTIS Mock AIME 2024-2025,0.0411137557161944,
+qwen2.5-32b-instruct,0.0736111111111111,2024-09-17,Alibaba,OTIS Mock AIME 2024-2025,0.0214205950228642,3.51e+24
+mistral-large-2402,0.0194444444444444,2024-02-26,Mistral AI,OTIS Mock AIME 2024-2025,0.009489457497216,1.1199999999999999e+25
+gemini-1.5-flash-8b-001,0.0458333333333333,2024-10-03,Google DeepMind,OTIS Mock AIME 2024-2025,0.0201007563051842,
+mistral-large-2411,0.0777777777777777,2024-11-18,Mistral AI,OTIS Mock AIME 2024-2025,0.0246627789501575,2.13e+25
+claude-3-sonnet-20240229,0.025,2024-02-29,Anthropic,OTIS Mock AIME 2024-2025,0.0195029782755393,
+DeepSeek-V3,0.1583333333333333,2024-12-26,DeepSeek,OTIS Mock AIME 2024-2025,0.0433650088193118,3.4078e+24
+gemini-1.0-pro-001,0.0111111111111111,2024-02-15,Google DeepMind,OTIS Mock AIME 2024-2025,0.0060540263104731,
+Llama-3.1-8B-Instruct,0.025,2024-07-23,Meta AI,OTIS Mock AIME 2024-2025,0.0223324287469449,1.224e+24
+Llama-3.1-405B-Instruct,0.0972222222222222,2024-07-23,Meta AI,OTIS Mock AIME 2024-2025,0.0321864460916233,3.8e+25
+claude-3-7-sonnet-20250219,0.2194444444444444,2025-02-24,Anthropic,OTIS Mock AIME 2024-2025,0.0481516890371129,3.3499999999999998e+25
+claude-3-5-sonnet-20241022,0.0847222222222222,2024-10-22,Anthropic,OTIS Mock AIME 2024-2025,0.0263639568559024,
+qwen2.5-72b-instruct,0.0805555555555555,2024-09-19,Alibaba,OTIS Mock AIME 2024-2025,0.0260982130189672,7.8e+24
+gpt-4o-2024-05-13,0.0625,2024-05-13,OpenAI,OTIS Mock AIME 2024-2025,0.0232499864233695,
+Llama-3.1-70B-Instruct,0.0361111111111111,2024-07-23,Meta AI,OTIS Mock AIME 2024-2025,0.0169121235046515,7.929e+24
+claude-3-5-haiku-20241022,0.0430555555555555,2024-10-22,Anthropic,OTIS Mock AIME 2024-2025,0.0162376388278154,
+gemini-1.5-flash-001,0.0388888888888888,2024-05-23,Google DeepMind,OTIS Mock AIME 2024-2025,0.0143637264875207,
+claude-3-haiku-20240307,0.0180555555555555,2024-03-07,Anthropic,OTIS Mock AIME 2024-2025,0.0080985442983962,
+Meta-Llama-3-8B-Instruct,0.0083333333333333,2024-04-18,Meta AI,OTIS Mock AIME 2024-2025,0.0051031036307982,7.2e+23
+claude-3-opus-20240229,0.0472222222222222,2024-02-29,Anthropic,OTIS Mock AIME 2024-2025,0.0195792584771239,
+o3-mini-2025-01-31_medium,0.6388888888888888,2025-01-31,OpenAI,OTIS Mock AIME 2024-2025,0.0603771059379015,
+phi-4,0.1375,2024-12-12,Microsoft Research,OTIS Mock AIME 2024-2025,0.0369808338292563,9.3202015e+23
+gpt-4o-2024-11-20,0.0625,2024-11-20,OpenAI,OTIS Mock AIME 2024-2025,0.0241653604662675,
+gemini-2.0-flash-001,0.3111111111111111,2025-02-05,"Google DeepMind,Google",OTIS Mock AIME 2024-2025,0.0631121814445445,
+mistral-large-2407,0.0847222222222222,2024-07-24,Mistral AI,OTIS Mock AIME 2024-2025,0.0247426427977093,2.13e+25
+grok-4-0709,0.84,2025-07-09,xAI,OTIS Mock AIME 2024-2025,0.05,5.0000000000001e+26
+Llama-2-7b,0.788,2023-07-18,Meta AI,PIQA,,8.4e+22
+Llama-2-13b,0.805,2023-07-18,Meta AI,PIQA,,1.6e+23
+Mistral-7B-Instruct-v0.2,0.822,,Mistral AI,PIQA,,
+gemma-2b,0.773,2024-02-21,Google DeepMind,PIQA,,4.5115822e+22
+gemma-7b,0.812,2024-02-21,Google DeepMind,PIQA,,3.07e+23
+mpt-7b,0.806,2023-05-05,MosaicML,PIQA,,4.2e+22
+falcon-7b,0.767,2023-04-24,Technology Innovation Institute,PIQA,,6.3e+22
+chatglm2-6b,0.696,2023-06-24,,PIQA,,
+internlm-7b,0.779,2023-07-05,,PIQA,,
+internlm-20b,0.803,2023-09-18,,PIQA,,
+Baichuan-7B,0.762,2023-06-01,Baichuan,PIQA,,5.04e+22
+Baichuan-2-13B-Base,0.781,2023-09-06,Baichuan,PIQA,,2.03e+23
+LLaMA-7B,0.798,2023-02-24,Meta AI,PIQA,,4.00000001e+22
+LLaMA-13B,0.801,2023-02-24,Meta AI,PIQA,,7.8e+22
+LLaMA-33B,0.823,2023-02-24,Meta AI,PIQA,,2.7300000000001e+23
+LLaMA-65B,0.828,2023-02-24,Meta AI,PIQA,,5.5e+23
+Llama-2-70b-hf,0.828,2023-07-18,Meta AI,PIQA,,8.1e+23
+StableBeluga2,0.833,2023-07-20,Stability AI,PIQA,,
+Qwen-1_8B,0.733,2023-11-30,,PIQA,,
+Qwen-7B,0.779,2023-09-28,Alibaba,PIQA,,1.01e+23
+Qwen-14B,0.799,2023-09-28,Alibaba,PIQA,,2.5e+23
+GLaM (MoE) 0.1B/64E,0.7,,,PIQA,,
+GLaM (MoE) 1.7B/64E,0.769,,,PIQA,,
+GLaM (MoE) 8B/64E,0.786,,,PIQA,,
+GLaM (MoE) 64B/64E,0.804,,,PIQA,,
+GLaM (Dense) 0.1B,0.644,,,PIQA,,
+GLaM (Dense) 1.7B,0.736,,,PIQA,,
+GLaM (Dense) 8B,0.782,,,PIQA,,
+GLaM (Dense) 137B,0.785,,,PIQA,,
+text-davinci-001,0.804,2022-01-27,OpenAI,PIQA,,3.19181e+23
+Phi-3.5-mini-instruct,0.81,2024-08-16,Microsoft,PIQA,,3.7101154e+22
+Phi-3.5-MoE-instruct,0.886,2024-08-17,Microsoft,PIQA,,3.0202896e+23
+Mistral-7B-v0.1,0.734,2023-09-27,Mistral AI,PIQA,,
+Mistral-Nemo-Base-2407,0.835,2024-07-18,Mistral AI,PIQA,,
+Llama-3.1-8B-Instruct,0.812,2024-07-23,Meta AI,PIQA,,1.224e+24
+gemma-2-9b,0.837,,Google DeepMind,PIQA,,4.32e+23
+gemini-1.5-flash-002,0.875,2024-09-24,Google DeepMind,PIQA,,
+gpt-4o-mini-2024-07-18,0.887,2024-07-18,OpenAI,PIQA,,
+Gopher (280B),0.818,2021-12-08,DeepMind,PIQA,,6.31e+23
+Megatron-Turing NLG 530B,0.8199,2022-01-28,"Microsoft,NVIDIA",PIQA,,8.586e+23
+DeepSeek-V2,0.839,2024-05-07,DeepSeek,PIQA,,1.02e+24
+Qwen2.5-72B,0.826,2024-09-19,Alibaba,PIQA,,7.8e+24
+Llama-3.1-405B,0.859,2024-07-23,Meta AI,PIQA,,3.8e+25
+DeepSeek-V3-Base,0.847,2024-12-26,DeepSeek,PIQA,,3.4078e+24
+mpt-30b,0.819,2023-06-22,MosaicML,PIQA,,1.8900000000001e+23
+falcon-40b,0.824,2023-03-15,Technology Innovation Institute,PIQA,,2.4e+23
+Llama-2-34b,0.819,2023-07-18,Meta AI,PIQA,,4.08e+23
+Chinchilla (70B),0.818,2022-03-29,DeepMind,PIQA,,5.76e+23
+PaLM 62B,0.805,2022-04-04,,PIQA,,
+PaLM-cont 62B,0.814,,,PIQA,,
+PaLM 540B,0.823,2022-04-04,Google Research,PIQA,,2.5272e+24
+Mistral-7B-Instruct-v0.1,0.822,2023-09-27,Mistral AI,PIQA,,
+Mixtral-8x7B-v0.1,0.836,2023-12-11,Mistral AI,PIQA,,7.74e+23
+Nemotron-4 15B,0.824,2024-02-26,NVIDIA,PIQA,,7.5005116e+23
+vicuna-13b-v1.1,0.774,2023-04-12,,PIQA,,
+Falcon-rw-1.3B,0.747,,,PIQA,,
+opt-1.3b,0.69,2022-05-11,Meta AI,PIQA,,
+gpt-neo-2.7B,0.729,2023-03-30,EleutherAI,PIQA,,7.9e+21
+gpt2-xl,0.705,2019-11-05,OpenAI,PIQA,,1.920000000001e+21
+Inflection-1,0.842,2023-06-22,Inflection AI,PIQA,,1.0001e+24
+falcon-180B,0.849,2023-09-06,Technology Innovation Institute,PIQA,,3.76e+24
+UNICORN,0.901,,,PIQA,,
+xgen-7b-8k-base,0.755,2023-06-27,Salesforce,PIQA,,8.02e+22
+open_llama_7b,0.76,2023-06-07,,PIQA,,
+RedPajama-INCITE-7B-Base,0.769,2023-05-04,,PIQA,,
+gpt-neox-20b,0.767,2022-04-07,EleutherAI,PIQA,,9.31627008e+22
+opt-13b,0.757,2022-05-11,,PIQA,,
+gpt-j-6b,0.754,2021-08-05,"EleutherAI,LAION",PIQA,,1.5e+22
+dolly-v2-12b,0.754,2023-04-11,Databricks,PIQA,,
+Cerebras-GPT-13B,0.735,2023-03-20,Cerebras Systems,PIQA,,2.3e+22
+stablelm-tuned-alpha-7b,0.658,2023-04-19,,PIQA,,
+Mutimodal-T-SciQ_Large 🥇,0.9618,,,ScienceQA,,
+MC-CoT_F-Large 🥈,0.9488,,,ScienceQA,,
+Honeybee (Vicuna-13B) 🥉,0.9439,,,ScienceQA,,
+Enigma-COT_Large,0.9411,,,ScienceQA,,
+MC-CoT_Large,0.9337,,,ScienceQA,,
+DPMM-CoT_Large,0.9335,,,ScienceQA,,
+LLaVA (GPT-4 judge),0.9253,,,ScienceQA,,
+CoMD (Vicuna-7B),0.9194,,,ScienceQA,,
+Mutimodal-T-SciQ_Base,0.9175,,,ScienceQA,,
+Multimodal-CoT_Large,0.9168,,,ScienceQA,,
+PILL (LLaMA-7B),0.9123,,,ScienceQA,,
+LLaVA (ViT-L/16-224),0.912,,,ScienceQA,,
+DPMM-CoT_Base,0.9097,,,ScienceQA,,
+LLaVA,0.9092,,,ScienceQA,,
+LaVIN-13B,0.9083,,,ScienceQA,,
+MC-CoT_F-Base,0.9073,,,ScienceQA,,
+MC-CoT_Base,0.9064,,,ScienceQA,,
+LLaMA-SciTune,0.9003,,,ScienceQA,,
+LaVIN-7B,0.8941,,,ScienceQA,,
+Flan-T5-XL (LoRA),0.8929,,,ScienceQA,,
+Chat-UniVi,0.8878,,,ScienceQA,,
+DDCoT (T5),0.8734,,,ScienceQA,,
+LG-VQA (CLIP),0.8722,,,ScienceQA,,
+Chameleon (GPT-4),0.8654,,,ScienceQA,,
+LG-VQA (BLIP-2),0.8632,,,ScienceQA,,
+Enigma-COT_Base,0.8559,,,ScienceQA,,
+LLaMA-Adapter,0.8519,,,ScienceQA,,
+Multimodal-CoT_Base,0.8491,,,ScienceQA,,
+IMMO SL+RL,0.848,,,ScienceQA,,
+CoT GPT-4,0.8399,,,ScienceQA,,
+HoT-T5_Large,0.8338,,,ScienceQA,,
+HoT-T5_Base,0.8142,,,ScienceQA,,
+DDCoT (ChatGPT),0.8015,,,ScienceQA,,
+Chameleon (ChatGPT),0.7993,,,ScienceQA,,
+CoT GPT-3 + Doc,0.7991,,,ScienceQA,,
+UnifiedQA-T-SciQ_Base,0.7941,,,ScienceQA,,
+CoT ChatGPT,0.7831,,,ScienceQA,,
+DDCoT (GPT-3),0.7809,,,ScienceQA,,
+CoT GPT-3 (ALE),0.7517,,,ScienceQA,,
+CoT GPT-3 (AE),0.7461,,,ScienceQA,,
+blip2-opt-2.7b,0.7417,2023-02-06,Salesforce Research,ScienceQA,,1.20000000001e+21
+CoT UnifiedQA,0.7411,,,ScienceQA,,
+text-davinci-001,0.7404,2022-01-27,OpenAI,ScienceQA,,3.19181e+23
+InstructBLIP,0.7333,,,ScienceQA,,
+UnifiedQA,0.7012,,,ScienceQA,,
+ChatGPT,0.6941,,,ScienceQA,,
+MetaCLIP,0.6877,,,ScienceQA,,
+OpenCLIP,0.6753,,,ScienceQA,,
+Flan-T5-XXL,0.6743,,,ScienceQA,,
+SAM,0.6708,,,ScienceQA,,
+DINOv2,0.646,,,ScienceQA,,
+VisualBERT,0.6187,,,ScienceQA,,
+Patch-TRM,0.6142,,,ScienceQA,,
+ViLT,0.6114,,,ScienceQA,,
+DFAF,0.6072,,,ScienceQA,,
+BAN,0.5937,,,ScienceQA,,
+Top-Down,0.5902,,,ScienceQA,,
+MiniGPT4,0.587,,,ScienceQA,,
+Llama-2-13b,0.5578,2023-07-18,Meta AI,ScienceQA,,1.6e+23
+DDCoT (MiniGPT-4),0.5567,,,ScienceQA,,
+QVix,0.55,,,ScienceQA,,
+MCAN,0.5454,,,ScienceQA,,
+LLaMA-Adapter-V2,0.5444,,,ScienceQA,,
+VLIS,0.502,,,ScienceQA,,
+LLaVA-13B,0.4774,,,ScienceQA,,
+VPGTrans,0.47,,,ScienceQA,,
+MiniGPT-4,0.4471,,,ScienceQA,,
+LLaMA-13B,0.4333,2023-02-24,Meta AI,ScienceQA,,7.8e+22
+Llama-2-7b,0.4308,2023-07-18,Meta AI,ScienceQA,,8.4e+22
+LLaVA-7B,0.411,,,ScienceQA,,
+OpenFlamingo,0.3927,,,ScienceQA,,
+Lynx,0.3828,,,ScienceQA,,
+mPLUG-Owl,0.3793,,,ScienceQA,,
+MultiGPT,0.3629,,,ScienceQA,,
+LLaMA-7B,0.3619,2023-02-24,Meta AI,ScienceQA,,4.00000001e+22
+Fromage,0.3451,,,ScienceQA,,
+Phi-3.5-vision-instruct,0.913,2024-08-16,,ScienceQA,,
+MM1-3B-Chat,0.694,2024-03-14,,ScienceQA,,
+MM1-7B-Chat,0.726,2024-03-14,,ScienceQA,,
+llava-v1.6-vicuna-7b,0.706,2024-01-31,,ScienceQA,,
+llama3-llava-next-8b,0.737,2024-04-20,,ScienceQA,,
+Qwen-VL-Chat,0.672,2023-08-20,,ScienceQA,,
+claude-3-haiku-20240307,0.72,2024-03-07,Anthropic,ScienceQA,,
+gemini-1.0-pro-vision,0.797,2024-01-04,Google DeepMind,ScienceQA,,
+gpt-4o-2024-05-13,0.885,2024-05-13,OpenAI,ScienceQA,,
+falcon-11B-vlm,0.749,2024-05-21,,ScienceQA,,
+llava-v1.6-vicuna-13b,0.736,2024-01-31,,ScienceQA,,
+llava-v1.6-mistral-7b,0.728,2024-01-31,,ScienceQA,,
+instructblip-vicuna-7b,0.605,2023-05-22,,ScienceQA,,
+instructblip-vicuna-13b,0.631,2023-12-25,,ScienceQA,,
+InternVL-Chat-ViT-6B-Vicuna-7B,0.662,2023-12-25,,ScienceQA,,
+InternVL-Chat-ViT-6B-Vicuna-13B,0.701,2024-08-16,,ScienceQA,,
+llava-v1.5-7b,0.668,2023-10-05,,ScienceQA,,
+LLaVA-NeXT-7B,0.701,,,ScienceQA,,
+LLaVA-NeXT-13B,0.736,,,ScienceQA,,
+VisionLLM v2-Chat,0.944,,,ScienceQA,,
+VisionLLM v2,0.942,,,ScienceQA,,
+gemini-3-pro-preview,0.764,2025-11-18,Google DeepMind,SimpleBench,,
+gemini-2.5-pro-preview-06-05,0.624,2025-06-05,Google DeepMind,SimpleBench,,
+gpt-5-pro-2025-10-06_high,0.616,2025-10-07,OpenAI,SimpleBench,,
+grok-4-0709,0.605,2025-07-09,xAI,SimpleBench,,5.0000000000001e+26
+claude-opus-4-1-20250805,0.6,2025-08-05,Anthropic,SimpleBench,,
+claude-opus-4-20250514_12K,0.588,2025-05-22,Anthropic,SimpleBench,,
+gpt-5-2025-08-07_high,0.567,2025-08-07,OpenAI,SimpleBench,,6.6e+25
+claude-sonnet-4-5-20250929_12K,0.543,2025-09-29,Anthropic,SimpleBench,,
+o3-2025-04-16_high,0.531,2025-04-16,OpenAI,SimpleBench,,
+gemini-2.5-pro-exp-03-25,0.516,2025-03-25,Google DeepMind,SimpleBench,,
+claude-3-7-sonnet-20250219_12K,0.464,2025-02-24,Anthropic,SimpleBench,,3.3499999999999998e+25
+claude-sonnet-4-20250514_12K,0.455,2025-05-22,Anthropic,SimpleBench,,
+claude-3-7-sonnet-20250219,0.449,2025-02-24,Anthropic,SimpleBench,,3.3499999999999998e+25
+o1-preview-2024-09-12,0.417,2024-09-12,OpenAI,SimpleBench,,
+claude-3-5-sonnet-20241022,0.414,2024-10-22,Anthropic,SimpleBench,,
+gemini-2.5-flash,0.412,2025-06-17,Google DeepMind,SimpleBench,,
+DeepSeek-R1-0528,0.408,2025-05-28,DeepSeek,SimpleBench,,4.020010000000001e+24
+o1-2024-12-17_high,0.401,2024-12-17,OpenAI,SimpleBench,,
+DeepSeek-V3.1,0.4,2025-08-21,DeepSeek,SimpleBench,,3.594058e+24
+o4-mini-2025-04-16_high,0.387,2025-04-16,OpenAI,SimpleBench,,
+o1-2024-12-17_medium,0.367,2024-12-17,OpenAI,SimpleBench,,
+grok-3,0.361,2025-04-09,xAI,SimpleBench,,3.5000000000000006e+26
+gpt-4.5-preview-2025-02-27,0.345,2025-02-27,OpenAI,SimpleBench,,3.8e+26
+gemini-exp-1206,0.311,2024-12-06,"Google DeepMind,Google",SimpleBench,,
+qwen3-235b-a22b,0.31,2025-04-29,Alibaba,SimpleBench,,4.752e+24
+DeepSeek-R1,0.309,2025-01-20,DeepSeek,SimpleBench,,4.020010000000001e+24
+gemini-2.0-flash-thinking-exp-01-21,0.307,2025-01-21,"Google DeepMind,Google",SimpleBench,,
+Llama-4-Maverick-17B-128E-Instruct,0.277,2025-04-05,Meta AI,SimpleBench,,2.244000000001e+24
+claude-3-5-sonnet-20240620,0.275,2024-06-20,Anthropic,SimpleBench,,2.700000000000001e+25
+DeepSeek-V3-0324,0.272,2025-03-24,DeepSeek,SimpleBench,,3.4078e+24
+gemini-1.5-pro-002,0.271,2024-09-24,Google DeepMind,SimpleBench,,
+gpt-4.1-2025-04-14,0.27,2025-04-14,OpenAI,SimpleBench,,
+Kimi-K2-Instruct,0.263,2025-07-12,Moonshot,SimpleBench,,2.976e+24
+gpt-4-turbo-2024-04-09,0.251,2024-04-09,OpenAI,SimpleBench,,
+claude-3-opus-20240229,0.235,2024-02-29,Anthropic,SimpleBench,,
+Llama-3.1-405B-Instruct,0.23,2024-07-23,Meta AI,SimpleBench,,3.8e+25
+o3-mini-2025-01-31_high,0.228,2025-01-31,OpenAI,SimpleBench,,
+grok-2-1212,0.227,2024-12-12,xAI,SimpleBench,,2.9599999999999996e+25
+mistral-large-2407,0.225,2024-07-24,Mistral AI,SimpleBench,,2.13e+25
+gpt-oss-120b,0.221,2025-08-05,OpenAI,SimpleBench,,4.94e+24
+Llama-3.3-70B-Instruct,0.199,2024-12-06,Meta AI,SimpleBench,,6.8649768e+24
+DeepSeek-V3,0.189,2024-12-26,DeepSeek,SimpleBench,,3.4078e+24
+gemini-2.0-flash-exp,0.189,2024-12-11,"Google DeepMind,Google",SimpleBench,,
+o1-mini-2024-09-12_medium,0.181,2024-09-12,OpenAI,SimpleBench,,
+gpt-4o-2024-08-06,0.178,2024-08-06,OpenAI,SimpleBench,,
+c4ai-command-r-plus-08-2024,0.174,2024-08-30,"Cohere,Cohere for AI",SimpleBench,,
+gpt-4o-mini-2024-07-18,0.107,2024-07-18,OpenAI,SimpleBench,,
+text-davinci-001,0.718,2022-01-27,OpenAI,SuperGLUE,,3.19181e+23
+T5-Base,0.751,,,SuperGLUE,,
+Switch-Base,0.733,,,SuperGLUE,,
+T5-Large,0.827,,,SuperGLUE,,
+Switch-Large,0.847,,,SuperGLUE,,
+T5-Small,0.633,,,SuperGLUE,,
+T5-3B,0.864,,Google,SuperGLUE,,9.0000000001e+21
+T5-11B,0.889,,Google,SuperGLUE,,3.3e+22
+gpt-5-mini-2025-08-07_high,0.616,2025-08-07,OpenAI,SWE-Bench Verified,0.0217723694655471,
+claude-haiku-4-5-20251001,0.606,2025-10-15,Anthropic,SWE-Bench Verified,0.0218742993016891,
+claude-sonnet-4-5-20250929,0.648,2025-09-29,Anthropic,SWE-Bench Verified,0.021380042385946,
+DeepSeek-V3.1,0.5210420841683366,2025-08-21,DeepSeek,SWE-Bench Verified,0.0223856859876182,3.594058e+24
+o3-2025-04-16_medium,0.43687374749499,2025-04-16,OpenAI,SWE-Bench Verified,0.0222262497331002,
+gpt-4o-2024-11-20,0.254,2024-11-20,OpenAI,SWE-Bench Verified,0.0194865968016434,
+gpt-5-mini-2025-08-07_medium,0.578,2025-08-07,OpenAI,SWE-Bench Verified,0.0221090393106185,
+gpt-5-2025-08-07_medium,0.588,2025-08-07,OpenAI,SWE-Bench Verified,0.0220336779937409,6.6e+25
+claude-opus-4-1-20250805,0.632,2025-08-05,Anthropic,SWE-Bench Verified,0.0215889825683535,
+DeepSeek-R1-0528,0.3326653306613226,2025-05-28,DeepSeek,SWE-Bench Verified,0.0211135345748551,4.020010000000001e+24
+claude-opus-4-20250514,0.622,2025-05-22,Anthropic,SWE-Bench Verified,0.0217065508245182,
+claude-sonnet-4-20250514,0.606,2025-05-22,Anthropic,SWE-Bench Verified,0.0218742993016891,
+claude-3-5-sonnet-20240620,0.32,2024-06-20,Anthropic,SWE-Bench Verified,0.0208823404887617,2.700000000000001e+25
+qwen-plus-2025-04-28,0.28,2025-04-28,Alibaba,SWE-Bench Verified,0.0200999506475031,
+o3-mini-2025-01-31_medium,0.378,2025-01-31,OpenAI,SWE-Bench Verified,0.0217065508245182,
+claude-3-5-sonnet-20241022,0.406,2024-10-22,Anthropic,SWE-Bench Verified,0.0219839620900864,
+gpt-4.1-mini-2025-04-14,0.328,2025-04-14,OpenAI,SWE-Bench Verified,0.0210170271651754,
+gpt-4.1-2025-04-14,0.41,2025-04-14,OpenAI,SWE-Bench Verified,0.0220174825781276,
+grok-3-beta,0.386,2025-04-09,xAI,SWE-Bench Verified,0.0217935292192811,3.5000000000000006e+26
+gemini-2.0-flash-001,0.22,2025-02-05,"Google DeepMind,Google",SWE-Bench Verified,0.0185442113758202,
+grok-3-mini-beta_low,0.152,2025-04-09,xAI,SWE-Bench Verified,0.0160719823679118,
+claude-3-7-sonnet-20250219,0.522,2025-02-24,Anthropic,SWE-Bench Verified,0.0223613967392078,3.3499999999999998e+25
+o4-mini-2025-04-16_medium,0.346,2025-04-16,OpenAI,SWE-Bench Verified,0.0212949512772346,
+gpt-5.1-codex,0.578,2025-11-12,OpenAI,TerminalBench,,
+gpt-5.1_medium,0.476,2025-11-13,OpenAI,TerminalBench,,
+gemini-3-pro-preview,0.542,2025-11-18,Google DeepMind,TerminalBench,,
+gpt-5-2025-08-07_medium,0.496,2025-08-07,OpenAI,TerminalBench,,6.6e+25
+gpt-5-codex,0.443,2025-09-15,OpenAI,TerminalBench,,6.6e+25
+gpt-5.1-codex-mini,0.431,2025-11-12,OpenAI,TerminalBench,,
+claude-sonnet-4-5-20250929,0.428,2025-09-29,Anthropic,TerminalBench,,
+claude-opus-4-1-20250805,0.38,2025-08-05,Anthropic,TerminalBench,,
+kimi-k2-thinking,0.357,2025-11-06,Moonshot,TerminalBench,,4.1999999999999997e+24
+gemini-2.5-pro,0.326,2025-06-17,Google DeepMind,TerminalBench,,
+gpt-5-mini-2025-08-07_medium,0.319,2025-08-07,OpenAI,TerminalBench,,
+claude-haiku-4-5-20251001,0.298,2025-10-15,Anthropic,TerminalBench,,
+Kimi-K2-Instruct,0.278,2025-07-12,Moonshot,TerminalBench,,2.976e+24
+grok-4-0709,0.272,2025-07-09,xAI,TerminalBench,,5.0000000000001e+26
+grok-code-fast-1,0.258,2025-08-28,,TerminalBench,,
+Qwen3-Coder-480B-A35B-Instruct,0.254,2025-07-31,Alibaba,TerminalBench,,1.575e+24
+glm-4.6,0.245,2025-09-30,"Zhipu AI,Tsinghua University",TerminalBench,,4.42e+24
+gpt-oss-120b,0.187,2025-08-05,OpenAI,TerminalBench,,4.94e+24
+gemini-2.5-flash-preview-09-2025,0.171,2025-09-25,Google DeepMind,TerminalBench,,
+gpt-5-nano-2025-08-07_medium,0.115,2025-08-07,OpenAI,TerminalBench,,
+gpt-oss-20b,0.034,2025-08-05,OpenAI,TerminalBench,,5.49e+23
+claude-opus-4-5-20251101,0.593,2025-11-24,Anthropic,TerminalBench,,
+claude-3-5-sonnet-20241022,0.24,2024-10-22,Anthropic,The Agent Company,,
+gemini-2.0-flash-001,0.114,2025-02-05,"Google DeepMind,Google",The Agent Company,,
+gpt-4o-2024-11-20,0.086,2024-11-20,OpenAI,The Agent Company,,
+Llama-3.1-405B-Instruct,0.074,2024-07-23,Meta AI,The Agent Company,,3.8e+25
+Llama-3.1-70B-Instruct,0.069,2024-07-23,Meta AI,The Agent Company,,7.929e+24
+qwen2.5-72b-instruct,0.057,2024-09-19,Alibaba,The Agent Company,,7.8e+24
+gemini-1.5-pro-002,0.034,2024-09-24,Google DeepMind,The Agent Company,,
+amazon.nova-pro-v1:0,0.017,2024-12-03,Amazon,The Agent Company,,6.000010000000001e+24
+qwen2-72b-instruct,0.011,2024-06-07,Alibaba,The Agent Company,,3.02e+24
+gemini-2.5-flash-preview-09-2025,0.411,2025-09-25,Google DeepMind,The Agent Company,,
+DeepSeek-V3.2-Exp,0.429,2025-09-29,,The Agent Company,,
+claude-sonnet-4-20250514,0.331,2025-05-22,Anthropic,The Agent Company,,
+claude-3-7-sonnet-20250219,0.309,2025-02-24,Anthropic,The Agent Company,,3.3499999999999998e+25
+gemini-2.5-pro-preview-05-06,0.303,2025-05-06,Google DeepMind,The Agent Company,,
+claude-2.0,0.875,2023-07-11,Anthropic,TriviaQA,,3.866e+24
+claude-instant-1.1,0.789,,Anthropic,TriviaQA,,
+gpt-4-0613,0.848,2023-06-13,OpenAI,TriviaQA,,2.1e+25
+claude-1.3,0.867,2023-04-18,Anthropic,TriviaQA,,
+PaLM 2-L,0.861,2023-05-17,,TriviaQA,,
+Llama-2-70b-hf,0.85,2023-07-18,Meta AI,TriviaQA,,8.1e+23
+PaLM 2-M,0.817,2023-05-17,,TriviaQA,,
+PaLM 540B,0.769,2022-04-04,Google Research,TriviaQA,,2.5272e+24
+PaLM 2-S,0.752,2023-05-17,,TriviaQA,,
+text-davinci-001,0.712,2022-01-27,OpenAI,TriviaQA,,3.19181e+23
+gemma-2b,0.532,2024-02-21,Google DeepMind,TriviaQA,,4.5115822e+22
+gemma-7b,0.634,2024-02-21,Google DeepMind,TriviaQA,,3.07e+23
+Mistral-7B-v0.1,0.625,2023-09-27,Mistral AI,TriviaQA,,
+Llama-2-7b,0.721,2023-07-18,Meta AI,TriviaQA,,8.4e+22
+Llama-2-13b,0.796,2023-07-18,Meta AI,TriviaQA,,1.6e+23
+DeepSeek-V2,0.8,2024-05-07,DeepSeek,TriviaQA,,1.02e+24
+Qwen2.5-72B,0.719,2024-09-19,Alibaba,TriviaQA,,7.8e+24
+DeepSeek-V3,0.829,2024-12-26,DeepSeek,TriviaQA,,3.4078e+24
+Llama-3.1-405B,0.827,2024-07-23,Meta AI,TriviaQA,,3.8e+25
+Phi-3-mini-4k-instruct,0.64,2024-04-23,Microsoft,TriviaQA,,7.524e+22
+Phi-3-small-8k-instruct,0.581,2024-04-23,Microsoft,TriviaQA,,2.1312e+23
+Phi-3-medium-128k-instruct,0.739,2024-04-23,Microsoft,TriviaQA,,4.032e+23
+phi-2,0.452,2023-12-12,Microsoft,TriviaQA,,2.27e+22
+Meta-Llama-3-8B-Instruct,0.677,2024-04-18,Meta AI,TriviaQA,,7.2e+23
+Mixtral-8x7B-v0.1,0.822,2023-12-11,Mistral AI,TriviaQA,,7.74e+23
+gpt-3.5-turbo-1106,0.858,2023-11-06,OpenAI,TriviaQA,,
+GLaM (MoE),0.713,2021-12-13,Google,TriviaQA,,3.6363112434e+23
+Gopher (280B),0.571,2021-12-08,DeepMind,TriviaQA,,6.31e+23
+mpt-7b,0.557,2023-05-05,MosaicML,TriviaQA,,4.2e+22
+mpt-30b,0.68,2023-06-22,MosaicML,TriviaQA,,1.8900000000001e+23
+falcon-7b,0.526,2023-04-24,Technology Innovation Institute,TriviaQA,,6.3e+22
+falcon-40b,0.746,2023-03-15,Technology Innovation Institute,TriviaQA,,2.4e+23
+LLaMA-7B,0.633,2023-02-24,Meta AI,TriviaQA,,4.00000001e+22
+LLaMA-13B,0.701,2023-02-24,Meta AI,TriviaQA,,7.8e+22
+LLaMA-33B,0.787,2023-02-24,Meta AI,TriviaQA,,2.7300000000001e+23
+LLaMA-65B,0.817,2023-02-24,Meta AI,TriviaQA,,5.5e+23
+Llama-2-34b,0.81,2023-07-18,Meta AI,TriviaQA,,4.08e+23
+Chinchilla (70B),0.554,2022-03-29,DeepMind,TriviaQA,,5.76e+23
+claude-instant-1.2,0.787,2023-08-09,Anthropic,TriviaQA,,
+gemini-1.5-pro-001,0.75,2024-05-24,Google DeepMind,Video-MME,,
+Qwen2.5-VL-72B-Instruct,0.735,2024-09-19,Alibaba,Video-MME,,7.8e+24
+Qwen2-VL-72B-Instruct,0.712,2024-08-29,,Video-MME,,
+gpt-4o-2024-08-06,0.719,2024-08-06,OpenAI,Video-MME,,
+LLaVA-Video-72B-Qwen2,0.706,2024-09-02,,Video-MME,,
+gemini-1.5-flash-001,0.703,2024-05-23,Google DeepMind,Video-MME,,
+Oryx-1.5-32B,0.673,2024-10-22,,Video-MME,,
+InternVL2_5-78B,0.721,2024-12-06,"Shanghai AI Lab,SenseTime,Tsinghua University,Nanjing University,Fudan University,Chinese University of Hong Kong (CUHK),Shanghai Jiao Tong University",Video-MME,,
+ViLAMP-llava-qwen,0.675,2025-05-01,,Video-MME,,
+Aria,0.676,2024-09-30,,Video-MME,,
+LinVT,0.703,2024-12-06,,Video-MME,,
+LLaVA-Video-7B-Qwen2-TPO,0.656,2025-01-19,,Video-MME,,
+VideoLLAMA3-7B,0.662,2024-01-22,,Video-MME,,
+LiveCC-7B-Instruct,0.641,2024-04-12,,Video-MME,,
+LLaVA-Video-7B-Qwen2,0.659,2024-09-02,,Video-MME,,
+NVILA-8B,0.642,2024-12-10,"NVIDIA,Massachusetts Institute of Technology (MIT),University of California (UC) Berkeley,University of California San Diego,University of Washington,Tsinghua University",Video-MME,,2.2794518e+21
+VideoChat-Flash-Qwen2-7B_res448,0.653,2025-01-11,,Video-MME,,
+LLaVA-OneVision 72B,0.663,2024-08-06,,Video-MME,,
+gpt-4o-mini-2024-07-18,0.648,2024-07-18,OpenAI,Video-MME,,
+Qwen2-VL-7B-Instruct,0.639,2024-08-29,,Video-MME,,
+ByteVideoLLM-14B,0.646,2024-10-13,,Video-MME,,
+mPLUG-Owl3-7B-241101,0.593,2024-11-26,,Video-MME,,
+MiniCPM-o-2_6,0.639,2025-01-12,,Video-MME,,
+VideoLLAMA2-7B,0.624,2024-06-12,,Video-MME,,
+MiniCPM-V-2_6,0.609,2024-08-03,,Video-MME,,
+gpt-4-1106-vision-preview,0.599,2023-11-06,OpenAI,Video-MME,,
+claude-3-5-sonnet-20240620,0.6,2024-06-20,Anthropic,Video-MME,,2.700000000000001e+25
+TimeMarker,0.573,2024-11-27,,Video-MME,,
+InternVL2-40B,0.612,2024-07-08,Shanghai AI Lab,Video-MME,,
+Video-XL-7B,0.555,2024-10-17,,Video-MME,,
+VITA,0.558,2024-08-12,,Video-MME,,
+VITA-1.5,0.561,2024-12-20,,Video-MME,,
+kangaroo,0.56,2024-11-13,,Video-MME,,
+Video-CCAM-7B-v1.2,0.532,2024-09-29,,Video-MME,,
+long-llava-qwen2-7b,0.529,2024-08-30,,Video-MME,,
+LongVA-7B,0.526,2024-06-13,,Video-MME,,
+InternVL-Chat-V1-5,0.507,2024-04-18,,Video-MME,,
+Qwen-VL-Max,0.513,2024-01-18,,Video-MME,,
+Chat-Uni-Vi-7B-v1.5 + 100k SG-WV,0.432,2024-06-20,,Video-MME,,
+SliME-Llama3-8B,0.453,2024-06-02,,Video-MME,,
+Chat-UniVi-7B-v1.5,0.406,2024-04-23,,Video-MME,,
+video_chat2_mistral,0.395,2023-11-29,,Video-MME,,
+sharegpt4video-8b,0.399,2024-05-27,,Video-MME,,
+ST-LLM,0.379,2024-03-28,,Video-MME,,
+Qwen-VL-Chat,0.411,2023-08-20,,Video-MME,,
+Video-LLaVA-7B,0.399,2023-11-17,,Video-MME,,
+gemini-3-pro-preview,0.91,2025-11-18,Google DeepMind,VPCT,,
+gpt-5-2025-08-07_high,0.66,2025-08-07,OpenAI,VPCT,,6.6e+25
+gpt-5-2025-08-07_medium,0.632,2025-08-07,OpenAI,VPCT,,6.6e+25
+o4-mini-2025-04-16_medium,0.575,2025-04-16,OpenAI,VPCT,,
+gpt-5.1_medium,0.533,2025-11-13,OpenAI,VPCT,,
+o3-2025-04-16_medium,0.52,2025-04-16,OpenAI,VPCT,,
+gemini-2.5-pro-preview-03-25,0.48,2025-04-09,Google DeepMind,VPCT,,
+gemini-2.5-pro-preview-06-05,0.464,2025-06-05,Google DeepMind,VPCT,,
+gemini-2.5-flash-preview-09-2025,0.462,2025-09-25,Google DeepMind,VPCT,,
+gpt-4.5-preview-2025-02-27,0.45,2025-02-27,OpenAI,VPCT,,3.8e+26
+gemini-robotics-er-1.5-preview,0.408,2025-09-26,,VPCT,,
+gemini-2.5-pro-preview-05-06,0.405,2025-05-06,Google DeepMind,VPCT,,
+gpt-5-mini-2025-08-07_medium,0.402,2025-08-07,OpenAI,VPCT,,
+gpt-4o-2024-11-20,0.4,2024-11-20,OpenAI,VPCT,,
+claude-opus-4-5-20251101_32K,0.4,2025-11-24,Anthropic,VPCT,,
+claude-sonnet-4-5-20250929_32K,0.398,2025-09-29,Anthropic,VPCT,,
+claude-3-7-sonnet-20250219,0.39,2025-02-24,Anthropic,VPCT,,3.3499999999999998e+25
+gpt-5-mini-2025-08-07_high,0.39,2025-08-07,OpenAI,VPCT,,
+gemini-2.5-flash-preview-04-17,0.38,2025-04-17,Google DeepMind,VPCT,,
+claude-opus-4-20250514_16K,0.38,2025-05-22,Anthropic,VPCT,,
+claude-sonnet-4-5-20250929,0.38,2025-09-29,Anthropic,VPCT,,
+gpt-5-nano-2025-08-07_high,0.372,2025-08-07,OpenAI,VPCT,,
+o1-2024-12-17_medium,0.37,2024-12-17,OpenAI,VPCT,,
+gpt-5-nano-2025-08-07_medium,0.354,2025-08-07,OpenAI,VPCT,,
+claude-3-7-sonnet-20250219_64K,0.35,2025-02-24,Anthropic,VPCT,,3.3499999999999998e+25
+claude-opus-4-1-20250805,0.35,2025-08-05,Anthropic,VPCT,,
+gpt-4o-mini-2024-07-18,0.34,2024-07-18,OpenAI,VPCT,,
+claude-sonnet-4-20250514_32K,0.34,2025-05-22,Anthropic,VPCT,,
+claude-3-5-sonnet-20241022,0.33,2024-10-22,Anthropic,VPCT,,
+claude-opus-4-20250514,0.33,2025-05-22,Anthropic,VPCT,,
+claude-opus-4-1-20250805_16K,0.33,2025-08-05,Anthropic,VPCT,,
+claude-3-5-sonnet-20240620,0.33,2024-06-20,Anthropic,VPCT,,2.700000000000001e+25
+claude-sonnet-4-20250514,0.3,2025-05-22,Anthropic,VPCT,,
+gemini-2.5-flash-lite-preview-09-2025,0.3,2025-09-25,Google DeepMind,VPCT,,
+gpt-5-2025-08-07_high,1473.25,2025-08-07,OpenAI,WebDev Arena,,6.6e+25
+claude-opus-4-1-20250805_16K,1457.65,2025-08-05,Anthropic,WebDev Arena,,
+claude-opus-4-1-20250805,1451.27,2025-08-05,Anthropic,WebDev Arena,,
+claude-sonnet-4-5-20250929_32K,1420.14,2025-09-29,Anthropic,WebDev Arena,,
+gemini-2.5-pro,1398.99,2025-06-17,Google DeepMind,WebDev Arena,,
+glm-4.6,1395.19,2025-09-30,"Zhipu AI,Tsinghua University",WebDev Arena,,4.42e+24
+DeepSeek-R1-0528,1392.69,2025-05-28,DeepSeek,WebDev Arena,,4.020010000000001e+24
+claude-sonnet-4-5-20250929,1386.98,2025-09-29,Anthropic,WebDev Arena,,
+claude-opus-4-20250514,1382.68,2025-05-22,Anthropic,WebDev Arena,,
+glm-4.5,1378.52,2025-08-03,"Zhipu AI,Tsinghua University",WebDev Arena,,4.42e+24
+GLM-4.5-Air,1365.84,2025-07-20,,WebDev Arena,,
+Qwen3-Coder-480B-A35B-Instruct,1365.02,2025-07-31,Alibaba,WebDev Arena,,1.575e+24
+claude-sonnet-4-20250514,1362.0,2025-05-22,Anthropic,WebDev Arena,,
+DeepSeek-V3.1_thinking,1360.2,2025-08-21,DeepSeek,WebDev Arena,,3.594058e+24
+claude-3-7-sonnet-20250219,1358.41,2025-02-24,Anthropic,WebDev Arena,,3.3499999999999998e+25
+claude-haiku-4-5-20251001,1354.3,2025-10-15,Anthropic,WebDev Arena,,
+Qwen3-235B-A22B-Instruct-2507,1352.32,2025-07-25,Alibaba,WebDev Arena,,4.752e+24
+DeepSeek-V3.1,1338.38,2025-08-21,DeepSeek,WebDev Arena,,3.594058e+24
+qwen3-coder-plus,1333.87,2025-09-23,,WebDev Arena,,
+Kimi-K2-Instruct,1315.22,2025-07-12,Moonshot,WebDev Arena,,2.976e+24
+gemini-2.5-flash,1294.43,2025-06-17,Google DeepMind,WebDev Arena,,
+gpt-4.1-2025-04-14,1252.53,2025-04-14,OpenAI,WebDev Arena,,
+claude-3-5-sonnet-20241022,1238.14,2024-10-22,Anthropic,WebDev Arena,,
+DeepSeek-V3-0324,1207.91,2025-03-24,DeepSeek,WebDev Arena,,3.4078e+24
+DeepSeek-R1,1199.39,2025-01-20,DeepSeek,WebDev Arena,,4.020010000000001e+24
+gpt-4.1-mini-2025-04-14,1192.74,2025-04-14,OpenAI,WebDev Arena,,
+qwen3-235b-a22b,1189.5,2025-04-29,Alibaba,WebDev Arena,,4.752e+24
+o3-2025-04-16_medium,1186.41,2025-04-16,OpenAI,WebDev Arena,,
+mistral-medium-2505,1180.59,2025-05-07,Mistral AI,WebDev Arena,,
+grok-4-0709,1173.77,2025-07-09,xAI,WebDev Arena,,5.0000000000001e+26
+grok-code-fast-1,1152.17,2025-08-28,,WebDev Arena,,
+grok-3-beta,1143.43,2025-04-09,xAI,WebDev Arena,,3.5000000000000006e+26
+o3-mini-2025-01-31_high,1136.73,2025-01-31,OpenAI,WebDev Arena,,
+claude-3-5-haiku-20241022,1133.41,2024-10-22,Anthropic,WebDev Arena,,
+MiniMax-M1-80k,1129.4,2025-06-13,MiniMax,WebDev Arena,,4.3240062e+24
+o4-mini-2025-04-16_medium,1117.46,2025-04-16,OpenAI,WebDev Arena,,
+gpt-oss-120b,1093.01,2025-08-05,OpenAI,WebDev Arena,,4.94e+24
+o3-mini-2025-01-31_medium,1092.17,2025-01-31,OpenAI,WebDev Arena,,
+gemini-2.0-pro-exp-02-05,1089.74,2025-02-05,Google DeepMind,WebDev Arena,,
+o1-2024-12-17_medium,1045.16,2024-12-17,OpenAI,WebDev Arena,,
+o1-mini-2024-09-12_medium,1042.58,2024-09-12,OpenAI,WebDev Arena,,
+gemini-2.0-flash-001,1040.25,2025-02-05,"Google DeepMind,Google",WebDev Arena,,
+gemini-2.0-flash-thinking-exp-01-21,1029.78,2025-01-21,"Google DeepMind,Google",WebDev Arena,,
+Llama-4-Maverick-17B-128E-Instruct,1027.08,2025-04-05,Meta AI,WebDev Arena,,2.244000000001e+24
+gemini-2.0-flash-exp,980.07,2024-12-11,"Google DeepMind,Google",WebDev Arena,,
+qwen2.5-max,975.51,2025-01-28,Alibaba,WebDev Arena,,
+gpt-4o-2024-11-20,964.0,2024-11-20,OpenAI,WebDev Arena,,
+DeepSeek-V3,959.78,2024-12-26,DeepSeek,WebDev Arena,,3.4078e+24
+Qwen2.5-Coder-32B-Instruct,901.97,2024-11-21,Alibaba,WebDev Arena,,1.0725e+24
+Llama-4-Scout-17B-16E-Instruct,901.09,2025-04-05,Meta AI,WebDev Arena,,4.08e+24
+gemini-1.5-pro-002,892.56,2024-09-24,Google DeepMind,WebDev Arena,,
+Llama-3.1-405B-Instruct,809.69,2024-07-23,Meta AI,WebDev Arena,,3.8e+25
+gemini-3-pro-preview,0.6993,2025-11-18,Google DeepMind,WeirdML,,
+gpt-5.1_high,0.6077,2025-11-13,OpenAI,WeirdML,,
+gpt-5-2025-08-07_high,0.607,2025-08-07,OpenAI,WeirdML,,6.6e+25
+gpt-5-pro-2025-10-06_high,0.6039,2025-10-07,OpenAI,WeirdML,,
+o3-pro-2025-06-10_high,0.5821,2025-06-10,OpenAI,WeirdML,,
+gpt-5-codex,0.5453,2025-09-15,OpenAI,WeirdML,,6.6e+25
+gemini-2.5-pro_16K,0.5403,2025-06-17,Google DeepMind,WeirdML,,
+gpt-5-mini-2025-08-07_high,0.5267,2025-08-07,OpenAI,WeirdML,,
+o4-mini-2025-04-16_high,0.5256,2025-04-16,OpenAI,WeirdML,,
+o3-2025-04-16_high,0.5242,2025-04-16,OpenAI,WeirdML,,
+gpt-oss-120b_high,0.4817,2025-08-05,OpenAI,WeirdML,,4.94e+24
+claude-sonnet-4-5-20250929_16K,0.4771,2025-09-29,Anthropic,WeirdML,,
+o1-preview-2024-09-12,0.4756,2024-09-12,OpenAI,WeirdML,,
+claude-sonnet-4-5-20250929,0.467,2025-09-29,Anthropic,WeirdML,,
+claude-sonnet-4-20250514_16K,0.4611,2025-05-22,Anthropic,WeirdML,,
+grok-4-0709,0.4573,2025-07-09,xAI,WeirdML,,5.0000000000001e+26
+claude-haiku-4-5-20251001,0.454,2025-10-15,Anthropic,WeirdML,,
+claude-haiku-4-5-20251001_16K,0.4415,2025-10-15,Anthropic,WeirdML,,
+claude-sonnet-4-20250514,0.4388,2025-05-22,Anthropic,WeirdML,,
+o1-2024-12-17_high,0.4382,2024-12-17,OpenAI,WeirdML,,
+o3-mini-2025-01-31_high,0.437,2025-01-31,OpenAI,WeirdML,,
+claude-opus-4-20250514_16K,0.434,2025-05-22,Anthropic,WeirdML,,
+grok-4-fast,0.4286,2025-09-19,xAI,WeirdML,,
+kimi-k2-thinking,0.4279,2025-11-06,Moonshot,WeirdML,,4.1999999999999997e+24
+claude-opus-4-1-20250805_16K,0.4276,2025-08-05,Anthropic,WeirdML,,
+grok-3-mini_high,0.4258,2025-06-24,xAI,WeirdML,,
+gemini-2.5-flash-preview-09-2025_16k,0.4191,2025-09-25,Google DeepMind,WeirdML,,
+gpt-oss-120b_medium,0.4188,2025-08-05,OpenAI,WeirdML,,4.94e+24
+DeepSeek-R1-0528,0.4163,2025-05-28,DeepSeek,WeirdML,,4.020010000000001e+24
+Qwen3-Coder-480B-A35B-Instruct,0.4117,2025-07-31,Alibaba,WeirdML,,1.575e+24
+Qwen3-235B-A22B-Thinking-2507,0.4104,2025-07-25,,WeirdML,,
+gemini-2.5-flash-preview-05-20_16K,0.4095,2025-05-20,Google DeepMind,WeirdML,,
+gpt-oss-20b_high,0.4093,2025-08-05,OpenAI,WeirdML,,5.49e+23
+glm-4.5_thinking,0.4058,2025-08-05,"Zhipu AI,Tsinghua University",WeirdML,,4.42e+24
+claude-3-5-sonnet-20241022,0.3997,2024-10-22,Anthropic,WeirdML,,
+gpt-5-chat,0.3977,,OpenAI,WeirdML,,6.6e+25
+DeepSeek-V3.2-Exp_thinking,0.3948,2025-09-29,,WeirdML,,
+gpt-4.5-preview-2025-02-27,0.3937,2025-02-27,OpenAI,WeirdML,,3.8e+26
+Kimi-K2-Instruct,0.3936,2025-07-12,Moonshot,WeirdML,,2.976e+24
+gpt-4.1-2025-04-14,0.3904,2025-04-14,OpenAI,WeirdML,,
+Qwen3-235B-A22B-Instruct-2507,0.387,2025-07-25,Alibaba,WeirdML,,4.752e+24
+DeepSeek-V3.1_thinking,0.3836,2025-08-21,DeepSeek,WeirdML,,3.594058e+24
+gpt-5-nano-2025-08-07_high,0.3806,2025-08-07,OpenAI,WeirdML,,
+gpt-4.1-mini-2025-04-14,0.3761,2025-04-14,OpenAI,WeirdML,,
+DeepSeek-V3.1,0.375,2025-08-21,DeepSeek,WeirdML,,3.594058e+24
+grok-3,0.3724,2025-04-09,xAI,WeirdML,,3.5000000000000006e+26
+gpt-oss-20b_medium,0.3683,2025-08-05,OpenAI,WeirdML,,5.49e+23
+Kimi-K2-Instruct-0905,0.3668,2024-09-05,Moonshot,WeirdML,,2.976e+24
+DeepSeek-R1,0.3649,2025-01-20,DeepSeek,WeirdML,,4.020010000000001e+24
+o1-mini-2024-09-12_medium,0.3632,2024-09-12,OpenAI,WeirdML,,
+DeepSeek-V3-0324,0.3608,2025-03-24,DeepSeek,WeirdML,,3.4078e+24
+gemini-2.5-flash-lite-preview-06-17_16K,0.3522,2025-06-17,Google DeepMind,WeirdML,,
+grok-code-fast-1,0.3506,2025-08-28,,WeirdML,,
+mistral-medium-2508,0.3313,2025-08-12,,WeirdML,,
+claude-3-5-sonnet-20240620,0.3097,2024-06-20,Anthropic,WeirdML,,2.700000000000001e+25
+claude-3-5-haiku-20241022,0.3073,2024-10-22,Anthropic,WeirdML,,
+Qwen3-30B-A3B,0.2975,2025-04-29,Alibaba,WeirdML,,6.48e+23
+gemini-2.0-flash-001,0.2577,2025-02-05,"Google DeepMind,Google",WeirdML,,
+gpt-4o-2024-11-20,0.2512,2024-11-20,OpenAI,WeirdML,,
+gemini-1.5-flash-002,0.2487,2024-09-24,Google DeepMind,WeirdML,,
+Llama-4-Maverick-17B-128E-Instruct,0.2447,2025-04-05,Meta AI,WeirdML,,2.244000000001e+24
+claude-3-opus-20240229,0.2318,2024-02-29,Anthropic,WeirdML,,
+grok-2-1212,0.2224,2024-12-12,xAI,WeirdML,,2.9599999999999996e+25
+gemini-1.5-pro-002,0.222,2024-09-24,Google DeepMind,WeirdML,,
+Llama-3.1-405B-Instruct,0.2138,2024-07-23,Meta AI,WeirdML,,3.8e+25
+gpt-4.1-nano-2025-04-14,0.1898,2025-04-14,OpenAI,WeirdML,,
+gpt-4-turbo-2024-04-09,0.1801,2024-04-09,OpenAI,WeirdML,,
+Llama-3.3-70B-Instruct,0.1444,2024-12-06,Meta AI,WeirdML,,6.8649768e+24
+gpt-4-0613,0.1244,2023-06-13,OpenAI,WeirdML,,2.1e+25
+gpt-4o-mini-2024-07-18,0.1176,2024-07-18,OpenAI,WeirdML,,
+claude-3-sonnet-20240229,0.1016,2024-02-29,Anthropic,WeirdML,,
+claude-3-haiku-20240307,0.0984,2024-03-07,Anthropic,WeirdML,,
+Llama-3.1-70B-Instruct,0.0897,2024-07-23,Meta AI,WeirdML,,7.929e+24
+claude-2.1,0.0706,2023-11-21,Anthropic,WeirdML,,
+gpt-3.5-turbo-0125,0.0348,2024-01-25,OpenAI,WeirdML,,
+Mixtral-8x22B-Instruct-v0.1,0.0317,2024-04-17,Mistral AI,WeirdML,,2.34e+24
+Llama-3.1-8B-Instruct,0.0173,2024-07-23,Meta AI,WeirdML,,1.224e+24
+PaLM 2-L,0.83,2023-05-17,,WinoGrande,,
+gpt-4-0314,0.875,2023-03-14,OpenAI,WinoGrande,,2.1e+25
+PaLM 540B,0.851,2022-04-04,Google Research,WinoGrande,,2.5272e+24
+text-davinci-002,0.816,2022-03-15,OpenAI,WinoGrande,,2.578e+24
+PaLM 2-M,0.792,2023-05-17,,WinoGrande,,
+PaLM 2-S,0.779,2023-05-17,,WinoGrande,,
+PaLM 62B,0.77,2022-04-04,,WinoGrande,,
+text-davinci-001,0.702,2022-01-27,OpenAI,WinoGrande,,3.19181e+23
+Gopher (280B),0.701,2021-12-08,DeepMind,WinoGrande,,6.31e+23
+Chinchilla (70B),0.749,2022-03-29,DeepMind,WinoGrande,,5.76e+23
+PaLM-cont 62B,0.77,,,WinoGrande,,
+LLaMA-7B,0.701,2023-02-24,Meta AI,WinoGrande,,4.00000001e+22
+LLaMA-13B,0.73,2023-02-24,Meta AI,WinoGrande,,7.8e+22
+LLaMA-65B,0.77,2023-02-24,Meta AI,WinoGrande,,5.5e+23
+LLaMA-33B,0.76,2023-02-24,Meta AI,WinoGrande,,2.7300000000001e+23
+Mistral-7B-v0.1,0.753,2023-09-27,Mistral AI,WinoGrande,,
+claude-3-sonnet-20240229,0.751,2024-02-29,Anthropic,WinoGrande,,
+claude-3-haiku-20240307,0.742,2024-03-07,Anthropic,WinoGrande,,
+claude-3-opus-20240229,0.885,2024-02-29,Anthropic,WinoGrande,,
+gpt2-xl,0.583,2019-11-05,OpenAI,WinoGrande,,1.920000000001e+21
+mpt-7b,0.683,2023-05-05,MosaicML,WinoGrande,,4.2e+22
+mpt-30b,0.71,2023-06-22,MosaicML,WinoGrande,,1.8900000000001e+23
+falcon-7b,0.663,2023-04-24,Technology Innovation Institute,WinoGrande,,6.3e+22
+falcon-40b,0.769,2023-03-15,Technology Innovation Institute,WinoGrande,,2.4e+23
+Llama-2-7b,0.692,2023-07-18,Meta AI,WinoGrande,,8.4e+22
+Llama-2-13b,0.728,2023-07-18,Meta AI,WinoGrande,,1.6e+23
+Llama-2-34b,0.767,2023-07-18,Meta AI,WinoGrande,,4.08e+23
+Llama-2-70b-hf,0.802,2023-07-18,Meta AI,WinoGrande,,8.1e+23
+Meta-Llama-3-8B,0.757,2024-04-18,Meta AI,WinoGrande,,7.2e+23
+Meta-Llama-3-70B,0.835,2024-04-18,Meta AI,WinoGrande,,7.861e+24
+Llama-3.1-405B-Instruct,0.822,2024-07-23,Meta AI,WinoGrande,,3.8e+25
+Qwen2.5-Coder-0.5B,0.548,2024-09-18,,WinoGrande,,
+Qwen2.5-Coder-1.5B,0.607,2024-09-18,Alibaba,WinoGrande,,5.082e+22
+Qwen2.5-Coder-3B,0.674,2024-09-18,,WinoGrande,,
+Qwen2.5-Coder-7B,0.729,2024-09-18,Alibaba,WinoGrande,,2.5113e+23
+Qwen2.5-Coder-14B,0.768,2024-09-18,,WinoGrande,,
+Qwen2.5-Coder-32B,0.808,2024-09-18,Alibaba,WinoGrande,,1.0725e+24
+deepseek-coder-1.3b-base,0.533,2023-11-02,"DeepSeek,Peking University",WinoGrande,,1.56e+22
+starcoder2-3b,0.571,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",WinoGrande,,5.94e+22
+starcoder2-7b,0.571,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",WinoGrande,,1.55e+23
+deepseek-coder-6.7b-base,0.576,2023-11-02,"DeepSeek,Peking University",WinoGrande,,8.04e+22
+DeepSeek-Coder-V2-Lite-Base,0.729,2024-06-13,,WinoGrande,,
+CodeQwen1.5-7B,0.598,2024-04-15,,WinoGrande,,
+starcoder2-15b,0.643,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",WinoGrande,,3.87e+23
+deepseek-coder-33b-base,0.62,2023-11-02,"DeepSeek,Peking University",WinoGrande,,3.96e+23
+DeepSeek-Coder-V2-Base,0.837,2024-06-17,DeepSeek,WinoGrande,,1.2852e+24
+Mixtral-8x7B-v0.1,0.772,2023-12-11,Mistral AI,WinoGrande,,7.74e+23
+gemma-7b,0.79,2024-02-21,Google DeepMind,WinoGrande,,3.07e+23
+gemma-2b,0.654,2024-02-21,Google DeepMind,WinoGrande,,4.5115822e+22
+DeepSeek-V2,0.863,2024-05-07,DeepSeek,WinoGrande,,1.02e+24
+DeepSeek-V3,0.852,2024-12-26,DeepSeek,WinoGrande,,3.4078e+24
+Llama-3.1-405B,0.892,2024-07-23,Meta AI,WinoGrande,,3.8e+25
+Qwen2.5-72B,0.823,2024-09-19,Alibaba,WinoGrande,,7.8e+24
+phi-1_5,0.734,2023-09-11,Microsoft,WinoGrande,,1.17e+21
+vicuna-13b-v1.1,0.708,2023-04-12,,WinoGrande,,
+Falcon-rw-1.3B,0.607,,,WinoGrande,,
+opt-1.3b,0.61,2022-05-11,Meta AI,WinoGrande,,
+GPT-Neo-2.7B,0.577,,,WinoGrande,,
+phi-1.5-web-only (1.3B),0.604,,,WinoGrande,,
+phi-1.5-web (1.3B),0.74,,,WinoGrande,,
+Yi-6B,0.713,2023-11-02,01.AI,WinoGrande,,1.26e+23
+Yi-9B,0.73,2024-03-01,,WinoGrande,,
+falcon-11b,0.783,2024-05-09,Technology Innovation Institute,WinoGrande,,3.6e+23
+falcon-180B,0.871,2023-09-06,Technology Innovation Institute,WinoGrande,,3.76e+24
+gpt-3.5-turbo-0613,0.816,2023-06-13,OpenAI,WinoGrande,,
+gpt-4-32k-0314,0.875,2023-03-14,OpenAI,WinoGrande,,2.1e+25
+Nemotron-4 15B,0.78,2024-02-26,NVIDIA,WinoGrande,,7.5005116e+23
+GLaM (MoE),0.735,2021-12-13,Google,WinoGrande,,3.6363112434e+23
+GLaM (dense),0.715,,,WinoGrande,,
+Megatron-Turing NLG 530B,0.789,2022-01-28,"Microsoft,NVIDIA",WinoGrande,,8.586e+23
+Phi-3-mini-4k-instruct,0.708,2024-04-23,Microsoft,WinoGrande,,7.524e+22
+Phi-3-small-8k-instruct,0.815,2024-04-23,Microsoft,WinoGrande,,2.1312e+23
+Phi-3-medium-128k-instruct,0.815,2024-04-23,Microsoft,WinoGrande,,4.032e+23
+phi-2,0.547,2023-12-12,Microsoft,WinoGrande,,2.27e+22
+Meta-Llama-3-8B-Instruct,0.65,2024-04-18,Meta AI,WinoGrande,,7.2e+23
+gpt-3.5-turbo-1106,0.688,2023-11-06,OpenAI,WinoGrande,,
+UNICORN,0.866,,,WinoGrande,,
+xgen-7b-8k-base,0.649,2023-06-27,Salesforce,WinoGrande,,8.02e+22
+open_llama_7b,0.67,2023-06-07,,WinoGrande,,
+RedPajama-INCITE-7B-Base,0.638,2023-05-04,,WinoGrande,,
+gpt-neox-20b,0.661,2022-04-07,EleutherAI,WinoGrande,,9.31627008e+22
+opt-13b,0.647,2022-05-11,,WinoGrande,,
+gpt-j-6b,0.645,2021-08-05,"EleutherAI,LAION",WinoGrande,,1.5e+22
+dolly-v2-12b,0.618,2023-04-11,Databricks,WinoGrande,,
+Cerebras-GPT-13B,0.608,2023-03-20,Cerebras Systems,WinoGrande,,2.3e+22
+stablelm-tuned-alpha-7b,0.515,2023-04-19,,WinoGrande,,

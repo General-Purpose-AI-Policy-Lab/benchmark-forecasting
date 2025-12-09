@@ -1,0 +1,354 @@
+model_version,score,release_date,organization,benchmark,stderr,source
+Manus 1.5,0.025,,,Remote Labor Index,0.0,Scale
+Manus 1.0,0.025,,,Remote Labor Index,0.0,Scale
+claude-4-5-Sonnet,0.0208,,Anthropic,Remote Labor Index,0.0,Scale
+gpt-5-2025-08-07,0.0167,,,Remote Labor Index,0.0,Scale
+ChatGPT agent,0.0125,,OpenAI,Remote Labor Index,0.0,Scale
+gemini-2.5-pro-preview-06-05,0.0083,,Google,Remote Labor Index,0.0,Scale
+claude-opus-4-5-20251101,0.623,,Anthropic,MCP Atlas,1.76,Scale
+gemini-3-pro-preview,0.541,,Google,MCP Atlas,1.59,Scale
+gpt-5-2025-08-07,0.445,,,MCP Atlas,1.69,Scale
+claude-4-5-sonnet,0.43799999999999994,,Anthropic,MCP Atlas,1.57,Scale
+o3-pro-2025-06-10-high,0.436,,OpenAI,MCP Atlas,1.56,Scale
+claude-opus-4-1-20250805,0.409,,Anthropic,MCP Atlas,1.49,Scale
+claude-4-Sonnet-20250514,0.35600000000000004,,Anthropic,MCP Atlas,1.57,Scale
+glm-4p5-air,0.34,,,MCP Atlas,1.32,Scale
+kimi-k2-instruct,0.239,,,MCP Atlas,1.14,Scale
+qwen3-235B-A22B,0.12,,Alibaba,MCP Atlas,0.94,Scale
+gemini-2.5-Pro-Preview-06-05,0.08800000000000001,,Google,MCP Atlas,0.62,Scale
+gpt-4o-2024-11-20,0.07200000000000001,,OpenAI,MCP Atlas,0.51,Scale
+gemini-2.5-flash-preview-05-20,0.034,,Google,MCP Atlas,0.33,Scale
+Llama-4-Maverick,0.008,,Meta,MCP Atlas,0.08,Scale
+claude-4-5-Sonnet,0.436,,Anthropic,SWE-Bench Pro,3.6,Scale
+gemini-3-pro-preview,0.433,,Google,SWE-Bench Pro,3.6,Scale
+claude-4-Sonnet,0.42700000000000005,,Anthropic,SWE-Bench Pro,3.59,Scale
+gpt-5-2025-08-07 (High),0.4178,,,SWE-Bench Pro,3.49,Scale
+claude-4-5-haiku,0.3945,,Anthropic,SWE-Bench Pro,3.55,Scale
+kimi-k2-instruct,0.2767,,,SWE-Bench Pro,3.25,Scale
+gpt-5-2025-08-07 (High),0.259,,,SWE-Bench Pro,3.18,Scale
+gpt-5-2025-08-07 (Medium),0.23260000000000003,,,SWE-Bench Pro,3.06,Scale
+claude-opus-4-1-20250805,0.2271,,Anthropic,SWE-Bench Pro,3.04,Scale
+claude-4-Sonnet-20250514,0.1765,,Anthropic,SWE-Bench Pro,2.77,Scale
+gpt-oss-120b,0.162,,,SWE-Bench Pro,2.67,Scale
+gemini-2.5-Pro-Preview-06-05,0.1354,,Google,SWE-Bench Pro,2.48,Scale
+SWE-Smith-32B,0.0684,,,SWE-Bench Pro,1.83,Scale
+gpt-4o-2024-11-20,0.0492,,OpenAI,SWE-Bench Pro,1.57,Scale
+Qwen3-32B,0.0342,,Alibaba,SWE-Bench Pro,1.32,Scale
+gpt-5,0.5132,,,PRBench Finance,0.17,Scale
+gpt-5-pro,0.5106,,,PRBench Finance,0.59,Scale
+o3-pro,0.49079999999999996,,OpenAI,PRBench Finance,0.79,Scale
+o3,0.4769,,,PRBench Finance,0.45,Scale
+claude-opus-4-5-20251101-thinking,0.46159999999999995,,Anthropic,PRBench Finance,0.27,Scale
+gpt-oss-120b,0.43799999999999994,,,PRBench Finance,1.96,Scale
+claude-sonnet-4-5-20250929,0.4379,,Anthropic,PRBench Finance,0.4,Scale
+kimi-k2-thinking,0.4341,,,PRBench Finance,0.23,Scale
+mistral-medium-latest,0.3935,,Mistral,PRBench Finance,0.75,Scale
+o4-mini,0.3922,,,PRBench Finance,0.51,Scale
+gemini-3-pro-preview,0.3918,,Google,PRBench Finance,0.51,Scale
+qwen.qwen3-235b-a22b-2507-v1:0,0.3914,,Alibaba,PRBench Finance,0.38,Scale
+gemini-2.5-pro,0.3892,,Google,PRBench Finance,0.48,Scale
+gemini-2.5-flash,0.38409999999999994,,Google,PRBench Finance,0.62,Scale
+kimi-k2-instruct,0.3834,,,PRBench Finance,0.42,Scale
+claude-opus-4-1-20250805,0.3515,,Anthropic,PRBench Finance,1.27,Scale
+deepseek-v3p1,0.35090000000000005,,DeepSeek,PRBench Finance,0.15,Scale
+gpt-4.1,0.3432,,OpenAI,PRBench Finance,0.26,Scale
+deepseek-r1-0528,0.3267,,DeepSeek,PRBench Finance,0.64,Scale
+gpt-4.1-mini,0.3045,,OpenAI,PRBench Finance,0.42,Scale
+llama4-maverick-instruct-basic,0.2236,,Meta,PRBench Finance,0.42,Scale
+gpt-5-pro,0.4989,,,PRBench Legal,0.36,Scale
+o3-pro,0.49670000000000003,,OpenAI,PRBench Legal,0.5,Scale
+gpt-5,0.48960000000000004,,,PRBench Legal,0.03,Scale
+o3,0.4857,,,PRBench Legal,0.54,Scale
+claude-opus-4-5-20251101-thinking,0.4421,,Anthropic,PRBench Legal,0.34,Scale
+gemini-2.5-pro,0.4143,,Google,PRBench Legal,0.2,Scale
+gemini-2.5-flash,0.4102,,Google,PRBench Legal,0.61,Scale
+claude-sonnet-4-5-20250929,0.40840000000000004,,Anthropic,PRBench Legal,0.4,Scale
+gpt-oss-120b,0.4021,,,PRBench Legal,2.07,Scale
+kimi-k2-thinking,0.409,,,PRBench Legal,0.26,Scale
+gemini-3-pro-preview,0.406,,Google,PRBench Legal,0.28,Scale
+mistral-medium-latest,0.39549999999999996,,Mistral,PRBench Legal,0.91,Scale
+qwen.qwen3-235b-a22b-2507-v1:0,0.38299999999999995,,Alibaba,PRBench Legal,0.43,Scale
+o4-mini,0.3811,,,PRBench Legal,0.69,Scale
+deepseek-v3p1,0.3762,,DeepSeek,PRBench Legal,0.64,Scale
+deepseek-r1-0528,0.3661,,DeepSeek,PRBench Legal,0.68,Scale
+gpt-4.1,0.36479999999999996,,OpenAI,PRBench Legal,0.05,Scale
+kimi-k2-instruct,0.3638,,,PRBench Legal,0.25,Scale
+claude-opus-4-1-20250805,0.34,,Anthropic,PRBench Legal,2.54,Scale
+gpt-4.1-mini,0.3038,,OpenAI,PRBench Legal,0.55,Scale
+llama4-maverick-instruct-basic,0.2484,,Meta,PRBench Legal,0.9,Scale
+gemini-3-pro-preview,0.37520000000000003,,Google,Humanity's Last Exam,1.9,Scale
+gpt-5-pro-2025-10-06,0.3164,,,Humanity's Last Exam,1.82,Scale
+gpt-5-2025-08-07,0.2532,,,Humanity's Last Exam,1.7,Scale
+claude-opus-4-5-20251101-thinking,0.252,,Anthropic,Humanity's Last Exam,1.7,Scale
+gpt-5.1-thinking,0.2368,,,Humanity's Last Exam,1.67,Scale
+gemini-2.5-pro-preview-06-05,0.2164,,Google,Humanity's Last Exam,1.61,Scale
+o3 (high) (April 2025),0.2032,,OpenAI,Humanity's Last Exam,1.58,Scale
+gpt-5-mini-2025-08-07,0.19440000000000002,,,Humanity's Last Exam,1.55,Scale
+o3 (medium) (April 2025),0.192,,OpenAI,Humanity's Last Exam,1.54,Scale
+Gemini 2.5 Pro Experimental (March 2025),0.1816,,Google,Humanity's Last Exam,1.51,Scale
+o4-mini (high) (April 2025),0.1808,,,Humanity's Last Exam,1.51,Scale
+Gemini 2.5 Pro Preview (May 06 2025),0.17800000000000002,,Google,Humanity's Last Exam,1.5,Scale
+o4-mini (medium) (April 2025),0.14279999999999998,,,Humanity's Last Exam,1.37,Scale
+claude-opus-4-5-20251101,0.1416,,Anthropic,Humanity's Last Exam,1.37,Scale
+claude-sonnet-4-5-20250929-thinking,0.13720000000000002,,Anthropic,Humanity's Last Exam,1.35,Scale
+Gemini 2.5 Flash (April 2025),0.1208,,Google,Humanity's Last Exam,1.28,Scale
+claude-opus-4-1-20250805-thinking,0.1152,,Anthropic,Humanity's Last Exam,1.25,Scale
+Gemini 2.5 Flash Preview (May 2025),0.1096,,Google,Humanity's Last Exam,1.22,Scale
+Claude Opus 4 (Thinking),0.1072,,Anthropic,Humanity's Last Exam,1.21,Scale
+glm-4p5,0.0832,,,Humanity's Last Exam,1.08,Scale
+o1 Pro,0.0812,,OpenAI,Humanity's Last Exam,1.07,Scale
+glm-4p5-air,0.0812,,,Humanity's Last Exam,1.07,Scale
+Claude 3.7 Sonnet (Thinking),0.08039999999999999,,Anthropic,Humanity's Last Exam,1.07,Scale
+o1 (December 2024),0.0796,,OpenAI,Humanity's Last Exam,1.06,Scale
+claude-opus-4-1-20250805,0.07919999999999999,,Anthropic,Humanity's Last Exam,1.06,Scale
+Claude Sonnet 4 (Thinking),0.0776,,Anthropic,Humanity's Last Exam,1.05,Scale
+claude-sonnet-4-5-20250929,0.07519999999999999,,Anthropic,Humanity's Last Exam,1.03,Scale
+gpt-5.1-instant,0.068,,,Humanity's Last Exam,0.99,Scale
+Claude Opus 4,0.0668,,Anthropic,Humanity's Last Exam,0.98,Scale
+Gemini 2.0 Flash Thinking (January 2025),0.06559999999999999,,Google,Humanity's Last Exam,0.97,Scale
+Llama 4 Maverick,0.056799999999999996,,Meta,Humanity's Last Exam,0.91,Scale
+Claude Sonnet 4,0.0552,,Anthropic,Humanity's Last Exam,0.9,Scale
+GPT 4.5 Preview,0.054400000000000004,,,Humanity's Last Exam,0.89,Scale
+GPT-4.1,0.054000000000000006,,OpenAI,Humanity's Last Exam,0.89,Scale
+Gemini-1.5-Pro-002,0.046,,Google,Humanity's Last Exam,0.82,Scale
+Mistral Medium 3,0.0452,,Mistral,Humanity's Last Exam,0.81,Scale
+Nova Pro,0.044000000000000004,,,Humanity's Last Exam,0.8,Scale
+Claude 3.5 Sonnet (October 2024),0.0408,,Anthropic,Humanity's Last Exam,0.78,Scale
+Nova Lite,0.0364,,,Humanity's Last Exam,0.73,Scale
+GPT-4o (November 2024),0.027200000000000002,,OpenAI,Humanity's Last Exam,0.64,Scale
+gemini-3-pro-preview,0.2685,,Google,VisualToolBench,0.54,Scale
+gpt-5-2025-08-07-thinking,0.1868,,,VisualToolBench,0.25,Scale
+gpt-5-2025-08-07,0.1696,,,VisualToolBench,0.06,Scale
+o3-2025-04-16,0.1374,,OpenAI,VisualToolBench,1.78,Scale
+gemini-2.5-pro-preview-06-05,0.1175,,Google,VisualToolBench,1.14,Scale
+o4-mini-2025-04-16,0.1112,,,VisualToolBench,0.08,Scale
+claude-sonnet-4-5-20250929-thinking,0.062,,Anthropic,VisualToolBench,0.14,Scale
+claude-sonnet-4-5-20250929,0.055999999999999994,,Anthropic,VisualToolBench,0.12,Scale
+gpt-4.1-2025-04-14,0.0552,,OpenAI,VisualToolBench,0.21,Scale
+claude-opus-4-1-20250805-thinking,0.0516,,Anthropic,VisualToolBench,0.57,Scale
+claude-opus-4-1-20250805,0.0471,,Anthropic,VisualToolBench,0.4,Scale
+gemini-2.5-flash,0.046900000000000004,,Google,VisualToolBench,0.13,Scale
+claude-sonnet-4,0.044800000000000006,,Anthropic,VisualToolBench,0.41,Scale
+claude-sonnet-4-thinking,0.0444,,Anthropic,VisualToolBench,0.04,Scale
+nova-premier,0.02,,,VisualToolBench,0.16,Scale
+llama4-scout,0.0158,,Meta,VisualToolBench,0.04,Scale
+llama4-maverick,0.0141,,Meta,VisualToolBench,0.25,Scale
+gpt-5-pro-2025-10-06,0.652,,,MultiNRC,1.24,Scale
+gemini-3-pro-preview,0.5896,,Google,MultiNRC,2.97,Scale
+gpt-5-2025-08-07,0.5213,,,MultiNRC,3.01,Scale
+o3-pro-2025-06-10-high,0.49,,OpenAI,MultiNRC,3.02,Scale
+gpt-5.1-thinking,0.49,,,MultiNRC,3.02,Scale
+claude-opus-4-5-20251101-thinking,0.4863,,Anthropic,MultiNRC,3.02,Scale
+o3-2025-04-16-high,0.455,,OpenAI,MultiNRC,3.0,Scale
+Gemini-2.5-Pro-Preview-06-05,0.4512,,Google,MultiNRC,3.0,Scale
+o3-2025-04-16-medium,0.4445,,OpenAI,MultiNRC,3.0,Scale
+claude-opus-4-5-20251101,0.41229999999999994,,Anthropic,MultiNRC,2.97,Scale
+claude-opus-4-1-20250805-thinking,0.3839,,Anthropic,MultiNRC,2.93,Scale
+claude-sonnet-4-5-20250929-thinking,0.3583,,Anthropic,MultiNRC,2.89,Scale
+Claude-4-Opus-20250514-thinking,0.3393,,Anthropic,MultiNRC,2.86,Scale
+claude-opus-4-1-20250805,0.2967,,Anthropic,MultiNRC,2.76,Scale
+Claude-4-Opus-20250514,0.29,,Anthropic,MultiNRC,2.74,Scale
+claude-sonnet-4-5-20250929,0.2815,,Anthropic,MultiNRC,2.71,Scale
+Claude-3.7-Sonnet-thinking,0.2777,,Anthropic,MultiNRC,2.7,Scale
+Deepseek-R1-0528,0.2758,,DeepSeek,MultiNRC,2.7,Scale
+Qwen3-235B-A22B-Thinking-2507,0.2711,,Alibaba,MultiNRC,2.68,Scale
+Deepseek-R1,0.2427,,DeepSeek,MultiNRC,2.59,Scale
+gpt-5-mini-2025-08-07,0.2389,,,MultiNRC,2.57,Scale
+DeepSeek-V3.1,0.23600000000000002,,DeepSeek,MultiNRC,2.56,Scale
+o4-mini-high,0.2218,,,MultiNRC,2.51,Scale
+GPT-4.1,0.21230000000000002,,OpenAI,MultiNRC,2.47,Scale
+kimi-k2-instruct,0.1848,,,MultiNRC,2.34,Scale
+Claude-4-Sonnet-20250514,0.1839,,Anthropic,MultiNRC,2.34,Scale
+gpt-5.1-instant,0.18289999999999998,,,MultiNRC,2.33,Scale
+Qwen3-235B-A22B,0.17629999999999998,,Alibaba,MultiNRC,2.3,Scale
+glm-4p5,0.1744,,,MultiNRC,2.29,Scale
+gpt-oss-120b,0.1517,,,MultiNRC,2.16,Scale
+GPT-4o,0.1242,,OpenAI,MultiNRC,1.99,Scale
+gpt-oss-20b,0.1043,,,MultiNRC,1.84,Scale
+glm-4p5-air,0.1043,,,MultiNRC,1.84,Scale
+Llama-4-Maverick,0.08439999999999999,,Meta,MultiNRC,1.68,Scale
+o3 Pro (high) (June 2025),0.6377,,OpenAI,MultiChallenge,1.53,Scale
+gemini-3-pro-preview,0.5915,,Google,MultiChallenge,1.39,Scale
+o3 (medium) (April 2025),0.5909,,OpenAI,MultiChallenge,1.08,Scale
+gpt-5-2025-08-07,0.5855,,,MultiChallenge,3.03,Scale
+gpt-5.1-thinking,0.5839,,,MultiChallenge,2.31,Scale
+claude-opus-4-5-20251101-thinking,0.5664,,Anthropic,MultiChallenge,2.41,Scale
+o3 (high) (April 2025),0.5650999999999999,,OpenAI,MultiChallenge,1.82,Scale
+gpt-5-pro-2025-10-06,0.564,,,MultiChallenge,2.99,Scale
+claude-opus-4-1-20250805-thinking,0.5518,,Anthropic,MultiChallenge,2.44,Scale
+Claude Sonnet 4 (Thinking),0.5312,,Anthropic,MultiChallenge,4.4,Scale
+Claude Opus 4 (Thinking),0.539,,Anthropic,MultiChallenge,0.84,Scale
+claude-opus-4-1-20250805,0.5346,,Anthropic,MultiChallenge,1.59,Scale
+claude-opus-4-5-20251101,0.5283,,Anthropic,MultiChallenge,2.09,Scale
+claude-sonnet-4-5-20250929-thinking,0.5349,,Anthropic,MultiChallenge,1.02,Scale
+gpt-5-mini-2025-08-07,0.5099,,,MultiChallenge,3.44,Scale
+Gemini 2.5 Flash Preview (May 2025),0.5262,,Google,MultiChallenge,1.53,Scale
+Claude 3.7 Sonnet Thinking (Feb 2025),0.5158,,Anthropic,MultiChallenge,1.98,Scale
+kimi-k2-instruct,0.5134000000000001,,,MultiChallenge,1.85,Scale
+Gemini 2.5 Pro Experimental (March 2025),0.5191,,Google,MultiChallenge,0.99,Scale
+gemini-2.5-pro-preview-06-05,0.5162,,Google,MultiChallenge,1.35,Scale
+gpt-5.1-instant,0.5057,,,MultiChallenge,1.4,Scale
+Claude Sonnet 4,0.4963,,Anthropic,MultiChallenge,2.56,Scale
+Claude Opus 4,0.49369999999999997,,Anthropic,MultiChallenge,2.54,Scale
+Gemini 2.5 Pro Preview (May 06 2025),0.4991,,Google,MultiChallenge,1.89,Scale
+o1 Pro (March 2025),0.4982,,OpenAI,MultiChallenge,1.36,Scale
+Qwen3-235B-A22B-Thinking-2507,0.4984,,Alibaba,MultiChallenge,0.72,Scale
+claude-sonnet-4-5-20250929,0.4864,,Anthropic,MultiChallenge,1.83,Scale
+Gemini 2.5 Flash (April 2025),0.4765,,Google,MultiChallenge,2.41,Scale
+o1 (December 2024),0.4493,,OpenAI,MultiChallenge,3.29,Scale
+o4-mini (medium) (April 2025),0.43829999999999997,,,MultiChallenge,4.71,Scale
+glm-4p5,0.4384,,,MultiChallenge,3.68,Scale
+DeepSeek-R1-0528,0.44549999999999995,,DeepSeek,MultiChallenge,0.86,Scale
+DeepSeek-V3.1,0.4404,,DeepSeek,MultiChallenge,1.94,Scale
+GPT-4.5 Preview (February 2025),0.43770000000000003,,OpenAI,MultiChallenge,1.6,Scale
+Claude 3.5 Sonnet (October 2024),0.43200000000000005,,Anthropic,MultiChallenge,3.07,Scale
+o4-mini (high) (April 2025),0.4299,,,MultiChallenge,3.17,Scale
+Claude 3.7 Sonnet (February 2025),0.4289,,Anthropic,MultiChallenge,2.25,Scale
+gpt-oss-120b,0.4226,,,MultiChallenge,1.99,Scale
+Qwen3-235B-A22B,0.4053,,Alibaba,MultiChallenge,1.72,Scale
+o3-mini (medium),0.40090000000000003,,OpenAI,MultiChallenge,2.89,Scale
+o3-mini (high),0.39890000000000003,,OpenAI,MultiChallenge,2.64,Scale
+GPT-4.1,0.3826,,OpenAI,MultiChallenge,3.97,Scale
+Gemini 2.0 Pro Experimental (February 2025),0.4067,,Google,MultiChallenge,1.32,Scale
+glm-4p5-air,0.3868,,,MultiChallenge,2.57,Scale
+Gemini 2.0 Flash Thinking Experimental (January 2025),0.3778,,Google,MultiChallenge,3.67,Scale
+Gemini 2.0 Flash (February 2025),0.3688,,Google,MultiChallenge,4.25,Scale
+o1-preview,0.3728,,OpenAI,MultiChallenge,0.69,Scale
+GPT-4.1 mini,0.35810000000000003,,OpenAI,MultiChallenge,2.5,Scale
+Gemini 2.0 Flash Experimental (December 2024),0.33509999999999995,,Google,MultiChallenge,2.84,Scale
+o1-mini,0.34490000000000004,,OpenAI,MultiChallenge,1.43,Scale
+DeepSeek V3 (March 2025),0.32189999999999996,,DeepSeek,MultiChallenge,3.18,Scale
+gpt-oss-20b,0.3375,,,MultiChallenge,0.52,Scale
+Mistral Medium 3,0.32289999999999996,,Mistral,MultiChallenge,1.61,Scale
+DeepSeek R1 (Jan 2025),0.3201,,DeepSeek,MultiChallenge,1.4,Scale
+Llama 4 Maverick,0.3206,,Meta,MultiChallenge,0.7,Scale
+GPT-4o (November 2024),0.2781,,OpenAI,MultiChallenge,1.44,Scale
+Mistral Magistral,0.26649999999999996,,Mistral,MultiChallenge,0.42,Scale
+GPT-4 (November 2024),0.2522,,OpenAI,MultiChallenge,2.29,Scale
+Llama 3.3 70B Instruct,0.2484,,Meta,MultiChallenge,0.55,Scale
+Nova Pro,0.2073,,,MultiChallenge,3.64,Scale
+Gemini 1.5 Pro Experimental (August 2024),0.2159,,Google,MultiChallenge,2.6,Scale
+GPT-4o mini,0.203,,OpenAI,MultiChallenge,1.4,Scale
+Qwen 2 72B Instruct,0.1999,,Alibaba,MultiChallenge,2.84,Scale
+Qwen 2.5 14B Instruct,0.1834,,Alibaba,MultiChallenge,1.06,Scale
+Qwen 2.5 72B Instruct,0.1734,,Alibaba,MultiChallenge,0.74,Scale
+Llama 3.2 3B Instruct,0.17,,Meta,MultiChallenge,1.87,Scale
+GPT-4.1 nano,0.15039999999999998,,OpenAI,MultiChallenge,2.2,Scale
+Llama 3.1 405B Instruct,0.16219999999999998,,Meta,MultiChallenge,0.34,Scale
+Mistral Large 2,0.1523,,Mistral,MultiChallenge,1.04,Scale
+GPT-4o (August 2024),0.1216,,OpenAI,MultiChallenge,3.52,Scale
+Mixtral 8x7B Instruct v0.1,0.1192,,Mistral,MultiChallenge,1.67,Scale
+gpt-5-pro-2025-10-06,0.1875,,,EnigmaEval,2.22,Scale
+gemini-3-pro-preview,0.18239999999999998,,Google,EnigmaEval,2.2,Scale
+o3 (medium) (April 2025),0.1309,,OpenAI,EnigmaEval,1.92,Scale
+o3 (high) (April 2025),0.1191,,OpenAI,EnigmaEval,1.85,Scale
+claude-opus-4-5-20251101-thinking,0.1191,,Anthropic,EnigmaEval,1.85,Scale
+gpt-5.1-thinking,0.11230000000000001,,,EnigmaEval,1.8,Scale
+gpt-5-2025-08-07,0.1047,,,EnigmaEval,1.74,Scale
+o4-mini (high) (April 2025),0.09210000000000002,,,EnigmaEval,1.65,Scale
+gpt-5-mini-2025-08-07,0.0819,,,EnigmaEval,1.56,Scale
+claude-opus-4-1-20250805-thinking,0.0718,,Anthropic,EnigmaEval,1.47,Scale
+o4-mini (medium) (April 2025),0.0681,,,EnigmaEval,0.83,Scale
+o1 Pro (March 2025),0.061399999999999996,,OpenAI,EnigmaEval,1.37,Scale
+claude-sonnet-4-5-20250929-thinking,0.06,,Anthropic,EnigmaEval,1.35,Scale
+o1 (December 2024),0.0565,,OpenAI,EnigmaEval,1.32,Scale
+Claude Opus 4 (Thinking),0.0557,,Anthropic,EnigmaEval,1.31,Scale
+gemini-2.5-pro-preview-06-05,0.0557,,Google,EnigmaEval,1.31,Scale
+claude-opus-4-1-20250805,0.0481,,Anthropic,EnigmaEval,1.22,Scale
+claude-opus-4-5-20251101,0.04650000000000001,,Anthropic,EnigmaEval,1.2,Scale
+Claude 3.7 Sonnet Thinking (Feb 2025),0.042300000000000004,,Anthropic,EnigmaEval,1.17,Scale
+Gemini 2.5 Pro Experimental (March 2025),0.0414,,Google,EnigmaEval,1.16,Scale
+Claude Opus 4,0.0321,,Anthropic,EnigmaEval,1.0,Scale
+GPT-4.5 Preview (February 2025),0.0318,,OpenAI,EnigmaEval,1.02,Scale
+Claude Sonnet 4 (Thinking),0.031200000000000002,,Anthropic,EnigmaEval,0.99,Scale
+Gemini 2.5 Flash Preview (May 2025),0.027000000000000003,,Google,EnigmaEval,0.92,Scale
+claude-sonnet-4-5-20250929,0.0338,,Anthropic,EnigmaEval,1.03,Scale
+Gemini 2.5 Pro Preview (May 06 2025),0.0236,,Google,EnigmaEval,0.87,Scale
+Claude 3.7 Sonnet (February 2025),0.0226,,Anthropic,EnigmaEval,0.86,Scale
+Claude Sonnet 4,0.022000000000000002,,Anthropic,EnigmaEval,0.84,Scale
+GPT-4.1,0.0217,,OpenAI,EnigmaEval,0.84,Scale
+gpt-5.1-instant,0.0194,,,EnigmaEval,0.79,Scale
+Gemini 2.0 Flash Thinking (January 2025),0.011000000000000001,,Google,EnigmaEval,0.6,Scale
+Claude 3.5 Sonnet (October 2024),0.0091,,Anthropic,EnigmaEval,0.55,Scale
+Pixtral Large (November 2024),0.0084,,,EnigmaEval,0.53,Scale
+Claude 3 Opus,0.008199999999999999,,Anthropic,EnigmaEval,0.45,Scale
+GPT-4o (November 2024),0.008,,OpenAI,EnigmaEval,0.44,Scale
+Gemini 2.0 Pro Experimental (Feb 2025),0.0069,,Google,EnigmaEval,0.48,Scale
+Gemini 2.0 Flash (February 2025),0.0063,,Google,EnigmaEval,0.45,Scale
+Llama 4 Maverick,0.0058,,Meta,EnigmaEval,0.43,Scale
+Llama 3.2 90B Vision Instruct,0.0038,,Meta,EnigmaEval,0.35,Scale
+Gemini 2.5 Pro Experimental (March 2025),0.5465,,Google,Visual Task Assessment (VISTA),1.46,Scale
+gemini-2.5-pro-preview-06-05,0.5463,,Google,Visual Task Assessment (VISTA),0.55,Scale
+gpt-5-pro-2025-10-06,0.5239,,,Visual Task Assessment (VISTA),1.07,Scale
+o4-mini (high) (April 2025),0.5179,,,Visual Task Assessment (VISTA),0.63,Scale
+o4-mini (medium) (April 2025),0.5166,,,Visual Task Assessment (VISTA),1.08,Scale
+o3 Pro (high) (June 2025),0.5163,,OpenAI,Visual Task Assessment (VISTA),0.25,Scale
+gemini-3-pro-preview,0.5149,,Google,Visual Task Assessment (VISTA),0.79,Scale
+Gemini 2.5 Pro Preview (May 06 2025),0.5078,,Google,Visual Task Assessment (VISTA),0.57,Scale
+gpt-5-mini-2025-08-07,0.5039,,,Visual Task Assessment (VISTA),2.28,Scale
+o3 (high) (April 2025),0.5007,,OpenAI,Visual Task Assessment (VISTA),1.14,Scale
+gpt-5-2025-08-07,0.49689999999999995,,,Visual Task Assessment (VISTA),1.03,Scale
+o3 (medium) (April 2025),0.4959,,OpenAI,Visual Task Assessment (VISTA),0.66,Scale
+claude-sonnet-4-5-20250929-thinking,0.4875,,Anthropic,Visual Task Assessment (VISTA),1.67,Scale
+Gemini 2.5 Flash Preview (May 2025),0.4915,,Google,Visual Task Assessment (VISTA),0.36,Scale
+o1 Pro (March 2025),0.4732,,OpenAI,Visual Task Assessment (VISTA),1.78,Scale
+Claude 3.7 Sonnet Thinking (Feb 2025),0.48229999999999995,,Anthropic,Visual Task Assessment (VISTA),0.7,Scale
+claude-opus-4-1-20250805-thinking,0.4844,,Anthropic,Visual Task Assessment (VISTA),0.43,Scale
+Gemini 2.5 Flash (April 2025),0.4697,,Google,Visual Task Assessment (VISTA),1.29,Scale
+Claude Opus 4 (Thinking),0.4696,,Anthropic,Visual Task Assessment (VISTA),0.95,Scale
+claude-opus-4-5-20251101-thinking,0.4643,,Anthropic,Visual Task Assessment (VISTA),0.03,Scale
+Gemini 2.0 Flash Thinking Experimental,0.455,,Google,Visual Task Assessment (VISTA),1.2,Scale
+GPT-4.1,0.4534,,OpenAI,Visual Task Assessment (VISTA),0.91,Scale
+Claude Sonnet 4 (Thinking),0.4549,,Anthropic,Visual Task Assessment (VISTA),0.21,Scale
+claude-opus-4-1-20250805,0.4525,,Anthropic,Visual Task Assessment (VISTA),0.66,Scale
+o1 (December 2024),0.4525,,OpenAI,Visual Task Assessment (VISTA),0.4,Scale
+claude-opus-4-5-20251101,0.4532,,Anthropic,Visual Task Assessment (VISTA),0.03,Scale
+claude-sonnet-4-5-20250929,0.45,,Anthropic,Visual Task Assessment (VISTA),0.12,Scale
+gpt-5.1-thinking,0.4382,,,Visual Task Assessment (VISTA),1.35,Scale
+Claude Opus 4,0.4353,,Anthropic,Visual Task Assessment (VISTA),1.24,Scale
+Gemini 2.0 Pro Experimental (Feb 2025),0.4325,,Google,Visual Task Assessment (VISTA),1.26,Scale
+Claude Sonnet 4,0.4321,,Anthropic,Visual Task Assessment (VISTA),0.52,Scale
+Claude 3.7 Sonnet (February 2025),0.4302,,Anthropic,Visual Task Assessment (VISTA),1.14,Scale
+GPT-4.5 Preview (February 2025),0.4211,,OpenAI,Visual Task Assessment (VISTA),1.39,Scale
+GPT-4.1 mini,0.4114,,OpenAI,Visual Task Assessment (VISTA),0.58,Scale
+Gemini 2.0 Flash Experimental,0.3995,,Google,Visual Task Assessment (VISTA),0.8,Scale
+Gemini 2.0 Flash (February 2025),0.3985,,Google,Visual Task Assessment (VISTA),0.71,Scale
+Claude 3.5 Sonnet (October 2024),0.3872,,Anthropic,Visual Task Assessment (VISTA),0.51,Scale
+Claude 3.5 Sonnet (June 2024),0.3837,,Anthropic,Visual Task Assessment (VISTA),0.7,Scale
+Llama 4 Maverick,0.3833,,Meta,Visual Task Assessment (VISTA),0.55,Scale
+ChatGPT-4o-latest (November 2024),0.3799,,OpenAI,Visual Task Assessment (VISTA),0.48,Scale
+Gemini 1.5 Pro,0.37070000000000003,,Google,Visual Task Assessment (VISTA),1.34,Scale
+gpt-5.1-instant,0.34869999999999995,,,Visual Task Assessment (VISTA),1.73,Scale
+GPT-4o (August 2024),0.3494,,OpenAI,Visual Task Assessment (VISTA),0.23,Scale
+Mistral Medium 3,0.34590000000000004,,Mistral,Visual Task Assessment (VISTA),1.12,Scale
+Gemini 1.5 Flash 002,0.3403,,Google,Visual Task Assessment (VISTA),1.41,Scale
+Pixtral Large (November 2024),0.3389,,,Visual Task Assessment (VISTA),0.69,Scale
+Gemini 2.0 Flash Lite Preview,0.32689999999999997,,Google,Visual Task Assessment (VISTA),1.4,Scale
+Qwen2-VL-72B-Instruct,0.28559999999999997,,Alibaba,Visual Task Assessment (VISTA),1.37,Scale
+Claude 3 Opus,0.2782,,Anthropic,Visual Task Assessment (VISTA),0.55,Scale
+GPT-4.1 nano,0.2655,,OpenAI,Visual Task Assessment (VISTA),0.35,Scale
+Nova Pro,0.2627,,,Visual Task Assessment (VISTA),0.61,Scale
+Pixtral 12B (September 2024),0.2597,,,Visual Task Assessment (VISTA),0.74,Scale
+Nova Lite,0.255,,,Visual Task Assessment (VISTA),0.77,Scale
+Llama 3.2 90B Vision Instruct,0.24609999999999999,,Meta,Visual Task Assessment (VISTA),0.8,Scale
+Llama 3.2 11B Vision-Instruct,0.2047,,Meta,Visual Task Assessment (VISTA),0.15,Scale
+Phi 3.5 Vision-Instruct,0.1518,,,Visual Task Assessment (VISTA),0.81,Scale
+gemini-2.5-pro-preview-06-05,0.5565,,Google,TutorBench,1.11,Scale
+gpt-5-2025-08-07,0.5533,,,TutorBench,1.02,Scale
+o3-pro-2025-06-10,0.5462,,OpenAI,TutorBench,1.02,Scale
+gpt-5.1-thinking,0.5409,,,TutorBench,1.06,Scale
+gemini-3-pro-preview,0.5367000000000001,,Google,TutorBench,1.05,Scale
+o3-2025-04-16-medium,0.5276,,OpenAI,TutorBench,1.0,Scale
+o3-2025-04-16-high,0.5209,,OpenAI,TutorBench,1.01,Scale
+claude-opus-4-5-20251101-thinking,0.512,,Anthropic,TutorBench,0.99,Scale
+claude-opus-4-1-20250805-thinking,0.5078,,Anthropic,TutorBench,1.05,Scale
+claude-opus-4-5-20251101,0.4982,,Anthropic,TutorBench,0.98,Scale
+claude-4-opus-20250514-thinking,0.4971,,Anthropic,TutorBench,1.02,Scale
+claude-sonnet-4-5-20250929-thinking,0.49,,Anthropic,TutorBench,1.01,Scale
+gpt-5.1-instant,0.49079999999999996,,,TutorBench,1.06,Scale
+claude-opus-4-1-20250805_anthropic,0.474,,Anthropic,TutorBench,1.06,Scale
+claude-37-sonnet-thinking,0.4645,,Anthropic,TutorBench,1.03,Scale
+claude-sonnet-4-5-20250929,0.457,,Anthropic,TutorBench,1.01,Scale
+claude-opus-4-20250514,0.4546,,Anthropic,TutorBench,1.06,Scale
+llama4-maverick,0.402,,Meta,TutorBench,1.0,Scale
+gpt-4o,0.36119999999999997,,OpenAI,TutorBench,0.96,Scale
