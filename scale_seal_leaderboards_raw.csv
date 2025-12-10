@@ -1,10 +1,11 @@
 rank,model,score,stderr,is_new,benchmark_slug,category,url
-1,Manus 1.5,2.5,0.0,True,rli,agentic,https://scale.com/leaderboard/rli
+1,Manus 1.5,2.5,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
 1,Manus 1.0,2.5,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
 2,claude-4-5-Sonnet,2.08,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
 3,gpt-5-2025-08-07,1.67,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
 4,ChatGPT agent,1.25,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
-5,gemini-2.5-pro-preview-06-05,0.83,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+4,gemini-3-pro-preview,1.25,0.0,True,rli,agentic,https://scale.com/leaderboard/rli
+6,gemini-2.5-pro-preview-06-05,0.83,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
 1,claude-opus-4-5-20251101,62.3,1.76,True,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 2,gemini-3-pro-preview,54.1,1.59,True,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 3,gpt-5-2025-08-07,44.5,1.69,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas

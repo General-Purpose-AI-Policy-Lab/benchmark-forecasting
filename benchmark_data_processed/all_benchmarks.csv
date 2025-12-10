@@ -2457,6 +2457,7 @@ Manus 1.0,0.025,2025-03-06,,Remote Labor Index,0.0,,Scale
 claude-4-5-Sonnet,0.0208,2025-09-29,Anthropic,Remote Labor Index,0.0,,Scale
 gpt-5-2025-08-07,0.0167,2025-08-07,,Remote Labor Index,0.0,,Scale
 ChatGPT agent,0.0125,2025-07-17,OpenAI,Remote Labor Index,0.0,,Scale
+gemini-3-pro-preview,0.0125,2025-11-18,Google,Remote Labor Index,0.0,,Scale
 gemini-2.5-pro-preview-06-05,0.0083,2025-06-05,Google,Remote Labor Index,0.0,,Scale
 claude-opus-4-5-20251101,0.623,2025-11-01,Anthropic,MCP Atlas,1.76,,Scale
 gemini-3-pro-preview,0.541,2025-11-18,Google,MCP Atlas,1.59,,Scale
