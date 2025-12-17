@@ -148,20 +148,20 @@ C = 6ND = 6 FLOP/token/parameter * 3.5 trillion tokens * 180 billion parameters 
 falcon-11b,0.584,2024-05-09,Technology Innovation Institute,United Arab Emirates,3.6e+23,"trained on 5.5T tokens
 
 6 * 11B * 5.5T = 3.6e23",Falcon2-11B,5,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,reca5QOZscaMohhwc
-gemini-1.0-pro-001,0.7,2024-02-15,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,"Training compute estimated to be 1.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing 
+gemini-1.0-pro-001,0.7,2024-02-15,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,"Training compute estimated to be 1.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing 
 
 Our reasoning and calculations for Gemini 1 Ultra are detailed in this Colab notebook.
 https://colab.research.google.com/drive/1sfG91UfiYpEYnj_xB5YRy07T5dv-9O_c
 
 ",Gemini 1.0 Pro (001),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recp3h3zrPXM6K5E6
-gemini-1.5-flash-001,0.779,2024-05-23,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash (001),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recya8zx93N6YFh4J
-gemini-1.5-flash-002,0.739,2024-09-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash (002),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recIlo0YrdpQ2gmEe
-gemini-1.5-flash-0514,0.778,2024-05-14,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash (0514 preview),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recvHsglkezP7vlhw
-gemini-1.5-pro-001,0.827,2024-05-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro (001),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recWbQsttPCe4RW4T
-gemini-1.5-pro-002,0.869,2024-09-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro (002),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recosbed3WAJ7x0aX
+gemini-1.5-flash-001,0.779,2024-05-23,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash (001),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recya8zx93N6YFh4J
+gemini-1.5-flash-002,0.739,2024-09-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash (002),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recIlo0YrdpQ2gmEe
+gemini-1.5-flash-0514,0.778,2024-05-14,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash (0514 preview),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recvHsglkezP7vlhw
+gemini-1.5-pro-001,0.827,2024-05-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro (001),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recWbQsttPCe4RW4T
+gemini-1.5-pro-002,0.869,2024-09-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro (002),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recosbed3WAJ7x0aX
 ,0.81,,,,,,Gemini 1.5 Pro (0409 preview),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recIoOlvBkY3ltQHG
-gemini-2.0-flash-exp,0.797,2024-12-11,"Google DeepMind,Google","United States of America,United Kingdom of Great Britain and Northern Ireland",,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",Gemini 2.0 Flash (Experimental),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recGFT80UG5ZvEXom
-gemma-7b,0.661,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemini-2.0-flash-exp,0.797,2024-12-11,"Google DeepMind,Google","United Kingdom of Great Britain and Northern Ireland,United States of America",,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",Gemini 2.0 Flash (Experimental),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recGFT80UG5ZvEXom
+gemma-7b,0.661,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -174,20 +174,20 @@ Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
 
 In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
 2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma (7B),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,rec9XaJ2TmQNbln0Q
-gemma-2-9b-it,0.721,2024-06-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
+gemma-2-9b-it,0.721,2024-06-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
 
 6ND = 6 FLOP / token / parameter * 9000000000 parameters * 8000000000000 tokens = 4.32e+23 FLOP",Gemma 2 Instruct (9B),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,receSMvaZsWAJGCwz
-gemma-2-27b-it,0.757,2024-06-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",2.106e+24,"""For the 27B model, we train on an 8x24x32 configuration of
+gemma-2-27b-it,0.757,2024-06-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",2.106e+24,"""For the 27B model, we train on an 8x24x32 configuration of
 TPUv5p, totaling 6144 chips""
 
 trained on 13T tokens
 
 6ND = 6*27000000000*13000000000000=2.106e+24",Gemma 2 Instruct (27B),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recvSF9bkUFYJFbvW
-gemma-2b,0.423,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.423,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",Gemma 2B,5,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,"5-shot top-1
 ",recFxjYqOdtTFaKbb
-gemma-7b,0.643,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.643,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -201,7 +201,7 @@ Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
 In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
 2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,5,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,"5-shot top-1
 ",recVGRLvxWiFAKPkj
-gemma-7b,0.643,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.643,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -214,7 +214,7 @@ Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
 
 In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
 2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,5,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recZ4bWHun8k676qr
-gemma-7b,0.636,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.636,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""

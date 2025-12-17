@@ -20,6 +20,7 @@ gemini-2.5-Pro-Preview-06-05,0.08800000000000001,,Google,MCP Atlas,0.62,Scale
 gpt-4o-2024-11-20,0.07200000000000001,,OpenAI,MCP Atlas,0.51,Scale
 gemini-2.5-flash-preview-05-20,0.034,,Google,MCP Atlas,0.33,Scale
 Llama-4-Maverick,0.008,,Meta,MCP Atlas,0.08,Scale
+claude-opus-4-5-20251101,0.45890000000000003,,Anthropic,SWE-Bench Pro,3.6,Scale
 claude-4-5-Sonnet,0.436,,Anthropic,SWE-Bench Pro,3.6,Scale
 gemini-3-pro-preview,0.433,,Google,SWE-Bench Pro,3.6,Scale
 claude-4-Sonnet,0.42700000000000005,,Anthropic,SWE-Bench Pro,3.59,Scale
@@ -38,6 +39,7 @@ Qwen3-32B,0.0342,,Alibaba,SWE-Bench Pro,1.32,Scale
 gpt-5,0.5132,,,PRBench Finance,0.17,Scale
 gpt-5-pro,0.5106,,,PRBench Finance,0.59,Scale
 o3-pro,0.49079999999999996,,OpenAI,PRBench Finance,0.79,Scale
+gpt-5.1-thinking,0.48009999999999997,,,PRBench Finance,0.09,Scale
 o3,0.4769,,,PRBench Finance,0.45,Scale
 claude-opus-4-5-20251101-thinking,0.46159999999999995,,Anthropic,PRBench Finance,0.27,Scale
 gpt-oss-120b,0.43799999999999994,,,PRBench Finance,1.96,Scale
@@ -58,6 +60,7 @@ gpt-4.1-mini,0.3045,,OpenAI,PRBench Finance,0.42,Scale
 llama4-maverick-instruct-basic,0.2236,,Meta,PRBench Finance,0.42,Scale
 gpt-5-pro,0.4989,,,PRBench Legal,0.36,Scale
 o3-pro,0.49670000000000003,,OpenAI,PRBench Legal,0.5,Scale
+gpt-5.1-thinking,0.49329999999999996,,,PRBench Legal,0.38,Scale
 gpt-5,0.48960000000000004,,,PRBench Legal,0.03,Scale
 o3,0.4857,,,PRBench Legal,0.54,Scale
 claude-opus-4-5-20251101-thinking,0.4421,,Anthropic,PRBench Legal,0.34,Scale

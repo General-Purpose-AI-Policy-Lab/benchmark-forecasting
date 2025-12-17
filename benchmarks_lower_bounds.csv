@@ -5,6 +5,7 @@ GPQA Diamond;25 %;4-option MCQ;https://epoch.ai/benchmarks/gpqa-diamond
 MATH Level 5;0 %;Exact-match numeric/expression answers;https://epoch.ai/benchmarks/math-level-5
 OTIS Mock AIME 2024-2025;0,1 %;AIME format: 000–999 integers (1/1000);https://epoch.ai/benchmarks/otis-mock-aime-2024-2025
 SWE-Bench Verified;0 %;Program-repair task pass rate;https://www.swebench.com
+SWE-Bench Bash Only;0 %;Program-repair task pass rate;https://www.swebench.com/bash-only.html
 Aider Polyglot;0 %;Agentic coding tasks;https://epoch.ai/benchmarks/aider-polyglot
 BALROG;0 %;Long-horizon agent tasks;https://epoch.ai/benchmarks/balrog
 DeepResearchBench;NA;"Research/agent workflow; heterogeneous formats";https://epoch.ai/benchmarks/deepresearchbench

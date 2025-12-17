@@ -8,10 +8,10 @@ Also, 7B model was trained on 184320 GPU-hours
 312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",,0,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,rec1xnVLr7TTueuek
 Llama-2-13b,0.805,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,,0,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recIN14fg5Z6cb0Dy
 Mistral-7B-Instruct-v0.2,0.822,,Mistral AI,France,,,Mistral 7B,0,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recwGYCRlmPQfK60l
-gemma-2b,0.773,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.773,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",,0,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recJxRvElA0WHGRBp
-gemma-7b,0.812,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.812,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -137,10 +137,10 @@ Hardware:
 Geometric mean: sqrt(7.2e23 * 2.08e24) = 1.224e24
 
 Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",Llama-3.1-In 8B,5,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recMRkMxBSeChUEeH
-gemma-2-9b,0.837,,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
+gemma-2-9b,0.837,,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
 
 6ND = 6 FLOP / token / parameter * 9000000000 parameters * 8000000000000 tokens = 4.32e+23 FLOP",Gemma-2 9B,5,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recwF8TNC8B3AT1J3
-gemini-1.5-flash-002,0.875,2024-09-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini-1.5 Flash,5,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recgEUyXX8JGSCqol
+gemini-1.5-flash-002,0.875,2024-09-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini-1.5 Flash,5,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recgEUyXX8JGSCqol
 gpt-4o-mini-2024-07-18,0.887,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
 
 90% CI [3.23e+24, 2.05e+25]",GPT-4o-mini,5,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recGz1DuA5ylHICeB
@@ -311,7 +311,7 @@ Qwen-14B,0.799,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
 
 14B*3T*6 = 2.5e23",QWEN 14B,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recBuu3qDHZsvO1PL
 Mistral-7B-v0.1,0.83,2023-09-27,Mistral AI,France,,,Mistral 7B,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recuKX9gOnTp5HRYM
-gemma-7b,0.812,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.812,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""

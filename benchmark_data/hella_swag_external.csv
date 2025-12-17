@@ -57,7 +57,7 @@ Mistral-7B-v0.1,0.81,2023-09-27,Mistral AI,France,,,Mistral 7B,,,Mixtral of Expe
 Mixtral-8x7B-v0.1,0.844,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
 
 6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7B,,,Mixtral of Experts,https://arxiv.org/pdf/2401.04088,receQE7wX2SUXU5kj
-gemma-7b,0.822,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.822,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -70,7 +70,7 @@ Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
 
 In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
 2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,,Run with HuggingFace H6 suite,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,rec1YZRNwjqtYEQgE
-gemma-7b,0.812,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.812,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -83,7 +83,7 @@ Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
 
 In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
 2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,0,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,reczjwjnz8igKpnEi
-gemma-2b,0.714,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.714,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",Gemma 2B,0,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,recBqQ9CYxvNxJKHn
 Llama-2-7b,0.772,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
@@ -302,7 +302,7 @@ https://arxiv.org/abs/2005.14165",davinci (175B),0,,Stanford HELM,https://crfm.s
 ,0.764,,,,,,J1-Grande v2 beta (17B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recuz2tek0qkudllk
 ,0.752,,,,,,Cohere Command beta (6.1B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,rechxO8XYnPKqrhSQ
 opt-66b,0.745,2022-05-03,Meta AI,United States of America,1.100000000001e+23,"OPT-66B was trained for 140k steps, using a batch size of 2M tokens (see the OPT baselines logbook and Table 1 in Zhang et al. (2022), respectively), so training took 140e3 ∗ 2e6 ∗ 66e9 ∗ 6 = 1.1e23 FLOP",OPT (66B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recevvZp5GvZqnhTY
-bloom,0.744,2022-07-06,"Hugging Face,BigScience","United States of America,France",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
+bloom,0.744,2022-07-06,"Hugging Face,BigScience","France,United States of America",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
 
 384 A100 GPUs * 314 TFLOPS throughput per GPU * 117 days * 0.3 (utilization assumption) = 3.65664e23
 https://www.wolframalpha.com/input?i=384+*+314+TFLOPS+*+117+days+*+0.3",BLOOM (176B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recQSVqDaut5Qbuj2

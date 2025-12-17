@@ -215,7 +215,7 @@ Mistral-7B-v0.1,0.742,2023-09-27,Mistral AI,France,,,Mistral 7B,,,Mixtral of Exp
 Mixtral-8x7B-v0.1,0.772,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
 
 6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7B,,,Mixtral of Experts,https://arxiv.org/pdf/2401.04088,recOiKNC7k9QoMUyx
-gemma-7b,0.79,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.79,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -237,7 +237,7 @@ Also, 7B model was trained on 184320 GPU-hours
 312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA-2 7B   ,,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,rechilCTigqP9uXxA
 Llama-2-13b,0.728,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA-2 13B  ,,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,reczujVPa7Ol17Ep3
 Mistral-7B-v0.1,0.742,2023-09-27,Mistral AI,France,,,Mistral 7B   ,,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,recdZaaWYWrX1u3Si
-gemma-2b,0.654,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.654,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",Gemma 2B     ,,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,recAROl6cvkyIz2XU
 DeepSeek-V2,0.863,2024-05-07,DeepSeek,China,1.02e+24,21b active params * 8.1 trillion * 6 = 1.02e24,DeepSeek-V2 Base,5,,DeepSeek-V3 Technical Report,https://arxiv.org/pdf/2412.19437,recv143kxseDbH93b
@@ -348,7 +348,7 @@ Llama-2-34b,0.767,2023-07-18,Meta AI,United States of America,4.08e+23,"All mode
 
 Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLaMA-2 34B,0,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recqPFwpVlEXRAuAZ
 Mistral-7B-v0.1,0.753,2023-09-27,Mistral AI,France,,,Mistral 7B,0,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recIbFwTUgH5IpHS5
-gemma-7b,0.723,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.723,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -496,7 +496,7 @@ phi-2,0.547,2023-12-12,Microsoft,United States of America,2.27e+22,"2.7B params,
 
 14 * 96 * 312 trillion * 24 * 3600 * 0.3 = 1.09e22",Phi-2 2.7b             ,5,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recj9UKpqcNorm2DD
 Mistral-7B-v0.1,0.542,2023-09-27,Mistral AI,France,,,Mistral 7b             ,5,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recxXMjf8MjkinJeQ
-gemma-7b,0.556,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.556,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
