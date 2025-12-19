@@ -26,10 +26,10 @@ Let $y_{i}(t)$ be the observed score for benchmark $i$ at time $t$.
 The score is modeled as a sigmoidal growth curve $\mu_i(t)$ plus skewed heteroskedastic noise $\xi_i(t)$:
 
 $$
-y_{i}(t) \sim \text{SkewNormal}\big(\mu_i(t), \xi_i(t), \lambda_i\big),
+y_{i}(t) \sim \text{SkewNormal}\big(\mu_i(t), \xi_i(t), s_i\big),
 $$
 
-where $\lambda_i \le 0$ is the skewness parameter allowing asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
+where $s_i \le 0$ is the skewness parameter allowing asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
 
 ### Sigmoidal growth curves
 
@@ -118,15 +118,15 @@ $$
 
 where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
 
-#### Skewness parameters $\lambda_i$:
+#### Skewness parameters $s_i$:
 
-Skewness parameters $\lambda_i$ follow a Truncated-Normal distribution (truncated at 0):
+Skewness parameters $s_i$ follow a Truncated-Normal distribution (truncated at 0):
 
 $$
-\lambda_i \sim \text{TruncatedNormal}(\lambda_{\mu}, \lambda_{\sigma}, -\infty, 0),
+s_i \sim \text{TruncatedNormal}(s_{\mu}, s_{\sigma}, -\infty, 0),
 $$
 
-where $\lambda_ {\mu}, \lambda_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
+where $s_ {\mu}, s_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
 
 #### Harvey shape parameters $\alpha_i$:
 
