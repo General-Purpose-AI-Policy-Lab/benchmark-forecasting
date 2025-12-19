@@ -21,100 +21,123 @@ This repository contains a four-stage workflow for cleaning benchmark data, fitt
 
 ## Model Details
 
-### Time and lower bounds
+Let $y_{i}(t)$ be the observed score for benchmark $i$ at time $t$. 
 
-For each benchmark $i$, scores $y_{i,t}$ are modeled as functions of a time variable $t$ (e.g. days since first observation). Benchmark-specific random-chance **lower bound** $\ell_i$ have been gathered manually (or set to 0 if unknown, see `benchmarks_lower_bounds.csv`), and all sigmoids are defined on the shifted range $[\ell_i, 1]$.
-
-### Shifted Logistic model
-
-For benchmark $i$, the latent mean performance at time $t$ is
+The score is modeled as a sigmoidal growth curve $\mu_i(t)$ plus skewed heteroskedastic noise $\xi_i(t)$:
 
 $$
-\mu_i^{\text{log}}(t) = \ell_i + (L_i - \ell_i)\sigma_i(t), \quad
-\sigma_i(t) = \frac{1}{1 + \exp\big(-k_i (t - t_{0,i})\big)} ,
+y_{i}(t) \sim \text{SkewNormal}\big(\mu_i(t), \xi_i(t), \lambda_i\big),
 $$
 
-where:
-- $L_i$ is the upper asymptote (final performance),
-- $k_i$ is the growth rate,
-- $t_{0,i}$ is the inflection time.
+where $\lambda_i \le 0$ is the skewness parameter allowing asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
 
-### Harvey model
+### Sigmoidal growth curves
 
-The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$ that controls how sharply growth slows down (it converges to the logistic function when $\alpha_i = 2$). For benchmark $i$,
+The sigmoidal curves model the latent mean performance $\mu_i(t)$ over time. Two families of sigmoids are implemented: a shifted logistic function, and a generalization allowing asymmetric growth, the Harvey curve.
 
-$$
-h_i(t) = \left[1 - (1 - \alpha^{\text{harvey}}_i)\exp\big(-r_i (t - t_{0,i})\big) \right]^{\frac{1}{1 - \alpha^{\text{harvey}}_i}} ,
-$$
+The sigmoids are defined on the range $[\ell_i, L_i]$, where $\ell_i$ is a benchmark-specific lower bound (random-chance performance) and $L_i$ is the upper asymptote (final performance).
 
-and the shifted mean is still
+The lower bound $\ell_i$ is manually gathered per benchmark (or set to 0 if unknown). See `benchmarks_lower_bounds.csv` for details. It is not necessarily 0, as some benchmarks may have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
 
-$$
-\mu_i^{\text{harv}}(t) = \ell_i + (L_i - \ell_i)h_i(t),
-$$
+The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores.
 
-with:
-- $L_i$ asymptote,
-- $r_i$ growth-rate parameter (comparable scale to $k_i$),
-- $t_{0,i}$ time offset (close to the inflection point),
-- $\alpha^{\text{harvey}}_i > 1$ controlling asymmetry (larger $\alpha^{\text{harvey}}_i$ gives faster early growth and stronger late slowdown).
-
-### Observation model and heteroskedastic noise
-
-Both model families share the same likelihood structure. For an observation at time $t$ on benchmark $i$,
+The latent mean performance on benchmark $i$ at time $t$ is then the shifted sigmoid:
 
 $$
-y_{i,t} \sim \text{SkewNormal}\big(\mu_i(t), \sigma_i(t), \alpha^{\text{skew}}_i\big),
+\mu_i(t) = \ell_i + (L_i - \ell_i) \sigma_i(t),
 $$
 
-where the scale is heteroskedastic and approximately Beta-shaped over the interval $[\ell_i, L_i]$:
+where $\sigma_i(t) \in \left\\{ \sigma_i^{\text{log}}(t), \sigma_i^{\text{harv}}(t) \right\\}$ is the sigmoid function (Logistic or Harvey). We indicate with the exponent $\text{log}$ and $\text{harv}$ the two variants when necessary.
+
+#### Logistic function
+
+The logistic function is defined as:
 
 $$
-\sigma_i(t) = \sigma_0 + \sigma^{\text{base}}_i\frac{\sqrt{\big(\mu_i(t) - \ell_i\big)\big(L_i - \mu_i(t)\big)}}{(L_i - \ell_i)/2},
+\sigma_i^{\text{log}}(t) = \frac{1}{1 + \exp\big(-k_i (t - \tau_i)\big)},
 $$
 
-peaking near the inflection point and shrinking near the bounds. The skewness parameter $\alpha^{\text{skew}}_i \le 0$ allows asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
+where $k_i$ is the growth rate and $\tau_i$ is the inflection time. 
+
+#### Harvey function
+
+The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$ that controls how sharply growth slows down (it reduces to the logistic function when $\alpha_i = 2$). It is defined as:
+
+$$
+\sigma_i^{\text{harv}}(t) = \left[1 - (1 - \alpha_i)\exp\big(-k_i (t - \tau_i)\big) \right]^{\frac{1}{1 - \alpha_i}} ,
+$$
+
+where $k_i$ is the growth-rate, $\tau_i$ is the inflection time and $\alpha_i > 1$ controls asymmetry (larger $\alpha_i$ gives earlier growth).
+
+### Heteroskedastic noise
+
+The observation noise $\xi_i(t)$ is heteroskedastic and approximately Beta-shaped over the interval $[\ell_i, L_i]$:
+
+$$
+\xi_i(t) = \xi_0 + \xi^{\text{base}}_i\frac{\sqrt{\big(\mu_i(t) - \ell_i\big)\big(L_i - \mu_i(t)\big)}}{(L_i - \ell_i)/2},
+$$
+
+peaking near the inflection point and shrinking near the bounds, where $\xi_0$ is a fixed parameter and $\xi^{\text{base}}_i$ is inferred per benchmark.
 
 ### Hierarchical (joint) models
 
-The joint notebooks define hierarchical versions where benchmarks share hyperpriors:
+The joint notebooks define hierarchical versions where benchmarks share hyperpriors over parameters, allowing benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories.
 
-- **Asymptotes:**
-  - Hyperparameters $L_{\mu}, L_{\sigma}$ control the distribution of upper asymptotes close to 1.
-  - Task-level $L_i$ are obtained via shifted Beta draws:
+#### Upper asymptotes $L_i$:
 
-$$
-L^{\text{raw}}_i \sim \text{Beta}(L_{\mu}, L_{\sigma}), \quad
-L_i = \ell_i + (1 - \ell_i) L^{\text{raw}}_i.
-$$
-
-- **Growth rates (logistic and Harvey):**
-  - Hyperparameters $k_{\mu}, k_{\sigma}$ (or $r_{\mu}, r_{\sigma}$ for Harvey).
-  - Task-level parameters:
+Upper asymptotes $L_i$ are drawn from a Beta distribution shifted to $[\ell_i, 1]$:
 
 $$
-k_i \sim \text{Gamma}(k_{\mu}, k_{\sigma}) \quad \text{or} \quad
-r_i \sim \text{Gamma}(r_{\mu}, r_{\sigma}).
+L_i = \ell_i + (1 - \ell_i) L^{\text{raw}}_i, \quad
+L^{\text{raw}}_i \sim \text{Beta}(L_{\mu}, L_{\sigma}),
 $$
 
-- **Inflection / start times:**
-  - Time offsets $t_{0,i}$ are centered on empirical midpoints with broad priors (e.g. Gumbel - an asymetric distribution - with year-scale spreads).
+where $L_{\mu}, L_{\sigma}$ are the mean and standard deviation hyperparameters, respectively (instead of the usual shape parameters $\alpha, \beta$).
 
-- **Noise scales and skewness:**
-  - Shared hyperpriors:
-    - $\sigma^{\text{base}}_{\mu}$
-    - $\sigma^{\text{base}}_{\sigma}$
-    - $\alpha^{\text{skew}}_{\mu}$
-    - $\alpha^{\text{skew}}_{\sigma}$
-  - Benchmark-level parameters $\sigma^{\text{base}}_i$ and $\alpha^{\text{skew}}_i$ are drawn from the same distributions (resp. Gamma and Truncated-Normal).
+#### Growth rates $k_i$:
 
-- **Harvey shape parameter:**
-  - Hyperpriors for the shape parameter (Gamma distribution):
-    - $\alpha^{\text{harvey,base}}_{\mu}$
-    - $\alpha^{\text{harvey,base}}_{\sigma}$
-  - Benchmark-level parameter $\alpha^{\text{harvey}}_i = 1 + \alpha^{\text{harvey,base}}_i$, enforcing $\alpha_i > 1$.
+Growth rates $k_i$ follow a Gamma distribution:
 
-These hierarchical models allow benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories.
+$$
+k_i \sim \text{Gamma}(k_{\mu}, k_{\sigma}),
+$$
+
+where $k_{\mu}, k_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+
+#### Inflection times $\tau_i$:
+
+Inflection times $\tau_i$ follow a Gumbel distribution centered on empirical midpoint of each benchmark, with a scale of several years. The rationale is that for saturated benchmarks, the inflection point is roughly at the midpoint of observed data, and for unsaturated benchmarks, the inflection point is likely greater than the empirical midpoint.
+
+#### Noise scales $\xi^{\text{base}}_i$:
+
+Noise scales $\xi^{\text{base}}_i$ follow a Gamma distribution:
+
+$$
+\xi^{\text{base}}_i \sim \text{Gamma}(\xi^{\text{base}}_{\mu}, \xi^{\text{base}}_{\sigma}),
+$$
+
+where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+
+#### Skewness parameters $\lambda_i$:
+
+Skewness parameters $\lambda_i$ follow a Truncated-Normal distribution (truncated at 0):
+
+$$
+\lambda_i \sim \text{TruncatedNormal}(\lambda_{\mu}, \lambda_{\sigma}, -\infty, 0),
+$$
+
+where $\lambda_ {\mu}, \lambda_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
+
+#### Harvey shape parameters $\alpha_i$:
+
+Harvey shape parameters $\alpha_i$ follow a shifted Gamma distribution to enforce $\alpha_i > 1$: 
+
+$$
+\alpha_i = 1 + \alpha^{\text{raw}}_i, \quad
+\alpha^{\text{raw}}_i \sim \text{Gamma}(\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma}),
+$$
+
+where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean and standard deviation hyperparameters.
 
 ## Dependencies
 
