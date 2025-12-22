@@ -30,7 +30,7 @@ HellaSwag;25 %;4-option sentence continuation;https://huggingface.co/datasets/R
 LAMBADA;0 %;Open-vocabulary last-word prediction;https://arxiv.org/abs/1606.06031
 Lech Mazur Writing;NA;Judged creative writing;https://epoch.ai/benchmarks/lech-mazur-writing
 LiveBench;NA;Mixed contamination-free tasks;https://epoch.ai/benchmarks/live-bench
-METR Time Horizons;0;Zero time horizon if fails all tasks;https://epoch.ai/benchmarks/metr-time-horizons
+METR Time Horizons;5 %;3 out of 5 families of SWAA (66 over 170 tasks) are multiple-choice;https://openreview.net/pdf/402f09e70f9d9e6a99edbcaaa360692d05eec7ab.pdf
 MMLU;25 %;4-option MCQ across subjects;https://epoch.ai/benchmarks/mmlu
 OpenBookQA;25 %;4-option science MCQ;https://epoch.ai/benchmarks/open-book-qa
 OS World (Screenshot);0 %;GUI agent tasks;https://epoch.ai/benchmarks/os-world
@@ -55,6 +55,7 @@ Humanity's Last Exam;NA;Inconsistent number of categories;https://scale.com/lead
 VisualToolBench;0 %;Score;https://scale.com/leaderboard/vtb
 MultiNRC;0 %;LLM-judged short-answer tasks;https://scale.com/research/multinrc
 MultiChallenge;0 %;LLM-judged multi-turn conversations;https://scale.com/leaderboard/multichallenge
+AudioMultiChallenge;0 %;LLM-judged multi-turn audio conversations;https://scale.com/leaderboard/audiomc
 EnigmaEval;0 %;Exact-match puzzle answers;https://scale.com/leaderboard/enigma_eval
 Visual Task Assessment (VISTA);0 %;LLM-judged visual tasks;https://scale.com/leaderboard/visual_language_understanding
 TutorBench;0 %;LLM-judged tutoring;https://scale.com/leaderboard/tutorbench
