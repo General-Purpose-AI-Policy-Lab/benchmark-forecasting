@@ -85,14 +85,14 @@ The joint notebooks define hierarchical versions where benchmarks share hyperpri
 
 #### Upper asymptotes $L_i$:
 
-Upper asymptotes $L_i$ are drawn from a Beta distribution shifted to $[\ell_i, 1]$:
+Upper asymptotes $L_i$ are drawn from a Beta distribution shifted to $[L_{min}, 1]$:
 
 $$
-L_i = \ell_i + (1 - \ell_i) L^{\text{raw}}_i, \quad
-L^{\text{raw}}_i \sim \text{Beta}(L_{\mu}, L_{\sigma}),
+L_i = L_{min} + (1 - L_{min}) L^{\text{raw}}_i, \quad
+L^{\text{raw}}_i \sim \text{Beta}(L^{\text{raw}}_{\mu}, L^{\text{raw}}_{\sigma}),
 $$
 
-where $L_{\mu}, L_{\sigma}$ are the mean and standard deviation hyperparameters, respectively (instead of the usual shape parameters $\alpha, \beta$).
+where $L_{min} = 0.75$ and $L_{\mu}^{\text{raw}}, L_{\sigma}^{\text{raw}}$ are the mean and standard deviation hyperparameters, respectively (instead of the usual Beta parameters $\alpha, \beta$).
 
 #### Growth rates $k_i$:
 
@@ -102,7 +102,7 @@ $$
 k_i \sim \text{Gamma}(k_{\mu}, k_{\sigma}),
 $$
 
-where $k_{\mu}, k_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+where $k_{\mu}, k_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual Gamma shape and rate parameters $\alpha, \lambda$).
 
 #### Inflection times $\tau_i$:
 
@@ -116,7 +116,7 @@ $$
 \xi^{\text{base}}_i \sim \text{Gamma}(\xi^{\text{base}}_{\mu}, \xi^{\text{base}}_{\sigma}),
 $$
 
-where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual shape and rate parameters $\alpha, \lambda$).
+where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and standard deviation hyperparameters (instead of the usual Gamma shape and rate parameters $\alpha, \lambda$).
 
 #### Skewness parameters $s_i$:
 
