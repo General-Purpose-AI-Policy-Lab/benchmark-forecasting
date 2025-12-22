@@ -1,0 +1,209 @@
+model_version,score,release_date,organization,benchmark,cost_per_task
+GPT-5.2 Pro (High),0.857,,OpenAI,ARC-AGI-1,15.72
+GPT-5.2 Pro (High),0.542,,OpenAI,ARC-AGI-2,15.72
+GPT-5.2 (X-High),0.862,,OpenAI,ARC-AGI-1,1.9
+GPT-5.2 (X-High),0.529,,OpenAI,ARC-AGI-2,1.9
+GPT-5.2 (High),0.787,,OpenAI,ARC-AGI-1,1.39
+GPT-5.2 (High),0.433,,OpenAI,ARC-AGI-2,1.39
+GPT-5.2 Pro (Medium),0.812,,OpenAI,ARC-AGI-1,8.99
+GPT-5.2 Pro (Medium),0.385,,OpenAI,ARC-AGI-2,8.99
+"Opus 4.5 (Thinking, 64K)",0.8,,Anthropic,ARC-AGI-1,2.4
+"Opus 4.5 (Thinking, 64K)",0.376,,Anthropic,ARC-AGI-2,2.4
+Gemini 3 Flash Preview (High),0.847,,Google,ARC-AGI-1,0.231
+Gemini 3 Flash Preview (High),0.336,,Google,ARC-AGI-2,0.231
+Gemini 3 Pro,0.75,,Google,ARC-AGI-1,0.811
+Gemini 3 Pro,0.311,,Google,ARC-AGI-2,0.811
+"Opus 4.5 (Thinking, 32K)",0.758,,Anthropic,ARC-AGI-1,1.29
+"Opus 4.5 (Thinking, 32K)",0.306,,Anthropic,ARC-AGI-2,1.29
+GPT-5.2 (Medium),0.727,,OpenAI,ARC-AGI-1,0.759
+GPT-5.2 (Medium),0.267,,OpenAI,ARC-AGI-2,0.759
+Grok 4 (Refine.),0.7709999999999999,,Other,ARC-AGI-1,3.97
+Grok 4 (Refine.),0.26,,Other,ARC-AGI-2,3.97
+"Opus 4.5 (Thinking, 16K)",0.72,,Anthropic,ARC-AGI-1,0.79
+"Opus 4.5 (Thinking, 16K)",0.228,,Anthropic,ARC-AGI-2,0.79
+GPT-5 Pro,0.7020000000000001,,OpenAI,ARC-AGI-1,7.14
+GPT-5 Pro,0.183,,OpenAI,ARC-AGI-2,7.14
+"GPT-5.1 (Thinking, High)",0.728,,OpenAI,ARC-AGI-1,1.17
+"GPT-5.1 (Thinking, High)",0.17600000000000002,,OpenAI,ARC-AGI-2,1.17
+Grok 4 (Thinking),0.667,,xAI,ARC-AGI-1,2.17
+Grok 4 (Thinking),0.16,,xAI,ARC-AGI-2,2.17
+"Opus 4.5 (Thinking, 8K)",0.5870000000000001,,Anthropic,ARC-AGI-1,0.48
+"Opus 4.5 (Thinking, 8K)",0.139,,Anthropic,ARC-AGI-2,0.48
+Claude Sonnet 4.5 (Thinking 32K),0.637,,Anthropic,ARC-AGI-1,0.759
+Claude Sonnet 4.5 (Thinking 32K),0.136,,Anthropic,ARC-AGI-2,0.759
+Gemini 3 Flash Preview (Medium),0.5770000000000001,,Google,ARC-AGI-1,0.082
+Gemini 3 Flash Preview (Medium),0.128,,Google,ARC-AGI-2,0.082
+GPT-5 (High),0.657,,OpenAI,ARC-AGI-1,0.73
+GPT-5 (High),0.099,,OpenAI,ARC-AGI-2,0.73
+GPT-5.2 (Low),0.557,,OpenAI,ARC-AGI-1,0.264
+GPT-5.2 (Low),0.09699999999999999,,OpenAI,ARC-AGI-2,0.264
+"Opus 4.5 (Thinking, 1K)",0.35200000000000004,,Anthropic,ARC-AGI-1,0.23
+"Opus 4.5 (Thinking, 1K)",0.094,,Anthropic,ARC-AGI-2,0.23
+Claude Opus 4 (Thinking 16K),0.35700000000000004,,Anthropic,ARC-AGI-1,1.93
+Claude Opus 4 (Thinking 16K),0.086,,Anthropic,ARC-AGI-2,1.93
+"Opus 4.5 (Thinking, None)",0.4,,Anthropic,ARC-AGI-1,0.22
+"Opus 4.5 (Thinking, None)",0.078,,Anthropic,ARC-AGI-2,0.22
+GPT-5 (Medium),0.562,,OpenAI,ARC-AGI-1,0.449
+GPT-5 (Medium),0.075,,OpenAI,ARC-AGI-2,0.449
+Claude Sonnet 4.5 (Thinking 8K),0.465,,Anthropic,ARC-AGI-1,0.235
+Claude Sonnet 4.5 (Thinking 8K),0.069,,Anthropic,ARC-AGI-2,0.235
+Claude Sonnet 4.5 (Thinking 16K),0.483,,Anthropic,ARC-AGI-1,0.35
+Claude Sonnet 4.5 (Thinking 16K),0.069,,Anthropic,ARC-AGI-2,0.35
+o3 (High),0.608,,OpenAI,ARC-AGI-1,0.834
+o3 (High),0.065,,OpenAI,ARC-AGI-2,0.834
+"GPT-5.1 (Thinking, Medium)",0.5770000000000001,,OpenAI,ARC-AGI-1,0.421
+"GPT-5.1 (Thinking, Medium)",0.065,,OpenAI,ARC-AGI-2,0.421
+Tiny Recursion Model (TRM),0.4,,Other,ARC-AGI-1,2.1
+Tiny Recursion Model (TRM),0.063,,Other,ARC-AGI-2,2.1
+o4-mini (High),0.5870000000000001,,OpenAI,ARC-AGI-1,0.856
+o4-mini (High),0.061,,OpenAI,ARC-AGI-2,0.856
+Claude Sonnet 4 (Thinking 16K),0.4,,Anthropic,ARC-AGI-1,0.486
+Claude Sonnet 4 (Thinking 16K),0.059000000000000004,,Anthropic,ARC-AGI-2,0.486
+Claude Sonnet 4.5 (Thinking 1K),0.31,,Anthropic,ARC-AGI-1,0.142
+Claude Sonnet 4.5 (Thinking 1K),0.057999999999999996,,Anthropic,ARC-AGI-2,0.142
+Grok 4 (Fast Reasoning),0.485,,xAI,ARC-AGI-1,0.061
+Grok 4 (Fast Reasoning),0.053,,xAI,ARC-AGI-2,0.061
+o3-Pro (High),0.593,,OpenAI,ARC-AGI-1,7.55
+o3-Pro (High),0.049,,OpenAI,ARC-AGI-2,7.55
+Gemini 2.5 Pro (Thinking 32K),0.37,,Google,ARC-AGI-1,0.757
+Gemini 2.5 Pro (Thinking 32K),0.049,,Google,ARC-AGI-2,0.757
+Claude Opus 4 (Thinking 8K),0.307,,Anthropic,ARC-AGI-1,1.16
+Claude Opus 4 (Thinking 8K),0.045,,Anthropic,ARC-AGI-2,1.16
+GPT-5 Mini (High),0.5429999999999999,,OpenAI,ARC-AGI-1,0.198
+GPT-5 Mini (High),0.044000000000000004,,OpenAI,ARC-AGI-2,0.198
+Gemini 2.5 Pro (Thinking 16K),0.41,,Google,ARC-AGI-1,0.715
+Gemini 2.5 Pro (Thinking 16K),0.04,,Google,ARC-AGI-2,0.715
+GPT-5 Mini (Medium),0.373,,OpenAI,ARC-AGI-1,0.063
+GPT-5 Mini (Medium),0.04,,OpenAI,ARC-AGI-2,0.063
+Claude Haiku 4.5 (Thinking 32K),0.47700000000000004,,Anthropic,ARC-AGI-1,0.377
+Claude Haiku 4.5 (Thinking 32K),0.04,,Anthropic,ARC-AGI-2,0.377
+Gemini 2.5 Pro (Preview),0.33,,Google,ARC-AGI-1,0.813
+Gemini 2.5 Pro (Preview),0.038,,Google,ARC-AGI-2,0.813
+Claude Sonnet 4.5,0.255,,Anthropic,ARC-AGI-1,0.13
+Claude Sonnet 4.5,0.038,,Anthropic,ARC-AGI-2,0.13
+"Gemini 2.5 Pro (Preview, Thinking 1K)",0.313,,Google,ARC-AGI-1,0.804
+"Gemini 2.5 Pro (Preview, Thinking 1K)",0.034,,Google,ARC-AGI-2,0.804
+Gemini 3 Flash Preview (Minimal),0.215,,Google,ARC-AGI-1,0.021
+Gemini 3 Flash Preview (Minimal),0.033,,Google,ARC-AGI-2,0.021
+o3-mini (High),0.345,,OpenAI,ARC-AGI-1,0.547
+o3-mini (High),0.03,,OpenAI,ARC-AGI-2,0.547
+o3 (Medium),0.5379999999999999,,OpenAI,ARC-AGI-1,0.479
+o3 (Medium),0.03,,OpenAI,ARC-AGI-2,0.479
+Gemini 2.5 Pro (Thinking 8K),0.295,,Google,ARC-AGI-1,0.444
+Gemini 2.5 Pro (Thinking 8K),0.028999999999999998,,Google,ARC-AGI-2,0.444
+Claude Haiku 4.5 (Thinking 16K),0.373,,Anthropic,ARC-AGI-1,0.139
+Claude Haiku 4.5 (Thinking 16K),0.027999999999999997,,Anthropic,ARC-AGI-2,0.139
+GPT-5 Nano (High),0.16699999999999998,,OpenAI,ARC-AGI-1,0.029
+GPT-5 Nano (High),0.026000000000000002,,OpenAI,ARC-AGI-2,0.029
+Gemini 2.5 Flash (Preview) (Thinking 24K),0.32299999999999995,,Google,ARC-AGI-1,0.319
+Gemini 2.5 Flash (Preview) (Thinking 24K),0.025,,Google,ARC-AGI-2,0.319
+o4-mini (Medium),0.418,,OpenAI,ARC-AGI-1,0.231
+o4-mini (Medium),0.024,,OpenAI,ARC-AGI-2,0.231
+Gemini 2.5 Flash (Preview) (Thinking 1K),0.16,,Google,ARC-AGI-1,0.03
+Gemini 2.5 Flash (Preview) (Thinking 1K),0.022000000000000002,,Google,ARC-AGI-2,0.03
+Gemini 2.5 Flash (Preview) (Thinking 8K),0.258,,Google,ARC-AGI-1,0.199
+Gemini 2.5 Flash (Preview) (Thinking 8K),0.021,,Google,ARC-AGI-2,0.199
+Claude Sonnet 4 (Thinking 8K),0.29,,Anthropic,ARC-AGI-1,0.265
+Claude Sonnet 4 (Thinking 8K),0.021,,Anthropic,ARC-AGI-2,0.265
+o3-mini (Medium),0.223,,OpenAI,ARC-AGI-1,0.284
+o3-mini (Medium),0.021,,OpenAI,ARC-AGI-2,0.284
+o3-Pro (Low),0.44299999999999995,,OpenAI,ARC-AGI-1,2.23
+o3-Pro (Low),0.021,,OpenAI,ARC-AGI-2,2.23
+Hierarchical Reasoning Model (HRM),0.32,,Other,ARC-AGI-1,1.68
+Hierarchical Reasoning Model (HRM),0.02,,Other,ARC-AGI-2,1.68
+o3 (Low),0.415,,OpenAI,ARC-AGI-1,0.234
+o3 (Low),0.02,,OpenAI,ARC-AGI-2,0.234
+Gemini 2.5 Flash (Preview) (Thinking 16K),0.33299999999999996,,Google,ARC-AGI-1,0.317
+Gemini 2.5 Flash (Preview) (Thinking 16K),0.02,,Google,ARC-AGI-2,0.317
+o3-Pro (Medium),0.57,,OpenAI,ARC-AGI-1,4.74
+o3-Pro (Medium),0.019,,OpenAI,ARC-AGI-2,4.74
+GPT-5 (Low),0.44,,OpenAI,ARC-AGI-1,0.19
+GPT-5 (Low),0.019,,OpenAI,ARC-AGI-2,0.19
+"GPT-5.1 (Thinking, Low)",0.332,,OpenAI,ARC-AGI-1,0.129
+"GPT-5.1 (Thinking, Low)",0.019,,OpenAI,ARC-AGI-2,0.129
+Gemini 2.5 Flash (Preview),0.33299999999999996,,Google,ARC-AGI-1,0.057
+Gemini 2.5 Flash (Preview),0.017,,Google,ARC-AGI-2,0.057
+o4-mini (Low),0.213,,OpenAI,ARC-AGI-1,0.05
+o4-mini (Low),0.017,,OpenAI,ARC-AGI-2,0.05
+GPT-5 Mini (Minimal),0.053,,OpenAI,ARC-AGI-1,0.009
+GPT-5 Mini (Minimal),0.017,,OpenAI,ARC-AGI-2,0.009
+Claude Haiku 4.5 (Thinking 8K),0.255,,Anthropic,ARC-AGI-1,0.091
+Claude Haiku 4.5 (Thinking 8K),0.017,,Anthropic,ARC-AGI-2,0.091
+Gemini 2.0 Flash,0.013000000000000001,,Google,ARC-AGI-2,0.004
+Deepseek R1,0.158,,DeepSeek,ARC-AGI-1,0.08
+Deepseek R1,0.013000000000000001,,DeepSeek,ARC-AGI-2,0.08
+Codex Mini (Latest),0.273,,OpenAI,ARC-AGI-1,0.23
+Codex Mini (Latest),0.013000000000000001,,OpenAI,ARC-AGI-2,0.23
+Claude Sonnet 4,0.23800000000000002,,Anthropic,ARC-AGI-1,0.127
+Claude Sonnet 4,0.013000000000000001,,Anthropic,ARC-AGI-2,0.127
+Claude Opus 4,0.225,,Anthropic,ARC-AGI-1,0.639
+Claude Opus 4,0.013000000000000001,,Anthropic,ARC-AGI-2,0.639
+Qwen3-235b-a22b Instruct (25/07),0.11,,Other,ARC-AGI-1,0.004
+Qwen3-235b-a22b Instruct (25/07),0.013000000000000001,,Other,ARC-AGI-2,0.004
+Claude Haiku 4.5,0.14300000000000002,,Anthropic,ARC-AGI-1,0.043
+Claude Haiku 4.5,0.013000000000000001,,Anthropic,ARC-AGI-2,0.043
+Claude Haiku 4.5 (Thinking 1K),0.168,,Anthropic,ARC-AGI-1,0.047
+Claude Haiku 4.5 (Thinking 1K),0.013000000000000001,,Anthropic,ARC-AGI-2,0.047
+Gemini 3 Flash Preview (Low),0.29,,Google,ARC-AGI-1,0.025
+Gemini 3 Flash Preview (Low),0.013000000000000001,,Google,ARC-AGI-2,0.025
+Deepseek R1 (05/28),0.212,,DeepSeek,ARC-AGI-1,0.053
+Deepseek R1 (05/28),0.011000000000000001,,DeepSeek,ARC-AGI-2,0.053
+Claude 3.7 (8K),0.212,,Anthropic,ARC-AGI-1,0.36
+Claude 3.7 (8K),0.009000000000000001,,Anthropic,ARC-AGI-2,0.36
+GPT-5 Nano (Medium),0.207,,OpenAI,ARC-AGI-1,0.014
+GPT-5 Nano (Medium),0.009000000000000001,,OpenAI,ARC-AGI-2,0.014
+Claude Sonnet 4 (Thinking 1K),0.28,,Anthropic,ARC-AGI-1,0.142
+Claude Sonnet 4 (Thinking 1K),0.009000000000000001,,Anthropic,ARC-AGI-2,0.142
+o1-mini,0.14,,OpenAI,ARC-AGI-1,0.191
+o1-mini,0.008,,OpenAI,ARC-AGI-2,0.191
+GPT-5 Mini (Low),0.263,,OpenAI,ARC-AGI-1,0.019
+GPT-5 Mini (Low),0.008,,OpenAI,ARC-AGI-2,0.019
+GPT-5.2,0.12300000000000001,,OpenAI,ARC-AGI-1,0.082
+GPT-5.2,0.008,,OpenAI,ARC-AGI-2,0.082
+Gemini 1.5 Pro,0.008,,Google,ARC-AGI-2,0.04
+GPT-4.5,0.10300000000000001,,OpenAI,ARC-AGI-1,2.1
+GPT-4.5,0.008,,OpenAI,ARC-AGI-2,2.1
+Claude 3.7 (16K),0.28600000000000003,,Anthropic,ARC-AGI-1,0.51
+Claude 3.7 (16K),0.006999999999999999,,Anthropic,ARC-AGI-2,0.51
+GPT-4.1,0.055,,OpenAI,ARC-AGI-1,0.069
+GPT-4.1,0.004,,OpenAI,ARC-AGI-2,0.069
+Grok 3 Mini (Low),0.165,,xAI,ARC-AGI-1,0.013
+Grok 3 Mini (Low),0.004,,xAI,ARC-AGI-2,0.013
+"GPT-5.1 (Thinking, None)",0.057999999999999996,,OpenAI,ARC-AGI-1,0.058
+"GPT-5.1 (Thinking, None)",0.004,,OpenAI,ARC-AGI-2,0.058
+Claude 3.7 (1K),0.11599999999999999,,Anthropic,ARC-AGI-1,0.14
+Claude 3.7 (1K),0.004,,Anthropic,ARC-AGI-2,0.14
+Claude 3.7,0.136,,Anthropic,ARC-AGI-1,0.12
+Claude 3.7,0.0,,Anthropic,ARC-AGI-2,0.12
+GPT-4o,0.045,,OpenAI,ARC-AGI-1,0.08
+GPT-4o,0.0,,OpenAI,ARC-AGI-2,0.08
+GPT-4o-mini,0.0,,OpenAI,ARC-AGI-2,0.01
+Llama 4 Maverick,0.044000000000000004,,Meta,ARC-AGI-1,0.012
+Llama 4 Maverick,0.0,,Meta,ARC-AGI-2,0.012
+Llama 4 Scout,0.005,,Meta,ARC-AGI-1,0.006
+Llama 4 Scout,0.0,,Meta,ARC-AGI-2,0.006
+GPT-4.1-Nano,0.0,,OpenAI,ARC-AGI-1,0.004
+GPT-4.1-Nano,0.0,,OpenAI,ARC-AGI-2,0.004
+GPT-4.1-Mini,0.035,,OpenAI,ARC-AGI-1,0.014
+GPT-4.1-Mini,0.0,,OpenAI,ARC-AGI-2,0.014
+o3-mini (Low),0.145,,OpenAI,ARC-AGI-1,0.062
+o3-mini (Low),0.0,,OpenAI,ARC-AGI-2,0.062
+Claude Opus 4 (Thinking 1K),0.27,,Anthropic,ARC-AGI-1,0.75
+Claude Opus 4 (Thinking 1K),0.0,,Anthropic,ARC-AGI-2,0.75
+Grok 3,0.055,,xAI,ARC-AGI-1,0.142
+Grok 3,0.0,,xAI,ARC-AGI-2,0.142
+Magistral Small,0.05,,Mistral,ARC-AGI-1,0.049
+Magistral Small,0.0,,Mistral,ARC-AGI-2,0.049
+Magistral Medium,0.059000000000000004,,Mistral,ARC-AGI-1,0.108
+Magistral Medium,0.0,,Mistral,ARC-AGI-2,0.108
+Magistral Medium (Thinking),0.061,,Mistral,ARC-AGI-1,0.123
+Magistral Medium (Thinking),0.0,,Mistral,ARC-AGI-2,0.123
+Gemini 2.5 Pro (Thinking 1K),0.16,,Google,ARC-AGI-1,0.088
+Gemini 2.5 Pro (Thinking 1K),0.0,,Google,ARC-AGI-2,0.088
+GPT-5 (Minimal),0.06,,OpenAI,ARC-AGI-1,0.056
+GPT-5 (Minimal),0.0,,OpenAI,ARC-AGI-2,0.056
+GPT-5 Nano (Low),0.04,,OpenAI,ARC-AGI-1,0.003
+GPT-5 Nano (Low),0.0,,OpenAI,ARC-AGI-2,0.003
+GPT-5 Nano (Minimal),0.015,,OpenAI,ARC-AGI-1,0.003
+GPT-5 Nano (Minimal),0.0,,OpenAI,ARC-AGI-2,0.003
+GPT-5.2 Pro (X-High),0.905,,OpenAI,ARC-AGI-1,11.65

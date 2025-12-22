@@ -19,7 +19,8 @@ VPCT;33,3 %;Three buckets;https://epoch.ai/benchmarks/vpct
 WeirdML;0 %;Specialized ML tasks;https://epoch.ai/benchmarks/weirdml
 Adversarial NLI;33,3 %;3-label NLI (E/N/C);https://arxiv.org/abs/1910.14599
 ARC (AI2);25 %;4-option science MCQ;https://epoch.ai/benchmarks/arc-ai2
-ARC-AGI;0 %;Programmatic pattern tasks;https://epoch.ai/benchmarks/arc-agi
+ARC-AGI-1;0 %;Programmatic pattern tasks;https://arcprize.org/leaderboard
+ARC-AGI-2;0 %;Programmatic pattern tasks;https://arcprize.org/leaderboard
 BIG-Bench Hard (BBH);25 %;4-optionMCQ;https://github.com/suzgunmirac/BIG-Bench-Hard
 BoolQ;50 %;Yes/No;https://epoch.ai/benchmarks/bool-q
 CAD-Eval;0 %;Valid parametric 3D designs;https://epoch.ai/benchmarks/cad-eval
