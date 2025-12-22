@@ -1607,36 +1607,36 @@ qwen2.5-72b-instruct,0.631703172205438,2024-09-19,Alibaba,MATH Level 5,0.0107142
 o1-preview-2024-09-12,0.8164652567975831,2024-09-12,OpenAI,MATH Level 5,0.0106426082581615,
 o1-2024-12-17_medium,0.9441087613293052,2024-12-17,OpenAI,MATH Level 5,0.0063154304853334,
 DeepSeek-V3,0.6485083081570997,2024-12-26,DeepSeek,MATH Level 5,0.010485766934209,3.4078e+24
-claude-3-5-sonnet-20240620,18.21683,2024-06-20,Anthropic,METR Time Horizons,,2.700000000000001e+25
-claude-3-5-sonnet-20241022,28.983512,2024-10-22,Anthropic,METR Time Horizons,,
-claude-3-7-sonnet-20250219_16K,54.226342,2025-02-24,Anthropic,METR Time Horizons,,3.3499999999999998e+25
-claude-3-opus-20240229,6.422825,2024-02-29,Anthropic,METR Time Horizons,,
-claude-opus-4-1-20250805_16K,105.499169,2025-08-05,Anthropic,METR Time Horizons,,
-claude-opus-4-20250514_16K,79.862937,2025-05-22,Anthropic,METR Time Horizons,,
-claude-sonnet-4-5-20250929_16K,113.303764,2025-09-29,Anthropic,METR Time Horizons,,
-claude-sonnet-4-20250514_16K,67.705892,2025-05-22,Anthropic,METR Time Horizons,,
-davinci-002,0.14886,,OpenAI,METR Time Horizons,,3.14e+23
-DeepSeek-R1,26.932599,2025-01-20,DeepSeek,METR Time Horizons,,4.020010000000001e+24
-DeepSeek-R1-0528,31.167847,2025-05-28,DeepSeek,METR Time Horizons,,4.020010000000001e+24
-DeepSeek-V3,18.472532,2024-12-26,DeepSeek,METR Time Horizons,,3.4078e+24
-DeepSeek-V3-0324,23.117113,2025-03-24,DeepSeek,METR Time Horizons,,3.4078e+24
-gemini-2.5-pro-preview-06-05,38.734274,2025-06-05,Google DeepMind,METR Time Horizons,,
-gpt-3.5-turbo-instruct,0.604514,2023-09-18,OpenAI,METR Time Horizons,,
-gpt-4-0125-preview,5.366063,2024-01-25,OpenAI,METR Time Horizons,,
-gpt-4-0314,5.364045,2023-03-14,OpenAI,METR Time Horizons,,2.1e+25
-gpt-4-1106-preview,8.557433,2023-11-06,OpenAI,METR Time Horizons,,
-gpt-4-turbo-2024-04-09,6.567339,2024-04-09,OpenAI,METR Time Horizons,,
-gpt-4o-2024-11-20,9.17045,2024-11-20,OpenAI,METR Time Horizons,,
-gpt-5-2025-08-07_medium,137.318539,2025-08-07,OpenAI,METR Time Horizons,,6.6e+25
-gpt-oss-120b,41.983451,2025-08-05,OpenAI,METR Time Horizons,,4.94e+24
-gpt2-xl,0.039792,2019-11-05,OpenAI,METR Time Horizons,,1.920000000001e+21
-grok-4-0709,110.075251,2025-07-09,xAI,METR Time Horizons,,5.0000000000001e+26
-o1-2024-12-17_medium,39.206576,2024-12-17,OpenAI,METR Time Horizons,,
-o1-preview-2024-09-12,22.221357,2024-09-12,OpenAI,METR Time Horizons,,
-o3-2025-04-16_medium,91.271355,2025-04-16,OpenAI,METR Time Horizons,,
-o4-mini-2025-04-16_medium,76.509015,2025-04-16,OpenAI,METR Time Horizons,,
-qwen2-72b-instruct,2.24432,2024-06-07,Alibaba,METR Time Horizons,,3.02e+24
-qwen2.5-72b-instruct,5.165813,2024-09-19,Alibaba,METR Time Horizons,,7.8e+24
+claude-3-5-sonnet-20240620,0.476797,2024-06-20,Anthropic,METR Time Horizons,,2.700000000000001e+25
+claude-3-5-sonnet-20241022,0.52701,2024-10-22,Anthropic,METR Time Horizons,,
+claude-3-7-sonnet-20250219_16K,0.599681,2025-02-24,Anthropic,METR Time Horizons,,3.3499999999999998e+25
+claude-3-opus-20240229,0.377459,2024-02-29,Anthropic,METR Time Horizons,,
+claude-opus-4-1-20250805_16K,0.668069,2025-08-05,Anthropic,METR Time Horizons,,
+claude-opus-4-20250514_16K,0.639292,2025-05-22,Anthropic,METR Time Horizons,,
+claude-sonnet-4-5-20250929_16K,0.673842,2025-09-29,Anthropic,METR Time Horizons,,
+claude-sonnet-4-20250514_16K,0.619725,2025-05-22,Anthropic,METR Time Horizons,,
+davinci-002,0.161869,,OpenAI,METR Time Horizons,,3.14e+23
+DeepSeek-R1,0.519251,2025-01-20,DeepSeek,METR Time Horizons,,4.020010000000001e+24
+DeepSeek-R1-0528,0.537826,2025-05-28,DeepSeek,METR Time Horizons,,4.020010000000001e+24
+DeepSeek-V3,0.473627,2024-12-26,DeepSeek,METR Time Horizons,,3.4078e+24
+DeepSeek-V3-0324,0.495813,2025-03-24,DeepSeek,METR Time Horizons,,3.4078e+24
+gemini-2.5-pro-preview-06-05,0.5544,2025-06-05,Google DeepMind,METR Time Horizons,,
+gpt-3.5-turbo-instruct,0.214611,2023-09-18,OpenAI,METR Time Horizons,,
+gpt-4-0125-preview,0.351726,2024-01-25,OpenAI,METR Time Horizons,,
+gpt-4-0314,0.361067,2023-03-14,OpenAI,METR Time Horizons,,2.1e+25
+gpt-4-1106-preview,0.404329,2023-11-06,OpenAI,METR Time Horizons,,
+gpt-4-turbo-2024-04-09,0.367357,2024-04-09,OpenAI,METR Time Horizons,,
+gpt-4o-2024-11-20,0.407636,2024-11-20,OpenAI,METR Time Horizons,,
+gpt-5-2025-08-07_medium,0.696053,2025-08-07,OpenAI,METR Time Horizons,,6.6e+25
+gpt-oss-120b,0.56634,2025-08-05,OpenAI,METR Time Horizons,,4.94e+24
+gpt2-xl,0.101046,2019-11-05,OpenAI,METR Time Horizons,,1.920000000001e+21
+grok-4-0709,0.665803,2025-07-09,xAI,METR Time Horizons,,5.0000000000001e+26
+o1-2024-12-17_medium,0.55932,2024-12-17,OpenAI,METR Time Horizons,,
+o1-preview-2024-09-12,0.492955,2024-09-12,OpenAI,METR Time Horizons,,
+o3-2025-04-16_medium,0.654376,2025-04-16,OpenAI,METR Time Horizons,,
+o4-mini-2025-04-16_medium,0.639269,2025-04-16,OpenAI,METR Time Horizons,,
+qwen2-72b-instruct,0.298999,2024-06-07,Alibaba,METR Time Horizons,,3.02e+24
+qwen2.5-72b-instruct,0.357771,2024-09-19,Alibaba,METR Time Horizons,,7.8e+24
 amazon.nova-lite-v1:0,0.77,2024-12-03,Amazon,MMLU,,
 amazon.nova-micro-v1:0,0.708,2024-12-03,Amazon,MMLU,,
 amazon.nova-pro-v1:0,0.82,2024-12-03,Amazon,MMLU,,6.000010000000001e+24
