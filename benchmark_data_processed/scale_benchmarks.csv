@@ -273,8 +273,6 @@ GPT-4o (August 2024),0.1216,,OpenAI,MultiChallenge,3.52,Scale
 Mixtral 8x7B Instruct v0.1,0.1192,,Mistral,MultiChallenge,1.67,Scale
 gpt-5-pro-2025-10-06,0.1875,,,EnigmaEval,2.22,Scale
 gemini-3-pro-preview,0.18239999999999998,,Google,EnigmaEval,2.2,Scale
-Gemini 2.5 Pro Experimental (March 2025),0.0414,,Google,EnigmaEval,1.16,Scale
-claude-sonnet-4-5-20250929,0.0338,,Anthropic,EnigmaEval,1.03,Scale
 o3 (medium) (April 2025),0.1309,,OpenAI,EnigmaEval,1.92,Scale
 o3 (high) (April 2025),0.1191,,OpenAI,EnigmaEval,1.85,Scale
 claude-opus-4-5-20251101-thinking,0.1191,,Anthropic,EnigmaEval,1.85,Scale
@@ -293,6 +291,8 @@ gemini-2.5-pro-preview-06-05,0.0557,,Google,EnigmaEval,1.31,Scale
 claude-opus-4-1-20250805,0.0481,,Anthropic,EnigmaEval,1.22,Scale
 claude-opus-4-5-20251101,0.04650000000000001,,Anthropic,EnigmaEval,1.2,Scale
 Claude 3.7 Sonnet Thinking (Feb 2025),0.042300000000000004,,Anthropic,EnigmaEval,1.17,Scale
+Gemini 2.5 Pro Experimental (March 2025),0.0414,,Google,EnigmaEval,1.16,Scale
+claude-sonnet-4-5-20250929,0.0338,,Anthropic,EnigmaEval,1.03,Scale
 Claude Opus 4,0.0321,,Anthropic,EnigmaEval,1.0,Scale
 GPT-4.5 Preview (February 2025),0.0318,,OpenAI,EnigmaEval,1.02,Scale
 Claude Sonnet 4 (Thinking),0.031200000000000002,,Anthropic,EnigmaEval,0.99,Scale

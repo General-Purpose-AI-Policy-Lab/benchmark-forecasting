@@ -273,8 +273,6 @@ rank,model,score,stderr,is_new,benchmark_slug,category,url
 71,Mixtral 8x7B Instruct v0.1,11.92,1.67,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
 1,gpt-5-pro-2025-10-06,18.75,2.22,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 1,gemini-3-pro-preview,18.24,2.2,True,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-1,Gemini 2.5 Pro Experimental (March 2025),4.14,1.16,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-1,claude-sonnet-4-5-20250929,3.38,1.03,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 3,o3 (medium) (April 2025),13.09,1.92,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 3,o3 (high) (April 2025),11.91,1.85,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 3,claude-opus-4-5-20251101-thinking,11.91,1.85,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
@@ -293,6 +291,8 @@ rank,model,score,stderr,is_new,benchmark_slug,category,url
 11,claude-opus-4-1-20250805,4.81,1.22,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 12,claude-opus-4-5-20251101,4.65,1.2,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 13,Claude 3.7 Sonnet Thinking (Feb 2025),4.23,1.17,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
+13,Gemini 2.5 Pro Experimental (March 2025),4.14,1.16,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
+15,claude-sonnet-4-5-20250929,3.38,1.03,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 18,Claude Opus 4,3.21,1.0,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 18,GPT-4.5 Preview (February 2025),3.18,1.02,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
 18,Claude Sonnet 4 (Thinking),3.12,0.99,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
