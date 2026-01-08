@@ -139,23 +139,6 @@ $$
 
 where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean and standard deviation hyperparameters.
 
-## Dependencies
-
-Typical environment:
-```text
-python >= 3.10
-pandas
-numpy
-scipy
-matplotlib
-pymc
-arviz
-datetime
-typing
-os
-pickle
-```
-
 ## Usage
 
 Run the notebooks in order:
