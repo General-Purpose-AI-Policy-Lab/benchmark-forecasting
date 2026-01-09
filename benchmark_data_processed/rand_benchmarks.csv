@@ -1,0 +1,526 @@
+model_version,score,release_date,organization,benchmark,stderr,source
+o3,0.41200000000000003,,,BioLP-bench,,RAND
+o3,0.545,,,LAB-Bench Cloning,,RAND
+o3,0.47700000000000004,,,LAB-Bench LitQA2,,RAND
+o3,0.7879999999999999,,,LAB-Bench SeqQA,,RAND
+o3,0.731,,,LAB-Bench Protocol,,RAND
+o3,0.684,,,GPQA Diamond Biology,,RAND
+o3,0.821,,,GPQA Main Biology,,RAND
+o3,0.748,,,MMLU Biology,,RAND
+o3,0.875,,,WMDP Biology,,RAND
+o3,0.8859999999999999,,,MMLU Pro Biology,,RAND
+o3,0.716,,,GPQA Main Chemistry,,RAND
+o3,0.774,,,GPQA Diamond Chemistry,,RAND
+o3,0.77,,,MMLU Chemistry,,RAND
+o3,0.809,,,WMDP Chemistry,,RAND
+o3,0.867,,,MMLU Pro Chemistry,,RAND
+o4 Mini,0.39899999999999997,,,BioLP-bench,,RAND
+o4 Mini,0.455,,,LAB-Bench Cloning,,RAND
+o4 Mini,0.40700000000000003,,,LAB-Bench LitQA2,,RAND
+o4 Mini,0.695,,,LAB-Bench SeqQA,,RAND
+o4 Mini,0.7040000000000001,,,LAB-Bench Protocol,,RAND
+o4 Mini,0.737,,,GPQA Diamond Biology,,RAND
+o4 Mini,0.782,,,GPQA Main Biology,,RAND
+o4 Mini,0.765,,,MMLU Biology,,RAND
+o4 Mini,0.873,,,WMDP Biology,,RAND
+o4 Mini,0.909,,,MMLU Pro Biology,,RAND
+o4 Mini,0.563,,,GPQA Main Chemistry,,RAND
+o4 Mini,0.634,,,GPQA Diamond Chemistry,,RAND
+o4 Mini,0.75,,,MMLU Chemistry,,RAND
+o4 Mini,0.723,,,WMDP Chemistry,,RAND
+o4 Mini,0.883,,,MMLU Pro Chemistry,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.374,,Anthropic,BioLP-bench,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.636,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.442,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.633,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.667,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.632,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.7440000000000001,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.745,,Anthropic,MMLU Biology,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.863,,Anthropic,WMDP Biology,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.922,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.596,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.645,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.74,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.755,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.7 Sonnet V1 - Reasoning 16000,0.878,,Anthropic,MMLU Pro Chemistry,,RAND
+o1,0.318,,,BioLP-bench,,RAND
+o1,0.455,,,LAB-Bench Cloning,,RAND
+o1,0.518,,,LAB-Bench LitQA2,,RAND
+o1,0.628,,,LAB-Bench SeqQA,,RAND
+o1,0.731,,,LAB-Bench Protocol,,RAND
+o1,0.632,,,GPQA Diamond Biology,,RAND
+o1,0.718,,,GPQA Main Biology,,RAND
+o1,0.768,,,MMLU Biology,,RAND
+o1,0.863,,,WMDP Biology,,RAND
+o1,0.9209999999999999,,,MMLU Pro Biology,,RAND
+o1,0.574,,,GPQA Main Chemistry,,RAND
+o1,0.645,,,GPQA Diamond Chemistry,,RAND
+o1,0.77,,,MMLU Chemistry,,RAND
+o1,0.752,,,WMDP Chemistry,,RAND
+o1,0.877,,,MMLU Pro Chemistry,,RAND
+o1 Preview,0.324,,OpenAI,BioLP-bench,,RAND
+o1 Preview,0.455,,OpenAI,LAB-Bench Cloning,,RAND
+o1 Preview,0.48700000000000004,,OpenAI,LAB-Bench LitQA2,,RAND
+o1 Preview,0.57,,OpenAI,LAB-Bench SeqQA,,RAND
+o1 Preview,0.731,,OpenAI,LAB-Bench Protocol,,RAND
+o1 Preview,0.684,,OpenAI,GPQA Diamond Biology,,RAND
+o1 Preview,0.705,,OpenAI,GPQA Main Biology,,RAND
+o1 Preview,0.758,,OpenAI,MMLU Biology,,RAND
+o1 Preview,0.85,,OpenAI,WMDP Biology,,RAND
+o1 Preview,0.8909999999999999,,OpenAI,MMLU Pro Biology,,RAND
+o1 Preview,0.514,,OpenAI,GPQA Main Chemistry,,RAND
+o1 Preview,0.5479999999999999,,OpenAI,GPQA Diamond Chemistry,,RAND
+o1 Preview,0.74,,OpenAI,MMLU Chemistry,,RAND
+o1 Preview,0.775,,OpenAI,WMDP Chemistry,,RAND
+o1 Preview,0.845,,OpenAI,MMLU Pro Chemistry,,RAND
+o3 Mini,0.258,,OpenAI,BioLP-bench,,RAND
+o3 Mini,0.485,,OpenAI,LAB-Bench Cloning,,RAND
+o3 Mini,0.442,,OpenAI,LAB-Bench LitQA2,,RAND
+o3 Mini,0.695,,OpenAI,LAB-Bench SeqQA,,RAND
+o3 Mini,0.611,,OpenAI,LAB-Bench Protocol,,RAND
+o3 Mini,0.737,,OpenAI,GPQA Diamond Biology,,RAND
+o3 Mini,0.731,,OpenAI,GPQA Main Biology,,RAND
+o3 Mini,0.735,,OpenAI,MMLU Biology,,RAND
+o3 Mini,0.852,,OpenAI,WMDP Biology,,RAND
+o3 Mini,0.895,,OpenAI,MMLU Pro Biology,,RAND
+o3 Mini,0.557,,OpenAI,GPQA Main Chemistry,,RAND
+o3 Mini,0.634,,OpenAI,GPQA Diamond Chemistry,,RAND
+o3 Mini,0.72,,OpenAI,MMLU Chemistry,,RAND
+o3 Mini,0.708,,OpenAI,WMDP Chemistry,,RAND
+o3 Mini,0.873,,OpenAI,MMLU Pro Chemistry,,RAND
+DeepSeek R1,0.198,,DeepSeek,BioLP-bench,,RAND
+DeepSeek R1,0.485,,DeepSeek,LAB-Bench Cloning,,RAND
+DeepSeek R1,0.447,,DeepSeek,LAB-Bench LitQA2,,RAND
+DeepSeek R1,0.573,,DeepSeek,LAB-Bench SeqQA,,RAND
+DeepSeek R1,0.75,,DeepSeek,LAB-Bench Protocol,,RAND
+DeepSeek R1,0.684,,DeepSeek,GPQA Diamond Biology,,RAND
+DeepSeek R1,0.7559999999999999,,DeepSeek,GPQA Main Biology,,RAND
+DeepSeek R1,0.745,,DeepSeek,MMLU Biology,,RAND
+DeepSeek R1,0.863,,DeepSeek,WMDP Biology,,RAND
+DeepSeek R1,0.907,,DeepSeek,MMLU Pro Biology,,RAND
+DeepSeek R1,0.557,,DeepSeek,GPQA Main Chemistry,,RAND
+DeepSeek R1,0.527,,DeepSeek,GPQA Diamond Chemistry,,RAND
+DeepSeek R1,0.77,,DeepSeek,MMLU Chemistry,,RAND
+DeepSeek R1,0.787,,DeepSeek,WMDP Chemistry,,RAND
+DeepSeek R1,0.895,,DeepSeek,MMLU Pro Chemistry,,RAND
+GPT 4.5 Preview,0.306,,,BioLP-bench,,RAND
+GPT 4.5 Preview,0.364,,,LAB-Bench Cloning,,RAND
+GPT 4.5 Preview,0.382,,,LAB-Bench LitQA2,,RAND
+GPT 4.5 Preview,0.59,,,LAB-Bench SeqQA,,RAND
+GPT 4.5 Preview,0.657,,,LAB-Bench Protocol,,RAND
+GPT 4.5 Preview,0.632,,,GPQA Diamond Biology,,RAND
+GPT 4.5 Preview,0.654,,,GPQA Main Biology,,RAND
+GPT 4.5 Preview,0.758,,,MMLU Biology,,RAND
+GPT 4.5 Preview,0.867,,,WMDP Biology,,RAND
+GPT 4.5 Preview,0.9109999999999999,,,MMLU Pro Biology,,RAND
+GPT 4.5 Preview,0.426,,,GPQA Main Chemistry,,RAND
+GPT 4.5 Preview,0.39799999999999996,,,GPQA Diamond Chemistry,,RAND
+GPT 4.5 Preview,0.65,,,MMLU Chemistry,,RAND
+GPT 4.5 Preview,0.748,,,WMDP Chemistry,,RAND
+GPT 4.5 Preview,0.857,,,MMLU Pro Chemistry,,RAND
+Claude 3.7 Sonnet V1,0.23399999999999999,,Anthropic,BioLP-bench,,RAND
+Claude 3.7 Sonnet V1,0.545,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.7 Sonnet V1,0.392,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.7 Sonnet V1,0.578,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.7 Sonnet V1,0.639,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.7 Sonnet V1,0.579,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.7 Sonnet V1,0.6409999999999999,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.7 Sonnet V1,0.755,,Anthropic,MMLU Biology,,RAND
+Claude 3.7 Sonnet V1,0.86,,Anthropic,WMDP Biology,,RAND
+Claude 3.7 Sonnet V1,0.893,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.7 Sonnet V1,0.377,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.7 Sonnet V1,0.39799999999999996,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.7 Sonnet V1,0.63,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.7 Sonnet V1,0.6890000000000001,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.7 Sonnet V1,0.826,,Anthropic,MMLU Pro Chemistry,,RAND
+Llama 4 Maverick,0.125,,Meta,BioLP-bench,,RAND
+Llama 4 Maverick,0.39399999999999996,,Meta,LAB-Bench Cloning,,RAND
+Llama 4 Maverick,0.402,,Meta,LAB-Bench LitQA2,,RAND
+Llama 4 Maverick,0.5820000000000001,,Meta,LAB-Bench SeqQA,,RAND
+Llama 4 Maverick,0.611,,Meta,LAB-Bench Protocol,,RAND
+Llama 4 Maverick,0.684,,Meta,GPQA Diamond Biology,,RAND
+Llama 4 Maverick,0.7559999999999999,,Meta,GPQA Main Biology,,RAND
+Llama 4 Maverick,0.755,,Meta,MMLU Biology,,RAND
+Llama 4 Maverick,0.866,,Meta,WMDP Biology,,RAND
+Llama 4 Maverick,0.904,,Meta,MMLU Pro Biology,,RAND
+Llama 4 Maverick,0.59,,Meta,GPQA Main Chemistry,,RAND
+Llama 4 Maverick,0.505,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 4 Maverick,0.75,,Meta,MMLU Chemistry,,RAND
+Llama 4 Maverick,0.775,,Meta,WMDP Chemistry,,RAND
+Llama 4 Maverick,0.8690000000000001,,Meta,MMLU Pro Chemistry,,RAND
+Claude 3.5 Sonnet V2,0.239,,Anthropic,BioLP-bench,,RAND
+Claude 3.5 Sonnet V2,0.515,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.5 Sonnet V2,0.402,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.5 Sonnet V2,0.575,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.5 Sonnet V2,0.639,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.5 Sonnet V2,0.579,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.5 Sonnet V2,0.615,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.5 Sonnet V2,0.758,,Anthropic,MMLU Biology,,RAND
+Claude 3.5 Sonnet V2,0.833,,Anthropic,WMDP Biology,,RAND
+Claude 3.5 Sonnet V2,0.887,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.5 Sonnet V2,0.361,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.5 Sonnet V2,0.43,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.5 Sonnet V2,0.64,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.5 Sonnet V2,0.605,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.5 Sonnet V2,0.777,,Anthropic,MMLU Pro Chemistry,,RAND
+GPT 4o,0.171,,,BioLP-bench,,RAND
+GPT 4o,0.303,,,LAB-Bench Cloning,,RAND
+GPT 4o,0.41700000000000004,,,LAB-Bench LitQA2,,RAND
+GPT 4o,0.49200000000000005,,,LAB-Bench SeqQA,,RAND
+GPT 4o,0.63,,,LAB-Bench Protocol,,RAND
+GPT 4o,0.737,,,GPQA Diamond Biology,,RAND
+GPT 4o,0.667,,,GPQA Main Biology,,RAND
+GPT 4o,0.748,,,MMLU Biology,,RAND
+GPT 4o,0.8290000000000001,,,WMDP Biology,,RAND
+GPT 4o,0.8490000000000001,,,MMLU Pro Biology,,RAND
+GPT 4o,0.32799999999999996,,,GPQA Main Chemistry,,RAND
+GPT 4o,0.387,,,GPQA Diamond Chemistry,,RAND
+GPT 4o,0.61,,,MMLU Chemistry,,RAND
+GPT 4o,0.684,,,WMDP Chemistry,,RAND
+GPT 4o,0.7290000000000001,,,MMLU Pro Chemistry,,RAND
+Claude 3.5 Sonnet,0.061,,Anthropic,BioLP-bench,,RAND
+Claude 3.5 Sonnet,0.39399999999999996,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.5 Sonnet,0.42700000000000005,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.5 Sonnet,0.585,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.5 Sonnet,0.648,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.5 Sonnet,0.526,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.5 Sonnet,0.679,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.5 Sonnet,0.745,,Anthropic,MMLU Biology,,RAND
+Claude 3.5 Sonnet,0.848,,Anthropic,WMDP Biology,,RAND
+Claude 3.5 Sonnet,0.887,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.5 Sonnet,0.37200000000000005,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.5 Sonnet,0.39799999999999996,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.5 Sonnet,0.64,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.5 Sonnet,0.672,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.5 Sonnet,0.765,,Anthropic,MMLU Pro Chemistry,,RAND
+DeepSeek V3,0.061,,DeepSeek,BioLP-bench,,RAND
+DeepSeek V3,0.485,,DeepSeek,LAB-Bench Cloning,,RAND
+DeepSeek V3,0.40700000000000003,,DeepSeek,LAB-Bench LitQA2,,RAND
+DeepSeek V3,0.522,,DeepSeek,LAB-Bench SeqQA,,RAND
+DeepSeek V3,0.593,,DeepSeek,LAB-Bench Protocol,,RAND
+DeepSeek V3,0.579,,DeepSeek,GPQA Diamond Biology,,RAND
+DeepSeek V3,0.667,,DeepSeek,GPQA Main Biology,,RAND
+DeepSeek V3,0.7390000000000001,,DeepSeek,MMLU Biology,,RAND
+DeepSeek V3,0.836,,DeepSeek,WMDP Biology,,RAND
+DeepSeek V3,0.8859999999999999,,DeepSeek,MMLU Pro Biology,,RAND
+DeepSeek V3,0.44299999999999995,,DeepSeek,GPQA Main Chemistry,,RAND
+DeepSeek V3,0.39799999999999996,,DeepSeek,GPQA Diamond Chemistry,,RAND
+DeepSeek V3,0.6,,DeepSeek,MMLU Chemistry,,RAND
+DeepSeek V3,0.701,,DeepSeek,WMDP Chemistry,,RAND
+DeepSeek V3,0.7979999999999999,,DeepSeek,MMLU Pro Chemistry,,RAND
+Gemini 1.5 Pro,0.068,,Google,BioLP-bench,,RAND
+Gemini 1.5 Pro,0.485,,Google,LAB-Bench Cloning,,RAND
+Gemini 1.5 Pro,0.377,,Google,LAB-Bench LitQA2,,RAND
+Gemini 1.5 Pro,0.48,,Google,LAB-Bench SeqQA,,RAND
+Gemini 1.5 Pro,0.509,,Google,LAB-Bench Protocol,,RAND
+Gemini 1.5 Pro,0.579,,Google,GPQA Diamond Biology,,RAND
+Gemini 1.5 Pro,0.628,,Google,GPQA Main Biology,,RAND
+Gemini 1.5 Pro,0.7190000000000001,,Google,MMLU Biology,,RAND
+Gemini 1.5 Pro,0.795,,Google,WMDP Biology,,RAND
+Gemini 1.5 Pro,0.883,,Google,MMLU Pro Biology,,RAND
+Gemini 1.5 Pro,0.40399999999999997,,Google,GPQA Main Chemistry,,RAND
+Gemini 1.5 Pro,0.387,,Google,GPQA Diamond Chemistry,,RAND
+Gemini 1.5 Pro,0.7,,Google,MMLU Chemistry,,RAND
+Gemini 1.5 Pro,0.713,,Google,WMDP Chemistry,,RAND
+Gemini 1.5 Pro,0.805,,Google,MMLU Pro Chemistry,,RAND
+Amazon Nova 1.0 Pro,0.06,,,BioLP-bench,,RAND
+Amazon Nova 1.0 Pro,0.281,,,LAB-Bench Cloning,,RAND
+Amazon Nova 1.0 Pro,0.41200000000000003,,,LAB-Bench LitQA2,,RAND
+Amazon Nova 1.0 Pro,0.518,,,LAB-Bench SeqQA,,RAND
+Amazon Nova 1.0 Pro,0.41700000000000004,,,LAB-Bench Protocol,,RAND
+Amazon Nova 1.0 Pro,0.789,,,GPQA Diamond Biology,,RAND
+Amazon Nova 1.0 Pro,0.6409999999999999,,,GPQA Main Biology,,RAND
+Amazon Nova 1.0 Pro,0.7290000000000001,,,MMLU Biology,,RAND
+Amazon Nova 1.0 Pro,0.82,,,WMDP Biology,,RAND
+Amazon Nova 1.0 Pro,0.841,,,MMLU Pro Biology,,RAND
+Amazon Nova 1.0 Pro,0.317,,,GPQA Main Chemistry,,RAND
+Amazon Nova 1.0 Pro,0.344,,,GPQA Diamond Chemistry,,RAND
+Amazon Nova 1.0 Pro,0.61,,,MMLU Chemistry,,RAND
+Amazon Nova 1.0 Pro,0.63,,,WMDP Chemistry,,RAND
+Amazon Nova 1.0 Pro,0.6890000000000001,,,MMLU Pro Chemistry,,RAND
+Llama 3.1 405b (Hermes 3),0.062,,Meta,BioLP-bench,,RAND
+Llama 3.1 405b (Hermes 3),0.39399999999999996,,Meta,LAB-Bench Cloning,,RAND
+Llama 3.1 405b (Hermes 3),0.392,,Meta,LAB-Bench LitQA2,,RAND
+Llama 3.1 405b (Hermes 3),0.478,,Meta,LAB-Bench SeqQA,,RAND
+Llama 3.1 405b (Hermes 3),0.62,,Meta,LAB-Bench Protocol,,RAND
+Llama 3.1 405b (Hermes 3),0.526,,Meta,GPQA Diamond Biology,,RAND
+Llama 3.1 405b (Hermes 3),0.59,,Meta,GPQA Main Biology,,RAND
+Llama 3.1 405b (Hermes 3),0.732,,Meta,MMLU Biology,,RAND
+Llama 3.1 405b (Hermes 3),0.805,,Meta,WMDP Biology,,RAND
+Llama 3.1 405b (Hermes 3),0.831,,Meta,MMLU Pro Biology,,RAND
+Llama 3.1 405b (Hermes 3),0.366,,Meta,GPQA Main Chemistry,,RAND
+Llama 3.1 405b (Hermes 3),0.355,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 3.1 405b (Hermes 3),0.61,,Meta,MMLU Chemistry,,RAND
+Llama 3.1 405b (Hermes 3),0.657,,Meta,WMDP Chemistry,,RAND
+Llama 3.1 405b (Hermes 3),0.633,,Meta,MMLU Pro Chemistry,,RAND
+Grok 2.0 Beta,0.11900000000000001,,xAI,BioLP-bench,,RAND
+Grok 2.0 Beta,0.303,,xAI,LAB-Bench Cloning,,RAND
+Grok 2.0 Beta,0.35200000000000004,,xAI,LAB-Bench LitQA2,,RAND
+Grok 2.0 Beta,0.493,,xAI,LAB-Bench SeqQA,,RAND
+Grok 2.0 Beta,0.519,,xAI,LAB-Bench Protocol,,RAND
+Grok 2.0 Beta,0.632,,xAI,GPQA Diamond Biology,,RAND
+Grok 2.0 Beta,0.679,,xAI,GPQA Main Biology,,RAND
+Grok 2.0 Beta,0.7290000000000001,,xAI,MMLU Biology,,RAND
+Grok 2.0 Beta,0.8190000000000001,,xAI,WMDP Biology,,RAND
+Grok 2.0 Beta,0.784,,xAI,MMLU Pro Biology,,RAND
+Grok 2.0 Beta,0.284,,xAI,GPQA Main Chemistry,,RAND
+Grok 2.0 Beta,0.247,,xAI,GPQA Diamond Chemistry,,RAND
+Grok 2.0 Beta,0.61,,xAI,MMLU Chemistry,,RAND
+Grok 2.0 Beta,0.672,,xAI,WMDP Chemistry,,RAND
+Grok 2.0 Beta,0.629,,xAI,MMLU Pro Chemistry,,RAND
+GPT 4 Turbo,0.10400000000000001,,,BioLP-bench,,RAND
+GPT 4 Turbo,0.33299999999999996,,,LAB-Bench Cloning,,RAND
+GPT 4 Turbo,0.322,,,LAB-Bench LitQA2,,RAND
+GPT 4 Turbo,0.44799999999999995,,,LAB-Bench SeqQA,,RAND
+GPT 4 Turbo,0.537,,,LAB-Bench Protocol,,RAND
+GPT 4 Turbo,0.579,,,GPQA Diamond Biology,,RAND
+GPT 4 Turbo,0.667,,,GPQA Main Biology,,RAND
+GPT 4 Turbo,0.748,,,MMLU Biology,,RAND
+GPT 4 Turbo,0.8270000000000001,,,WMDP Biology,,RAND
+GPT 4 Turbo,0.851,,,MMLU Pro Biology,,RAND
+GPT 4 Turbo,0.27899999999999997,,,GPQA Main Chemistry,,RAND
+GPT 4 Turbo,0.29,,,GPQA Diamond Chemistry,,RAND
+GPT 4 Turbo,0.61,,,MMLU Chemistry,,RAND
+GPT 4 Turbo,0.652,,,WMDP Chemistry,,RAND
+GPT 4 Turbo,0.6759999999999999,,,MMLU Pro Chemistry,,RAND
+Llama 3.1 70b,0.026000000000000002,,Meta,BioLP-bench,,RAND
+Llama 3.1 70b,0.424,,Meta,LAB-Bench Cloning,,RAND
+Llama 3.1 70b,0.40700000000000003,,Meta,LAB-Bench LitQA2,,RAND
+Llama 3.1 70b,0.45299999999999996,,Meta,LAB-Bench SeqQA,,RAND
+Llama 3.1 70b,0.48100000000000004,,Meta,LAB-Bench Protocol,,RAND
+Llama 3.1 70b,0.579,,Meta,GPQA Diamond Biology,,RAND
+Llama 3.1 70b,0.654,,Meta,GPQA Main Biology,,RAND
+Llama 3.1 70b,0.732,,Meta,MMLU Biology,,RAND
+Llama 3.1 70b,0.81,,Meta,WMDP Biology,,RAND
+Llama 3.1 70b,0.8190000000000001,,Meta,MMLU Pro Biology,,RAND
+Llama 3.1 70b,0.284,,Meta,GPQA Main Chemistry,,RAND
+Llama 3.1 70b,0.366,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 3.1 70b,0.6,,Meta,MMLU Chemistry,,RAND
+Llama 3.1 70b,0.635,,Meta,WMDP Chemistry,,RAND
+Llama 3.1 70b,0.6759999999999999,,Meta,MMLU Pro Chemistry,,RAND
+Llama 3.1 405b,0.042,,Meta,BioLP-bench,,RAND
+Llama 3.1 405b,0.33299999999999996,,Meta,LAB-Bench Cloning,,RAND
+Llama 3.1 405b,0.377,,Meta,LAB-Bench LitQA2,,RAND
+Llama 3.1 405b,0.46299999999999997,,Meta,LAB-Bench SeqQA,,RAND
+Llama 3.1 405b,0.556,,Meta,LAB-Bench Protocol,,RAND
+Llama 3.1 405b,0.526,,Meta,GPQA Diamond Biology,,RAND
+Llama 3.1 405b,0.6409999999999999,,Meta,GPQA Main Biology,,RAND
+Llama 3.1 405b,0.726,,Meta,MMLU Biology,,RAND
+Llama 3.1 405b,0.843,,Meta,WMDP Biology,,RAND
+Llama 3.1 405b,0.87,,Meta,MMLU Pro Biology,,RAND
+Llama 3.1 405b,0.38299999999999995,,Meta,GPQA Main Chemistry,,RAND
+Llama 3.1 405b,0.376,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 3.1 405b,0.68,,Meta,MMLU Chemistry,,RAND
+Llama 3.1 405b,0.716,,Meta,WMDP Chemistry,,RAND
+Llama 3.1 405b,0.7609999999999999,,Meta,MMLU Pro Chemistry,,RAND
+Mistral Large 2407,0.095,,Mistral,BioLP-bench,,RAND
+Mistral Large 2407,0.424,,Mistral,LAB-Bench Cloning,,RAND
+Mistral Large 2407,0.382,,Mistral,LAB-Bench LitQA2,,RAND
+Mistral Large 2407,0.353,,Mistral,LAB-Bench SeqQA,,RAND
+Mistral Large 2407,0.519,,Mistral,LAB-Bench Protocol,,RAND
+Mistral Large 2407,0.579,,Mistral,GPQA Diamond Biology,,RAND
+Mistral Large 2407,0.603,,Mistral,GPQA Main Biology,,RAND
+Mistral Large 2407,0.7390000000000001,,Mistral,MMLU Biology,,RAND
+Mistral Large 2407,0.818,,Mistral,WMDP Biology,,RAND
+Mistral Large 2407,0.833,,Mistral,MMLU Pro Biology,,RAND
+Mistral Large 2407,0.33299999999999996,,Mistral,GPQA Main Chemistry,,RAND
+Mistral Large 2407,0.301,,Mistral,GPQA Diamond Chemistry,,RAND
+Mistral Large 2407,0.58,,Mistral,MMLU Chemistry,,RAND
+Mistral Large 2407,0.664,,Mistral,WMDP Chemistry,,RAND
+Mistral Large 2407,0.8340000000000001,,Mistral,MMLU Pro Chemistry,,RAND
+Claude 3.0 Opus,0.025,,Anthropic,BioLP-bench,,RAND
+Claude 3.0 Opus,0.33299999999999996,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.0 Opus,0.43200000000000005,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.0 Opus,0.517,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.0 Opus,0.639,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.0 Opus,0.368,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.0 Opus,0.603,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.0 Opus,0.71,,Anthropic,MMLU Biology,,RAND
+Claude 3.0 Opus,0.8190000000000001,,Anthropic,WMDP Biology,,RAND
+Claude 3.0 Opus,0.8540000000000001,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.0 Opus,0.317,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.0 Opus,0.366,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.0 Opus,0.6,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.0 Opus,0.574,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.0 Opus,0.7190000000000001,,Anthropic,MMLU Pro Chemistry,,RAND
+Gemini 1.5,0.048,,Google,BioLP-bench,,RAND
+Gemini 1.5,0.303,,Google,LAB-Bench Cloning,,RAND
+Gemini 1.5,0.36700000000000005,,Google,LAB-Bench LitQA2,,RAND
+Gemini 1.5,0.47,,Google,LAB-Bench SeqQA,,RAND
+Gemini 1.5,0.444,,Google,LAB-Bench Protocol,,RAND
+Gemini 1.5,0.684,,Google,GPQA Diamond Biology,,RAND
+Gemini 1.5,0.615,,Google,GPQA Main Biology,,RAND
+Gemini 1.5,0.703,,Google,MMLU Biology,,RAND
+Gemini 1.5,0.765,,Google,WMDP Biology,,RAND
+Gemini 1.5,0.841,,Google,MMLU Pro Biology,,RAND
+Gemini 1.5,0.33899999999999997,,Google,GPQA Main Chemistry,,RAND
+Gemini 1.5,0.43,,Google,GPQA Diamond Chemistry,,RAND
+Gemini 1.5,0.59,,Google,MMLU Chemistry,,RAND
+Gemini 1.5,0.647,,Google,WMDP Chemistry,,RAND
+Gemini 1.5,0.73,,Google,MMLU Pro Chemistry,,RAND
+Llama 3.1 405b (Bio Llama),0.021,,Meta,BioLP-bench,,RAND
+Llama 3.1 405b (Bio Llama),0.273,,Meta,LAB-Bench Cloning,,RAND
+Llama 3.1 405b (Bio Llama),0.377,,Meta,LAB-Bench LitQA2,,RAND
+Llama 3.1 405b (Bio Llama),0.48200000000000004,,Meta,LAB-Bench SeqQA,,RAND
+Llama 3.1 405b (Bio Llama),0.46299999999999997,,Meta,LAB-Bench Protocol,,RAND
+Llama 3.1 405b (Bio Llama),0.474,,Meta,GPQA Diamond Biology,,RAND
+Llama 3.1 405b (Bio Llama),0.654,,Meta,GPQA Main Biology,,RAND
+Llama 3.1 405b (Bio Llama),0.742,,Meta,MMLU Biology,,RAND
+Llama 3.1 405b (Bio Llama),0.841,,Meta,WMDP Biology,,RAND
+Llama 3.1 405b (Bio Llama),0.8370000000000001,,Meta,MMLU Pro Biology,,RAND
+Llama 3.1 405b (Bio Llama),0.42100000000000004,,Meta,GPQA Main Chemistry,,RAND
+Llama 3.1 405b (Bio Llama),0.452,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 3.1 405b (Bio Llama),0.64,,Meta,MMLU Chemistry,,RAND
+Llama 3.1 405b (Bio Llama),0.691,,Meta,WMDP Chemistry,,RAND
+Llama 3.1 405b (Bio Llama),0.682,,Meta,MMLU Pro Chemistry,,RAND
+Amazon Nova 1.0 Lite,0.026000000000000002,,,BioLP-bench,,RAND
+Amazon Nova 1.0 Lite,0.281,,,LAB-Bench Cloning,,RAND
+Amazon Nova 1.0 Lite,0.382,,,LAB-Bench LitQA2,,RAND
+Amazon Nova 1.0 Lite,0.465,,,LAB-Bench SeqQA,,RAND
+Amazon Nova 1.0 Lite,0.45399999999999996,,,LAB-Bench Protocol,,RAND
+Amazon Nova 1.0 Lite,0.579,,,GPQA Diamond Biology,,RAND
+Amazon Nova 1.0 Lite,0.564,,,GPQA Main Biology,,RAND
+Amazon Nova 1.0 Lite,0.706,,,MMLU Biology,,RAND
+Amazon Nova 1.0 Lite,0.772,,,WMDP Biology,,RAND
+Amazon Nova 1.0 Lite,0.7809999999999999,,,MMLU Pro Biology,,RAND
+Amazon Nova 1.0 Lite,0.306,,,GPQA Main Chemistry,,RAND
+Amazon Nova 1.0 Lite,0.26899999999999996,,,GPQA Diamond Chemistry,,RAND
+Amazon Nova 1.0 Lite,0.6,,,MMLU Chemistry,,RAND
+Amazon Nova 1.0 Lite,0.574,,,WMDP Chemistry,,RAND
+Amazon Nova 1.0 Lite,0.61,,,MMLU Pro Chemistry,,RAND
+Mistral Large 2402,0.024,,Mistral,BioLP-bench,,RAND
+Mistral Large 2402,0.33299999999999996,,Mistral,LAB-Bench Cloning,,RAND
+Mistral Large 2402,0.377,,Mistral,LAB-Bench LitQA2,,RAND
+Mistral Large 2402,0.382,,Mistral,LAB-Bench SeqQA,,RAND
+Mistral Large 2402,0.39799999999999996,,Mistral,LAB-Bench Protocol,,RAND
+Mistral Large 2402,0.632,,Mistral,GPQA Diamond Biology,,RAND
+Mistral Large 2402,0.5379999999999999,,Mistral,GPQA Main Biology,,RAND
+Mistral Large 2402,0.69,,Mistral,MMLU Biology,,RAND
+Mistral Large 2402,0.7879999999999999,,Mistral,WMDP Biology,,RAND
+Mistral Large 2402,0.7340000000000001,,Mistral,MMLU Pro Biology,,RAND
+Mistral Large 2402,0.284,,Mistral,GPQA Main Chemistry,,RAND
+Mistral Large 2402,0.29,,Mistral,GPQA Diamond Chemistry,,RAND
+Mistral Large 2402,0.51,,Mistral,MMLU Chemistry,,RAND
+Mistral Large 2402,0.564,,Mistral,WMDP Chemistry,,RAND
+Mistral Large 2402,0.484,,Mistral,MMLU Pro Chemistry,,RAND
+Unsafety Llama,0.034,,Meta,BioLP-bench,,RAND
+Unsafety Llama,0.212,,Meta,LAB-Bench Cloning,,RAND
+Unsafety Llama,0.327,,Meta,LAB-Bench LitQA2,,RAND
+Unsafety Llama,0.397,,Meta,LAB-Bench SeqQA,,RAND
+Unsafety Llama,0.5,,Meta,LAB-Bench Protocol,,RAND
+Unsafety Llama,0.42100000000000004,,Meta,GPQA Diamond Biology,,RAND
+Unsafety Llama,0.603,,Meta,GPQA Main Biology,,RAND
+Unsafety Llama,0.7290000000000001,,Meta,MMLU Biology,,RAND
+Unsafety Llama,0.8,,Meta,WMDP Biology,,RAND
+Unsafety Llama,0.816,,Meta,MMLU Pro Biology,,RAND
+Unsafety Llama,0.39299999999999996,,Meta,GPQA Main Chemistry,,RAND
+Unsafety Llama,0.29,,Meta,GPQA Diamond Chemistry,,RAND
+Unsafety Llama,0.63,,Meta,MMLU Chemistry,,RAND
+Unsafety Llama,0.674,,Meta,WMDP Chemistry,,RAND
+Unsafety Llama,0.655,,Meta,MMLU Pro Chemistry,,RAND
+Claude 3.0 Haiku,0.016,,Anthropic,BioLP-bench,,RAND
+Claude 3.0 Haiku,0.152,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.0 Haiku,0.34700000000000003,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.0 Haiku,0.517,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.0 Haiku,0.426,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.0 Haiku,0.474,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.0 Haiku,0.449,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.0 Haiku,0.648,,Anthropic,MMLU Biology,,RAND
+Claude 3.0 Haiku,0.773,,Anthropic,WMDP Biology,,RAND
+Claude 3.0 Haiku,0.695,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.0 Haiku,0.257,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.0 Haiku,0.28,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.0 Haiku,0.54,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.0 Haiku,0.5660000000000001,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.0 Haiku,0.442,,Anthropic,MMLU Pro Chemistry,,RAND
+Claude 3.0 Sonnet,0.026000000000000002,,Anthropic,BioLP-bench,,RAND
+Claude 3.0 Sonnet,0.152,,Anthropic,LAB-Bench Cloning,,RAND
+Claude 3.0 Sonnet,0.382,,Anthropic,LAB-Bench LitQA2,,RAND
+Claude 3.0 Sonnet,0.45,,Anthropic,LAB-Bench SeqQA,,RAND
+Claude 3.0 Sonnet,0.41700000000000004,,Anthropic,LAB-Bench Protocol,,RAND
+Claude 3.0 Sonnet,0.316,,Anthropic,GPQA Diamond Biology,,RAND
+Claude 3.0 Sonnet,0.5,,Anthropic,GPQA Main Biology,,RAND
+Claude 3.0 Sonnet,0.687,,Anthropic,MMLU Biology,,RAND
+Claude 3.0 Sonnet,0.767,,Anthropic,WMDP Biology,,RAND
+Claude 3.0 Sonnet,0.768,,Anthropic,MMLU Pro Biology,,RAND
+Claude 3.0 Sonnet,0.24600000000000002,,Anthropic,GPQA Main Chemistry,,RAND
+Claude 3.0 Sonnet,0.441,,Anthropic,GPQA Diamond Chemistry,,RAND
+Claude 3.0 Sonnet,0.54,,Anthropic,MMLU Chemistry,,RAND
+Claude 3.0 Sonnet,0.517,,Anthropic,WMDP Chemistry,,RAND
+Claude 3.0 Sonnet,0.529,,Anthropic,MMLU Pro Chemistry,,RAND
+Llama 3.1 8b,0.019,,Meta,BioLP-bench,,RAND
+Llama 3.1 8b,0.242,,Meta,LAB-Bench Cloning,,RAND
+Llama 3.1 8b,0.35700000000000004,,Meta,LAB-Bench LitQA2,,RAND
+Llama 3.1 8b,0.342,,Meta,LAB-Bench SeqQA,,RAND
+Llama 3.1 8b,0.435,,Meta,LAB-Bench Protocol,,RAND
+Llama 3.1 8b,0.474,,Meta,GPQA Diamond Biology,,RAND
+Llama 3.1 8b,0.385,,Meta,GPQA Main Biology,,RAND
+Llama 3.1 8b,0.652,,Meta,MMLU Biology,,RAND
+Llama 3.1 8b,0.723,,Meta,WMDP Biology,,RAND
+Llama 3.1 8b,0.664,,Meta,MMLU Pro Biology,,RAND
+Llama 3.1 8b,0.23,,Meta,GPQA Main Chemistry,,RAND
+Llama 3.1 8b,0.29,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 3.1 8b,0.52,,Meta,MMLU Chemistry,,RAND
+Llama 3.1 8b,0.475,,Meta,WMDP Chemistry,,RAND
+Llama 3.1 8b,0.39799999999999996,,Meta,MMLU Pro Chemistry,,RAND
+Amazon Nova 1.0 Micro,0.013999999999999999,,,BioLP-bench,,RAND
+Amazon Nova 1.0 Micro,0.281,,,LAB-Bench Cloning,,RAND
+Amazon Nova 1.0 Micro,0.322,,,LAB-Bench LitQA2,,RAND
+Amazon Nova 1.0 Micro,0.337,,,LAB-Bench SeqQA,,RAND
+Amazon Nova 1.0 Micro,0.389,,,LAB-Bench Protocol,,RAND
+Amazon Nova 1.0 Micro,0.368,,,GPQA Diamond Biology,,RAND
+Amazon Nova 1.0 Micro,0.48700000000000004,,,GPQA Main Biology,,RAND
+Amazon Nova 1.0 Micro,0.652,,,MMLU Biology,,RAND
+Amazon Nova 1.0 Micro,0.7170000000000001,,,WMDP Biology,,RAND
+Amazon Nova 1.0 Micro,0.545,,,MMLU Pro Biology,,RAND
+Amazon Nova 1.0 Micro,0.317,,,GPQA Main Chemistry,,RAND
+Amazon Nova 1.0 Micro,0.29,,,GPQA Diamond Chemistry,,RAND
+Amazon Nova 1.0 Micro,0.56,,,MMLU Chemistry,,RAND
+Amazon Nova 1.0 Micro,0.5,,,WMDP Chemistry,,RAND
+Amazon Nova 1.0 Micro,0.455,,,MMLU Pro Chemistry,,RAND
+Gemini 1.0 Pro,0.01,,Google,BioLP-bench,,RAND
+Gemini 1.0 Pro,0.121,,Google,LAB-Bench Cloning,,RAND
+Gemini 1.0 Pro,0.342,,Google,LAB-Bench LitQA2,,RAND
+Gemini 1.0 Pro,0.34,,Google,LAB-Bench SeqQA,,RAND
+Gemini 1.0 Pro,0.361,,Google,LAB-Bench Protocol,,RAND
+Gemini 1.0 Pro,0.42100000000000004,,Google,GPQA Diamond Biology,,RAND
+Gemini 1.0 Pro,0.436,,Google,GPQA Main Biology,,RAND
+Gemini 1.0 Pro,0.6609999999999999,,Google,MMLU Biology,,RAND
+Gemini 1.0 Pro,0.698,,Google,WMDP Biology,,RAND
+Gemini 1.0 Pro,0.7,,Google,MMLU Pro Biology,,RAND
+Gemini 1.0 Pro,0.295,,Google,GPQA Main Chemistry,,RAND
+Gemini 1.0 Pro,0.28,,Google,GPQA Diamond Chemistry,,RAND
+Gemini 1.0 Pro,0.46,,Google,MMLU Chemistry,,RAND
+Gemini 1.0 Pro,0.537,,Google,WMDP Chemistry,,RAND
+Gemini 1.0 Pro,0.405,,Google,MMLU Pro Chemistry,,RAND
+Mixtral 8x7b,0.013999999999999999,,Mistral,BioLP-bench,,RAND
+Mixtral 8x7b,0.152,,Mistral,LAB-Bench Cloning,,RAND
+Mixtral 8x7b,0.276,,Mistral,LAB-Bench LitQA2,,RAND
+Mixtral 8x7b,0.317,,Mistral,LAB-Bench SeqQA,,RAND
+Mixtral 8x7b,0.26899999999999996,,Mistral,LAB-Bench Protocol,,RAND
+Mixtral 8x7b,0.368,,Mistral,GPQA Diamond Biology,,RAND
+Mixtral 8x7b,0.423,,Mistral,GPQA Main Biology,,RAND
+Mixtral 8x7b,0.523,,Mistral,MMLU Biology,,RAND
+Mixtral 8x7b,0.524,,Mistral,WMDP Biology,,RAND
+Mixtral 8x7b,0.611,,Mistral,MMLU Pro Biology,,RAND
+Mixtral 8x7b,0.20800000000000002,,Mistral,GPQA Main Chemistry,,RAND
+Mixtral 8x7b,0.247,,Mistral,GPQA Diamond Chemistry,,RAND
+Mixtral 8x7b,0.47,,Mistral,MMLU Chemistry,,RAND
+Mixtral 8x7b,0.441,,Mistral,WMDP Chemistry,,RAND
+Mixtral 8x7b,0.311,,Mistral,MMLU Pro Chemistry,,RAND
+Llama 3 8b,0.262,,Meta,GPQA Main Chemistry,,RAND
+Llama 3 8b,0.26899999999999996,,Meta,GPQA Diamond Chemistry,,RAND
+Llama 3 8b,0.45,,Meta,MMLU Chemistry,,RAND
+Llama 3 8b,0.495,,Meta,WMDP Chemistry,,RAND
+Llama 3 8b,0.32799999999999996,,Meta,MMLU Pro Chemistry,,RAND
+Mistral 7b Instruct,0.055,,Mistral,GPQA Main Chemistry,,RAND
+Mistral 7b Instruct,0.054000000000000006,,Mistral,GPQA Diamond Chemistry,,RAND
+Mistral 7b Instruct,0.23,,Mistral,MMLU Chemistry,,RAND
+Mistral 7b Instruct,0.243,,Mistral,WMDP Chemistry,,RAND
+Mistral 7b Instruct,0.13,,Mistral,MMLU Pro Chemistry,,RAND
+gpt-3.5-turbo-0125,0.21899999999999997,,OpenAI,GPQA Main Chemistry,,RAND
+gpt-3.5-turbo-0125,0.301,,OpenAI,GPQA Diamond Chemistry,,RAND
+gpt-3.5-turbo-0125,0.55,,OpenAI,MMLU Chemistry,,RAND
+gpt-3.5-turbo-0125,0.49,,OpenAI,WMDP Chemistry,,RAND
+gpt-3.5-turbo-0125,0.36,,OpenAI,MMLU Pro Chemistry,,RAND
