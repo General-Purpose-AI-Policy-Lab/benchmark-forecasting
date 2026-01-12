@@ -2558,9 +2558,11 @@ gpt-j-6b,0.645,2021-08-05,"EleutherAI,LAION",WinoGrande,,EpochAI
 dolly-v2-12b,0.618,2023-04-11,Databricks,WinoGrande,,EpochAI
 Cerebras-GPT-13B,0.608,2023-03-20,Cerebras Systems,WinoGrande,,EpochAI
 stablelm-tuned-alpha-7b,0.515,2023-04-19,,WinoGrande,,EpochAI
+claude-opus-4-5-20251101-thinking,0.0375,2025-11-01,Anthropic,Remote Labor Index,0.0,Scale
 Manus 1.5,0.025,2025-10-16,,Remote Labor Index,0.0,Scale
 Manus 1.0,0.025,2025-03-06,,Remote Labor Index,0.0,Scale
 claude-4-5-Sonnet,0.0208,2025-09-29,Anthropic,Remote Labor Index,0.0,Scale
+gpt-5.2-2025-12-11,0.0208,2025-12-11,,Remote Labor Index,0.0,Scale
 gpt-5-2025-08-07,0.0167,2025-08-07,,Remote Labor Index,0.0,Scale
 ChatGPT agent,0.0125,2025-07-17,OpenAI,Remote Labor Index,0.0,Scale
 gemini-3-pro-preview,0.0125,2025-11-18,Google,Remote Labor Index,0.0,Scale
@@ -2577,6 +2579,7 @@ claude-opus-4-1-20250805,0.409,2025-08-05,Anthropic,MCP Atlas,1.49,Scale
 claude-4-Sonnet-20250514,0.35600000000000004,2025-05-14,Anthropic,MCP Atlas,1.57,Scale
 claude-haiku-4-5-20251001,0.34600000000000003,2025-10-01,Anthropic,MCP Atlas,1.47,Scale
 glm-4p5-air,0.34,2025-08-05,,MCP Atlas,1.32,Scale
+nova-2-lite,0.24600000000000002,,,MCP Atlas,1.53,Scale
 kimi-k2-instruct,0.239,2025-07-12,,MCP Atlas,1.14,Scale
 qwen3-235B-A22B,0.12,2025-04-29,Alibaba,MCP Atlas,0.94,Scale
 gemini-2.5-Pro-Preview-06-05,0.08800000000000001,2025-06-05,Google,MCP Atlas,0.62,Scale
