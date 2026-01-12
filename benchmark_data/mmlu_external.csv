@@ -280,6 +280,7 @@ Inflection-1,0.727,2023-06-22,Inflection AI,United States of America,1.0001e+24,
 They define two ""compute classes"", one for models with more compute than PaLM 540B, i.e. GPT-4 and PaLM 2, and one for models with as much compute or less, i.e. GPT-3.5, Chinchilla, LLaMA, and Inflection-1.
 
 PaLM 540B required 2.5e24 FLOP to train (confirmed by Google)",Inflection 1,5,Inflection-1 ,https://inflection.ai/blog/inflection-1,,rechQVncuCixOKIxc
+INTELLECT-1-Instruct,0.4989,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-INSTRUCT,5,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,,recOaIUIOT9HiTs0w
 ,0.672,,,,,,InternLM (104B),5,InternLM: A Multilingual Language Model with Progressively Enhanced Capabilities,https://static.aminer.cn/upload/pdf/127/1564/656/6481884993eaf7045294a0c4_0.pdf,,recwT2hhSXlrSRq1X
 internlm-7b,0.51,2023-07-05,,,,,InternLM 7B,5,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,,recCRfqyDW6e5Cxj0
 internlm-chat-20b,0.556,2023-09-17,,,,,InternLM-Chat 20B,0,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,,recdCL1os0x7URkOn
@@ -663,9 +664,9 @@ RedPajama-INCITE-7B-Base,0.263,2023-05-04,,,,,Redpajama-7B,5,XGen-7B Technical R
 RedPajama-INCITE-7B-Base,0.258,2023-05-04,,,,,Redpajama-7B,0,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recQGR1shnVCw79MB
 ,0.776,,,,,,Solar Pro,5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recvPdPH4F3YB9X2m
 StableBeluga2,0.686,2023-07-20,Stability AI,United Kingdom of Great Britain and Northern Ireland,,,StableBeluga2 70B,5,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,,reca4GRikJuwzhgQj
-starcoder2-3b,0.366,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec7SmDXXVMzS12UD
-starcoder2-7b,0.388,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recbF6EudRQDiZM0w
-starcoder2-15b,0.641,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recslUwoLlToAjB27
+starcoder2-3b,0.366,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec7SmDXXVMzS12UD
+starcoder2-7b,0.388,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recbF6EudRQDiZM0w
+starcoder2-15b,0.641,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recslUwoLlToAjB27
 ,0.52,,,,,,Vicuna-13B,5,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,,recjDwTuCMcGYnymQ
 xgen-7b-8k-base,0.363,2023-06-27,Salesforce,United States of America,8.02e+22,"270,336 TPUv4-hours per the carbon emissions section. They must mean chip-hours, not core-hours, because they multiply by 192W, which is the max power consumption of a TPU-v4 chip.
 

@@ -345,14 +345,14 @@ In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
 Qwen2.5-Coder-0.5B,0.344,2024-09-18,,,,,Qwen2.5-Coder-0.5B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recj6fIwM4g5QhZPo
 deepseek-coder-1.3b-base,0.254,2023-11-02,"DeepSeek,Peking University",China,1.56e+22,2T tokens * 1.3B parameters * 6 FLOP / parameter / token = 15.6 * 10^21 = 1.56 * 10^22 FLOP,DS-Coder-1.3B-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recHGOaX4WRoiifCr
 Qwen2.5-Coder-1.5B,0.452,2024-09-18,Alibaba,China,5.082e+22,6ND =  6*1540000000 parameters *5.5T tokens =5.082e+22,Qwen2.5-Coder-1.5B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec7OCOx9wHGEaQoJ
-starcoder2-3b,0.342,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recxa9NmUOx3zyxMY
+starcoder2-3b,0.342,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recxa9NmUOx3zyxMY
 Qwen2.5-Coder-3B,0.529,2024-09-18,,,,,Qwen2.5-Coder-3B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec50W2CfGuH4w5Uy
-starcoder2-7b,0.387,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recmivd1RvFYMTrow
+starcoder2-7b,0.387,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recmivd1RvFYMTrow
 deepseek-coder-6.7b-base,0.364,2023-11-02,"DeepSeek,Peking University",China,8.04e+22,2T tokens * 6.7B parameters * 6 FLOP / parameter / token = 8.04*10^22 FLOP,DS-Coder-6.7B-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec5apbI4aqTcGOt2
 DeepSeek-Coder-V2-Lite-Base,0.573,2024-06-13,,,,,DS-Coder-V2-Lite-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,reck06B6EFq2sdA9w
 CodeQwen1.5-7B,0.357,2024-04-15,,,,,CodeQwen1.5-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recpJSkO0X2NX3uo4
 Qwen2.5-Coder-7B,0.609,2024-09-18,Alibaba,China,2.5113e+23,6ND = 6 FLOP / token / parameter *7610000000 parameters *5.5T tokens =2.5113e+23 FLOP,Qwen2.5-Coder-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recXIKMqsRclf2Qql
-starcoder2-15b,0.472,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recZRpnfj4C3Md7l1
+starcoder2-15b,0.472,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recZRpnfj4C3Md7l1
 Qwen2.5-Coder-14B,0.66,2024-09-18,,,,,Qwen2.5-Coder-14B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recoOOluDbZTCxEFb
 deepseek-coder-33b-base,0.422,2023-11-02,"DeepSeek,Peking University",China,3.96e+23,"""Step 1: Initially pre-trained with a dataset consisting of 87% code, 10% code-related language (Github Markdown and StackExchange), and 3% non-code-related Chinese language. Models are pre-trained using 1.8T tokens and a 4K window size in this step.
 Step 2: Further Pre-training using an extended 16K window size on an additional 200B tokens, resulting in foundational models (DeepSeek-Coder-Base).
@@ -479,3 +479,4 @@ gpt-j-6b,0.363,2021-08-05,"EleutherAI,LAION","United States of America,Germany",
 dolly-v2-12b,0.396,2023-04-11,Databricks,United States of America,,,Dolly-v2-12B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recpM34slUJwZbjqj
 Cerebras-GPT-13B,0.324,2023-03-20,Cerebras Systems,United States of America,2.3e+22,"2.3e22, per table 2",Cerebras-GPT-13B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recuKcLt2nDob6ZLa
 stablelm-tuned-alpha-7b,0.27,2023-04-19,,,,,StableLM-alpha-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recHdiAAANd9V5aXp
+INTELLECT-1-Instruct,0.5452,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-Instruct,,,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,,recPfTdB5uSeoqZv6
