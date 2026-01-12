@@ -1,7 +1,9 @@
 model_version,score,release_date,organization,benchmark,stderr,source
+claude-opus-4-5-20251101-thinking,0.0375,,Anthropic,Remote Labor Index,0.0,Scale
 Manus 1.5,0.025,,,Remote Labor Index,0.0,Scale
 Manus 1.0,0.025,,,Remote Labor Index,0.0,Scale
 claude-4-5-Sonnet,0.0208,,Anthropic,Remote Labor Index,0.0,Scale
+gpt-5.2-2025-12-11,0.0208,,,Remote Labor Index,0.0,Scale
 gpt-5-2025-08-07,0.0167,,,Remote Labor Index,0.0,Scale
 ChatGPT agent,0.0125,,OpenAI,Remote Labor Index,0.0,Scale
 gemini-3-pro-preview,0.0125,,Google,Remote Labor Index,0.0,Scale
@@ -18,6 +20,7 @@ claude-opus-4-1-20250805,0.409,,Anthropic,MCP Atlas,1.49,Scale
 claude-4-Sonnet-20250514,0.35600000000000004,,Anthropic,MCP Atlas,1.57,Scale
 claude-haiku-4-5-20251001,0.34600000000000003,,Anthropic,MCP Atlas,1.47,Scale
 glm-4p5-air,0.34,,,MCP Atlas,1.32,Scale
+nova-2-lite,0.24600000000000002,,,MCP Atlas,1.53,Scale
 kimi-k2-instruct,0.239,,,MCP Atlas,1.14,Scale
 qwen3-235B-A22B,0.12,,Alibaba,MCP Atlas,0.94,Scale
 gemini-2.5-Pro-Preview-06-05,0.08800000000000001,,Google,MCP Atlas,0.62,Scale
