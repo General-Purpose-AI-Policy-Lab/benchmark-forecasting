@@ -112,8 +112,8 @@ claude-3-sonnet-20240229,2024-02-29,Anthropic,EpochAI
 Claude-3.7-Sonnet-thinking,2025-02-24,,Manual
 claude-37-sonnet-thinking,2025-02-24,,Manual
 claude-4-5-haiku,2025-10-15,,Manual
-claude-4-5-sonnet,2025-09-29,,Manual
 claude-4-5-Sonnet,2025-09-29,,Manual
+claude-4-5-sonnet,2025-09-29,,Manual
 claude-4-Sonnet,2025-05-22,,Manual
 claude-haiku-4-5-20251001,2025-10-15,Anthropic,EpochAI
 claude-haiku-4-5-20251001_16K,2025-10-15,Anthropic,EpochAI
@@ -132,6 +132,7 @@ claude-opus-4-20250514_2K,2025-05-22,Anthropic,EpochAI
 claude-opus-4-20250514_32K,2025-05-22,Anthropic,EpochAI
 claude-opus-4-20250514_8K,2025-05-22,Anthropic,EpochAI
 claude-opus-4-5-20251101,2025-11-24,Anthropic,EpochAI
+claude-opus-4-5-20251101_128K,2025-11-24,Anthropic,EpochAI
 claude-opus-4-5-20251101_16K,2025-11-24,Anthropic,EpochAI
 claude-opus-4-5-20251101_32K,2025-11-24,Anthropic,EpochAI
 claude-opus-4-5-20251101_64K,2025-11-24,Anthropic,EpochAI
@@ -149,6 +150,7 @@ claude-sonnet-4-5-20250929_12K,2025-09-29,Anthropic,EpochAI
 claude-sonnet-4-5-20250929_16K,2025-09-29,Anthropic,EpochAI
 claude-sonnet-4-5-20250929_2K,2025-09-29,Anthropic,EpochAI
 claude-sonnet-4-5-20250929_32K,2025-09-29,Anthropic,EpochAI
+claude-sonnet-4-5-20250929_59K,2025-09-29,Anthropic,EpochAI
 claude-sonnet-4-thinking,2025-05-22,,Manual
 code-cushman-001 (12B),2021-07-07,,Manual
 code-davinci-002,2022-03-15,,Manual
@@ -176,8 +178,8 @@ DDCoT (MiniGPT-4),2023-10-25,,Manual
 DDCoT (T5),2023-10-25,,Manual
 deepinfra/Qwen3-Next-80B-A3B-Instruct,2025-09-11,,Manual
 DeepSeek LLM Chat (67B),2024-01-05,,Manual
-Deepseek R1,2025-01-20,,Manual
 DeepSeek R1,2025-01-20,,Manual
+Deepseek R1,2025-01-20,,Manual
 Deepseek R1 (05/28),2025-05-28,,Manual
 DeepSeek R1 (Jan 2025),2025-01-20,,Manual
 DeepSeek V3,2024-12-26,,Manual
@@ -191,12 +193,13 @@ DeepSeek-Coder-V2-Lite-Instruct,2024-06-13,,EpochAI
 deepseek-llm-67b-chat,2023-11-29,DeepSeek,EpochAI
 Deepseek-R1,2025-01-20,,Manual
 DeepSeek-R1,2025-01-20,DeepSeek,EpochAI
-deepseek-r1-0528,2025-05-28,,Manual
 Deepseek-R1-0528,2025-05-28,,Manual
+deepseek-r1-0528,2025-05-28,,Manual
 DeepSeek-R1-0528,2025-05-28,DeepSeek,EpochAI
 DeepSeek-R1-Distill-Llama-70B,2025-01-20,DeepSeek,EpochAI
 DeepSeek-R1-Distill-Qwen-14B,2025-01-20,DeepSeek,EpochAI
 DeepSeek-R1-Distill-Qwen-32B,2025-01-20,DeepSeek,EpochAI
+deepseek-reasoner,2025-12-01,DeepSeek,EpochAI
 DeepSeek-V2,2024-05-07,DeepSeek,EpochAI
 DeepSeek-V2.5,2024-09-06,DeepSeek,EpochAI
 DeepSeek-V3,2024-12-26,DeepSeek,EpochAI
@@ -205,8 +208,10 @@ DeepSeek-V3-Base,2024-12-26,DeepSeek,EpochAI
 DeepSeek-V3.1,2025-08-21,DeepSeek,EpochAI
 DeepSeek-V3.1_thinking,2025-08-21,DeepSeek,EpochAI
 DeepSeek-V3.2-Exp,2025-09-29,DeepSeek,EpochAI
+DeepSeek-V3.2-Exp_high,2025-09-29,DeepSeek,EpochAI
 DeepSeek-V3.2-Exp_thinking,2025-09-29,DeepSeek,EpochAI
 deepseek-v3p1,2025-08-21,,Manual
+deepseek/deepseek-v3.2,2025-12-01,DeepSeek,EpochAI
 DFAF,2022-09-20,,Manual
 DINOv2,2023-04-14,,Manual
 dolly-v2-12b,2023-04-11,Databricks,EpochAI
@@ -226,6 +231,7 @@ falcon-7b,2023-04-24,Technology Innovation Institute,EpochAI
 Falcon-Instruct (40B),2023-05-25,,Manual
 Falcon-Instruct (7B),2023-06-20,,Manual
 Falcon-rw-1.3B,2023-06-08,,Manual
+fireworks/deepseek-v3p2,2025-12-01,DeepSeek,EpochAI
 fireworks/Kimi-K2-Instruct-0905,2025-09-05,Moonshot,EpochAI
 Flan-T5-XL (LoRA),2022-10-20,,Manual
 Flan-T5-XXL,2022-10-20,,Manual
@@ -265,10 +271,9 @@ gemini-1.5-flash-002,2024-09-24,Google DeepMind,EpochAI
 gemini-1.5-flash-0514,2024-05-14,Google DeepMind,EpochAI
 gemini-1.5-flash-8b-001,2024-10-03,Google DeepMind,EpochAI
 gemini-1.5-pro-001,2024-05-24,Google DeepMind,EpochAI
-gemini-1.5-pro-002,2024-09-24,Google DeepMind,EpochAI
 Gemini-1.5-Pro-002,2024-09-24,,Manual
+gemini-1.5-pro-002,2024-09-24,Google DeepMind,EpochAI
 gemini-2.0-flash-001,2025-02-05,"Google DeepMind,Google",EpochAI
-gemini-2.0-flash-02-05,2025-02-05,"Google DeepMind,Google",EpochAI
 gemini-2.0-flash-exp,2024-12-11,"Google DeepMind,Google",EpochAI
 gemini-2.0-flash-lite,2025-02-05,Google DeepMind,EpochAI
 gemini-2.0-flash-lite-preview-02-05,2025-02-05,Google DeepMind,EpochAI
@@ -293,12 +298,12 @@ gemini-2.5-pro,2025-06-17,Google DeepMind,EpochAI
 gemini-2.5-pro-exp-03-25,2025-03-25,Google DeepMind,EpochAI
 gemini-2.5-pro-preview-03-25,2025-04-09,Google DeepMind,EpochAI
 gemini-2.5-pro-preview-05-06,2025-05-06,Google DeepMind,EpochAI
-gemini-2.5-pro-preview-06-05,2025-06-05,Google DeepMind,EpochAI
 Gemini-2.5-Pro-Preview-06-05,2025-06-05,,Manual
+gemini-2.5-pro-preview-06-05,2025-06-05,Google DeepMind,EpochAI
 gemini-2.5-Pro-Preview-06-05,2025-06-05,,Manual
 gemini-2.5-pro-preview-06-05_1K,2025-06-05,Google DeepMind,EpochAI
 gemini-2.5-pro_16K,2025-06-17,Google DeepMind,EpochAI
-gemini-3-flash-preview,2025-12-17,,Manual
+gemini-3-flash-preview,2025-12-17,Google DeepMind,EpochAI
 gemini-3-pro-preview,2025-11-18,Google DeepMind,EpochAI
 gemini-exp-1206,2024-12-06,"Google DeepMind,Google",EpochAI
 gemini-robotics-er-1.5-preview,2025-09-26,,EpochAI
@@ -323,10 +328,10 @@ GLaM (MoE) 1.7B/64E,2021-12-13,,Manual
 GLaM (MoE) 64B/64E,2021-12-13,,Manual
 GLaM (MoE) 8B/64E,2021-12-13,,Manual
 GLM (130B),2022-08-04,,Manual
-glm-4.5,2025-08-03,"Zhipu AI,Tsinghua University",EpochAI
-GLM-4.5-Air,2025-07-20,,EpochAI
-glm-4.5_thinking,2025-08-05,"Zhipu AI,Tsinghua University",EpochAI
-glm-4.6,2025-09-30,"Zhipu AI,Tsinghua University",EpochAI
+glm-4.5,2025-08-03,"Z.ai (Zhipu AI),Tsinghua University",EpochAI
+glm-4.5_thinking,2025-08-05,"Z.ai (Zhipu AI),Tsinghua University",EpochAI
+glm-4.6,2025-09-30,"Z.ai (Zhipu AI),Tsinghua University",EpochAI
+glm-4.7,2025-12-22,Z.ai (Zhipu AI),EpochAI
 glm-4p5,2025-08-05,,Manual
 glm-4p5-air,2025-08-05,,Manual
 Gopher (280B),2021-12-08,DeepMind,EpochAI
@@ -350,8 +355,8 @@ gpt-4-1106-vision-preview,2023-11-06,OpenAI,EpochAI
 gpt-4-32k-0314,2023-03-14,OpenAI,EpochAI
 gpt-4-turbo,2023-11-06,OpenAI,EpochAI
 gpt-4-turbo-2024-04-09,2024-04-09,OpenAI,EpochAI
-gpt-4.1,2025-04-14,,Manual
 GPT-4.1,2025-04-14,,Manual
+gpt-4.1,2025-04-14,,Manual
 GPT-4.1 mini,2025-04-14,,Manual
 GPT-4.1 nano,2025-04-14,,Manual
 gpt-4.1-2025-04-14,2025-04-14,OpenAI,EpochAI
@@ -362,8 +367,8 @@ GPT-4.1-Nano,2025-04-14,,Manual
 gpt-4.1-nano-2025-04-14,2025-04-14,OpenAI,EpochAI
 GPT-4.5,2025-02-27,,Manual
 gpt-4.5-preview-2025-02-27,2025-02-27,OpenAI,EpochAI
-GPT-4o,2024-05-13,,Manual
 gpt-4o,2024-05-13,,Manual
+GPT-4o,2024-05-13,,Manual
 GPT-4o mini,2024-07-18,,Manual
 gpt-4o-2024-05-13,2024-05-13,OpenAI,EpochAI
 gpt-4o-2024-08-06,2024-08-06,OpenAI,EpochAI
@@ -408,6 +413,7 @@ gpt-5.1-2025-11-13_low,2025-11-13,OpenAI,EpochAI
 gpt-5.1-2025-11-13_medium,2025-11-13,OpenAI,EpochAI
 gpt-5.1-2025-11-13_none,2025-11-13,OpenAI,EpochAI
 gpt-5.1-codex,2025-11-12,OpenAI,EpochAI
+gpt-5.1-codex-max,2025-11-19,OpenAI,EpochAI
 gpt-5.1-codex-mini,2025-11-12,OpenAI,EpochAI
 gpt-5.1-instant,2025-11-12,,Manual
 gpt-5.1-thinking,2025-11-12,,Manual
@@ -423,6 +429,7 @@ gpt-5.2-2025-12-11_high,2025-12-11,OpenAI,EpochAI
 gpt-5.2-2025-12-11_low,2025-12-11,OpenAI,EpochAI
 gpt-5.2-2025-12-11_medium,2025-12-11,OpenAI,EpochAI
 gpt-5.2-2025-12-11_xhigh,2025-12-11,OpenAI,EpochAI
+gpt-5.2-pro-2025-12-11-webapp,2025-12-11,OpenAI,EpochAI
 GPT-J (6B),2021-08-05,,Manual
 gpt-j-6b,2021-08-05,"EleutherAI,LAION",EpochAI
 GPT-Neo-2.7B,2021-03-21,,Manual
@@ -441,9 +448,9 @@ GPT3 175B,2022-01-27,,Manual
 Grok 2.0 Beta,2024-08-13,,Manual
 Grok 3,2025-02-17,,Manual
 Grok 3 Mini (Low),2025-02-17,,Manual
-Grok 4 (Fast Reasoning),2025-09-22,,Manual
-Grok 4 (Refine.),2025-11-03,,Manual
-Grok 4 (Thinking),2025-11-17,,Manual
+Grok 4 (Fast Reasoning),2025-09-19,,Manual
+Grok 4 (Refine.),2025-09-16,,Manual
+Grok 4 (Thinking),2025-07-09,,Manual
 grok-2-1212,2024-12-12,xAI,EpochAI
 grok-3,2025-04-09,xAI,EpochAI
 grok-3-beta,2025-04-09,xAI,EpochAI
@@ -452,6 +459,8 @@ grok-3-mini-beta_low,2025-04-09,xAI,EpochAI
 grok-3-mini-beta_medium,2025-04-09,xAI,EpochAI
 grok-3-mini_high,2025-06-24,xAI,EpochAI
 grok-4-0709,2025-07-09,xAI,EpochAI
+grok-4-1-fast-non-reasoning,2025-11-16,,Manual
+grok-4-1-fast-reasoning,2025-11-16,,Manual
 grok-4-fast,2025-09-19,xAI,EpochAI
 grok-code-fast-1,2025-08-28,,EpochAI
 Hermes-2-Theta-Llama-3-70B,2024-06-20,"Nous Research,Arcee AI",EpochAI
@@ -465,6 +474,7 @@ InstructBLIP,2023-05-11,,Manual
 instructblip-vicuna-13b,2023-12-25,,EpochAI
 instructblip-vicuna-7b,2023-05-22,,EpochAI
 InstructPalmyra (30B),2025-04-28,,Manual
+INTELLECT-1-Instruct,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",EpochAI
 InternLM (104B),2023-07-06,,Manual
 internlm-20b,2023-09-18,,EpochAI
 internlm-7b,2023-07-05,,EpochAI
@@ -647,6 +657,7 @@ Mutimodal-T-SciQ_Large 🥇,2023-05-05,,Manual
 Nemotron-4 15B,2024-02-26,NVIDIA,EpochAI
 Nova Lite,2024-12-03,,Manual
 Nova Pro,2024-12-03,,Manual
+nova-2-lite,2025-12-02,,Manual
 nova-premier,2025-04-30,,Manual
 NVARC,2025-11-03,,Manual
 nvidia-nemotron-nano-9b-v2,2025-08-18,,EpochAI
@@ -674,8 +685,8 @@ o3-2025-04-16_medium,2025-04-16,OpenAI,EpochAI
 o3-mini (High),2025-01-31,,Manual
 o3-mini (high),2025-01-31,,Manual
 o3-mini (Low),2025-01-31,,Manual
-o3-mini (medium),2025-01-31,,Manual
 o3-mini (Medium),2025-01-31,,Manual
+o3-mini (medium),2025-01-31,,Manual
 o3-mini-2025-01-31_high,2025-01-31,OpenAI,EpochAI
 o3-mini-2025-01-31_low,2025-01-31,OpenAI,EpochAI
 o3-mini-2025-01-31_medium,2025-01-31,OpenAI,EpochAI
@@ -691,8 +702,8 @@ o4-mini,2025-04-16,,Manual
 o4-mini (high),2025-04-16,,Manual
 o4-mini (High),2025-04-16,,Manual
 o4-mini (Low),2025-04-16,,Manual
-o4-mini (Medium),2025-04-16,,Manual
 o4-mini (medium),2025-04-16,,Manual
+o4-mini (Medium),2025-04-16,,Manual
 o4-mini-2025-04-16_high,2025-04-16,OpenAI,EpochAI
 o4-mini-2025-04-16_low,2025-04-16,OpenAI,EpochAI
 o4-mini-2025-04-16_medium,2025-04-16,OpenAI,EpochAI
@@ -803,16 +814,15 @@ Qwen2.5-Coder-7B-Instruct,2024-09-17,Alibaba,EpochAI
 qwen2.5-max,2025-01-28,Alibaba,EpochAI
 Qwen2.5-Omni-7B,2025-03-26,,Manual
 Qwen2.5-VL-72B-Instruct,2024-09-19,Alibaba,EpochAI
-Qwen3-235B-A22B,2025-04-29,,Manual
-qwen3-235B-A22B,2025-04-29,,Manual
 qwen3-235b-a22b,2025-04-29,Alibaba,EpochAI
+Qwen3-235B-A22B,2025-04-29,Alibaba,EpochAI
+qwen3-235B-A22B,2025-04-29,,Manual
 Qwen3-235b-a22b Instruct (25/07),2025-07-25,,Manual
 Qwen3-235B-A22B-Instruct-2507,2025-07-25,Alibaba,EpochAI
 Qwen3-235B-A22B-Thinking-2507,2025-07-25,Alibaba,EpochAI
 Qwen3-30B-A3B,2025-04-29,Alibaba,EpochAI
 Qwen3-32B,2025-04-29,Alibaba,EpochAI
 Qwen3-Coder-480B-A35B-Instruct,2025-07-31,Alibaba,EpochAI
-qwen3-coder-plus,2025-09-23,,EpochAI
 qwen3-max-2025-09-23,2025-09-24,Alibaba,EpochAI
 Qwen3-Omni-30B-A3B-Instruct†,2025-09-22,,Manual
 QwQ-32B,2025-03-05,Alibaba,EpochAI
@@ -902,4 +912,4 @@ Yi-6B-Chat,2023-11-22,01.AI,EpochAI
 Yi-9B,2024-03-01,,EpochAI
 Yi-large,2024-05-13,01.AI,EpochAI
 yi-lightning,2024-12-02,01.AI,EpochAI
-zai-org/GLM-4.6,2025-09-30,,Manual
+zai-org/GLM-4.6,2025-09-30,"Z.ai (Zhipu AI),Tsinghua University",EpochAI

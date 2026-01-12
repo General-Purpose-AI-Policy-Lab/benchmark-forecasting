@@ -42,6 +42,8 @@ o1-2024-12-17_high,61.7,2024-12-17,OpenAI,United States of America,,,91.5,diff,0
 claude-sonnet-4-20250514_32K,61.3,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,97.3,diff,0.12,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,rec9HZAmeUiTJn1pl
 claude-3-7-sonnet-20250219,60.4,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,93.3,diff,0.079,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,reckNZe7HU86uyqhi
 o3-mini-2025-01-31_high,60.4,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",93.3,diff,0.081,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recyzvCSCQZ2WoxRz
+Qwen3-235B-A22B,59.6,2025-04-29,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,92.9,diff,,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/,"no cost data
+",recPTyOmNpRhK82Et
 Kimi-K2-Instruct,59.1,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,92.9,diff,0.0055,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recYmlS1cYM8gEefH
 DeepSeek-R1,56.9,2025-01-20,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
 https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
@@ -74,7 +76,6 @@ Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0c
 ",rec0UuNYP04KqNja4
 gpt-4.1-2025-04-14,52.4,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,98.2,diff,0.044,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recLZ9wzZof5nDN7z
 claude-3-5-sonnet-20241022,51.6,2024-10-22,Anthropic,United States of America,,,99.6,diff,0.06404444444,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,rec57bL14FIulU6lg
-qwen3-235b-a22b,49.8,2025-04-29,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,91.6,diff,0.008,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recYl75ePKBbrvSdI
 grok-3-mini-beta_high,49.3,2025-04-09,xAI,United States of America,,,99.6,whole,0.003244444444,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recDFJuDElv6ujOzB
 DeepSeek-V3,48.4,2024-12-26,DeepSeek,China,3.4078e+24,"""At an economical cost of only 2.664M H800 GPU hours, we complete the pre-training of DeepSeek-V3 on 14.8T tokens, producing the currently strongest open-source base model. The subsequent training stages after pre-training require only 0.1M GPU hours.""
 
@@ -100,10 +101,14 @@ This is consistent with OpenAI's statement that GPT-4.5 was a “new order of ma
 
 In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",97.3,diff,0.81,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recZJiRq9rBdLK3Oh
 gemini-2.5-flash-preview-05-20,44.0,2025-05-20,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,,93.8,diff,0.0051,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recrFVqz2K5yPiBwr
+gpt-oss-120b_high,41.8,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",79.1,diff,0.0033,Aider LLM Leaderboards,,,recpcTosmykQScJV3
 Qwen3-32B,40.0,2025-04-29,Alibaba,China,7.0848e+24,6 FLOP / parameter / token * 36 * 10^12 tokens * 32.8  * 10^9 parameters = 7.0848e+24 FLOP,83.6,diff,0.0034,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,reca01Mic02m68RtO
 gemini-exp-1206,38.2,2024-12-06,"Google DeepMind,Google","United Kingdom of Great Britain and Northern Ireland,United States of America",,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",98.2,whole,,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recAV1zatcIxsAzWB
 gemini-2.0-pro-exp-02-05,35.6,2025-02-05,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Flagship model from a leading developer in early 2025; very likely it used >1e25 FLOP.,100.0,whole,,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recFbazQb9nPYQlUg
-gemini-2.0-pro-exp-02-05,35.6,2025-02-05,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Flagship model from a leading developer in early 2025; very likely it used >1e25 FLOP.,100.0,whole,,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recrdQur5X1AvA3FX
 grok-3-mini-beta_low,34.7,2025-04-09,xAI,United States of America,,,100.0,whole,0.0035,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recAgOnnJfaE7mIta
 ,32.9,,,,,,96.9,whole,0.083,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,Assuming medium reasoning effort,recJBHfAbBsbQqHVJ
 gpt-4.1-mini-2025-04-14,32.4,2025-04-14,OpenAI,United States of America,,,92.4,diff,0.008844444444,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,recga7XsHS6ITtdvx

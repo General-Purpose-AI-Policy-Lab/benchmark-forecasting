@@ -1,5 +1,9 @@
 Model version,Accuracy,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Cost per run,Median code length (lines),Notes,Source,Source link,id
+gpt-5.2-2025-12-11_xhigh,0.722,2025-12-11,OpenAI,United States of America,,,2.05,394.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recBg3iB5UB07x2hT
 gemini-3-pro-preview,0.6993,2025-11-18,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Almost certainly >1e25,0.5257711077,230.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recMwExVNzQFOuRPy
+claude-opus-4-5-20251101_16K,0.637,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.738,173.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,reci9ur1kRcoJsSdF
+gpt-5.2-2025-12-11_medium,0.634,2025-12-11,OpenAI,United States of America,,,0.416,290.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recpsACaI9bWFMg53
+gemini-3-flash-preview,0.616,2025-12-17,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,,0.222,149.0,,WeirdML Leaderboard,,recORWiDWDuE6ne5i
 gpt-5.1-2025-11-13_high,0.6077,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
 ",0.6913346832,311.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,reci36t9Q8We2ARmf
 gpt-5-2025-08-07_high,0.607,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
@@ -12,6 +16,7 @@ gemini-2.5-pro_16K,0.5403,2025-06-17,Google DeepMind,"United Kingdom of Great Br
 gpt-5-mini-2025-08-07_high,0.5267,2025-08-07,OpenAI,United States of America,,,0.1097665112,296.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recSCZGZmZVpfZcHB
 o4-mini-2025-04-16_high,0.5256,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.1956851,122.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recGzRI7z9Ript5yD
 o3-2025-04-16_high,0.5242,2025-04-16,OpenAI,United States of America,,,0.2260669032,134.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recSHUB127PDQxkfv
+gpt-5.2-2025-12-11_low,0.496,2025-12-11,OpenAI,United States of America,,,0.215,230.0,,WeirdML Leaderboard,,reclZgTEmoOmWH7fs
 gpt-oss-120b_high,0.4817,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
 (2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
 They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
@@ -28,7 +33,7 @@ grok-4-0709,0.4573,2025-07-09,xAI,United States of America,5.0000000000001e+26,"
 The geometric mean is (rounded to one sig fig): 5e26
 ",0.4517731019,137.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recGNHgU4woBudrxm
 claude-haiku-4-5-20251001,0.454,2025-10-15,Anthropic,United States of America,,,0.08938744,174.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recbC3Pk2XJrtS6jq
-claude-haiku-4-5-20251001_16K,0.4415,2025-10-15,Anthropic,United States of America,,,0.1227856078,162.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recde5VLEdMBKj0Gz
+claude-haiku-4-5-20251001_16K,0.441,2025-10-15,Anthropic,United States of America,,,0.1227856078,162.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recde5VLEdMBKj0Gz
 claude-sonnet-4-20250514,0.4388,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.3080565,218.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recKsN4DgMnrJJqHR
 o1-2024-12-17_high,0.4382,2024-12-17,OpenAI,United States of America,,,1.585624412,153.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,reczHopD946ynh9x0
 o3-mini-2025-01-31_high,0.437,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.1744674606,158.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,recb7bIHY4oRuegzM
@@ -58,7 +63,7 @@ gemini-2.5-flash-preview-05-20_16K,0.4095,2025-05-20,Google DeepMind,"United Kin
 gpt-oss-20b_high,0.4093,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
 million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
 assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.0108003425,166.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,rectdVmbAMbhHQ5K3
-glm-4.5_thinking,0.4058,2025-08-05,"Zhipu AI,Tsinghua University",China,4.42e+24,(6 FLOP/token/parameter) * (23T tokens) * (32B active parameters) = 4.42e24 FLOP,0.0734800906,245.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,rec7uPDokMq3CWQDy
+glm-4.5_thinking,0.4058,2025-08-05,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,(6 FLOP/token/parameter) * (23T tokens) * (32B active parameters) = 4.42e24 FLOP,0.0734800906,245.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,rec7uPDokMq3CWQDy
 claude-3-5-sonnet-20241022,0.3997,2024-10-22,Anthropic,United States of America,,,0.2483238,168.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,rec8W7RlpDQoWgvzo
 gpt-5-chat,0.3977,,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
@@ -191,4 +196,4 @@ Hardware:
 
 Geometric mean: sqrt(7.2e23 * 2.08e24) = 1.224e24
 
-Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",0.0004103955294,78.0,,WeirdML Leaderboard,,rech2mtGGqFrKRxQO
+Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",0.0004103955294,78.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,rech2mtGGqFrKRxQO

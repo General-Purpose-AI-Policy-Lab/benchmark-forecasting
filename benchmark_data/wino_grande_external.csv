@@ -198,12 +198,12 @@ Qwen2.5-Coder-32B,0.808,2024-09-18,Alibaba,China,1.0725e+24,"Assuming 1 epoch
 
 6ND = 6*32.5 parameters *10^9*5.5*10^12 tokens = 1.0725e+24",Qwen2.5-Coder-32B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,rec8gc150DTSOhEKr
 deepseek-coder-1.3b-base,0.533,2023-11-02,"DeepSeek,Peking University",China,1.56e+22,2T tokens * 1.3B parameters * 6 FLOP / parameter / token = 15.6 * 10^21 = 1.56 * 10^22 FLOP,DS-Coder-1.3B-Base,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recVHFqbsrGnj2Vx2
-starcoder2-3b,0.571,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recyselPDxHqK6S7m
-starcoder2-7b,0.571,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recXQnGi8m8ri82zZ
+starcoder2-3b,0.571,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recyselPDxHqK6S7m
+starcoder2-7b,0.571,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recXQnGi8m8ri82zZ
 deepseek-coder-6.7b-base,0.576,2023-11-02,"DeepSeek,Peking University",China,8.04e+22,2T tokens * 6.7B parameters * 6 FLOP / parameter / token = 8.04*10^22 FLOP,DS-Coder-6.7B-Base,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recjz7QSFeeZcphoR
 DeepSeek-Coder-V2-Lite-Base,0.729,2024-06-13,,,,,DS-Coder-V2-Lite-Base,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,rec8sY5AZGjTEHSIb
 CodeQwen1.5-7B,0.598,2024-04-15,,,,,CodeQwen1.5-7B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recZQWDgmY6X1bV95
-starcoder2-15b,0.643,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recr8hrjiAzMZKfoe
+starcoder2-15b,0.643,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recr8hrjiAzMZKfoe
 deepseek-coder-33b-base,0.62,2023-11-02,"DeepSeek,Peking University",China,3.96e+23,"""Step 1: Initially pre-trained with a dataset consisting of 87% code, 10% code-related language (Github Markdown and StackExchange), and 3% non-code-related Chinese language. Models are pre-trained using 1.8T tokens and a 4K window size in this step.
 Step 2: Further Pre-training using an extended 16K window size on an additional 200B tokens, resulting in foundational models (DeepSeek-Coder-Base).
 Step 3: Instruction Fine-tuning on 2B tokens of instruction data, resulting in instruction-tuned models (DeepSeek-Coder-Instruct).""
@@ -564,3 +564,4 @@ gpt-j-6b,0.645,2021-08-05,"EleutherAI,LAION","United States of America,Germany",
 dolly-v2-12b,0.618,2023-04-11,Databricks,United States of America,,,Dolly-v2-12B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,recorForiZEuS4nQF
 Cerebras-GPT-13B,0.608,2023-03-20,Cerebras Systems,United States of America,2.3e+22,"2.3e22, per table 2",Cerebras-GPT-13B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,recluVRCBoH49In4Y
 stablelm-tuned-alpha-7b,0.515,2023-04-19,,,,,StableLM-alpha-7B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,recfH4Zt9mBnsKlXy
+INTELLECT-1-Instruct,0.6582,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-Instruct,5,,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,recmV2BWZecWzixYc

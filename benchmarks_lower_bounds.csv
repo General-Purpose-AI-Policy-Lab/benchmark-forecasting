@@ -29,6 +29,7 @@ ARC-AGI-2;0 %;Programmatic pattern tasks;https://arcprize.org/leaderboard
 BIG-Bench Hard (BBH);25 %;4-optionMCQ;https://github.com/suzgunmirac/BIG-Bench-Hard
 BoolQ;50 %;Yes/No;https://epoch.ai/benchmarks/bool-q
 CAD-Eval;0 %;Valid parametric 3D designs;https://epoch.ai/benchmarks/cad-eval
+Chess Puzzles;0 %;Single best move;https://epoch.ai/benchmarks/chess-puzzles
 Cybench;0 %;CTFs;https://epoch.ai/benchmarks/cybench
 GSM8K;0 %;Exact-match numeric answers;https://epoch.ai/benchmarks/gsm8k
 Epoch Capabilities Index;NA;Elo-like score;https://epoch.ai/benchmarks/eci
@@ -52,6 +53,7 @@ OSUniverse;0 %;GUI agent tasks;https://epoch.ai/benchmarks/os-universe
 PIQA;50 %;2-option physical commonsense;https://epoch.ai/benchmarks/piqa
 ScienceQA;39,83 %;multimodal MCQ;https://arxiv.org/abs/2209.09513
 SuperGLUE;44,3 %;Aggregate of diverse tasks;https://arxiv.org/abs/1905.00537
+SimpleQA Verified;0 %;Freeform response with AI grader;https://epoch.ai/benchmarks/simple-qa-verified
 TriviaQA;12,7 %;Random baseline from the paper;https://nlp.cs.washington.edu/triviaqa/
 Video-MME;25 %;"Multimodal/video QA; 4 choices";https://arxiv.org/pdf/2405.21075
 WinoGrande;50 %;Binary fill-in-the-blank;https://epoch.ai/benchmarks/wino-grande

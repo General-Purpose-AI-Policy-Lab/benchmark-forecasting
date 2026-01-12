@@ -445,14 +445,14 @@ Qwen2.5-Coder-32B-Instruct,0.93,2024-11-21,Alibaba,China,1.0725e+24,"Assuming 1 
 Qwen2.5-Coder-0.5B,0.345,2024-09-18,,,,,Qwen2.5-Coder-0.5B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recriWzkW7RWIJpUI
 deepseek-coder-1.3b-base,0.044,2023-11-02,"DeepSeek,Peking University",China,1.56e+22,2T tokens * 1.3B parameters * 6 FLOP / parameter / token = 15.6 * 10^21 = 1.56 * 10^22 FLOP,DS-Coder-1.3B-Base,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recfazKRlIPHIqw4y
 Qwen2.5-Coder-1.5B,0.658,2024-09-18,Alibaba,China,5.082e+22,6ND =  6*1540000000 parameters *5.5T tokens =5.082e+22,Qwen2.5-Coder-1.5B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recIikbIv1ZKuCk4E
-starcoder2-3b,0.216,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recoPSMZ3BwAx0twb
+starcoder2-3b,0.216,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recoPSMZ3BwAx0twb
 Qwen2.5-Coder-3B,0.757,2024-09-18,,,,,Qwen2.5-Coder-3B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,reccwWD5uXqA4L3aV
-starcoder2-7b,0.327,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recAA2soUr8CvLUav
+starcoder2-7b,0.327,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recAA2soUr8CvLUav
 deepseek-coder-6.7b-base,0.213,2023-11-02,"DeepSeek,Peking University",China,8.04e+22,2T tokens * 6.7B parameters * 6 FLOP / parameter / token = 8.04*10^22 FLOP,DS-Coder-6.7B-Base,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recBna1XK3H5DgEs2
 DeepSeek-Coder-V2-Lite-Base,0.671,2024-06-13,,,,,DS-Coder-V2-Lite-Base,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recJu2UPUTDAbeHPS
 CodeQwen1.5-7B,0.377,2024-04-15,,,,,CodeQwen1.5-7B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recK2XPT7uEmiN3aQ
 Qwen2.5-Coder-7B,0.839,2024-09-18,Alibaba,China,2.5113e+23,6ND = 6 FLOP / token / parameter *7610000000 parameters *5.5T tokens =2.5113e+23 FLOP,Qwen2.5-Coder-7B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recvzqMLC4OK292e5
-starcoder2-15b,0.577,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,reclAG14Sox6ongVu
+starcoder2-15b,0.577,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,reclAG14Sox6ongVu
 Qwen2.5-Coder-14B,0.887,2024-09-18,,,,,Qwen2.5-Coder-14B,4,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,recE8WEXVD6mou9Pa
 deepseek-coder-33b-base,0.354,2023-11-02,"DeepSeek,Peking University",China,3.96e+23,"""Step 1: Initially pre-trained with a dataset consisting of 87% code, 10% code-related language (Github Markdown and StackExchange), and 3% non-code-related Chinese language. Models are pre-trained using 1.8T tokens and a 4K window size in this step.
 Step 2: Further Pre-training using an extended 16K window size on an additional 200B tokens, resulting in foundational models (DeepSeek-Coder-Base).
@@ -536,3 +536,4 @@ Yi-6B-Chat,0.449,2023-11-22,01.AI,China,1.26e+23,6*7*10^9*3*10^12 = 1.26e+23,Yi-
 Yi-34B-Chat,0.76,2023-11-22,01.AI,China,6.1e+23,"""The dataset we use contains Chinese & English only. We used approximately 3T tokens"" sounds like this means it was trained on 3T tokens, not necessarily that the dataset contains 3T tokens?
 
 If so, 34b * 3T * 6 = 6.1e23",Yi-Chat 34B,4,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recmFCa4UkrZjtfQt
+INTELLECT-1-Instruct,0.3858,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-Instruct,5,,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,rec2Fh0JiOpowgEKq

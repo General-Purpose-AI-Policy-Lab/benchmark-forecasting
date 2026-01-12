@@ -1,7 +1,9 @@
 Model version,Score (AVG@5),Release date,Organization,Country,Training compute (FLOP),Training compute notes,Source,Source link (site from table),Notes,id
 gemini-3-pro-preview,0.764,2025-11-18,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Almost certainly >1e25,SimpleBench Leaderboard,https://simple-bench.com/,,recyUT7yjrhcHvcWI
 gemini-2.5-pro-preview-06-05,0.624,2025-06-05,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,SimpleBench Leaderboard,https://simple-bench.com/,,recViPEOMOrSB6VKK
+claude-opus-4-5-20251101,0.62,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,SimpleBench Leaderboard,,,reclKBQ393HPkOMed
 gpt-5-pro-2025-10-06_high,0.616,2025-10-07,OpenAI,United States of America,,,SimpleBench Leaderboard,https://simple-bench.com/,,recbQ9dn731JxU1au
+gemini-3-flash-preview,0.611,2025-12-17,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,,SimpleBench Leaderboard,,,rectQAsXBWhS8ne4o
 grok-4-0709,0.605,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
 
 2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
@@ -10,13 +12,23 @@ The geometric mean is (rounded to one sig fig): 5e26
 ",SimpleBench Leaderboard,https://simple-bench.com/,,reccvzfzhvNO8LxS5
 claude-opus-4-1-20250805,0.6,2025-08-05,Anthropic,United States of America,,,SimpleBench Leaderboard,https://simple-bench.com/,,recNq0JntySeETz1j
 claude-opus-4-20250514_12K,0.588,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,SimpleBench Leaderboard,https://simple-bench.com/,,recCa8wyF9haBALeE
+,0.574,,,,,,SimpleBench Leaderboard,,"5.2 Pro xHigh
+",rec8C0VsHASRk2heI
 gpt-5-2025-08-07_high,0.567,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",SimpleBench Leaderboard,https://simple-bench.com/,,recYzgCOm2JdsaO4v
+grok-4-1-fast-non-reasoning,0.56,,xAI,United States of America,,,SimpleBench Leaderboard,,,recEjVoUb45jOJuzf
 claude-sonnet-4-5-20250929_12K,0.543,2025-09-29,Anthropic,United States of America,,,SimpleBench Leaderboard,https://simple-bench.com/,,recWdgpLTxKnAX8LL
 o3-2025-04-16_high,0.531,2025-04-16,OpenAI,United States of America,,,SimpleBench Leaderboard,https://simple-bench.com/,,recI5aJlmr2NrvE0V
+,0.526,,,,,,SimpleBench Leaderboard,https://simple-bench.com/,DeepSeek 3.2 Speciale,rec5dQevCmLXU8K04
 gemini-2.5-pro-exp-03-25,0.516,2025-03-25,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,SimpleBench Leaderboard,https://simple-bench.com/,,reccAb0YstbYurrte
+glm-4.7,0.477,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",SimpleBench Leaderboard,,,rec2gsPE5AL8Jzaf2
 claude-3-7-sonnet-20250219_12K,0.464,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,SimpleBench Leaderboard,https://simple-bench.com/,,reckxfqYaBADs0cCf
+gpt-5.2-2025-12-11_high,0.458,2025-12-11,OpenAI,United States of America,,,SimpleBench Leaderboard,https://simple-bench.com/,,recqx2zZ9hxht3Y6n
 claude-sonnet-4-20250514_12K,0.455,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,SimpleBench Leaderboard,https://simple-bench.com/,,recOF5ZoFqZHYxpwD
 claude-3-7-sonnet-20250219,0.449,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,SimpleBench Leaderboard,https://simple-bench.com/,,rectGr4imJANQzE34
 o1-preview-2024-09-12,0.417,2024-09-12,OpenAI,United States of America,,,SimpleBench Leaderboard,https://simple-bench.com/,,rec5At0uBqsEuLVVH
@@ -106,6 +118,7 @@ gpt-oss-120b,0.221,2025-08-05,OpenAI,United States of America,4.94e+24,"""The tr
 They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
 
 ",SimpleBench Leaderboard,https://simple-bench.com/,,recFVmMzFAlgDScJC
+,0.204,,,,,,SimpleBench Leaderboard,https://simple-bench.com/,mistral-large-3,rec8RsaWnZaNmUTZQ
 Llama-3.3-70B-Instruct,0.199,2024-12-06,Meta AI,United States of America,6.8649768e+24,"6ND = 6 FLOP / parameter / token * 70*10^9 parameters * 15*10^12 tokens = 6.3e+24 FLOP
 
 7000000 GPU-hours * 3600 sec / hour * 989500000000000 FLOP / second * 0.3 [assumed utilization]= 7.48062e+24 FLOP

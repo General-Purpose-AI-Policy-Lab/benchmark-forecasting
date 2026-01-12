@@ -268,3 +268,4 @@ Yi-6B-Chat,0.472,2023-11-22,01.AI,China,1.26e+23,6*7*10^9*3*10^12 = 1.26e+23,Yi-
 Yi-34B-Chat,0.717,2023-11-22,01.AI,China,6.1e+23,"""The dataset we use contains Chinese & English only. We used approximately 3T tokens"" sounds like this means it was trained on 3T tokens, not necessarily that the dataset contains 3T tokens?
 
 If so, 34b * 3T * 6 = 6.1e23",Yi-Chat 34B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recRvnph65VrLPHGb
+INTELLECT-1-Instruct,0.3485,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-Instruct,,,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,rec4Pqqt0Y9MQ1HfR

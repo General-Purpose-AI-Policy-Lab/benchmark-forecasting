@@ -16,7 +16,7 @@ LLaVA-Video-7B-Qwen2-TPO,0.656,2025-01-19,,,,,TPO,0.715,0.768,0.787,0.646,0.694,
 VideoLLAMA3-7B,0.662,2024-01-22,,,,,VideoLLaMA 3,0.703,0.801,0.802,0.637,0.696,0.549,0.61,180.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recp8umU5rkUZgRrN
 LiveCC-7B-Instruct,0.641,2024-04-12,,,,,LiveCC,0.703,0.748,0.766,0.639,0.703,0.537,0.641,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recnjdgH8IWzUvB9e
 LLaVA-Video-7B-Qwen2,0.659,2024-09-02,,,,,QuoTA,0.7,0.771,0.79,0.649,0.68,0.557,0.629,64.0,This result is for the LLaVA-Video-7B model augmented by the QuoTA pipeline.,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recqH96EsjBT6A8oI
-NVILA-8B,0.642,2024-12-10,"NVIDIA,Massachusetts Institute of Technology (MIT),University of California (UC) Berkeley,University of California San Diego,University of Washington,Tsinghua University","United States of America,China",2.2794518e+21,"""We train all models using 128 NVIDIA H100 GPUs with a global batch size of 2048 across all stages.""
+NVILA-8B,0.642,2024-12-10,"NVIDIA,Massachusetts Institute of Technology (MIT),University of California (UC) Berkeley,University of California San Diego,University of Washington,Tsinghua University","China,United States of America",2.2794518e+21,"""We train all models using 128 NVIDIA H100 GPUs with a global batch size of 2048 across all stages.""
 
 from Figure 1
 NVILA 8B takes 4.5x times less gpu hours than LLAVA OneVision which is reported to take 400 GPU days (""For example, training a state-of-the-art 7B VLM [5] can take up to 400 GPU days"")

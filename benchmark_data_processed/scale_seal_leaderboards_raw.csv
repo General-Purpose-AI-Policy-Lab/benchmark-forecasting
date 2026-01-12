@@ -1,11 +1,13 @@
 rank,model,score,stderr,is_new,benchmark_slug,category,url
-1,Manus 1.5,2.5,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
-1,Manus 1.0,2.5,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
-2,claude-4-5-Sonnet,2.08,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
-3,gpt-5-2025-08-07,1.67,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
-4,ChatGPT agent,1.25,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
-4,gemini-3-pro-preview,1.25,0.0,True,rli,agentic,https://scale.com/leaderboard/rli
-6,gemini-2.5-pro-preview-06-05,0.83,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+1,claude-opus-4-5-20251101-thinking,3.75,0.0,True,rli,agentic,https://scale.com/leaderboard/rli
+2,Manus 1.5,2.5,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+3,Manus 1.0,2.5,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+4,claude-4-5-Sonnet,2.08,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+4,gpt-5.2-2025-12-11,2.08,0.0,True,rli,agentic,https://scale.com/leaderboard/rli
+6,gpt-5-2025-08-07,1.67,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+7,ChatGPT agent,1.25,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+7,gemini-3-pro-preview,1.25,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
+9,gemini-2.5-pro-preview-06-05,0.83,0.0,False,rli,agentic,https://scale.com/leaderboard/rli
 1,claude-opus-4-5-20251101,62.3,1.76,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 1,gpt-5.2-2025-12-11,60.57,1.62,True,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 3,gemini-3-flash-preview,57.4,1.48,True,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
@@ -18,12 +20,13 @@ rank,model,score,stderr,is_new,benchmark_slug,category,url
 10,claude-4-Sonnet-20250514,35.6,1.57,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 10,claude-haiku-4-5-20251001,34.6,1.47,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 10,glm-4p5-air,34.0,1.32,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
+13,nova-2-lite,24.6,1.53,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 13,kimi-k2-instruct,23.9,1.14,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-14,qwen3-235B-A22B,12.0,0.94,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-15,gemini-2.5-Pro-Preview-06-05,8.8,0.62,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-16,gpt-4o-2024-11-20,7.2,0.51,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-17,gemini-2.5-flash-preview-05-20,3.4,0.33,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-18,Llama-4-Maverick,0.8,0.08,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
+15,qwen3-235B-A22B,12.0,0.94,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
+16,gemini-2.5-Pro-Preview-06-05,8.8,0.62,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
+17,gpt-4o-2024-11-20,7.2,0.51,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
+18,gemini-2.5-flash-preview-05-20,3.4,0.33,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
+19,Llama-4-Maverick,0.8,0.08,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 1,claude-opus-4-5-20251101,45.89,3.6,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
 1,claude-4-5-Sonnet,43.6,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
 1,gemini-3-pro-preview,43.3,3.6,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public

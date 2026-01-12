@@ -1,11 +1,16 @@
 Model version,Correct,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Notes,Source,Source link,id
-gemini-3-pro-preview,0.91,2025-11-18,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Almost certainly >1e25,"Hasn't been added to leaderboard, but twitter thread confirms it.",Tweet from VPCT creator,https://x.com/ChaseBrowe32432/status/1992343805828440452,recG05ZRFsIS6Np5A
+gemini-3-pro-preview,0.91,2025-11-18,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Almost certainly >1e25,,VPCT leaderboard,https://cbrower.dev/vpct,recG05ZRFsIS6Np5A
+gpt-5.2-2025-12-11_xhigh,0.84,2025-12-11,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec44ii4M100mBK2S
+gemini-3-flash-preview,0.726,2025-12-17,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,,,VPCT leaderboard,https://cbrower.dev/vpct,recvXJM6wzywb9IOE
+gpt-5.2-2025-12-11_high,0.67,2025-12-11,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,reckX2AKbtEWNzbZK
 gpt-5-2025-08-07_high,0.66,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,VPCT leaderboard,https://cbrower.dev/vpct,recr3Z2yR195jbjtt
 gpt-5-2025-08-07_medium,0.632,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,VPCT leaderboard,https://cbrower.dev/vpct,recsN4vpvg4hEFivY
+gpt-5.1-2025-11-13_high,0.587,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",,VPCT leaderboard,https://cbrower.dev/vpct,recozf8fQmQQsCQnw
 o4-mini-2025-04-16_medium,0.575,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",Assuming medium reasoning effort,VPCT leaderboard,https://cbrower.dev/vpct,recMIWcdIKL4MZxYy
 gpt-5.1-2025-11-13_medium,0.533,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
 ",,VPCT leaderboard,https://cbrower.dev/vpct,reczaxzhyt2q07c7C
