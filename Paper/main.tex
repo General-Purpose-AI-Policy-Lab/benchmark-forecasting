@@ -1,0 +1,192 @@
+% ICML 2026 Position Paper
+% Template: https://icml.cc/Conferences/2026/CallForPapers
+
+\documentclass[letterpaper]{article}
+
+% Required ICML packages
+\usepackage{icml2026_templates/icml2026}
+
+% Recommended packages
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{subcaption}
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% Bibliography
+\usepackage{natbib}
+
+% Graphics path - can reference Images/ from parent directory
+\graphicspath{{../Images/}{figures/}}
+
+% Custom commands
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\etal}{\emph{et al.}}
+
+% ==============================================================================
+\begin{document}
+
+\twocolumn[
+\icmltitle{Forecasting AI Benchmark Saturation: \\
+A Hierarchical Bayesian Approach}
+
+% Anonymous submission - remove author info for review
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+\icmlauthor{Anonymous Author(s)}{}
+\end{icmlauthorlist}
+
+% \icmlaffiliation{inst1}{Institution 1}
+% \icmlcorrespondingauthor{Author Name}{email@domain.com}
+
+\icmlkeywords{AI forecasting, benchmark saturation, Bayesian modeling, capability assessment}
+
+\vskip 0.3in
+]
+
+% ==============================================================================
+\begin{abstract}
+We present a hierarchical Bayesian framework for forecasting the saturation timeline of AI benchmarks.
+Analyzing 60 benchmarks spanning cognitive and operational capabilities, we find that nearly all current benchmarks---including the most challenging ones---are projected to saturate before 2030.
+Our methodology introduces three innovations: (1) Harvey growth curves to capture asymmetric progress trajectories, (2) frontier-focused modeling to approximate maximum achievable performance, and (3) joint hierarchical inference enabling statistical borrowing across benchmarks.
+Security-critical benchmarks (cybersecurity, AI R\&D automation, advanced mathematics) show trajectories suggesting saturation by 2028.
+We discuss implications for capability assessment and the limitations of current evaluation paradigms.
+\end{abstract}
+
+% ==============================================================================
+\section{Introduction}
+\label{sec:introduction}
+
+% TODO: Write introduction
+% Key points:
+% - Rapid progress on AI benchmarks
+% - Need for forecasting methods
+% - Limitations of current approaches
+% - Our contributions
+
+\section{Related Work}
+\label{sec:related}
+
+% TODO: Literature review
+% - Benchmark forecasting (Steinhardt, Epoch AI)
+% - Scaling laws (Kaplan et al., Hoffmann et al.)
+% - Observational scaling laws (Ruan et al.)
+% - Metabench, Rosetta Stone for AI Benchmarks
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Problem Formulation}
+\label{subsec:problem}
+
+% TODO: Formal problem statement
+
+\subsection{Harvey Growth Model}
+\label{subsec:harvey}
+
+The Harvey model generalizes the logistic curve by introducing an asymmetry parameter $\alpha$:
+\begin{equation}
+    f(t) = \frac{L}{\left(1 + (\alpha - 1) e^{-k(t - t_0)}\right)^{1/(\alpha-1)}}
+\end{equation}
+where $L$ is the upper asymptote, $k$ is the growth rate, $t_0$ is the inflection point, and $\alpha > 1$ controls the asymmetry. When $\alpha = 2$, the Harvey curve reduces to the standard logistic.
+
+\subsection{Hierarchical Bayesian Framework}
+\label{subsec:hierarchical}
+
+% TODO: Full model specification
+% - Likelihood
+% - Priors
+% - Hyperpriors
+
+\subsection{Frontier-Focused Modeling}
+\label{subsec:frontier}
+
+% TODO: Explain skewed observation model
+% - Latent capability vs observed performance
+% - Elicitation gap
+
+\section{Experimental Setup}
+\label{sec:experiments}
+
+\subsection{Benchmark Selection}
+\label{subsec:benchmarks}
+
+% TODO: Describe 60 benchmarks
+% - Sources: Epoch AI, Scale AI, RAND
+% - Categories and tiers
+
+\subsection{Data Processing}
+\label{subsec:data}
+
+% TODO: Normalization, lower bounds, frontier extraction
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Saturation Projections}
+\label{subsec:saturation}
+
+% TODO: Main results
+% - 97% benchmarks saturated by 2030
+% - Security-critical by 2028
+
+\subsection{Model Validation}
+\label{subsec:validation}
+
+% TODO: Calibration, Harvey vs Logistic comparison
+
+\subsection{Asymmetry Analysis}
+\label{subsec:asymmetry}
+
+% TODO: Figure S1 equivalent - asymmetry of growth curves
+
+\section{Discussion}
+\label{sec:discussion}
+
+% TODO:
+% - Implications for AGI timelines
+% - Limitations of benchmarks
+% - Heterogeneity of progress
+% - Need for new evaluation paradigms
+
+\section{Limitations}
+\label{sec:limitations}
+
+% TODO:
+% - Benchmark selection bias
+% - Extrapolation uncertainty
+% - Elicitation gap not fully captured
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+% TODO: Summary and future directions
+
+% ==============================================================================
+% Acknowledgements (for camera-ready only)
+% \section*{Acknowledgements}
+
+% ==============================================================================
+\bibliography{references}
+\bibliographystyle{icml2026_templates/icml2026}
+
+% ==============================================================================
+% Appendix
+\appendix
+\section{Benchmark Details}
+\label{app:benchmarks}
+
+\section{Prior Specifications}
+\label{app:priors}
+
+\section{Additional Results}
+\label{app:results}
+
+\end{document}

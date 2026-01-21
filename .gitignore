@@ -3,3 +3,16 @@ benchmarks_lower_bounds.csv.numbers
 # Claude Code
 CLAUDE.md
 tmp/
+
+# LaTeX build artifacts
+Paper/*.aux
+Paper/*.bbl
+Paper/*.blg
+Paper/*.log
+Paper/*.out
+Paper/*.synctex.gz
+Paper/*.fdb_latexmk
+Paper/*.fls
+Paper/*.toc
+Paper/*.lof
+Paper/*.lot
