@@ -2659,6 +2659,8 @@ gemini-3-pro-preview,0.433,2025-11-18,Google,SWE-Bench Pro,3.6,Scale
 claude-4-Sonnet,0.42700000000000005,2025-05-22,Anthropic,SWE-Bench Pro,3.59,Scale
 gpt-5-2025-08-07 (High),0.4178,2025-08-07,,SWE-Bench Pro,3.49,Scale
 claude-4-5-haiku,0.3945,2025-10-15,Anthropic,SWE-Bench Pro,3.55,Scale
+minimax-2.1,0.36810000000000004,,,SWE-Bench Pro,3.55,Scale
+gemini-3-flash,0.34630000000000005,,Google,SWE-Bench Pro,3.55,Scale
 kimi-k2-instruct,0.2767,2025-07-12,,SWE-Bench Pro,3.25,Scale
 gpt-5-2025-08-07 (High),0.259,2025-08-07,,SWE-Bench Pro,3.18,Scale
 gpt-5-2025-08-07 (Medium),0.23260000000000003,2025-08-07,,SWE-Bench Pro,3.06,Scale
@@ -3035,16 +3037,16 @@ Gemini 3 Pro,0.311,2025-11-18,Google,ARC-AGI-2,,ARC-AGI
 "Opus 4.5 (Thinking, 32K)",0.306,2025-11-24,Anthropic,ARC-AGI-2,,ARC-AGI
 GPT-5.2 (Medium),0.727,2025-12-11,OpenAI,ARC-AGI-1,,ARC-AGI
 GPT-5.2 (Medium),0.267,2025-12-11,OpenAI,ARC-AGI-2,,ARC-AGI
-Grok 4 (Refine.),0.7709999999999999,2025-11-03,Other,ARC-AGI-1,,ARC-AGI
-Grok 4 (Refine.),0.26,2025-11-03,Other,ARC-AGI-2,,ARC-AGI
+Grok 4 (Refine.),0.7709999999999999,2025-09-16,Other,ARC-AGI-1,,ARC-AGI
+Grok 4 (Refine.),0.26,2025-09-16,Other,ARC-AGI-2,,ARC-AGI
 "Opus 4.5 (Thinking, 16K)",0.72,2025-11-24,Anthropic,ARC-AGI-1,,ARC-AGI
 "Opus 4.5 (Thinking, 16K)",0.228,2025-11-24,Anthropic,ARC-AGI-2,,ARC-AGI
 GPT-5 Pro,0.7020000000000001,2025-08-07,OpenAI,ARC-AGI-1,,ARC-AGI
 GPT-5 Pro,0.183,2025-08-07,OpenAI,ARC-AGI-2,,ARC-AGI
 "GPT-5.1 (Thinking, High)",0.728,2025-11-12,OpenAI,ARC-AGI-1,,ARC-AGI
 "GPT-5.1 (Thinking, High)",0.17600000000000002,2025-11-12,OpenAI,ARC-AGI-2,,ARC-AGI
-Grok 4 (Thinking),0.667,2025-11-17,xAI,ARC-AGI-1,,ARC-AGI
-Grok 4 (Thinking),0.16,2025-11-17,xAI,ARC-AGI-2,,ARC-AGI
+Grok 4 (Thinking),0.667,2025-07-09,xAI,ARC-AGI-1,,ARC-AGI
+Grok 4 (Thinking),0.16,2025-07-09,xAI,ARC-AGI-2,,ARC-AGI
 "Opus 4.5 (Thinking, 8K)",0.5870000000000001,2025-11-24,Anthropic,ARC-AGI-1,,ARC-AGI
 "Opus 4.5 (Thinking, 8K)",0.139,2025-11-24,Anthropic,ARC-AGI-2,,ARC-AGI
 Claude Sonnet 4.5 (Thinking 32K),0.637,2025-09-29,Anthropic,ARC-AGI-1,,ARC-AGI
@@ -3079,8 +3081,8 @@ Claude Sonnet 4 (Thinking 16K),0.4,2025-05-22,Anthropic,ARC-AGI-1,,ARC-AGI
 Claude Sonnet 4 (Thinking 16K),0.059000000000000004,2025-05-22,Anthropic,ARC-AGI-2,,ARC-AGI
 Claude Sonnet 4.5 (Thinking 1K),0.31,2025-09-29,Anthropic,ARC-AGI-1,,ARC-AGI
 Claude Sonnet 4.5 (Thinking 1K),0.057999999999999996,2025-09-29,Anthropic,ARC-AGI-2,,ARC-AGI
-Grok 4 (Fast Reasoning),0.485,2025-09-22,xAI,ARC-AGI-1,,ARC-AGI
-Grok 4 (Fast Reasoning),0.053,2025-09-22,xAI,ARC-AGI-2,,ARC-AGI
+Grok 4 (Fast Reasoning),0.485,2025-09-19,xAI,ARC-AGI-1,,ARC-AGI
+Grok 4 (Fast Reasoning),0.053,2025-09-19,xAI,ARC-AGI-2,,ARC-AGI
 o3-Pro (High),0.593,2025-06-10,OpenAI,ARC-AGI-1,,ARC-AGI
 o3-Pro (High),0.049,2025-06-10,OpenAI,ARC-AGI-2,,ARC-AGI
 Gemini 2.5 Pro (Thinking 32K),0.37,2025-06-17,Google,ARC-AGI-1,,ARC-AGI
