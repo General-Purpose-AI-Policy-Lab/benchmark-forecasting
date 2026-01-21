@@ -6,10 +6,10 @@ Qwen-7B,0.45,2023-09-28,Alibaba,China,1.01e+23,"2.4T tokens per Table 1
 Qwen-14B,0.534,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
 
 14B*3T*6 = 2.5e23",Qwen 14B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recv5qI392enMRudT
-gemma-2b,0.352,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.352,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",Gemma 2B,,Couldn't find shot count,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,rec6WR9YbYjnhvHbQ
-gemma-7b,0.551,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.551,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -66,7 +66,7 @@ Qwen-14B,0.534,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
 
 14B*3T*6 = 2.5e23",QWEN 14B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recKyeOiSeuHe7mjt
 Mistral-7B-v0.1,0.395,2023-09-27,Mistral AI,France,,,Mistral 7B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recAbnFHkWY8M8u4C
-gemma-7b,0.551,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.551,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
