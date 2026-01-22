@@ -1,0 +1,75 @@
+ICML POSITION PAPER — MAIN DESIDERATA (CHECKLIST)
+(Compiled from ICML 2024–2026 position paper instructions and “position paper talk” guidelines.)
+
+A) WHAT IT IS (HIGH-LEVEL INTENT)
+[ ] The submission is a “position paper” (not a standard methods/empirical paper).
+[ ] Primary goal: argue for a concrete, defensible position about what the ML community should do
+    (research priorities, evaluation practice, norms, deployment/governance, etc.).
+[ ] The paper is written to stimulate constructive discussion; reviewers need not agree with the stance.
+
+B) CORE CONTENT REQUIREMENTS
+1) Explicit position statement
+[ ] A single clear, testable/normative position is stated unambiguously in the Introduction.
+[ ] (Recommended/2026-style) The position statement is highlighted (e.g., bolded) for visibility.
+[ ] The abstract identifies it as a position paper and states the position succinctly.
+
+2) Evidence and reasoning (“scholarship”)
+[ ] Claims are supported by evidence, reasoning, and citations (high scholarly standard).
+[ ] Background/context is sufficient for ML audience; definitions are precise.
+[ ] Distinguish clearly: facts vs. assumptions vs. speculation; note uncertainties/limitations.
+[ ] Include relevant prior work; avoid strawman comparisons; cite opposing work fairly.
+
+3) Alternatives / opposing views (critical requirement in recent guidance)
+[ ] Include a dedicated “Alternative Views” (or equivalent) section in the MAIN PAPER BODY.
+[ ] Present credible opposing positions (steelman them).
+[ ] Address counterarguments: rebut, synthesize, or delimit scope (when the opposition is valid).
+[ ] Make clear what evidence would change your mind (where applicable).
+
+4) Actionability (strongly encouraged; explicit in 2026 criteria)
+[ ] Include a “Call to Action” or equivalent: what steps should be taken, by whom.
+[ ] Specify actors (e.g., researchers, benchmark designers, conference committees, labs, regulators).
+[ ] Provide near-term and medium-term actions (and optionally timeline/roadmap).
+[ ] Make recommendations operational (not just aspirational).
+
+C) STRUCTURE / PRESENTATION
+[ ] Title follows ICML position track conventions (recent years: begins with “Position:”).
+[ ] Abstract: states it is a position paper and clearly summarizes the position.
+[ ] Introduction: sets stakes + context + states the position early (recommended: in bold).
+[ ] Body: develops argument logically (claims → support → implications → recommendations).
+[ ] Include “Alternative Views” section in main body (not only appendix/supplement).
+[ ] Optional but useful: “What would change my mind”, “Risks/downsides”, “Implementation details”.
+[ ] Writing is accessible to broad ML audience; avoids unnecessary jargon; defines technical terms.
+[ ] Use figures/tables only where they improve clarity for the argument (not novelty theater).
+
+D) REVIEW / SUBMISSION POLICIES (DON’T FORGET)
+(Exact policies vary slightly by year; check the current ICML call, but typical expectations below.)
+
+[ ] Formatting: uses ICML style files and obeys page limits for the position paper track.
+[ ] Double-blind compliance (where required): anonymization, no obvious self-identification.
+[ ] Ethical disclosure norms: disclose conflicts, relevant affiliations, and limitations responsibly.
+[ ] If impact statements / lay summaries are optional or not required for the track/year, do not assume;
+    follow the current year’s instructions.
+[ ] Any “exceptions” for the track (e.g., reciprocal reviewing requirement) are checked for the year.
+
+E) “DISCUSSION-FIRST” OPTIMIZATION (VERY IMPORTANT IN PRACTICE)
+[ ] The central argument is easy to restate in one sentence.
+[ ] The most likely objections are anticipated and addressed fairly.
+[ ] The paper invites engagement: clear open questions, “unknowns”, and concrete next steps.
+[ ] Tone: rigorous, constructive, non-inflammatory; positions are argued, not asserted.
+[ ] The paper is valuable even for readers who disagree with the conclusion.
+
+F) QUALITY BAR (WHAT REVIEWERS LOOK FOR)
+[ ] Clarity: position is unmistakable; contributions are understandable.
+[ ] Credibility: arguments are sound; evidence is appropriate; citations are strong.
+[ ] Novelty is not required as “new algorithm”; but the position must be non-trivial and insightful.
+[ ] Usefulness: the position—if adopted—would improve the field’s trajectory.
+[ ] Balance: acknowledges trade-offs and failure modes of proposed recommendations.
+
+G) QUICK “PASS/FAIL” TESTS
+[ ] Can a reader find the position in <30 seconds? (title/abstract/intro)
+[ ] Is there a serious Alternative Views section?
+[ ] Are there concrete actions with named stakeholders?
+[ ] Would the paper still stand if a reviewer disagrees with the stance?
+[ ] Is the writing oriented toward productive debate rather than persuasion-by-authority?
+
+END
