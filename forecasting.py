@@ -1,5 +1,5 @@
 """
-forecasting_clean.py
+forecasting.py
 
 Core modeling + validation + forecasting utilities.
 
@@ -18,8 +18,6 @@ Required:
 Optional:
   - category (str)
 """
-
-from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Literal
@@ -367,5 +365,25 @@ def generate_forecast(
     grid["mu_mean"] = np.mean(mu_samples, axis=1)
     grid["mu_lower"] = np.quantile(mu_samples, alpha, axis=1)
     grid["mu_upper"] = np.quantile(mu_samples, 1 - alpha, axis=1)
+
+    # Benchmark ordering helper: posterior mean inflection point (tau)
+    # tau is expressed in "days since benchmark start_date". We also expose the corresponding date.
+    if "tau" in idata.posterior:
+        tau_days = (
+            idata.posterior["tau"]
+            .mean(dim=("chain", "draw"))
+            .to_series()
+            .astype(float)
+            .rename("mean_tau_days")
+        )
+        start_dates = prepared_frontier.groupby("benchmark")["release_date"].min()
+        tau_dates = start_dates.reindex(tau_days.index) + pd.to_timedelta(tau_days, unit="D")
+
+        tau_df = (
+            pd.DataFrame({"benchmark": tau_days.index})
+            .assign(mean_tau_days=tau_days.to_numpy(), mean_tau=tau_dates.to_numpy())
+        )
+        grid = grid.merge(tau_df, on="benchmark", how="left")
+
 
     return grid

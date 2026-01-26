@@ -1,76 +1,76 @@
 """
 plotting.py
 
-Plotting utilities with notebook-controlled style.
+Matplotlib plotting utilities for the benchmark forecasting project.
 
-Design:
-- Theme + rcParams style are created in Python, but can be overridden in the notebook.
-- Plotting functions are pure (no model sampling).
+Goals:
+- Keep styling centralized (Theme + matplotlib rcParams helper).
+- Keep plotting functions side-effect free (they only draw on provided axes).
+- Match the look-and-feel of `3_Plot_forecasts.ipynb` (colors, grid, legend, line styles).
 """
 
-from __future__ import annotations
-
+from collections.abc import Mapping
 from dataclasses import dataclass, replace
-from typing import Any, Mapping, Optional
+from typing import Any
 
 import itertools
 
+import arviz as az
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import arviz as az
+
+
+DashStyle = str | tuple[float, tuple[float, ...]]
 
 
 @dataclass(frozen=True)
 class Theme:
+    """Visual theme constants."""
+
     base_color: str = "#0e294c"
     accent_color: str = "#d4af37"
     gray_color: str = "#6c757d"
     grid_color: str = "#5F86A5"
+
+    # Elegant professional palette (copied from `3_Plot_forecasts.ipynb`).
     palette: tuple[str, ...] = (
-        "#1a759f",
-        "#f94144",
-        "#577590",
-        "#43aa8b",
-        "#f3722c",
-        "#90be6d",
-        "#277da1",
-        "#f9c74f",
-        "#8b7f7b",
-        "#264653",
-        "#6a4c93",
-        "#e76f51",
-        "#06aed5",
-        "#f4a261",
-        "#2a9d8f",
+        '#1f4788',
+        '#4a7c59',
+        '#457b9d',
+        '#8b7f7b',
+        '#264653',
+        '#6a4c93',
+        '#e76f51',
+        '#06aed5',
+        '#f4a261',
+        '#2a9d8f',
     )
 
     def with_overrides(self, **kwargs: Any) -> "Theme":
+        """Return a copy of the theme with the given fields replaced."""
         return replace(self, **kwargs)
 
 
 def make_mpl_style(*, scale: float = 1.0) -> dict[str, Any]:
-    """Return a matplotlib rcParams dict; scale multiplies common sizes."""
-    s = float(scale)
+    """Return a minimal matplotlib rcParams dict.
+
+    `scale` is intentionally kept (notebook API), but visual sizing is handled
+    explicitly in plotting functions to match `3_Plot_forecasts.ipynb`.
+    """
+    _ = float(scale)  # reserved for future use
     return {
+        "font.family": "sans-serif",
+        "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
         "axes.facecolor": "none",
         "figure.facecolor": "none",
         "grid.alpha": 0.2,
-        "font.family": "sans-serif",
-        "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
-        "font.size": 10 * s,
-        "axes.labelsize": 11 * s,
-        "axes.titlesize": 12 * s,
-        "xtick.labelsize": 9 * s,
-        "ytick.labelsize": 9 * s,
-        "legend.fontsize": 9 * s,
-        "lines.linewidth": 2.0 * s,
     }
 
 
 def apply_style(style: Mapping[str, Any], *, reset: bool = False) -> None:
-    """Apply matplotlib rcParams style dict."""
+    """Apply a matplotlib rcParams style dict."""
     if reset:
         plt.rcdefaults()
     plt.rcParams.update(dict(style))
@@ -79,21 +79,26 @@ def apply_style(style: Mapping[str, Any], *, reset: bool = False) -> None:
 def plot_calibration_curve(
     idata: az.InferenceData,
     *,
-    ax: Optional[plt.Axes] = None,
+    ax: plt.Axes | None = None,
     n_points: int = 20,
 ) -> plt.Axes:
-    """Plot calibration curve for posterior predictive samples."""
+    """Plot a posterior predictive calibration curve.
+
+    Expects `idata.predictions` to contain:
+    - y: posterior predictive samples, shape (obs, chain, draw)
+    - y_true: held-out observations, shape (obs,)
+    """
     y_pred = idata.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
     y_true = idata.predictions["y_true"].to_numpy()
 
     confidence_levels = np.linspace(0.01, 0.99, n_points)
-    observed_coverage = []
+    observed_coverage: list[float] = []
     for p in confidence_levels:
         q_lo = (1 - p) / 2
         q_hi = 1 - q_lo
         lo = np.quantile(y_pred, q_lo, axis=1)
         hi = np.quantile(y_pred, q_hi, axis=1)
-        observed_coverage.append(np.mean((y_true >= lo) & (y_true <= hi)))
+        observed_coverage.append(float(np.mean((y_true >= lo) & (y_true <= hi))))
 
     if ax is None:
         _, ax = plt.subplots(figsize=(6, 6))
@@ -125,7 +130,7 @@ def _plot_datapoints(
         marker="o",
         edgecolors="white",
         alpha=alpha,
-        zorder=6,
+        zorder=5,
     )
 
 
@@ -137,16 +142,18 @@ def _plot_forecast_with_split_style(
     last_observed_date: pd.Timestamp,
     label: str,
     ci_alpha: float,
-    mean_alpha: float,
-    dash_style: Any,
+    observed_alpha: float,
+    forecast_alpha: float,
+    linewidth: float,
+    dash_style: DashStyle,
 ) -> None:
+    """Plot mean + CI for a benchmark with solid-to-dashed split at last observation."""
     if pred.empty:
         return
 
     pred = pred.sort_values("release_date")
     x = pred["release_date"]
 
-    # Uncertainty band across full horizon
     ax.fill_between(
         x,
         pred["mu_lower"],
@@ -157,19 +164,19 @@ def _plot_forecast_with_split_style(
         zorder=3,
     )
 
-    # Mean split: solid until last observed, dashed after
     past = pred.loc[pred["release_date"] <= last_observed_date]
-    future = pred.loc[pred["release_date"] > last_observed_date]
+    future = pred.loc[pred["release_date"] >= last_observed_date]
 
     if not past.empty:
         ax.plot(
             past["release_date"],
             past["mu_mean"],
             color=color,
-            alpha=mean_alpha,
+            alpha=observed_alpha,
             linestyle="-",
+            linewidth=linewidth,
             label=label,
-            zorder=5,
+            zorder=6,
         )
 
     if not future.empty:
@@ -180,11 +187,29 @@ def _plot_forecast_with_split_style(
             future["release_date"],
             future["mu_mean"],
             color=color,
-            alpha=mean_alpha,
+            alpha=forecast_alpha,
             linestyle=dash_style,
+            linewidth=linewidth,
             label=None,
-            zorder=5,
+            zorder=6,
         )
+
+
+def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> list[str]:
+    """Return benchmark names ordered by posterior mean tau (left-to-right in the plot)."""
+    if "benchmark" not in observed.columns:
+        return []
+
+    # Preferred: mean_tau as a datetime column (added by `generate_forecast()` patch below).
+    if "mean_tau" in forecast.columns:
+        tau = forecast.groupby("benchmark", dropna=False)["mean_tau"].first()
+        if not np.issubdtype(tau.dtype, np.datetime64):
+            starts = observed.groupby("benchmark")["release_date"].min()
+            tau = starts + pd.to_timedelta(tau.astype(float), unit="D")
+        return tau.sort_values().index.astype(str).tolist()
+
+    # Fallback: stable in-input ordering.
+    return observed["benchmark"].dropna().astype(str).drop_duplicates().tolist()
 
 
 def plot_category_forecast(
@@ -196,23 +221,24 @@ def plot_category_forecast(
     theme: Theme,
     scale: float = 1.0,
     figsize: tuple[float, float] = (7, 4),
-    ci_alpha: float = 0.18,
-    mean_alpha: float = 0.75,
-    scatter_alpha: float = 0.45,
-    dash_style: Any = (0, (4, 2)),
+    ci_alpha: float = 0.2,
+    observed_line_alpha: float = 0.8,
+    forecast_line_alpha: float = 0.5,
+    scatter_alpha: float = 0.4,
+    line_width: float = 1.5,
+    dash_style: DashStyle = (5, (4, 2)),
 ) -> tuple[plt.Figure, plt.Axes]:
-    """One figure for one category, multiple benchmarks.
+    """Plot one category: multiple benchmarks on one axis.
 
-    Legend entries are benchmark names.
-    Forecast line is solid up to the last observed datapoint for that benchmark, then dashed.
+    Matches `3_Plot_forecasts.ipynb` styling and enforces benchmark ordering by mean_tau.
     """
-    fig, ax = plt.subplots(figsize=figsize)
+    fig, ax = plt.subplots(figsize=figsize, facecolor="none")
 
     label_fontsize = int(13 * scale)
     tick_fontsize = int(8 * scale)
     scatter_size = 40 * scale
 
-    benchmarks = observed["benchmark"].dropna().unique()
+    benchmarks = _benchmark_plot_order(observed, forecast)
     color_cycle = itertools.cycle(theme.palette)
 
     for bench, color in zip(benchmarks, color_cycle):
@@ -232,7 +258,9 @@ def plot_category_forecast(
             last_observed_date=last_date,
             label=str(bench),
             ci_alpha=ci_alpha,
-            mean_alpha=mean_alpha,
+            observed_alpha=observed_line_alpha,
+            forecast_alpha=forecast_line_alpha,
+            linewidth=line_width,
             dash_style=dash_style,
         )
 
@@ -242,8 +270,7 @@ def plot_category_forecast(
     ax.set_xlabel("", fontsize=label_fontsize, fontweight="500", color=theme.base_color)
 
     ax.set_ylim(-0.02, 1.05)
-    ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: "{:.0%}".format(y)))
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f"{y*100:.0f}%"))
     ax.set_ylabel("Performance", fontsize=label_fontsize, fontweight="500", color=theme.base_color)
 
     ax.grid(True, alpha=0.1, linewidth=0.8, color=theme.grid_color)
@@ -251,6 +278,7 @@ def plot_category_forecast(
     ax.spines["right"].set_visible(False)
     ax.spines["left"].set_visible(False)
     ax.spines["bottom"].set_color(theme.base_color)
+
     ax.tick_params(axis="y", left=False, right=False)
     ax.tick_params(labelsize=tick_fontsize, colors=theme.base_color)
 
@@ -264,16 +292,18 @@ def plot_category_forecast(
 
     legend = ax.legend(
         loc="lower right",
-        fontsize=int(10 * scale),
-        framealpha=0.95,
-        facecolor="white",
-        edgecolor=theme.base_color,
-        fancybox=True,
+        fontsize=10,
+        frameon=False,
+        fancybox=False,
         ncol=1,
-        handlelength=2.0,
+        handlelength=1.5,
     )
     for text in legend.get_texts():
         text.set_color(theme.base_color)
+    for line in legend.get_lines():
+        line.set_linewidth(2.0)
+        line.set_linestyle("-")
+        line.set_alpha(1.0)
 
     fig.tight_layout()
     return fig, ax
