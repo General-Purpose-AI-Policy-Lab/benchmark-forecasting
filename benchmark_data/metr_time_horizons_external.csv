@@ -24,7 +24,7 @@ They also do post training similar to o3, which we assume adds at least 10% as m
 
 ",81.505677,18.79454,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.56634,,rec2VBZIfOKcr9NeL
 o1-2024-12-17_medium,39.206576,2024-12-17,OpenAI,United States of America,,,84.353717,17.603775,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.55932,,recrH7UpKH2XmiFW8
-gemini-2.5-pro-preview-06-05,38.734274,2025-06-05,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,69.556192,19.317217,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.5544,,recxHthxDmMulkuth
+gemini-2.5-pro-preview-06-05,38.734274,2025-06-05,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,69.556192,19.317217,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.5544,,recxHthxDmMulkuth
 DeepSeek-R1-0528,31.167847,2025-05-28,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
 https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
 ""A dataset size of 14.8 trillion tokens is reasonable and in line with other models of this scale. Assuming that’s valid, the pretraining of this model would have required 6 * (37 billion) * (14.8 trillion) = 3e24 FLOP. If we assume DeepSeek’s training cluster consists of H800s with the PCIe form factor, then each should be capable of 1.5e15 FP8 per second, and the implied model FLOP utilization (MFU) of DeepSeek v3’s 55 day training run ends up being around 23%.""
@@ -35,15 +35,7 @@ https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
 
 Total compute: 3.29e24 + 1.2e23 + 6.1e23 = 4.02e24",64.108861,12.849837,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.537826,,recasKfxLMpd8pTjF
 claude-3-5-sonnet-20241022,29.575983,2024-10-22,Anthropic,United States of America,,,59.058879,14.031849,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.52701,,recM2JJhzA3vJAZoZ
-DeepSeek-R1,26.932599,2025-01-20,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
-https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
-""A dataset size of 14.8 trillion tokens is reasonable and in line with other models of this scale. Assuming that’s valid, the pretraining of this model would have required 6 * (37 billion) * (14.8 trillion) = 3e24 FLOP. If we assume DeepSeek’s training cluster consists of H800s with the PCIe form factor, then each should be capable of 1.5e15 FP8 per second, and the implied model FLOP utilization (MFU) of DeepSeek v3’s 55 day training run ends up being around 23%.""
-
-6 FLOP/token/param * 14.8T tokens * 37B active params = 3.29e24 FLOP (pretraining)
-1.2e23 FLOP (post-training)
-6.1e23 FLOP (fine-tuning)
-
-Total compute: 3.29e24 + 1.2e23 + 6.1e23 = 4.02e24",50.97746,13.478936,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.519251,,rectWm0PAizmHcDik
+DeepSeek-R1,26.932599,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",50.97746,13.478936,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.519251,,rectWm0PAizmHcDik
 DeepSeek-V3-0324,23.117113,2025-03-24,DeepSeek,China,3.4078e+24,"""At an economical cost of only 2.664M H800 GPU hours, we complete the pre-training of DeepSeek-V3 on 14.8T tokens, producing the currently strongest open-source base model. The subsequent training stages after pre-training require only 0.1M GPU hours.""
 
 6 * 37B (active params) * 14.8T = 3.2856e24 for pretraining.

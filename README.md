@@ -141,11 +141,10 @@ where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean an
 
 ## Usage
 
-Run the notebooks in order:
+1. First run `0_Process_benchmarks.ipynb` to generate the dataset `benchmark_data_processed/all_normalized_updated_benchmarks.csv`.
+2. Then, open, setup and run `1_Forecasts.ipynb` to generate the forecasts and plots. Figures are written to `Images/`.
 
-1. `0_Clean_EpochAI_benchmarks.ipynb`
-2. `1_Logistic_forecast.ipynb`
-3. `2_Harvey_forecast.ipynb`
-4. `3_Plot_forecasts.ipynb`
+The human baselines can be found in `human_baselines.csv`.
+The `benchmark_lower_bounds.csv` file contains the per-benchmark random-chance performance lower bounds.
 
-Model fits are saved under `Fits/`, and figures are written to `Images/`.
+The two files `forecasting.py` and `plotting.py` contain helper functions for model fitting and plotting, respectively. They are called by the `1_Forecasts.ipynb` notebook.

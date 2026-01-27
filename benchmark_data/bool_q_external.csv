@@ -56,10 +56,10 @@ Also, 7B model was trained on 184320 GPU-hours
 312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",,0,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,recjT2p6s5emF8ljV
 Llama-2-13b,0.817,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,,0,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,recwePxenE1s2MEDc
 Mistral-7B-Instruct-v0.2,0.832,,Mistral AI,France,,,Mistral 7b,0,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,rechrxxd2cyc5qvCK
-gemma-2b,0.694,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.694,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",,0,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,recL1IR83icoHlfOo
-gemma-7b,0.832,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.832,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -155,7 +155,7 @@ This implies that the actual utilization was:
 MFU = 7.8e22/1.518e23 = 0.514",LLaMA (13B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,rec8uZxM89GP1el28
 ,0.713,,,,,,RedPajama-INCITE-Base (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,recjNKU5sEcFWlNXL
 ,0.705,,,,,,RedPajama-INCITE-Instruct (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,recmg2FxS47biEbAo
-bloom,0.704,2022-07-06,"Hugging Face,BigScience","France,United States of America",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
+bloom,0.704,2022-07-06,"Hugging Face,BigScience","United States of America,France",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
 
 384 A100 GPUs * 314 TFLOPS throughput per GPU * 117 days * 0.3 (utilization assumption) = 3.65664e23
 https://www.wolframalpha.com/input?i=384+*+314+TFLOPS+*+117+days+*+0.3",BLOOM (176B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,recAvnz7EM41lTjc4
@@ -244,10 +244,10 @@ Hardware:
 Geometric mean: sqrt(7.2e23 * 2.08e24) = 1.224e24
 
 Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",Llama-3.1-In 8B,2,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recauId7IvSgbcDLC
-gemma-2-9b,0.857,,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
+gemma-2-9b,0.857,,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
 
 6ND = 6 FLOP / token / parameter * 9000000000 parameters * 8000000000000 tokens = 4.32e+23 FLOP",Gemma-2 9B,2,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recht7f4a80DWbgMN
-gemini-1.5-flash-001,0.858,2024-05-23,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini-1.5 Flash,2,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recLLijFlIEJQiniu
+gemini-1.5-flash-001,0.858,2024-05-23,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini-1.5 Flash,2,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recLLijFlIEJQiniu
 gpt-4o-mini-2024-07-18,0.887,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
 
 90% CI [3.23e+24, 2.05e+25]",GPT-4o-mini,2,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recizVJrP3lam4Dj6

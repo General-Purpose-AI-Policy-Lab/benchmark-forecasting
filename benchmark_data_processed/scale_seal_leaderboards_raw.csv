@@ -27,22 +27,24 @@ rank,model,score,stderr,is_new,benchmark_slug,category,url
 17,gpt-4o-2024-11-20,7.2,0.51,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 18,gemini-2.5-flash-preview-05-20,3.4,0.33,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
 19,Llama-4-Maverick,0.8,0.08,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-1,claude-opus-4-5-20251101,45.89,3.6,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+1,claude-opus-4-5-20251101,45.89,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
 1,claude-4-5-Sonnet,43.6,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-1,gemini-3-pro-preview,43.3,3.6,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+1,gemini-3-pro-preview,43.3,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
 1,claude-4-Sonnet,42.7,3.59,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-1,gpt-5-2025-08-07 (High),41.78,3.49,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-1,claude-4-5-haiku,39.45,3.55,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-6,kimi-k2-instruct,27.67,3.25,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-6,gpt-5-2025-08-07 (High),25.9,3.18,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-6,gpt-5-2025-08-07 (Medium),23.26,3.06,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-6,claude-opus-4-1-20250805,22.71,3.04,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-8,claude-4-Sonnet-20250514,17.65,2.77,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-10,gpt-oss-120b,16.2,2.67,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-10,gemini-2.5-Pro-Preview-06-05,13.54,2.48,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-13,SWE-Smith-32B,6.84,1.83,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-13,gpt-4o-2024-11-20,4.92,1.57,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-14,Qwen3-32B,3.42,1.32,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+2,gpt-5-2025-08-07 (High),41.78,3.49,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+2,claude-4-5-haiku,39.45,3.55,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+2,minimax-2.1,36.81,3.55,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+2,gemini-3-flash,34.63,3.55,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+9,kimi-k2-instruct,27.67,3.25,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+9,gpt-5-2025-08-07 (High),25.9,3.18,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+9,gpt-5-2025-08-07 (Medium),23.26,3.06,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+9,claude-opus-4-1-20250805,22.71,3.04,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+11,claude-4-Sonnet-20250514,17.65,2.77,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+13,gpt-oss-120b,16.2,2.67,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+13,gemini-2.5-Pro-Preview-06-05,13.54,2.48,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+16,SWE-Smith-32B,6.84,1.83,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+16,gpt-4o-2024-11-20,4.92,1.57,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
+17,Qwen3-32B,3.42,1.32,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
 1,gpt-5,51.32,0.17,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
 1,gpt-5-pro,51.06,0.59,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
 3,o3-pro,49.08,0.79,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance

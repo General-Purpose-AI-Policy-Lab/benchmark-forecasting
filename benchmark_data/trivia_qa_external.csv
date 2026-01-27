@@ -60,10 +60,10 @@ text-davinci-001,0.643,2022-01-27,OpenAI,United States of America,3.19181e+23,""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3,0,,Language Models are Few-Shot Learners,https://arxiv.org/pdf/2005.14165v4,recjbZ5iX41fMNKTS
-gemma-2b,0.532,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+gemma-2b,0.532,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
 
 (assuming 1 epoch)",Gemma 2B,5,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,recLZAYwaYmir4fkG
-gemma-7b,0.634,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.634,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
@@ -116,7 +116,7 @@ phi-2,0.452,2023-12-12,Microsoft,United States of America,2.27e+22,"2.7B params,
 
 14 * 96 * 312 trillion * 24 * 3600 * 0.3 = 1.09e22",Phi-2,5,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recJZ6lcpMRWGlYfC
 Mistral-7B-v0.1,0.752,2023-09-27,Mistral AI,France,,,Mistral 7b             ,5,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,reccS3oFHW9PBkukw
-gemma-7b,0.723,2024-02-21,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+gemma-7b,0.723,2024-02-21,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
 ""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
 
 As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
