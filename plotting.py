@@ -231,6 +231,56 @@ def _plot_forecast_with_split_style(
         )
 
 
+def _plot_baseline_points(
+    ax: plt.Axes,
+    baselines: pd.DataFrame,
+    preds: pd.DataFrame,
+    end_date: pd.Timestamp,
+    *,
+    color: str,
+    size: float,
+    alpha: float,
+) -> None:
+    baselines = baselines.assign(
+        date=lambda df: _assign_dates_to_baselines(df, preds, end_date),
+    )
+    ax.scatter(
+        baselines["date"],
+        baselines["score"],
+        color=color,
+        s=size,
+        alpha=alpha,
+        marker="D",
+        edgecolors="black",
+        zorder=8,
+    )
+
+
+def _assign_dates_to_baselines(
+    baselines: pd.DataFrame,
+    preds: pd.DataFrame,
+    end_date: pd.Timestamp,
+) -> pd.Series:
+    """Assign dates to baseline points based on forecast curves."""
+    out = pd.Series(index=baselines.index, dtype="datetime64[ns]")
+    for bench, g in baselines.groupby("benchmark", sort=False):
+        preds_bench = (
+            preds
+            .loc[preds["benchmark"] == bench]
+            .sort_values("mu_mean")
+            .drop_duplicates(subset=["mu_mean"])
+        )
+        dates = np.interp(
+            g["score"].to_numpy(),
+            preds_bench["mu_mean"].to_numpy(),
+            preds_bench["release_date"].to_numpy().astype(np.int64),
+            right=end_date.value,
+        )
+        out.loc[g.index] = pd.to_datetime(dates.astype(np.int64))
+    return out
+
+
+
 def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> list[str]:
     """Return benchmark names ordered by posterior mean tau (left-to-right in the plot)."""
     if "mean_tau" in forecast.columns:
@@ -253,6 +303,7 @@ def plot_category_forecast(
     *,
     observed: pd.DataFrame,
     forecast: pd.DataFrame,
+    baselines: pd.DataFrame,
     end_date: pd.Timestamp,
     category_label: str,
     theme: Theme,
@@ -274,24 +325,26 @@ def plot_category_forecast(
 
     label_fontsize = int(13 * scale)
     tick_fontsize = int(8 * scale)
-    scatter_size = 40 * scale
+    benchmark_scatter_size = 40 * scale
+    baseline_scatter_size = 50 * scale
 
-    benchmarks = _benchmark_plot_order(observed, forecast)
+    benchmarks_ordered = _benchmark_plot_order(observed, forecast)
     color_cycle = itertools.cycle(theme.palette)
 
-    for bench, color in zip(benchmarks, color_cycle):
+    for bench, color in zip(benchmarks_ordered, color_cycle):
         obs_b = observed.loc[observed["benchmark"] == bench]
-        pred_b = forecast.loc[forecast["benchmark"] == bench]
+        preds_b = forecast.loc[forecast["benchmark"] == bench]
+        baselines_b = baselines.loc[baselines["benchmark"] == bench]
 
         if obs_b.empty:
             continue
 
         last_date = pd.to_datetime(obs_b["release_date"].max())
 
-        _plot_datapoints(ax, obs_b, color=color, size=scatter_size, alpha=scatter_alpha)
+        _plot_datapoints(ax, obs_b, color=color, size=benchmark_scatter_size, alpha=scatter_alpha)
         _plot_forecast_with_split_style(
             ax,
-            pred_b,
+            preds_b,
             color=color,
             last_observed_date=last_date,
             label=resolve_benchmark_name(str(bench)),
@@ -300,6 +353,15 @@ def plot_category_forecast(
             forecast_alpha=forecast_line_alpha,
             linewidth=line_width,
             dash_style=dash_style,
+        )
+        _plot_baseline_points(
+            ax,
+            baselines_b,
+            preds_b,
+            end_date=end_date,
+            color=color,
+            size=baseline_scatter_size,
+            alpha=scatter_alpha,
         )
 
     ax.set_xlim(right=end_date)
