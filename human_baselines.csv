@@ -1,13 +1,13 @@
-benchmark,groupe,score,note,source
-GPQA Diamond,Domain experts,0.697,PhD level,EpochAI
+benchmark,group,score,note,source
+GPQA Diamond,Domain Experts,0.697,PhD level,EpochAI
 GPQA Diamond,Domain Expert,0.812,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
 GPQA Diamond,Skilled Generalist,0.219,not in-domain PhD,https://arxiv.org/pdf/2311.12022
-GPQA Extended Biology,Domain Expert,0.667,,https://arxiv.org/pdf/2311.12022
+GPQA Extended Biology,Domain Expert,0.667,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
 GPQA Extended Physics,Domain Expert,0.573,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
 GPQA Extended Chemistry,Domain Expert,0.72,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
 GPQA Extended Biology,Skilled Generalist,0.432,not in-domain PhD,https://arxiv.org/pdf/2311.12022
 GPQA Extended Physics,Skilled Generalist,0.325,not in-domain PhD,https://arxiv.org/pdf/2311.12022
-GPQA Extended Chemistry,Skilled Generalist,0.314,,https://arxiv.org/pdf/2311.12022
+GPQA Extended Chemistry,Skilled Generalist,0.314,not in-domain PhD,https://arxiv.org/pdf/2311.12022
 GPQA Diamond Biology,Domain Expert,0.831,PhD level in-domain experts,RAND
 GPQA Diamond Chemistry,Domain Expert,0.831,PhD level in-domain experts,RAND
 GPQA Diamond Biology,Skilled Generalist,0.22,not in-domain PhD,RAND
