@@ -1,0 +1,65 @@
+benchmark,groupe,score,note,source
+GPQA Diamond,Domain experts,0.697,PhD level,EpochAI
+GPQA Diamond,Domain Expert,0.812,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
+GPQA Diamond,Skilled Generalist,0.219,not in-domain PhD,https://arxiv.org/pdf/2311.12022
+GPQA Extended Biology,Domain Expert,0.667,,https://arxiv.org/pdf/2311.12022
+GPQA Extended Physics,Domain Expert,0.573,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
+GPQA Extended Chemistry,Domain Expert,0.72,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
+GPQA Extended Biology,Skilled Generalist,0.432,not in-domain PhD,https://arxiv.org/pdf/2311.12022
+GPQA Extended Physics,Skilled Generalist,0.325,not in-domain PhD,https://arxiv.org/pdf/2311.12022
+GPQA Extended Chemistry,Skilled Generalist,0.314,,https://arxiv.org/pdf/2311.12022
+GPQA Diamond Biology,Domain Expert,0.831,PhD level in-domain experts,RAND
+GPQA Diamond Chemistry,Domain Expert,0.831,PhD level in-domain experts,RAND
+GPQA Diamond Biology,Skilled Generalist,0.22,not in-domain PhD,RAND
+GPQA Diamond Chemistry,Skilled Generalist,0.22,not in-domain PhD,RAND
+GPQA Main Biology,Domain Expert,0.667,PhD level in-domain experts,RAND
+GPQA Main Biology,Skilled Generalist,0.43,not in-domain PhD,RAND
+GPQA Main Chemistry,Domain Expert,0.72,PhD level in-domain experts,RAND
+GPQA Main Chemistry,Skilled Generalist,0.31,not in-domain PhD,RAND
+HellaSwag,Committee of Average Human,0.956,majority vote of 5 crowd workers (MTurk),https://aclanthology.org/P19-1472.pdf
+WinoGrande,Committee of Average Human,0.94,majority vote of crowd workers (MTurk),https://arxiv.org/pdf/1907.10641
+MMLU,Domain Expert,0.898,score is an estimation from the authors,https://arxiv.org/pdf/2009.03300v3
+MMLU,Average Human,0.345,MTurk,https://arxiv.org/pdf/2009.03300v3
+MMLU Biology,Expert,0.9,baseline represent the 95th percentile of human test-takers,RAND
+MMLU Chemistry,Expert,0.9,baseline represent the 95th percentile of human test-takers,RAND
+FrontierMath,Committee of Experts,0.19,average team score,EpochAI
+FrontierMath,Committee of Experts,0.35,solved collectively across all teams,EpochAI
+MATH Level 5,Super Expert,0.9,Terence Tao three-time IMO gold medalist,https://arxiv.org/pdf/2103.03874v1
+MATH Level 5,Skilled Generalist,0.4,one computer science PhD student,https://arxiv.org/pdf/2103.03874v1
+ARC-AGI-1,Average Human,0.77,MTurk,https://arcprize.org/leaderboard
+ARC-AGI-1,Skilled Generalist,0.98,STEM Graduates,https://arcprize.org/leaderboard
+ARC-AGI-1,Committee of Average Human,0.98,Human panel (at least two participants solved one or more sub-pairs within their first two attempts),https://arcprize.org/leaderboard
+ARC-AGI-2,Committee of Average Human,1,Human panel,https://arcprize.org/leaderboard
+ARC-AGI-2,Average Human,0.6,average test-taker,https://arcprize.org/arc-agi/2/
+WMDP Biology,Domain Expert,0.6,2 PhDs in-domain,RAND
+WMDP Chemistry,Domain Expert,0.43,2 PhDs in-domain,RAND
+LAB-Bench Cloning,Domain Expert,0.60,PhDs in-domain,RAND
+LAB-Bench LitQA2,Domain Expert,0.70,PhDs in-domain,RAND
+LAB-Bench Protocol,Domain Expert,0.79,PhDs in-domain,RAND
+LAB-Bench SeqQA,Domain Expert,0.78,PhDs in-domain,RAND
+BioLP-bench,Domain Expert,0.38,have at least a bachelor degree in a relevant field and hands-on laboratory experience,RAND
+VPCT,Average Human,1,three volunteers,EpochAI
+PubMedQA,Domain Expert,0.78,single annotator,https://arxiv.org/pdf/2505.06108
+PIQA,Committee of Skilled Generalist,0.949,majority vote of top annotators,https://arxiv.org/pdf/1911.11641
+OpenBookQA,Average Human,0.92,probability from random human subjects,https://arxiv.org/pdf/1809.02789
+OS World (Screenshot),Average Human,0.724,individuals not familiar with the software,https://arxiv.org/pdf/2404.07972
+PRBench Finance,Domain Expert,0.796,agreement between human experts,https://scale.com/leaderboard/prbench-finance
+PRBench Legal,Domain Expert,0.796,agreement between human experts,https://scale.com/leaderboard/prbench-legal
+Remote Labor Index,Domain Expert,1,automation rate measures absolute project completion against the human delivarables,https://arxiv.org/pdf/2510.26787
+BoolQ,Average Human,0.9,Human annotators,https://arxiv.org/pdf/1905.10044
+CommonsenseQA 2.0,Average Human,0.903,average accuracy of humans,https://arxiv.org/pdf/2201.05320
+CommonsenseQA 2.0,Committee of Average Human,0.941,majority vote,https://arxiv.org/pdf/2201.05320
+SimpleBench,Average Human,0.837,nine non-specialized humans,https://simple-bench.com/
+SuperGLUE,Average Human,0.898,human performance estimates,https://arxiv.org/pdf/1905.00537
+TriviaQA,Average Human,0.797,human performance level,https://arxiv.org/pdf/1705.03551v2
+Visual Task Assessment (VISTA),Skilled Generalist,0.554,16 full-time employees,https://scale.com/leaderboard/visual_language_understanding
+GeoBench,Professional Player,0.9,,https://geobench.org/
+GeoBench,Average Player,0.65,,https://geobench.org/
+GSO-Bench,Domain Expert,1,expert human-level performance,https://arxiv.org/pdf/2505.23671
+EnigmaEval,Domain Expert,1,experienced human puzzle hunters’ capabilities,https://arxiv.org/html/2502.08859v1#S2.T1
+BIG-Bench Hard (BBH),Average Human,0.677,average human raters,https://arxiv.org/pdf/2210.09261
+BIG-Bench Hard (BBH),Skilled Generalist,0.944,max human raters,https://arxiv.org/pdf/2210.09261
+ScienceQA,Average Human,0.884,MTurk with high school or higher degree and who have passed the qualification examples,https://arxiv.org/pdf/2209.09513
+GSM8K,Skilled Generalist,0.9677,qualified human annotators who have passed a qualification exam with at least a bachelor’sdegree,https://aclanthology.org/2024.acl-long.163.pdf
+AIME 2025,High School Qualifier,0.40,average score (percentage from number of questions answered) by qualifiers (top 2.5-5% of AMC takers),https://artofproblemsolving.com/wiki/index.php?title=AMC_historical_results
+AIME 2025,Top High-Schooler,0.86,top 1% AIME scorer (percentage from number of questions answered),https://artofproblemsolving.com/wiki/index.php?title=AMC_historical_results
