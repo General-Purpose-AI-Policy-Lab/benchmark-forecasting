@@ -32,7 +32,7 @@ Also, 6 * 405B * 15.6T training tokens = 3.8e25",0.15,0.205,9.0,11.0,,Cybench le
 Mixtral-8x22B-Instruct-v0.1,0.075,2024-04-17,Mistral AI,France,2.34e+24,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
 
 6 FLOP / token / parameter * 39 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 2.34e+24 FLOP",0.05,0.152,9.0,7.0,,Cybench leaderboard,https://cybench.github.io/,recFsRheuwg1wunwf
-gemini-1.5-pro-001,0.075,2024-05-24,Google DeepMind,"United Kingdom of Great Britain and Northern Ireland,United States of America",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.05,0.117,9.0,6.0,,Cybench leaderboard,https://cybench.github.io/,reco8bWKr3VP7mW4o
+gemini-1.5-pro-001,0.075,2024-05-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.05,0.117,9.0,6.0,,Cybench leaderboard,https://cybench.github.io/,reco8bWKr3VP7mW4o
 Meta-Llama-3-70B-Instruct,0.05,2024-04-18,Meta AI,United States of America,7.861e+24,"Arithmetic calculation:
 6 * 15T tokens * 70B parameters = 6.3e24
 

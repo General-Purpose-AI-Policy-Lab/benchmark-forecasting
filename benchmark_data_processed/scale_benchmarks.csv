@@ -33,6 +33,8 @@ gemini-3-pro-preview,0.433,,Google,SWE-Bench Pro,3.6,Scale
 claude-4-Sonnet,0.42700000000000005,,Anthropic,SWE-Bench Pro,3.59,Scale
 gpt-5-2025-08-07 (High),0.4178,,,SWE-Bench Pro,3.49,Scale
 claude-4-5-haiku,0.3945,,Anthropic,SWE-Bench Pro,3.55,Scale
+minimax-2.1,0.36810000000000004,,,SWE-Bench Pro,3.55,Scale
+gemini-3-flash,0.34630000000000005,,Google,SWE-Bench Pro,3.55,Scale
 kimi-k2-instruct,0.2767,,,SWE-Bench Pro,3.25,Scale
 gpt-5-2025-08-07 (High),0.259,,,SWE-Bench Pro,3.18,Scale
 gpt-5-2025-08-07 (Medium),0.23260000000000003,,,SWE-Bench Pro,3.06,Scale
