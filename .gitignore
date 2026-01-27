@@ -1,4 +1,5 @@
 benchmarks_lower_bounds.csv.numbers
+Paper/Note Saturation des benchmarks.pdf
 
 # Claude Code
 CLAUDE.md
@@ -252,3 +253,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# LaTeX build artifacts
+Paper/*.aux
+Paper/*.bbl
+Paper/*.blg
+Paper/*.log
+Paper/*.out
+Paper/*.synctex.gz
+Paper/*.fdb_latexmk
+Paper/*.fls
+Paper/*.toc
+Paper/*.lof
+Paper/*.lot
