@@ -233,12 +233,12 @@ def _plot_forecast_with_split_style(
 
 def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> list[str]:
     """Return benchmark names ordered by posterior mean tau (left-to-right in the plot)."""
-    if "mean_tau_days" in forecast.columns:
+    if "mean_tau" in forecast.columns:
         order = (
-            forecast[["benchmark", "mean_tau_days"]]
+            forecast[["benchmark", "mean_tau"]]
             .dropna()
             .drop_duplicates()
-            .sort_values("mean_tau_days")["benchmark"]
+            .sort_values("mean_tau")["benchmark"]
             .astype(str)
             .tolist()
         )
