@@ -1,21 +1,21 @@
 benchmark,group,score,note,source
-GPQA Diamond,Domain Expert,0.697,PhD level experts,EpochAI
+GPQA Diamond,Domain Expert,0.697,PhD-level experts recruited by OpenAI,EpochAI
 GPQA Diamond,Domain Expert,0.812,experts who have or are pursuing PhDs in the corresponding domains,https://arxiv.org/pdf/2311.12022
 GPQA Diamond,Skilled Generalist,0.219,highly skilled and incentivized non-experts who have or are pursuing PhDs in other domains,https://arxiv.org/pdf/2311.12022
-GPQA Extended Biology,Domain Expert,0.667,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
-GPQA Extended Physics,Domain Expert,0.573,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
-GPQA Extended Chemistry,Domain Expert,0.72,PhD level in-domain experts,https://arxiv.org/pdf/2311.12022
+GPQA Extended Biology,Domain Expert,0.667,PhD-level in-domain experts,https://arxiv.org/pdf/2311.12022
+GPQA Extended Physics,Domain Expert,0.573,PhD-level in-domain experts,https://arxiv.org/pdf/2311.12022
+GPQA Extended Chemistry,Domain Expert,0.72,PhD-level in-domain experts,https://arxiv.org/pdf/2311.12022
 GPQA Extended Biology,Skilled Generalist,0.432,not in-domain PhD,https://arxiv.org/pdf/2311.12022
 GPQA Extended Physics,Skilled Generalist,0.325,not in-domain PhD,https://arxiv.org/pdf/2311.12022
 GPQA Extended Chemistry,Skilled Generalist,0.314,not in-domain PhD,https://arxiv.org/pdf/2311.12022
-GPQA Diamond Biology,Domain Expert,0.831,PhD level in-domain experts,RAND
-GPQA Diamond Chemistry,Domain Expert,0.831,PhD level in-domain experts,RAND
+GPQA Diamond Biology,Domain Expert,0.831,PhD-level in-domain experts,RAND
+GPQA Diamond Chemistry,Domain Expert,0.831,PhD-level in-domain experts,RAND
 GPQA Diamond Biology,Skilled Generalist,0.22,not in-domain PhD,RAND
 GPQA Diamond Chemistry,Skilled Generalist,0.22,not in-domain PhD,RAND
-GPQA Main Biology,Domain Expert,0.667,PhD level in-domain experts,RAND
-GPQA Main Biology,Skilled Generalist,0.43,not in-domain PhD,RAND
-GPQA Main Chemistry,Domain Expert,0.72,PhD level in-domain experts,RAND
-GPQA Main Chemistry,Skilled Generalist,0.31,not in-domain PhD,RAND
+GPQA Main Biology,Domain Expert,0.667,PhD-level in-domain experts (remark:RAND appears to have mistakenly reported the Extended-set score as the Main-set score),RAND
+GPQA Main Biology,Skilled Generalist,0.43,not in-domain PhD (remark:RAND appears to have mistakenly reported the Extended-set score as the Main-set score),RAND
+GPQA Main Chemistry,Domain Expert,0.72,PhD-level in-domain experts (remark:RAND appears to have mistakenly reported the Extended-set score as the Main-set score),RAND
+GPQA Main Chemistry,Skilled Generalist,0.31,not in-domain PhD (remark:RAND appears to have mistakenly reported the Extended-set score as the Main-set score),RAND
 HellaSwag,Committee of Average Humans,0.956,majority vote of 5 crowd workers (MTurk),https://aclanthology.org/P19-1472.pdf
 WinoGrande,Committee of Average Humans,0.94,majority vote of crowd workers (MTurk),https://arxiv.org/pdf/1907.10641
 MMLU,Domain Expert,0.898,score is an estimation from the authors,https://arxiv.org/pdf/2009.03300v3
@@ -50,12 +50,12 @@ BoolQ,Average Human,0.9,Human annotators,https://arxiv.org/pdf/1905.10044
 CommonsenseQA 2.0,Average Human,0.903,average accuracy of humans,https://arxiv.org/pdf/2201.05320
 CommonsenseQA 2.0,Committee of Average Humans,0.941,majority vote,https://arxiv.org/pdf/2201.05320
 SimpleBench,Average Human,0.837,nine non-specialized humans,https://simple-bench.com/
-SuperGLUE,Average Human,0.898,human performance estimates,https://arxiv.org/pdf/1905.00537
+SuperGLUE,Average Human,0.898,human performance estimates after training phase,https://arxiv.org/pdf/1905.00537
 TriviaQA,Average Human,0.797,human performance level,https://arxiv.org/pdf/1705.03551v2
 Visual Task Assessment (VISTA),Skilled Generalist,0.554,16 full-time employees,https://scale.com/leaderboard/visual_language_understanding
 GeoBench,Top Performer,0.9,top player,https://geobench.org/
 GeoBench,Average Human,0.65,average player,https://geobench.org/
-GSO-Bench,Domain Expert,1,expert human-level performance,https://arxiv.org/pdf/2505.23671
+GSO-Bench,Domain Expert,1, baseline matching expert human-level performance,https://arxiv.org/pdf/2505.23671
 EnigmaEval,Domain Expert,1,experienced human puzzle hunters’ capabilities,https://arxiv.org/html/2502.08859v1#S2.T1
 BIG-Bench Hard (BBH),Average Human,0.677,average human raters,https://arxiv.org/pdf/2210.09261
 BIG-Bench Hard (BBH),Top Performer,0.944,max human raters,https://arxiv.org/pdf/2210.09261
