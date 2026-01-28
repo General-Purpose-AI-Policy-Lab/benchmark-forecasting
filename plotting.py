@@ -233,7 +233,6 @@ def plot_forecasts_by_category(
             end_date=pd.to_datetime("2030-01-01"),
             color=color,
             size=150 * plot_style.scale,
-            alpha=1,
             zorder=3,
         )
 
@@ -744,20 +743,20 @@ def _plot_baseline_points(
     *,
     color: str,
     size: float,
-    alpha: float,
     zorder: int,
 ) -> None:
     baselines = baselines.assign(
         date=lambda df: _assign_dates_to_baselines(df, preds, end_date),
         marker=lambda df: _assign_marker_to_baselines(df),
+        facecolor=lambda df: _assign_facecolor_to_baselines(df, color),
     )
     for row in baselines.itertuples(index=False):
         ax.scatter(
             row.date,
             row.score,
-            color=color,
+            edgecolors=color,
+            facecolors=row.facecolor,
             s=size,
-            alpha=alpha,
             marker=row.marker,
             zorder=zorder,
         )
@@ -787,7 +786,7 @@ def _assign_dates_to_baselines(
 
 
 def _assign_marker_to_baselines(baselines: pd.DataFrame) -> pd.Series:
-    """Assign marker styles to baseline points based on their type."""
+    """Assign marker styles to baseline points based on their name."""
 
     def polygon(numsides):
         return (numsides, 0, 0)
@@ -807,9 +806,22 @@ def _assign_marker_to_baselines(baselines: pd.DataFrame) -> pd.Series:
         "Committee of Skilled Generalists": polygon(4),
         "Committee of Domain Experts": polygon(5),
         "Committee of Top Performers": polygon(6),
+        "High School Qualifier": star(5),
+        "High School Top Performer": star(6),
     }
 
     return baselines["group"].map(map_group_to_marker).fillna("x")
+
+def _assign_facecolor_to_baselines(baselines: pd.DataFrame, color: str) -> pd.Series:
+    """Assign marker alpha to baseline points based on their name."""
+
+    def marker_facecolor(group: str, color: str) -> str:
+        if "High School" in group:
+            return "none"
+        else:
+            return color
+
+    return baselines["group"].map(lambda group: marker_facecolor(group, color))
 
 
 def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> list[str]:
