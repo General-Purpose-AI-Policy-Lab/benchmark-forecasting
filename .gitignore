@@ -1,8 +1,7 @@
 benchmarks_lower_bounds.csv.numbers
 Paper/Note Saturation des benchmarks.pdf
 
-# Claude Code
-IGNORE/
+# Temporary files
 tmp/
 
 # LaTeX build artifacts
