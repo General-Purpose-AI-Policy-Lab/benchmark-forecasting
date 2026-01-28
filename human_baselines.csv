@@ -22,8 +22,8 @@ MMLU,Domain Expert,0.898,score is an estimation from the authors,https://arxiv.o
 MMLU,Average Human,0.345,MTurk,https://arxiv.org/pdf/2009.03300v3
 MMLU Biology,Top Performer,0.9,baseline represent the 95th percentile of human test-takers,RAND
 MMLU Chemistry,Top Performer,0.9,baseline represent the 95th percentile of human test-takers,RAND
-FrontierMath,Committee of Domain Experts,0.19,average team score (40 exceptional math undergraduates and subject-matter experts),EpochAI
-FrontierMath,Committee of Domain Experts,0.35,solved collectively across all teams (40 exceptional math undergraduates and subject-matter experts),EpochAI
+FrontierMath,Committee of Domain Experts,0.19,average team score (40 exceptional math undergraduates and subject-matter experts) in four and a half hours and with internet access,EpochAI
+FrontierMath,Committee of Domain Experts,0.35,solved collectively across all teams (40 exceptional math undergraduates and subject-matter experts) in four and a half hours and with internet access,EpochAI
 MATH Level 5,Top Performer,0.9,Terence Tao three-time IMO gold medalist,https://arxiv.org/pdf/2103.03874v1
 MATH Level 5,Skilled Generalist,0.4,one computer science PhD student,https://arxiv.org/pdf/2103.03874v1
 ARC-AGI-1,Average Human,0.77,MTurk,https://arcprize.org/leaderboard
