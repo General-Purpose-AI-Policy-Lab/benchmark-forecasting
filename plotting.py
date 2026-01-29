@@ -95,38 +95,38 @@ class PlotStyle:
                 "Commonsense QA": "Sens Commun",
             },
         }
-        self.default_rcparams= { 
-            # Fonts 
-            "font.family": "sans-serif", 
-            "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"], 
-            # Colors 
-            "axes.labelcolor": self.base_color, 
-            "xtick.color": self.base_color, 
-            "ytick.color": self.base_color, 
-            "text.color": self.base_color, 
-            # Background / spines 
-            "axes.facecolor": "none", 
-            "figure.facecolor": "none", 
-            # Grid 
-            "axes.grid": True, 
-            "grid.alpha": 0.1, 
-            "grid.linestyle": "-", 
-            "grid.linewidth": 0.8, 
-            "grid.color": self.grid_color, 
-            # Legend frame 
-            "legend.frameon": False, 
-            # Font sizes (scaled) 
-            "font.size": 12 * self.scale, 
-            "axes.titlesize": 16 * self.scale, 
-            "axes.labelsize": 13 * self.scale, 
-            "xtick.labelsize": 8 * self.scale, 
-            "ytick.labelsize": 8 * self.scale, 
-            "legend.fontsize": 10, 
-            "legend.title_fontsize": 10 * self.scale, 
-            "figure.titlesize": 16 * self.scale, 
-            # Font weights 
-            "axes.labelweight": 500, 
-            "axes.titleweight": 600, 
+        self.default_rcparams = {
+            # Fonts
+            "font.family": "sans-serif",
+            "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
+            # Colors
+            "axes.labelcolor": self.base_color,
+            "xtick.color": self.base_color,
+            "ytick.color": self.base_color,
+            "text.color": self.base_color,
+            # Background / spines
+            "axes.facecolor": "none",
+            "figure.facecolor": "none",
+            # Grid
+            "axes.grid": True,
+            "grid.alpha": 0.1,
+            "grid.linestyle": "-",
+            "grid.linewidth": 0.8,
+            "grid.color": self.grid_color,
+            # Legend frame
+            "legend.frameon": False,
+            # Font sizes (scaled)
+            "font.size": 12 * self.scale,
+            "axes.titlesize": 16 * self.scale,
+            "axes.labelsize": 13 * self.scale,
+            "xtick.labelsize": 8 * self.scale,
+            "ytick.labelsize": 8 * self.scale,
+            "legend.fontsize": 10,
+            "legend.title_fontsize": 10 * self.scale,
+            "figure.titlesize": 16 * self.scale,
+            # Font weights
+            "axes.labelweight": 500,
+            "axes.titleweight": 600,
         }
 
         plt.rcdefaults()
@@ -147,7 +147,7 @@ def plot_calibration_curve(
     idata: az.InferenceData,
     n_points: int = 20,
     plot_style: PlotStyle = PlotStyle(),
-) -> Axes:
+) -> tuple[Figure, Axes]:
     """Plot a posterior predictive calibration curve.
 
     Expects `idata.predictions` to contain:
@@ -166,19 +166,30 @@ def plot_calibration_curve(
         hi = np.quantile(y_pred, q_hi, axis=1)
         observed_coverage.append(float(np.mean((y_true >= lo) & (y_true <= hi))))
 
-    _, ax = plt.subplots(figsize=plot_style.figsize)
+    fig, ax = plt.subplots(figsize=(4, 4))
 
-    ax.plot(
-        confidence_levels, observed_coverage, color=plot_style.base_color, linewidth=2
+    ax.scatter(
+        confidence_levels,
+        observed_coverage,
+        color=plot_style.base_color,
+        linewidth=1.5,
+        zorder=2,
     )
-    ax.plot([0, 1], [0, 1], color=plot_style.gray_color, linestyle="--", linewidth=1)
+    ax.plot(
+        [0, 1],
+        [0, 1],
+        color=plot_style.gray_color,
+        linestyle="--",
+        linewidth=plot_style.linewidth,
+        zorder=1,
+    )
     ax.set_xlabel("Expected coverage")
     ax.set_xlim(0, 1)
     ax.set_ylabel("Observed coverage")
     ax.set_ylim(0, 1)
     ax.grid(True)
-    ax.legend(["Calibration", "Ideal"], loc="lower right")
-    return ax
+    ax.legend(["Empirical", "Perfect"], loc="lower right", fontsize=10 * plot_style.scale)
+    return fig, ax
 
 
 def plot_forecasts_by_category(
@@ -348,16 +359,16 @@ def plot_harvey_asymmetry(
     for a in alpha_med_per_bench:
         z0 = _z_half(float(a))
         y = _harvey_sigmoid(t + z0, float(a))  # centered at 50% crossing
-        ax.plot(t, y, color=family_color, alpha=0.30, linewidth=1.0, zorder=1)
+        ax.plot(t, y, color=family_color, alpha=0.10, linewidth=1.0, zorder=1)
 
     # Bold median Harvey curve
     z0_med = _z_half(median_alpha)
     y_med = _harvey_sigmoid(t + z0_med, median_alpha)
-    ax.plot(t, y_med, color=median_color, linewidth=2.5, zorder=3)
+    ax.plot(t, y_med, color=median_color, linewidth=plot_style.linewidth, zorder=3)
 
     # Logistic reference (dashed)
     y_log = _logistic_sigmoid(t)
-    ax.plot(t, y_log, color=logistic_color, linewidth=2.5, linestyle="--", zorder=4)
+    ax.plot(t, y_log, color=logistic_color, linewidth=plot_style.linewidth, linestyle="--", zorder=4)
 
     # --- Localized text ---
     if plot_style.language == "fr":
@@ -388,6 +399,7 @@ def plot_harvey_asymmetry(
         va="center",
         arrowprops=dict(arrowstyle="->", color=median_color, lw=1.5),
         bbox=bbox,
+        fontsize = 10 * plot_style.scale,
     )
 
     ax.annotate(
@@ -399,11 +411,12 @@ def plot_harvey_asymmetry(
         va="center",
         arrowprops=dict(arrowstyle="->", color=logistic_color, lw=1.5),
         bbox=bbox,
+        fontsize = 10 * plot_style.scale,
     )
 
     # --- Formatting (match reference) ---
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
+    ax.set_xlabel(xlabel, fontsize=11 * plot_style.scale)
+    ax.set_ylabel(ylabel, fontsize=11 * plot_style.scale)
     if plot_style.language == "fr":
         ax.set_title(title, pad=20)
 
@@ -420,7 +433,13 @@ def plot_harvey_asymmetry(
     ax.set_yticks(np.linspace(0.0, 1.0, 6))
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f"{y * 100:.0f}%"))
 
-    ax.tick_params(axis="y", left=False, right=False)
+    ax.tick_params(
+        axis="both", 
+        which="major",
+        labelsize=10 * plot_style.scale, 
+        left=False, 
+        right=False
+    )
 
     plt.tight_layout()
     return fig, ax
@@ -614,8 +633,8 @@ def plot_saturation_proportion_posterior(
     )
 
     # Labels / title / subtitle
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
+    ax.set_xlabel(xlabel, fontsize=11 * plot_style.scale)
+    ax.set_ylabel(ylabel, fontsize=11 * plot_style.scale)
     if plot_style.language == "fr":
         ax.set_title(title, pad=20)
         ax.text(
@@ -636,7 +655,13 @@ def plot_saturation_proportion_posterior(
     ax.spines["left"].set_visible(False)
     ax.spines["bottom"].set_color(plot_style.base_color)
 
-    ax.tick_params(axis="y", left=False, right=False)
+    ax.tick_params(
+        axis="both",  
+        which="major",
+        labelsize=10 * plot_style.scale, 
+        left=False, 
+        right=False
+    )
 
     # X as percent, bounds like the reference
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
@@ -811,6 +836,7 @@ def _assign_marker_to_baselines(baselines: pd.DataFrame) -> pd.Series:
     }
 
     return baselines["group"].map(map_group_to_marker).fillna("x")
+
 
 def _assign_facecolor_to_baselines(baselines: pd.DataFrame, color: str) -> pd.Series:
     """Assign marker alpha to baseline points based on their name."""
