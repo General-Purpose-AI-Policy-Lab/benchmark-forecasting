@@ -1,6 +1,11 @@
 benchmarks_lower_bounds.csv.numbers
 Paper/Note Saturation des benchmarks.pdf
 Andreoletti_et_al_Benchmark_forecasting_ICML_2026_SuppMat.zip
+Benchmark_forecasting_ICML_2026_SuppMat.zip
+
+# ICML templates (not needed for arXiv version)
+Paper/icml2026_templates/
+Paper/ICML_position_paper_desiderata.txt
 
 # Temporary files
 tmp/
