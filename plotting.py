@@ -21,6 +21,7 @@ from matplotlib.legend_handler import HandlerTuple
 from matplotlib.lines import Line2D
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
+from matplotlib.legend import Legend
 
 import numpy as np
 import pandas as pd
@@ -30,7 +31,6 @@ DashStyle = str | tuple[float, tuple[float, ...]]
 
 Language = Literal["en", "fr"]
 DocumentType = Literal["paper", "note"]
-
 
 class PlotStyle:
     """Default plot style configuration.
@@ -106,7 +106,11 @@ class PlotStyle:
             "text.color": self.base_color,
             # Background / spines
             "axes.facecolor": "none",
+            "axes.edgecolor": self.base_color,
             "figure.facecolor": "none",
+            # Hide x-axis tick marks
+            "xtick.major.size": 0,
+            "xtick.minor.size": 0,
             # Grid
             "axes.grid": True,
             "grid.alpha": 0.1,
@@ -117,7 +121,7 @@ class PlotStyle:
             "legend.frameon": False,
             # Font sizes (scaled)
             "font.size": 12 * self.scale,
-            "axes.titlesize": 16 * self.scale,
+            "axes.titlesize": (14 if self.document_type == "note" else 16) * self.scale,
             "axes.labelsize": 13 * self.scale,
             "xtick.labelsize": 8 * self.scale,
             "ytick.labelsize": 8 * self.scale,
@@ -205,8 +209,15 @@ def plot_forecasts_by_category(
     fig, ax = plt.subplots(figsize=plot_style.figsize)
 
     benchmarks_ordered = _benchmark_plot_order(observed, forecast)
+    benchmark_colors = {
+        bench: color
+        for bench, color in zip(
+            benchmarks_ordered, itertools.cycle(plot_style.palette)
+        )
+    }
 
-    for bench, color in zip(benchmarks_ordered, itertools.cycle(plot_style.palette)):
+    for bench in benchmarks_ordered:
+        color = benchmark_colors[bench]
         obs_b = observed.loc[observed["benchmark"] == bench]
         preds_b = forecast.loc[forecast["benchmark"] == bench]
         baselines_b = baselines.loc[baselines["benchmark"] == bench]
@@ -243,8 +254,9 @@ def plot_forecasts_by_category(
             preds_b,
             end_date=pd.to_datetime("2030-01-01"),
             color=color,
-            size=150 * plot_style.scale,
+            size=(80 if plot_style.document_type == "note" else 150) * plot_style.scale,
             zorder=3,
+            note_mode=plot_style.document_type == "note",
         )
 
     ax.set_xlim(right=end_date)
@@ -266,7 +278,7 @@ def plot_forecasts_by_category(
     ax.tick_params(axis="y", left=False, right=False)
 
     if plot_style.language == "fr":
-        ax.set_title(plot_style._category_name(str(category_name)), pad=20)
+        ax.set_title(plot_style._category_name(str(category_name)), pad=8)
 
     bench_legend = ax.legend(
         loc="lower right",
@@ -282,8 +294,16 @@ def plot_forecasts_by_category(
         line.set_alpha(1.0)
     ax.add_artist(bench_legend)
 
-    """baseline_legend = _add_baseline_legend(ax, plot_style=plot_style)
-    ax.add_artist(baseline_legend)"""
+    # Inline baseline labels for note figures (replaces complex legend).
+    if plot_style.document_type == "note":
+        _add_baseline_labels(
+            ax,
+            baselines=baselines,
+            preds=forecast,
+            end_date=pd.to_datetime("2030-01-01"),
+            benchmark_colors=benchmark_colors,
+            plot_style=plot_style,
+        )
 
     fig.tight_layout()
     return fig, ax
@@ -418,7 +438,7 @@ def plot_harvey_asymmetry(
     ax.set_xlabel(xlabel, fontsize=11 * plot_style.scale)
     ax.set_ylabel(ylabel, fontsize=11 * plot_style.scale)
     if plot_style.language == "fr":
-        ax.set_title(title, pad=20)
+        ax.set_title(title, pad=8)
 
     ax.grid(True)
     ax.spines["top"].set_visible(False)
@@ -635,19 +655,6 @@ def plot_saturation_proportion_posterior(
     # Labels / title / subtitle
     ax.set_xlabel(xlabel, fontsize=11 * plot_style.scale)
     ax.set_ylabel(ylabel, fontsize=11 * plot_style.scale)
-    if plot_style.language == "fr":
-        ax.set_title(title, pad=20)
-        ax.text(
-            0.5,
-            1.0,
-            subtitle,
-            transform=ax.transAxes,
-            ha="center",
-            va="bottom",
-            color=plot_style.gray_color,
-            style="italic",
-        )
-
     # Grid & spines
     ax.grid(True)
     ax.spines["top"].set_visible(False)
@@ -769,20 +776,23 @@ def _plot_baseline_points(
     color: str,
     size: float,
     zorder: int,
+    note_mode: bool = False,
 ) -> None:
     baselines = baselines.assign(
         date=lambda df: _assign_dates_to_baselines(df, preds, end_date),
         marker=lambda df: _assign_marker_to_baselines(df),
         facecolor=lambda df: _assign_facecolor_to_baselines(df, color),
     )
+    # In note mode: uniform 4-branch stars, always filled (incl. High School).
+    note_star = (4, 1, 0)
     for row in baselines.itertuples(index=False):
         ax.scatter(
             row.date,
             row.score,
             edgecolors=color,
-            facecolors=row.facecolor,
+            facecolors=color if note_mode else row.facecolor,
             s=size,
-            marker=row.marker,
+            marker=note_star if note_mode else row.marker,
             zorder=zorder,
         )
 
@@ -850,6 +860,242 @@ def _assign_facecolor_to_baselines(baselines: pd.DataFrame, color: str) -> pd.Se
     return baselines["group"].map(lambda group: marker_facecolor(group, color))
 
 
+def _add_baseline_labels(
+    ax: Axes,
+    *,
+    baselines: pd.DataFrame,
+    preds: pd.DataFrame,
+    end_date: pd.Timestamp,
+    benchmark_colors: dict[str, str],
+    plot_style: PlotStyle,
+) -> None:
+    """Add inline text labels next to human-baseline markers (note figures only).
+
+    When several markers share the same group label, they are merged into a
+    single annotation placed at the center of mass of the markers, with a
+    plural label (e.g. "Experts").
+    """
+    # Built inline (not from module-level dict) so %autoreload always sees it.
+    _labels = {
+        "fr": {
+            "Average Human": ("Humain moyen", "Humains moyens"),
+            "Skilled Generalist": ("Expert hors-domaine", "Experts hors-domaine"),
+            "Domain Expert": ("Expert du domaine", "Experts du domaine"),
+            "Top Performer": ("Top expert", "Top experts"),
+            "Committee of Average Humans": ("Comité d'humains moyens", "Comités d'humains moyens"),
+            "Committee of Skilled Generalists": ("Comité de généralistes", "Comités de généralistes"),
+            "Committee of Domain Experts": ("Comité d'experts", "Comités d'experts"),
+            "High School Qualifier": ("Lycéen qualifié", "Lycéens qualifiés"),
+            "High School Top Performer": ("Meilleur lycéen", "Meilleurs lycéens"),
+        },
+        "en": {
+            "Average Human": ("Avg. human", "Avg. humans"),
+            "Skilled Generalist": ("Skilled generalist", "Skilled generalists"),
+            "Domain Expert": ("Expert", "Experts"),
+            "Top Performer": ("Top performer", "Top performers"),
+            "Committee of Average Humans": ("Avg. human committee", "Avg. human committees"),
+            "Committee of Skilled Generalists": ("Generalist committee", "Generalist committees"),
+            "Committee of Domain Experts": ("Expert committee", "Expert committees"),
+            "High School Qualifier": ("HS qualifier", "HS qualifiers"),
+            "High School Top Performer": ("HS top perf.", "HS top perfs."),
+        },
+    }
+    label_map = _labels.get(plot_style.language, {})
+
+    # Collect all raw annotation data.
+    raw_annotations: list[dict[str, Any]] = []
+    for bench, g in baselines.groupby("benchmark", sort=False):
+        color = benchmark_colors.get(str(bench))
+        if color is None:
+            continue  # benchmark not in this category
+        preds_b = preds.loc[preds["benchmark"] == bench]
+        if preds_b.empty:
+            continue
+        dates = _assign_dates_to_baselines(g, preds_b, end_date)
+        for idx, row in g.iterrows():
+            date = dates.loc[idx]
+            score = float(row["score"])
+            group = str(row["group"])
+            entry = label_map.get(group, (group, group))
+            if isinstance(entry, str):
+                singular = plural = entry
+            else:
+                singular, plural = entry
+            raw_annotations.append(
+                {
+                    "date": date,
+                    "date_num": mdates.date2num(date),
+                    "score": score,
+                    "group": group,
+                    "singular": singular,
+                    "plural": plural,
+                    "color": color,
+                }
+            )
+
+    if not raw_annotations:
+        return
+
+    # --- Group by label and compute center of mass ---
+    by_group: dict[str, list[dict[str, Any]]] = {}
+    for ann in raw_annotations:
+        by_group.setdefault(ann["group"], []).append(ann)
+
+    annotations: list[dict[str, Any]] = []
+    for group, members in by_group.items():
+        if len(members) == 1:
+            m = members[0]
+            annotations.append(
+                {
+                    "date_num": m["date_num"],
+                    "score": m["score"],
+                    "label": m["singular"],
+                    "color": m["color"],
+                }
+            )
+        else:
+            # Cluster members by consecutive score proximity (≤15pp gap).
+            members.sort(key=lambda m: m["score"])
+            clusters: list[list[dict[str, Any]]] = [[members[0]]]
+            for m in members[1:]:
+                if m["score"] - clusters[-1][-1]["score"] <= 0.15:
+                    clusters[-1].append(m)
+                else:
+                    clusters.append([m])
+
+            for cluster in clusters:
+                if len(cluster) == 1:
+                    c = cluster[0]
+                    annotations.append(
+                        {
+                            "date_num": c["date_num"],
+                            "score": c["score"],
+                            "label": c["singular"],
+                            "color": c["color"],
+                        }
+                    )
+                else:
+                    mean_date_num = float(np.mean([c["date_num"] for c in cluster]))
+                    scores = [c["score"] for c in cluster]
+                    mean_score = float(np.mean(scores))
+                    # When all markers are tightly clustered (<5pp spread),
+                    # push label above to avoid sitting on top of them.
+                    if max(scores) - min(scores) < 0.05:
+                        mean_score += 0.05
+                    colors = {c["color"] for c in cluster}
+                    label_color = colors.pop() if len(colors) == 1 else plot_style.base_color
+                    annotations.append(
+                        {
+                            "date_num": mean_date_num,
+                            "score": mean_score,
+                            "label": cluster[0]["plural"],
+                            "color": label_color,
+                            "grouped": True,
+                        }
+                    )
+
+    # Sort by score for the overlap-resolution pass.
+    annotations.sort(key=lambda a: a["score"])
+
+    # --- Overlap resolution in data-y space ---
+    y_lo, y_hi = ax.get_ylim()
+    label_h = (y_hi - y_lo) * 0.05
+
+    x_lo_num, x_hi_num = ax.get_xlim()
+    x_range = x_hi_num - x_lo_num
+    dx = x_range * 0.023  # small date offset to keep labels close
+
+    # Bidirectional displacement.
+    label_ys: list[float] = []
+    for ann in annotations:
+        target_y = ann["score"]
+        for _ in range(20):
+            collision = False
+            for prev_y in label_ys:
+                if abs(target_y - prev_y) < label_h:
+                    collision = True
+                    if target_y >= prev_y:
+                        target_y = prev_y + label_h
+                    else:
+                        target_y = prev_y - label_h
+                    break
+            if not collision:
+                break
+        target_y = max(y_lo + label_h * 0.5, min(target_y, y_hi - label_h * 0.5))
+        label_ys.append(target_y)
+
+    bbox = dict(
+        boxstyle="round,pad=0.2",
+        facecolor="white",
+        edgecolor=plot_style.gray_color,
+        linewidth=0.4,
+        alpha=0.85,
+    )
+
+    fontsize = 7.5
+
+    # Pre-compute default side for each label (right of marker, or left if
+    # near the right edge).  Then alternate sides for consecutive displaced
+    # labels at similar x-positions to avoid horizontal bbox overlap.
+    last_side: str | None = None
+    last_displaced_x: float | None = None
+
+    for ann, label_y in zip(annotations, label_ys):
+        date_num = ann["date_num"]
+        is_grouped = ann.get("grouped", False)
+        displaced = abs(label_y - ann["score"]) > label_h * 0.3
+
+        if is_grouped:
+            # Grouped labels sit at the exact centroid x, centered —
+            # unless the centroid is near the right edge of the plot,
+            # in which case we right-align to avoid overflow.
+            if date_num > x_lo_num + 0.75 * x_range:
+                label_x_num = date_num - dx
+                ha = "right"
+            else:
+                label_x_num = date_num
+                ha = "center"
+        else:
+            # Default side based on position in the plot.
+            if date_num > x_lo_num + 0.70 * x_range:
+                side = "left"
+            else:
+                side = "right"
+
+            # Alternate side when consecutive displaced labels are at similar x.
+            if displaced and last_displaced_x is not None:
+                if abs(date_num - last_displaced_x) < x_range * 0.10:
+                    side = "left" if last_side == "right" else "right"
+
+            if displaced:
+                last_side = side
+                last_displaced_x = date_num
+
+            if side == "left":
+                label_x_num = date_num - dx
+                ha = "right"
+            else:
+                label_x_num = date_num + dx
+                ha = "left"
+
+        label_x = mdates.num2date(label_x_num)
+
+        ax.annotate(
+            ann["label"],
+            xy=(mdates.num2date(date_num), ann["score"]),
+            xytext=(label_x, label_y),
+            textcoords="data",
+            fontsize=fontsize,
+            color=ann["color"],
+            fontweight="bold",
+            ha=ha,
+            va="center",
+            bbox=bbox,
+            zorder=10,
+            clip_on=True,
+        )
+
+
 def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> list[str]:
     """Return benchmark names ordered by posterior mean tau (left-to-right in the plot)."""
     if "mean_tau" in forecast.columns:
@@ -868,7 +1114,7 @@ def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> lis
     return sorted(set(observed["benchmark"].astype(str)))
 
 
-def _add_baseline_legend(ax: Axes, *, plot_style: PlotStyle) -> plt.Legend:
+def _add_baseline_legend(ax: Axes, *, plot_style: PlotStyle) -> Legend:
     # Keep this list in the order you want to show it.
     baseline_cols: list[tuple[str, int]] = [
         ("Average Human", 3),

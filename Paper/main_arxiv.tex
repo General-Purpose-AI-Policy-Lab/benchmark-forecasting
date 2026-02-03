@@ -1,0 +1,637 @@
+% Preprint — not peer-reviewed
+
+\documentclass[letterpaper,twocolumn]{article}
+
+% Preprint style
+\usepackage{arxiv}
+
+% Recommended packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{subcaption}
+
+% URL line breaking
+\usepackage{xurl}
+% hyperref with PDF-safe title
+\usepackage[pdfusetitle]{hyperref}
+\hypersetup{
+  pdftitle={Position: The Window for Preventive Action Before Superhuman AI on Most Cognitive Tasks is Closing Rapidly},
+  pdfauthor={Jérémy Andréoletti, Antoine Maier, Laura Domenech, Tom David},
+}
+
+% Bibliography
+\usepackage{natbib}
+
+% Custom commands
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\etal}{\emph{et al.}}
+
+% ==============================================================================
+\begin{document}
+
+\title{Position: The Window for Preventive Action Before Superhuman AI on Most Cognitive Tasks is Closing Rapidly}
+
+\author{
+  Jérémy Andréoletti\thanks{Corresponding author: \texttt{jeremy.andreoletti@gmail.com}} \quad
+  Antoine Maier \quad
+  Laura Domenech \quad
+  Tom David \\
+  \\
+  General-Purpose AI Policy Lab
+}
+
+\date{}
+
+\twocolumn[
+\maketitle
+
+% ==============================================================================
+\begin{abstract}
+%In this position paper, we argue that default AI trajectories point toward superhuman performance on most cognitive tasks by 2030, but that coordinated action now can still shape this outcome.
+In this position paper, we argue that without coordinated intervention, AI systems will by default exceed human expert performance on most measurable cognitive tasks by 2030.
+Using a joint hierarchical Bayesian model, we forecast frontier performance trajectories across 60 benchmarks spanning reasoning, mathematics, coding, scientific knowledge, and agentic capabilities. We find that nearly all current benchmarks (98\% in our set) are on track to saturate within four years.
+Security-critical benchmarks (cybersecurity, autonomous AI R\&D, biology, chemistry) show even faster trajectories, saturating before 2028.
+While these findings may not constitute definitive proof of imminent AGI on their own, they add to a converging body of evidence indicating that superhuman performance on cognitive tasks is approaching faster than commonly assumed. Acknowledging that we neither understand nor control the behavior of current GPAI models, this timeline leaves limited runway before irreversible impacts. We outline implications for global governance and international coordination, AI safety research, and evaluation practices.
+
+%V1 descriptive CCL - Acknowledging that we neither understand nor control the behavior of current GPAI models, this timeline leaves limited runway for coordinating our societal response to the development of even more powerful systems. We outline implications for global governance, AI safety research, and evaluation practices.
+
+%V2 prescriptive CCL - Acknowledging that we neither understand nor control the behavior of current GPAI models, this timeline leaves limited runway before irreversible impacts. We recommend differentially investing in safety research, improving the monitoring of critical frontier AI capabilities and prioritizing efforts towards a coordinated response to the race towards superhuman AI systems.
+\end{abstract}
+
+\keywords{AI progress \and benchmark saturation \and capability forecasting \and AI safety \and AGI}
+
+\vskip 0.3in
+]
+
+% ==============================================================================
+\section{Introduction}
+\label{sec:introduction}
+
+% Opening: the stakes
+The pace at which new benchmarks have been developed over the past five years has only been matched by the speed at which these benchmarks have been climbed by each new generation of General-Purpose AI (GPAI) models (\citet{epoch_ai_ai_2024, bengio_international_2025, aisi_frontier_2025}; Figure~\ref{fig:trajectories_overview}).
+Tasks that were once considered out of reach, from doctorate-level science questions to competitive mathematics and autonomous software engineering, are now routinely solved by frontier models.
+Yet discussions about when AI might reach or exceed human-level performance on broad cognitive tasks often place it decades away \citep{grace_when_2018, grace_thousands_2025} or treat it as deeply uncertain.
+
+\begin{figure*}[t]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Domain Specific Questions_en_paper.pdf}
+ \caption{Domain-specific knowledge}
+ \label{fig:tier2_domain}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_General Reasoning_en_paper.pdf}
+ \caption{General reasoning}
+ \label{fig:tier2_reasoning}
+    \end{subfigure}
+
+    \vspace{0.3cm}
+
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_High End Math Reasoning_en_paper.pdf}
+ \caption{Advanced mathematics}
+ \label{fig:tier3_math}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Core AGI Progress_en_paper.pdf}
+ \caption{Core AGI progress benchmarks}
+ \label{fig:tier3_agi}
+    \end{subfigure}
+
+    \caption{\textbf{Benchmark trajectories across capability categories.} Points show frontier model scores at release; solid lines show posterior median trajectories; shaded regions indicate 80\% credible intervals. Dashed lines extrapolate to 2030. Human reference points are depicted by star-like symbols (representing average individual performance) and polygons (representing committee majority-vote aggregates). The number of vertices denotes the expertise level: 3 for average human, 4 for skilled generalist, 5 for domain expert, and 6 for top performer. A hollow symbol specifically denotes trained high-school level participants. See more details in Appendix \ref{app:human_baselines}). All categories show rapid progress towards saturation, with several benchmarks already exceeding human expert baselines.}
+    \label{fig:trajectories_overview}
+\end{figure*}
+
+\textbf{Our position:} Based on a systematic analysis of benchmark trajectories, we argue that AI systems are on track to exceed human expert performance on most measurable cognitive tasks by 2030. This projection, which includes security-critical capabilities, leaves a limited runway before irreversible impacts, thereby warranting pressing preemptive action.
+This is not a prediction that AGI will necessarily arrive by 2030, as the relationship between benchmark performance and general intelligence remains contested \citep{chollet_measure_2019}. However, it is a call to take seriously the empirical trend that AI is saturating our best evaluations faster than anticipated, and faster than current coordination efforts for global GPAI risk management.
+
+% Why this matters
+If correct, this timeline leaves limited runway for developing robust alignment or control techniques, given the current lack of any reliable method for understanding and steering powerful AI systems \citep{casper_open_2023, bengio_international_2025, maier_take_2025, ngo_alignment_2025}. It also implies an urgency regarding international coordination on AI; the earlier multilateral discussions gain momentum, the more time will be available for countries to converge on a global course of action before GPAI models could start posing irreversible security issues. Even in optimistic safety scenarios, this pace of progress only leaves few years for institutions to adapt to transformative AI capabilities.
+
+% Contribution summary
+Our contribution is threefold:
+(1) We provide quantitative evidence from 60 benchmarks showing convergent saturation trajectories based on a new modeling framework;
+(2) We analyze AI progress specifically in security-critical capability domains;
+(3) We propose concrete actions for researchers and policymakers.
+
+% ==============================================================================
+\section{Evidence: Benchmark Trajectories}
+\label{sec:evidence}
+
+\subsection{Data and Methodology}
+\label{subsec:methodology}
+
+We analyze performance trajectories on 60 benchmarks spanning diverse cognitive capabilities: commonsense, reasoning, scientific knowledge, mathematical problem-solving, code generation, agentic computer use, and multimodal understanding.
+Benchmark scores are sourced from the Epoch AI Benchmark database \citep{epoch_ai_ai_2024}, Scale AI leaderboards \citep{scale_ai_introducing_2025}, and evaluations by the RAND Corporation \citep{dev_toward_2025}. We exclude unsaturated benchmarks lacking data points from frontier models released after January 2025.
+
+To project future performance, we employ hierarchical Bayesian models which capture the S-shaped trajectories empirically observed in benchmark progress. Our approach introduces three methodological improvements over existing AI capability forecasting:
+
+\textbf{(1) Asymmetric growth curves.} We use Harvey curves \citep{harvey_time_1984} instead of standard logistic functions. Unlike the logistic curve, the Harvey function allows for an asymmetry between the initial acceleration of benchmark progress and its deceleration as scores reach saturation (Figure~\ref{fig:harvey_vs_logistic}). This asymmetry is captured by a shape parameter $\alpha > 1$, which reduces the Harvey curve to a logistic function when $\alpha = 2$. This choice avoids the logistic assumption that performance should accelerate and then decelerate at the same rate.
+
+\textbf{(2) Hierarchical Bayesian modeling.} Rather than fitting each benchmark independently, we jointly model all 60 benchmarks with shared hyperpriors over growth rates, upper asymptotes, as well as shape and noise parameters. This allows the exchange of information across benchmarks: data-rich benchmarks inform projections for newer or more data-sparse benchmarks.
+
+\textbf{(3) Skewed likelihood at the frontier.} Benchmark scores typically underestimate true model capabilities due to suboptimal prompting, scaffolding, or evaluation conditions (the ``elicitation gap"). They also cannot estimate the capabilities of unreleased models. To mitigate this gap, we model observations at the top-3 frontier with a skew-normal likelihood, allowing scores to fall predominantly below a latent curve that represents the performance frontier.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{Images/1-Note-figures/asymmetry_en_paper.pdf}
+    \caption{\textbf{Harvey curves capture asymmetric progress trajectories.} Fitted Harvey curves (blue) for 60 benchmarks show gradual acceleration followed by rapid saturation, compared to the symmetric logistic curve (green dashed). All curves are standardized to reach 50\% performance at time 0 and have a growth rate of 1, in order to compare shapes only. The thick blue curve is the median Harvey trajectory.}
+    \label{fig:harvey_vs_logistic}
+\end{figure}
+
+We validate our methodology through temporal holdout: training on data before January 2025 and evaluating predictions on subsequently observed scores. Hierarchical and independent fits as well as Harvey and logistic models achieve similar predictive accuracy (CRPS, RMSE), but the more general Harvey curves are preferred in this article as they better align with our theoretical understanding of capability progress. Unlike classical machine learning, Bayesian inference regularizes through prior specifications, avoiding overfitting despite the model's greater complexity. See Appendix~\ref{app:methodology} for model specification and Appendix~\ref{app:retrodiction} for validation details.
+
+\subsection{Main Finding: Saturation by 2030}
+\label{subsec:saturation}
+
+Our central empirical finding is that \textbf{approximately 98\% of analyzed benchmarks are projected to reach saturation before 2030} (Figure~\ref{fig:saturation_proportion}), where saturation is defined as achieving 95\% of their score range (between random chance and their estimated asymptote).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Images/1-Note-figures/saturation_en_paper.pdf}
+    \caption{\textbf{Nearly all benchmarks projected to saturate by 2030.} Posterior distribution of the proportion of benchmarks reaching 95\% of their maximum score range by 2030. The median is 98.3\%, with 80\% credible interval [95.0\%, 100\%], indicating that saturation of most benchmarks by 2030 is the default scenario, barring exogenous intervention.}
+    \label{fig:saturation_proportion}
+\end{figure}
+
+This finding is robust across benchmark categories, as shown in Figure~\ref{fig:trajectories_overview}. To contextualize these projections, we overlay human performance baselines where available. These baselines range from average crowdworkers to world-class experts, providing interpretable reference points for AI progress. Detailed human baseline sources are provided in Appendix~\ref{app:human_baselines}.
+
+\begin{itemize}
+    \item \textbf{Domain-specific knowledge} (ScienceQA, ARC AI2, GSM8K, GPQA Diamond, PRBench, SimpleQA Verified, Humanity's Last Exam) \citep{lu_learn_2022,clark_think_2018,cobbe_training_2021,rein_gpqa_2023,wang_mmlu-pro_2024,akyurek_prbench_2025,haas_simpleqa_2025,phan_humanitys_2025}. Student to expert-level science questions in physics, chemistry, and biology; professional reasoning in law and finance; factual knowledge across disciplines. On GPQA Diamond, PhD-level experts achieve 69--81\% accuracy \citep{rein_gpqa_2023}; frontier models now exceed this range. Saturation projected by 2029.
+    \item \textbf{General reasoning} (Adversarial NLI, SimpleBench, BALROG, Chess Puzzles, EnigmaEval) \citep{nie_adversarial_2020, philip_simplebench_2024,paglieri_balrog_2025,epoch_ai_chess_2025,wang_enigmaeval_2025}. Spatial and temporal reasoning, multi-step logical deduction, strategic planning in games, and long multimodal reasoning challenges. Saturation projected by 2029 to 2030.
+    \item \textbf{Mathematical reasoning} (MATH, OTIS Mock AIME, FrontierMath) \citep{hendrycks_measuring_2021,epoch_ai_otis_2025,epoch_ai_frontiermath_2025}. MATH and AIME contain problems from math competitions; FrontierMath Tier 4 consists of handcrafted questions aimed at taking hours for domain-expert mathematicians to solve. On MATH Level 5, a skilled human (PhD student) achieves 40\%, while a top performer (Fields Medal-level mathematician) achieves 90\% \citep{hendrycks_measuring_2021}; frontier models now approach the latter. On FrontierMath, teams of mathematicians collectively solve only 19--35\% of problems in four and a half hours, with internet access \citep{epoch_ai_frontiermath_2025}. Our analysis projects rapid progress and saturation in 2028.
+    \item \textbf{Core AGI progress} (LiveBench, ARC-AGI v1 and v2, soon v3, Remote Labor Index) \citep{white_livebench_2025,chollet_measure_2019, arc_prize_arc-agi-1_2019,arc_prize_arc-agi-2_2025,arc_prize_arc-agi-3_2025,mazeika_remote_2025}. Benchmarks designed to resist memorization and measure general intelligence. LiveBench uses regularly-updated questions spanning many domains. ARC-AGI tests the ability to learn new abstract concepts from few examples, which is currently easy for humans but difficult for AIs. Average humans achieve 77\% on ARC-AGI-1, while STEM graduates and human panels reach 98\% \citep{arc_prize_arc-agi-1_2019}. The Remote Labor Index (RLI) measures completion rates on real-world tasks from online freelance platforms. LiveBench and ARC-AGI-2 should saturate soon; predictions for RLI are much more uncertain.
+\end{itemize}
+
+Benchmarks measuring capabilities with direct security implications show particularly rapid trajectories (Figure~\ref{fig:security_critical}).
+\begin{itemize}
+    \item \textbf{Cybersecurity} (TerminalBench, OSWorld, Cybench, TheAgentCompany, MCP Atlas) \citep{merrill_terminal-bench_2026, xie_osworld_2024,zhang_cybench_2025,xu_theagentcompany_2025, bandi_mcp-atlas_2025}. Benchmarks evaluating agentic computer use, vulnerability discovery, and exploitation. Frontier models are progressing by tens of percentage points annually, with saturation projected by 2028.
+    
+    \item \textbf{AI R\&D automation.} (Aider Polyglot, METR Time Horizons, WeirdML, SWE-Bench Verified, Bash-Only and Pro, GSO-Bench) \citep{aider_aider_2024, kwa_measuring_2025, ihle_weirdml_2025, epoch_ai_swe-bench_2024, jimenez_swe-bench_2024, deng_swe-bench_2025, shetty_gso_2025}. Benchmarks measuring autonomous software engineering and ML research capabilities. Saturation projected by 2028, suggesting that AI systems capable of significantly accelerating AI research may emerge in the coming years.
+    
+    \item \textbf{Expert biological and chemical knowledge.} (MMLU Pro, Weapons of Mass Destruction Proxy WMDP, GPQA Diamond, LAB-Bench, BioLP-bench) \citep{wang_mmlu-pro_2024, li_wmdp_2024, rein_gpqa_2023, laurent_lab-bench_2024, dev_toward_2025}
+    Benchmarks assessing scientific knowledge relevant to biosecurity threats, including pathogen characteristics, synthesis procedures, and safety protocols, or evaluating practical laboratory skills such as protocol understanding, literature search, and experimental design. PhD-level domain experts achieve 38--83\% on these benchmarks, depending on the specific task (Appendix~\ref{app:human_baselines}); frontier models already match or exceed these baselines on several subtasks. Saturation projected by 2027-2028.
+\end{itemize}
+
+\begin{figure*}[t]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Agentic Computer Use_en_paper.pdf}
+ \caption{Agentic computer use \& cyber}
+ \label{fig:security_cyber}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Autonomous SWE_en_paper.pdf}
+ \caption{Autonomous software engineering}
+ \label{fig:security_swe}
+    \end{subfigure}
+
+    \vspace{0.3cm}
+    
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Biology_en_paper.pdf}
+ \caption{Biology (dual-use)}
+ \label{fig:security_bio}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Chemistry_en_paper.pdf}
+ \caption{Chemistry (dual-use)}
+ \label{fig:security_chem}
+    \end{subfigure}
+
+    \caption{\textbf{Security-critical capability trajectories.} Benchmarks with direct safety implications show rapid progress, with most projected to saturate by 2027-2028. Starred markers indicate human expert baselines where available. On OS World, unfamiliar users achieve 72\% \citep{xie_osworld_2024}; on biology benchmarks, PhD-level experts range from 38\% (BioLP-bench) to 83\% (GPQA Diamond Biology) \citep{dev_toward_2025, rein_gpqa_2023}. Graphical conventions are similar to Figure~\ref{fig:trajectories_overview}.}
+    \label{fig:security_critical}
+\end{figure*}
+
+Three additional benchmark categories are presented in Appendix~\ref{app:results}: \textbf{Commonsense reasoning} (OpenBookQA, HellaSwag, PIQA, WinoGrande) \citep{mihaylov_can_2018,zellers_hellaswag_2019,bisk_piqa_2020,sakaguchi_winogrande_2020};  \textbf{Language understanding and writing} (Lech Mazur Writing, Fiction.LiveBench, TutorBench, MultiChallenge, MultiNRC) \citep{mazur_lechmazurwriting_2026, epoch_ai_fictionlivebench_2025, srinivasa_tutorbench_2025, sirdeshmukh_multichallenge_2025, fabbri_multinrc_2025} and \textbf{Multimodal understanding} (GeoBench, CAD-Eval, Visual Task Assessement VISTA, VPCT, Audio MultiChallenge, VisualToolBench) \citep{ccmdi_ccmdigeobench_2026, epoch_ai_cadeval_2025, scale_ai_introducing_2025, brower_visual_2025, gosai_audio_2025, guo_beyond_2025}.
+
+Overall, all the projections we derived from the joint hierarchical Harvey model estimate benchmark saturation by 2028 to 2030. Uncertainty intervals widen for longer forecast horizons, but even the conservative (10th percentile) projections place saturation for most benchmarks before 2030.
+
+\subsection{Historical Context on Estimating AI Progress}
+\label{subsec:underestimation}
+
+Our projections should be interpreted against a recent pattern of systematic underestimation of AI progress \citep{kucinskas_assessing_2025}. This contrasts with the earlier history of AI, with periods of excessive optimism about symbolic AI and expert systems, followed by ``AI winters" in the 1970s and late 1980s. However, the current wave of deep learning progress, beginning around 2012, has consistently exceeded expectations. Since 2020, milestones in language understanding, mathematical reasoning, and code generation have arrived well ahead of expert forecasts \citep{steinhardt_ai_2022}.
+Expert forecasts have consistently predicted capability milestones further in the future than they actually occurred.
+For example, AI achieving gold-medal performance at the International Mathematical Olympiad was forecast for around 2030 by both domain and non-domain experts, with only 9\% probability up to 2025, the year it was achieved \citep{kucinskas_assessing_2025}.
+
+% [Section on other lines of evidence towards fast AI timelines]
+% Our benchmark-based projections align with other indicators of rapid AI progress. Compute invested in frontier training runs continues to grow at approximately 4× annually \citep{sevilla_compute_2022}. Expert surveys show median timelines for transformative AI shortening with each new poll \citep{grace_thousands_2025}. Major AI laboratories have publicly stated goals of achieving AGI within this decade. While none of these lines of evidence is definitive individually, their convergence strengthens the case for taking near-term timelines seriously.
+
+% ==============================================================================
+\section{Implications and Call to Action}
+\label{sec:implications}
+
+If AI systems achieve superhuman performance on most measurable cognitive tasks by 2030, several important implications follow.
+
+\subsection{For International Coordination}
+\label{subsec:governance}
+
+The goal of this Position Paper is not to prescribe specific policy actions but to ensure decision-makers recognize two points. First, GPAI capabilities are advancing rapidly, and closely monitoring frontier progress is important for making informed policy decisions. Second, regarding control and security-critical issues, the projected trajectory is not inevitable: it results from investment decisions \citep{sevilla_can_2024}, compute infrastructure build-out \citep{epoch_ai_data_2025}, and research priorities \citep{erdil_algorithmic_2023} that remain subject to collective choice. Given the projections presented in this article, the earlier multilateral discussions begin, the more options remain viable.
+
+% We note that unilateral action by any single nation is unlikely to alter global trajectories significantly, given the multi-polar distribution of AI research capacity. Effective coordination therefore requires broad participation, particularly among leading AI nations.
+
+\subsection{For AI Safety Research}
+\label{subsec:safety}
+
+The timeline for developing robust AI alignment techniques is short.
+Current approaches to alignment remain nascent: despite some progress, they still fail to ensure a high level of safety for current AI models, let alone scaling to systems significantly exceeding human capabilities \citep{amodei_concrete_2016, bengio_international_2025}. Alignment is hard, which implies that by default these systems should not be expected to remain under human control \citep{maier_take_2025, ngo_alignment_2025}.
+
+Given these short timelines, one cannot rely on any single research agenda succeeding. We recommend a portfolio approach:
+\begin{itemize}
+    \item \textbf{Near-term agendas}: Prioritize research with potential payoffs within 3-5 years, such as technical governance agendas like robust verification mechanisms \citep{wasil_governing_2024, scher_mechanisms_2024}.
+    \item \textbf{Alternative architectures}: Invest in fundamentally different approaches (safe-by-design architectures, formal verification) to hedge against alignment failure in current paradigms \citep{dalrymple_towards_2024}.
+    \item \textbf{Differential technology development}: Prioritize research that advances safety and defensive capabilities over risk-increasing ones \citep{sandbrink_differential_2022}.
+\end{itemize}
+
+We strongly underscore, however, that safety research alone cannot guarantee good outcomes if capability development continues regardless of safety progress.
+
+\subsection{For Evaluation Practices}
+\label{subsec:evaluation}
+
+Forecasts, such as those presented in this article, can only be as reliable as the data upon which they are based, and as long as the underlying dynamics driving the pace of progress remain unaltered. We detail below how these two sources of uncertainty could benefit from further research attention from the benchmarking and evaluation communities.
+
+\textbf{Benchmark validity.} Do benchmark improvements reflect genuine capability gains, or artifacts of optimization, contamination, or narrow task-specific learning? This concern is not novel; prior work has called for harder benchmarks targeting real-world tasks, long-horizon planning, and dynamic evaluation protocols \citep{mazeika_remote_2025, white_livebench_2025}. Our analysis already includes recently developed benchmarks designed to resist gaming, but connecting these scores to real-world impact remains understudied. Risk modeling efforts by \citet{touzet_role_2025, barrett_toward_2025,murray_methodology_2025} to elicit expert knowledge in order to link capability metrics to potential harms represent a promising direction.
+
+\textbf{AI R\&D acceleration.} To what extent can AI systems automate AI research itself, potentially accelerating the pace of progress beyond current trends? Benchmarks measuring research capabilities (hypothesis generation, experiment design, code optimization) remain at an early stage \citep{kwa_measuring_2025,ihle_weirdml_2025}. We encourage the development of realistic evaluations for AI R\&D capabilities, as these may provide early warning of acceleration dynamics and improve medium-horizon projections.
+
+% \subsection{For Economic and Social Preparation}
+% \label{subsec:economic}
+
+% Superhuman cognitive AI, even in optimistic scenarios regarding critical security issues, would likely transform labor markets, scientific research, and institutional structures.
+% While economic forecasting is beyond our scope, the timeline we project suggests these transformations may begin within 5-10 years rather than decades.
+
+% ==============================================================================
+\section{Alternative Views}
+\label{sec:alternatives}
+
+We present credible counterarguments to our position and respond to each.
+
+\subsection{Benchmarks Can Be Gamed}
+\label{subsec:alt_contamination}
+
+\textbf{Objection:} Benchmark progress may reflect contamination (training on test data), reward-hacking on poorly designed tasks, and/or narrow optimization by AI companies incentivized to showcase impressive results with each new model release \citep{balloccu_leak_2024, robison_meta_2025}.
+
+\textbf{Response:} We acknowledge these concerns but note several mitigating factors: (1) The saturation trends presented in this article are consistent across 60 benchmarks from independent sources (Epoch AI, Scale AI, RAND). (2) These benchmarks are either run internally by these organizations or sourced from carefully selected benchmark developers \citep{epoch_ai_ai_2024} to limit contamination. (3) Many benchmarks saturate below 100\%, which is consistent with labeling errors but inconsistent with wholesale answer memorization. (4) Newer benchmarks designed specifically to resist gaming (ARC-AGI, SWE-Bench Verified, FrontierMath) show similar trajectory patterns \citep{chollet_measure_2019,epoch_ai_swe-bench_2024,epoch_ai_frontiermath_2025}. (5) Some benchmarks now evaluate models on tasks released after model training cutoffs, ruling out direct contamination \citep{white_livebench_2025}. While no benchmark is immune to all criticism, the convergent pattern across diverse, independently maintained evaluations provides evidence beyond any single benchmark.
+
+\subsection{Benchmarks Do Not Measure General Intelligence}
+\label{subsec:alt_benchmarks}
+
+\textbf{Objection:} Benchmark saturation does not imply human-level intelligence.
+Models may achieve high scores through pattern matching, heuristics, or memorization rather than genuine understanding.
+
+\textbf{Response:} Benchmark performance is indeed an imperfect proxy for general intelligence; this is why we frame our position around ``measurable cognitive tasks" rather than AGI.
+However, (1) many recent benchmarks specifically target capabilities thought to require flexible and general reasoning \citep{arc_prize_arc-agi-2_2025, wang_enigmaeval_2025} or the ability to handle real-world under-specified tasks \citep{mazeika_remote_2025}, (2) the breadth of saturation across diverse tasks is difficult to explain by narrow optimization alone.
+
+From a practical standpoint, systems that exceed human performance on most measurable tasks could start to have irreversible global impacts regardless of whether they possess ``true" intelligence. Nevertheless, we acknowledge that this is a crux and a significant source of uncertainty in predicting the consequences of benchmark saturation.
+
+\subsection{Progress May Plateau}
+\label{subsec:alt_plateau}
+
+\textbf{Objection:} Scaling may hit diminishing returns.
+Data constraints, compute costs, or algorithmic limitations could slow progress before current or future benchmarks saturate.
+
+\textbf{Response:} This is possible, and our projections carry substantial uncertainty.
+However, (1) predicted slowdowns in the past decade have repeatedly failed to materialize, (2) new scaling paradigms (test-time compute, reasoning models) continue to unlock progress, and (3) looking at each potential bottleneck individually, scaling seems to be on track to continue for at least the end of the decade \citep{sevilla_can_2024}.
+
+\subsection{Heterogeneous Progress Blocks AGI}
+\label{subsec:alt_heterogeneous}
+
+\textbf{Objection:} AI progress is ``jagged", superhuman on some tasks yet subhuman on others.
+This heterogeneity may persist, preventing AGI-like systems.
+
+\textbf{Response:} We acknowledge heterogeneity but note that (1) gaps are progressively closing across diverse capabilities, (2) as explained in Section~\ref{subsec:alt_benchmarks}, jaggedness does not preclude transformative impact, including critical and irreversible ones, and (3) if AI reaches superhuman performance on AI R\&D itself, even if it is short of general intelligence, remaining gaps may close rapidly through recursive improvement.
+
+\subsection{What Would Change Our Mind}
+\label{subsec:change_mind}
+
+Our position would be substantially weakened by:
+\begin{itemize}
+    \item Sustained plateau in benchmark progress ($>2$ years of stagnation across multiple hard benchmarks);
+    \item Evidence that current architectures face fundamental limits on specific capability dimensions;
+    \item Demonstration that benchmark performance systematically diverges from real-world task performance, e.g. a continued plateau of the Remote Labor Index \citep{mazeika_remote_2025} or the absence of a noticeable impact of AI automation on the US economic growth by 2030.
+\end{itemize}
+
+% ==============================================================================
+\section{Limitations}
+\label{sec:limitations}
+
+Our analysis has several limitations:
+
+\textbf{Extrapolation uncertainty.} All forecasting involves extrapolation.
+Our Bayesian approach quantifies some sources of uncertainty, but it does not explicitly integrate the many known and unknown factors that may disrupt future trajectories in either direction (scaling bottlenecks, algorithmic breakthroughs, AI R\&D automation, geopolitical conflicts, international agreements, etc.).
+
+\textbf{Elicitation gap.} Benchmark scores underestimate latent model capabilities due to suboptimal prompting, scaffolding, evaluation conditions, or even sandbagging (i.e., strategic underperformance, see \citet{weij_ai_2025}). Our skewed likelihood model partially addresses this issue by inferring a latent frontier capability mostly above the observed top-3 scores. Nonetheless, if substantial capabilities remain hidden due to inadequate evaluation protocols or secrecy in AI development, our projections would be conservative. The true trajectory could thus be faster than our estimates suggest.
+
+\textbf{Modeling extensions.} Several extensions could improve forecast accuracy: (1) incorporating compute scaling as a predictor, linking benchmark progress to training resources \citep{kaplan_scaling_2020,ruan_observational_2024}; (2) modeling latent capability dimensions that manifest across multiple benchmarks \citep{burnell_revealing_2023, kipnis_metabench_2025, ho_rosetta_2025,polo_sloth_2025,pimpale_forecasting_2025}; (3) integrating information about model architectures and training approaches. We chose a simpler model to maintain interpretability, but richer models may become feasible as more data accumulates.
+
+\textbf{Benchmark evolution.} Our analysis covers only existing benchmarks, and harder task sets are continuously being developed. However, in many domains, frontier models already match or exceed expert human performance, raising questions about how much headroom remains. Designing ``superhuman" evaluations requires either (1) tasks where ground truth is verifiable without human judgment (e.g., mathematical proofs, code execution), or (2) aggregating across many human experts \citep{phan_humanitys_2025}. Some benchmarks already approximate this standard by comparing AI to real-world human task completion. A potential next step to forecast AI progress beyond current benchmarks is to extrapolate higher-level properties of the evaluation tasks (e.g., human-equivalent time horizon, see \citet{kwa_measuring_2025}, or task difficulty level, see \citet{zhou_general_2025}).
+
+% ==============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have argued that current AI development leads to superhuman performance on most measurable cognitive tasks by 2030. These trajectories are not inevitable, as they result from choices that can still be influenced through coordinated action, but the window is closing rapidly. Given the state of our understanding of and control over these systems, the cost of inaction could be severe.
+
+%This timeline has significant implications for AI safety, international coordination and governance, and research priorities.
+
+%Our position is not that AGI is necessarily imminent (though it may well be) or inevitable, but that the empirical evidence warrants considering this possibility seriously and acting accordingly. Given the state of our understanding of and control over these systems, the cost of being unprepared could be severe.
+
+We call on the ML community and institutional actors to engage with this possibility and act accordingly: differentially accelerating safety research, monitoring critical AI capabilities, and developing verification mechanisms as part of a global effort to provide security guarantees commensurate to the possibility of superhuman AIs in the coming years.
+
+\section*{Reproducibility Statement}
+
+All benchmark data are publicly available from Epoch AI \citep{epoch_ai_ai_2024}, Scale AI \citep{scale_ai_introducing_2025}, and RAND \citep{dev_toward_2025}. Code for model fitting and visualization is available at \url{https://github.com/General-Purpose-AI-Policy-Lab/benchmark-forecasting}.
+
+% ==============================================================================
+\bibliography{Benchmark_forecasting}
+\bibliographystyle{unsrtnat}
+
+% ==============================================================================
+\appendix
+\section{Methodological Details}
+\label{app:methodology}
+
+\subsection{Growth Curve Specification}
+
+Let $y_i(t)$ denote the observed score for benchmark $i$ at time $t$ (days since first observation). We model the latent frontier performance as a shifted sigmoid:
+$$\mu_i(t) = \ell_i + (L_i - \ell_i) \cdot \sigma_i(t),$$
+where $\ell_i \in [0, 1]$ is the benchmark-specific lower bound (random-chance performance, manually gathered per benchmark, set to 0 when unknown) and $L_i \in [\ell_i, 1]$ is the upper asymptote (inferred).
+
+\paragraph{Harvey function.} The Harvey curve generalizes the logistic with a shape parameter $\alpha_i > 1$:
+$$\sigma_i^{\text{Harvey}}(t) = \left[1 - (1 - \alpha_i) \exp(-k_i(t - \tau_i))\right]^{\frac{1}{1-\alpha_i}},$$
+where $k_i > 0$ is the growth rate and $\tau_i$ is the inflection time. The parameter $\alpha_i$ controls asymmetry: larger values produce more gradual accelerations and faster saturation. When $\alpha_i = 2$, the Harvey function reduces to the standard logistic.
+
+\paragraph{Logistic function.} For comparison, we also fit the standard logistic:
+$$\sigma_i^{\text{Logistic}}(t) = \frac{1}{1 + \exp(-k_i(t - \tau_i))}.$$
+
+\subsection{Observation Model}
+
+Observations follow a skew-normal distribution with heteroskedastic noise:
+$$y_i(t) \sim \text{SkewNormal}(\mu_i(t), \xi_i(t), s_i),$$
+where $s_i \leq 0$ is a skewness parameter allowing scores to fall predominantly below the latent curve.
+
+The noise scale $\xi_i(t)$ is heteroskedastic and Beta-shaped over $[\ell_i, L_i]$:
+$$\xi_i(t) = \xi_0 + \xi_i^{\text{base}} \cdot \frac{\sqrt{(\mu_i(t) - \ell_i)(L_i - \mu_i(t))}}{(L_i - \ell_i)/2},$$
+with $\xi_0 = 0.01$ fixed. This yields maximal variance near the inflection point and minimal variance near the bounds.
+
+\subsection{Hierarchical Structure}
+
+The joint model places shared hyperpriors across benchmarks:
+
+\paragraph{Upper asymptote.} $L_i = L_{\min} + (1 - L_{\min}) \cdot L_i^{\text{raw}}$, with $L_{\min} = 0.75$ and $L_i^{\text{raw}} \sim \text{Beta}(\mu_L, \sigma_L)$, and hyperpriors $\mu_L \sim \text{Beta}\left(\text{mean} = \frac{0.96 - L_\text{min}}{1 - L_\text{min}}, \text{sd} = \frac{0.02}{1 - L_\text{min}}\right)$ and $\sigma_L \sim \text{Half-}\mathcal N\left(\text{sd}=\frac{0.02}{1 - L_\text{min}}\right)$.
+
+\paragraph{Growth rate.} $k_i \sim \mathcal G(k_{\mu}, k_{\sigma})$, with $k_{\mu} \sim \mathcal G(\text{mean}=0.005, \text{sd}=0.002)$ and $k_{\sigma} \sim \text{Half-}\mathcal N(\text{sd}=0.005)$.
+
+\paragraph{Inflection time.} $\tau_i \sim \text{Gumbel}(\hat{\tau}_i, \beta)$, where $\hat{\tau}_i$ is the empirical midpoint of benchmark $i$'s observed time range and $\beta = 730$ days (2 years). The right-skewed Gumbel prior reflects that for unsaturated benchmarks, the inflection point likely lies beyond observed data.
+
+\paragraph{Noise.} $\xi_i^{\text{base}} \sim \mathcal G(\xi^{\text{base}}_{\mu}, \xi^{\text{base}}_{\sigma})$, with hyperpriors $\xi^{\text{base}}_{\mu} \sim \mathcal G(\text{mean} = 0.05 + \frac{N}{50}, \text{sd} = 0.02)$ and $\xi^{\text{base}}_{\sigma} \sim \text{Half-}\mathcal N(\text{sd}=0.05)$, where $N$ corresponds to the top-$N$ frontier of scores considered ($N=3$ in this paper).
+
+\paragraph{Skewness.} $s_i \sim \text{Truncated-}\mathcal N(s_\mu, s_\sigma, -\infty, 0)$, with hyperpriors $s_\mu \sim \mathcal N(\text{mean} = -2 - \frac{N}{2}, \text{sd} = 0.5)$ and $s_\sigma \sim \text{Half-}\mathcal N(\text{sd}=1.0)$.
+
+\paragraph{Harvey shape.} $\alpha_i = 1 + \alpha_i^{\text{raw}}$, with $\alpha_i^{\text{raw}} \sim \mathcal G(\alpha^{\text{raw}}_{\mu}, \alpha^{\text{raw}}_{\sigma})$, ensuring $\alpha_i > 1$, and hyperpriors $\alpha^{\text{raw}}_{\mu} \sim \mathcal G(\text{mean}=1.5, \text{sd}=0.5)$ and $\alpha^{\text{raw}}_{\sigma} \sim \text{Half-}\mathcal N(\text{sd}=0.5)$.
+
+\subsection{Inference}
+
+We track the top-3 frontier scores per benchmark at each point in time to reduce noise from suboptimal evaluations. Model fitting uses MCMC via PyMC \citep{abril-pla_pymc_2023} with the NUTS sampler (2000 posterior samples, 1000 warmup iterations, 4 chains, target acceptance 0.9). Convergence is assessed via $\hat{R}$ diagnostics and effective sample size.
+
+\section{Retrodiction Analysis}
+\label{app:retrodiction}
+
+We validate our forecasting methodology using temporal holdout: training on data before a cutoff date and evaluating predictions on subsequently observed scores. Benchmarks with fewer pre-cutoff observations than the minimum required in our main dataset are excluded to ensure comparable conditions between the validation and forecasting settings.
+
+\subsection{Validation Protocol}
+
+We set the cutoff date to January 1, 2025. Models are trained on all benchmark data prior to this date, then asked to predict scores for observations after the cutoff. We compare four model variants:
+\begin{itemize}
+    \item Harvey hierarchical (joint hyperpriors across benchmarks)
+    \item Harvey independent (separate fits per benchmark)
+    \item Logistic hierarchical (joint hyperpriors)
+    \item Logistic independent (separate fits)
+\end{itemize}
+
+Independent fits use identical model structure but estimate all parameters separately for each benchmark without shared hyperpriors.
+
+\subsection{Evaluation Metrics}
+
+\paragraph{Calibration.} We assess whether predicted credible intervals achieve their nominal coverage. For each confidence level $p \in [0.01, 0.99]$, we compute the fraction of test observations falling within the $p$-credible interval of the posterior predictive distribution. A well-calibrated model shows observed coverage matching expected coverage.
+
+\paragraph{CRPS.} The Continuous Ranked Probability Score measures the quality of probabilistic forecasts, penalizing both miscalibration and lack of sharpness. It generalizes the Brier score to continuous predictions. Lower CRPS indicates better predictions.
+
+\paragraph{RMSE.} Root Mean Squared Error between the posterior mean prediction and observed scores.
+
+\subsection{Results}
+
+Supp. Figure~\ref{fig:retrodiction_calibration} and Supp. Table~\ref{tab:retrodiction} summarize predictive performance.
+
+\begin{figure}[hbt!]
+    \centering
+    % Row 1
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/3-Calibration/harvey_joint_en_paper.pdf}
+        \caption{\tiny Harvey Hierarchical}
+        \label{fig:cal_harvey_hier}
+    \end{subfigure}
+    \hspace{0.5em} % Small horizontal space
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/3-Calibration/harvey_independant_en_paper.pdf}
+        \caption{\tiny Harvey Independent}
+        \label{fig:cal_harvey_indep}
+    \end{subfigure}
+    
+    \vspace{1em} % Vertical space between rows
+    
+    % Row 2
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/3-Calibration/logistic_joint_en_paper.pdf}
+        \caption{\tiny Logistic Hierarchical}
+        \label{fig:cal_log_hier}
+    \end{subfigure}
+    \hspace{0.5em}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/3-Calibration/logistic_independant_en_paper.pdf}
+        \caption{\tiny Logistic Independent}
+        \label{fig:cal_log_indep}
+    \end{subfigure}
+    
+    \caption{Calibration curves for the four models.}
+    \label{fig:retrodiction_calibration}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Model & CRPS & RMSE \\
+\midrule
+Harvey hierarchical & 0.056 & 0.104 \\
+Harvey independent & 0.054 & 0.102 \\
+Logistic hierarchical & 0.053 & 0.100 \\
+Logistic independent & 0.054 & 0.101 \\
+\bottomrule
+\end{tabular}
+\caption{Retrodiction performance (lower is better).}
+\label{tab:retrodiction}
+\end{table}
+
+All four model variants achieve strong predictive performance, with CRPS values below 0.06 and good calibration, as shown in the calibration curve (Supp. Figure~\ref{fig:retrodiction_calibration}). The differences between models are small: variations in CRPS and RMSE are comparable to the changes observed when adjusting the holdout date by a few data points, indicating that the choice between hierarchical versus independent structure, and between Harvey versus logistic functional forms, has a limited impact on prediction accuracy.
+
+We select the Harvey hierarchical model for our main analysis. The hierarchical structure enables information sharing across benchmarks without degrading performance, which may particularly benefit predictions for data-sparse benchmarks. Although the Harvey model is more complex than the logistic, Bayesian inference naturally regularizes through prior specifications, avoiding the overfitting concerns that arise with complex models in classical machine learning. We therefore choose the model that aligns with our theoretical understanding of capability progress.
+
+\section{Additional Results}
+\label{app:results}
+
+Figure~\ref{fig:additional_categories} shows trajectories for additional benchmark categories. Commonsense reasoning benchmarks (HellaSwag, PIQA, WinoGrande) saturated earliest, consistent with these tasks representing lower cognitive complexity. Language understanding and multimodal benchmarks show intermediate trajectories, with saturation projected by 2028-2029.
+
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}[t]{\columnwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Commonsense QA_en_paper.pdf}
+ \caption{Commonsense reasoning}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}[t]{\columnwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Advanced Language and Writing_en_paper.pdf}
+ \caption{Language understanding}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}[t]{\columnwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/2-Categories/forecast_Multimodal Understanding_en_paper.pdf}
+ \caption{Multimodal understanding}
+    \end{subfigure}
+
+    \caption{\textbf{Additional benchmark trajectories.} Additional capability categories showing consistent saturation patterns. Commonsense reasoning benchmarks (HellaSwag, PIQA, WinoGrande) are already near saturation; language and multimodal understanding show trajectories consistent with other categories.}
+    \label{fig:additional_categories}
+\end{figure}
+
+% Figure~\ref{fig:hyperparameters} shows the posterior distributions for the hierarchical model hyperparameters. The growth rate distribution ($k$) centers around 0.005-0.007 score-per-day, corresponding to roughly 2-3 percentage points per month at the steepest part of the trajectory. The shape parameter ($\alpha$) distribution confirms systematic asymmetry: the posterior median of approximately 2.5-3.0 indicates faster saturation than symmetric logistic curves would predict. Upper asymptote ($L$) estimates cluster between 0.92-0.98, reflecting that most benchmarks are projected to reach near-perfect but not perfect scores.
+
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=\columnwidth]{Images/0_joint_harvey_hyperparameters.png}
+%     \caption{\textbf{Hierarchical model hyperparameters.} Posterior distributions for the joint Harvey model hyperparameters, controlling the population-level distribution of growth rates ($k$), shape parameters ($\alpha$), and upper asymptotes ($L$) across benchmarks.}
+%     \label{fig:hyperparameters}
+% \end{figure}
+
+% Figure~\ref{fig:L_intervals} shows the benchmark-specific upper asymptote estimates from the hierarchical model. Benchmarks with lower asymptote estimates likely reflect labeling errors or ambiguities, especially for tasks where even human experts do not achieve perfect scores. The hierarchical structure pulls extreme estimates toward the population mean, which provides a regularization for benchmarks with limited data.
+
+% \begin{figure*}[ht]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Images/1-Note-figures/Hierarchical_L_intervals.png}
+%     \caption{\textbf{Upper asymptote estimates by benchmark.} Posterior credible intervals for the upper asymptote parameter $L$ (maximum achievable score) for each benchmark. The hierarchical structure allows partial pooling, with benchmarks sharing information about plausible asymptote values. Most benchmarks have estimated asymptotes between 0.85 and 0.97, reflecting that most benchmarks are expected to saturate below near-perfect performance.}
+%     \label{fig:L_intervals}
+% \end{figure*}
+
+% \section{Benchmark Details}
+% \label{app:benchmarks}
+
+% [Full list of 60 benchmarks with categories, sources, lower asymptotes, estimated upper asymptotes, estimated saturation date]
+
+\section{Human Performance Baselines}
+\label{app:human_baselines}
+
+Table~\ref{tab:human_baselines} summarizes human performance baselines used in our analysis. We categorize human performance into four groups based on expertise level:
+
+\begin{itemize}
+    \item \textbf{Average Human}: Crowdworkers (e.g., MTurk) or non-specialized participants
+    \item \textbf{Skilled Generalist}: Individuals with advanced education but not in the target domain (e.g., PhD students in unrelated fields, skilled professionals)
+    \item \textbf{Domain Expert}: PhD-level specialists in the relevant domain or expert professionals
+    \item \textbf{Top Performer}: Elite performers (e.g., Fields Medal mathematicians, top 5\% test takers or best result)
+\end{itemize}
+
+Committee scores represent an aggregation of majority votes or average team scores across human participants. The \textit{High School Qualifier} and \textit{High School Top Performer} categories specifically represent a cohort of students in a specialized training program. 
+
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{llcl}
+\toprule
+\textbf{Benchmark} & \textbf{Human Group} & \textbf{Score} & \textbf{Source} \\
+\midrule
+\multicolumn{4}{l}{\textit{Domain-Specific Knowledge}} \\
+GPQA Diamond & Domain Expert & 81.2\% & \citet{rein_gpqa_2023} \\
+GPQA Diamond & Domain Expert & 69.7\% & \citet{openai_learning_2024}\\
+GPQA Diamond & Skilled Generalist & 21.9\% & \citet{rein_gpqa_2023} \\
+PRBench Legal & Committee of Domain Experts& 79.6\% & \citet{akyurek_prbench_2025} \\
+PRBench Finance & Committee of Domain Experts& 79.6\% & \citet{akyurek_prbench_2025} \\
+GSM8K & Skilled Generalist & 96.8\% & \citet{li_gsm-plus_2024} \\
+ScienceQA & Average Human & 88.4\% & \citet{lu_learn_2022} \\
+\midrule
+\multicolumn{4}{l}{\textit{General Reasoning}} \\
+SimpleBench & Average Human & 83.7\% & \citet{philip_simplebench_2024} \\
+\midrule
+\multicolumn{4}{l}{\textit{Mathematical Reasoning}} \\
+MATH Level 5 & Top Performer & 90\% & \citet{hendrycks_measuring_2021} \\
+MATH Level 5 & Skilled Generalist & 40\% & \citet{hendrycks_measuring_2021} \\
+FrontierMath & Committee of Domain Experts& 19\% & \citet{epoch_ai_frontiermath_2025} \\
+FrontierMath & Committee of Domain Experts& 35\% & \citet{epoch_ai_frontiermath_2025} \\
+OTIS Mock AIME & High School Qualifier& 53\% & \citet{chen_otis_2025} \\
+OTIS Mock AIME & High School Top Performer& 93\% & \citet{chen_otis_2025} \\
+\midrule
+\multicolumn{4}{l}{\textit{Core AGI Progress}} \\
+ARC-AGI-1 & Average Human & 77\% & \citet{arc_prize_arc-agi-1_2019} \\
+ARC-AGI-1 & Committee of Average Humans & 98\% & \citet{arc_prize_arc-agi-1_2019} \\
+ARC-AGI-1 & Skilled Generalist & 98\% & \citet{arc_prize_arc-agi-1_2019} \\
+ARC-AGI-2 & Average Human & 60\% & \citet{arc_prize_arc-agi-2_2025} \\
+ARC-AGI-2 & Committee of Average Humans& 100\% & \citet{arc_prize_arc-agi-2_2025} \\
+\midrule
+\multicolumn{4}{l}{\textit{Agentic Computer Use}} \\
+OS World & Average Human & 72.4\% & \citet{xie_osworld_2024} \\
+\midrule
+\multicolumn{4}{l}{\textit{Biology \& Chemistry (Dual-Use)}} \\
+GPQA Diamond Biology & Skilled Generalist & 22.0\% & \citet{dev_toward_2025} \\
+GPQA Diamond Biology & Domain Expert & 83.1\% & \citet{dev_toward_2025} \\
+GPQA Diamond Chemistry & Skilled Generalist & 22.0\% & \citet{dev_toward_2025} \\
+GPQA Diamond Chemistry & Domain Expert & 83.1\% & \citet{dev_toward_2025} \\
+WMDP Biology & Domain Expert & 60\% & \citet{dev_toward_2025} \\
+WMDP Chemistry & Domain Expert & 43\% & \citet{dev_toward_2025} \\
+LAB-Bench Cloning & Domain Expert & 60\% & \citet{dev_toward_2025} \\
+LAB-Bench LitQA2 & Domain Expert & 70\% & \citet{dev_toward_2025} \\
+LAB-Bench Protocol & Domain Expert & 79\% & \citet{dev_toward_2025} \\
+LAB-Bench SeqQA & Domain Expert & 78\% & \citet{dev_toward_2025} \\
+BioLP-bench & Domain Expert & 38\% & \citet{dev_toward_2025} \\
+\midrule
+\multicolumn{4}{l}{\textit{Commonsense Reasoning}} \\
+HellaSwag & Committee of Average Humans& 95.6\% & \citet{zellers_hellaswag_2019} \\
+WinoGrande & Committee of Average Humans& 94.0\% & \citet{sakaguchi_winogrande_2020} \\
+PIQA & Committee of Skilled Generalists& 94.9\% & \citet{bisk_piqa_2020} \\
+OpenBookQA & Average Human & 92\% & \citet{mihaylov_can_2018} \\
+\midrule
+\multicolumn{4}{l}{\textit{Multimodal understanding}} \\
+GeoBench & Top Performer & 90\% & \citep{ccmdi_ccmdigeobench_2026} \\
+VISTA & Skilled Generalist & 55.4\% & \citet{scale_ai_introducing_2025} \\
+VPCT & Average Human & 100\% & \citet{brower_visual_2025} \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Human performance baselines by benchmark.} Scores represent accuracy unless otherwise noted. Committee scores use majority votes or average team scores across human participants. Details regarding each human baseline are available in the supplementary material.}
+\label{tab:human_baselines}
+\end{table*}
+
+\paragraph{Interpretation notes.}
+Human baselines vary substantially depending on expertise level and evaluation conditions. For instance, on GPQA Diamond, the gap between skilled generalists (22\%) and domain experts (81\%) spans nearly 60 percentage points, illustrating how benchmark difficulty depends critically on domain knowledge. Similarly, on mathematical benchmarks, the gap between a CS PhD student (40\% on MATH Level 5) and an elite mathematician (90\%) reflects the specialized nature of competition-level mathematics.
+
+These baselines provide context for interpreting AI progress: when frontier models exceed domain expert performance, as they now do on several benchmarks (GPQA Diamond, MMLU, HellaSwag), this represents a meaningful capability threshold. However, we caution that benchmark performance may not directly translate to real-world task completion, and that human baselines themselves have limitations (small sample sizes, varying incentive structures, potential ceiling effects).
+
+\end{document}
