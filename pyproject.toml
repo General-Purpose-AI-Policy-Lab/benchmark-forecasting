@@ -1,7 +1,7 @@
 [project]
 name = "benchmark-forecasting"
 version = "0.1.0"
-description = "Add your description here"
+description = "Bayesian sigmoidal growth models for forecasting AI benchmark performance over time"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

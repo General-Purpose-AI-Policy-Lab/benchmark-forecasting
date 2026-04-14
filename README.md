@@ -1,27 +1,61 @@
 # Benchmark Progress Forecasting Pipeline
 
-This repository contains a four-stage workflow for cleaning benchmark data, fitting two sigmoidal forecasting models (Logistic and Harvey), and generating unified plots.
+This repository forecasts AI benchmark performance over time using Bayesian sigmoidal growth models. It processes benchmark data from EpochAI, Scale AI, and RAND sources, fits hierarchical Harvey growth curves via PyMC, and generates forecast visualizations.
 
 ## Repository Structure
 
-- **0_Clean_EpochAI_benchmarks.ipynb**  
-  Cleans and standardizes EpochAI benchmark data. Includes: selecting and formating benchmark scores for modeling, harmonizing benchmark identifiers, handling missing/irregular data, loading per-benchmark lower bounds (random-chance baselines), and exporting cleaned outputs.
+- **`0_Process_benchmarks.ipynb`**
+  Cleans and standardizes benchmark data from multiple sources (EpochAI, Scale AI SEAL, RAND). Includes: selecting and formatting benchmark scores for modeling, harmonizing benchmark identifiers, handling missing/irregular data, loading per-benchmark lower bounds (random-chance baselines), and exporting cleaned outputs.
 
-- **1_Logistic_forecast.ipynb**  
-  Loads the cleaned dataset and fits Bayesian shifted logistic growth models in PyMC. Provides:
-  - **Independent per-benchmark models**;
-  - A **joint hierarchical model** where benchmarks share hyperpriors over asymptotes, growth rates, noise scales, and skewness.
-  Outputs posterior samples, asymptote distributions, and forward forecasts.
+- **`1_Forecasts.ipynb`**
+  Main analysis notebook. Loads the cleaned dataset and:
+  1. Fits retrodiction models (Harvey/Logistic × Joint/Independent) for temporal holdout validation;
+  2. Fits the main Harvey hierarchical model and generates forecasts;
+  3. Produces all figures (forecasts by category, saturation proportion, Harvey asymmetry, calibration curves);
+  4. Runs sensitivity analyses (skew vs normal likelihood, joint vs independent, threshold sensitivity, conformal prediction intervals);
+  5. Exports numerical results to JSON.
 
-- **2_Harvey_forecast.ipynb**  
-  Implements the Harvey growth model (a generalized logistic with decaying effective growth rate). As with the logistic notebook, it supports both independent and joint hierarchical variants.
+  All figures in the `Plots/` directory are produced by this notebook.
 
-- **3_Plot_forecasts.ipynb**  
-  Aggregates outputs produces figures: historical data and posterior predictive envelopes of the Logistic / Harvey forecasts for each benchmark (single panels and multi-benchmark panels).
+- **`forecasting.py`**
+  Core modeling utilities: model construction (`build_model`), MCMC fitting (`fit`), temporal holdout validation (`temporal_holdout`), scoring (CRPS, RMSE, MAE), forecast generation, and conformal prediction coverage (CQR).
+
+- **`plotting.py`**
+  Matplotlib plotting utilities with centralized styling, supporting both English (paper/PDF) and French (note/PNG) output.
+
+### Directory Structure
+
+```
+.
+├── 0_Process_benchmarks.ipynb  # Data loading and normalization
+├── 1_Forecasts.ipynb           # Model fitting, validation, plotting, and sensitivity analyses
+├── forecasting.py              # Core modeling utilities
+├── plotting.py                 # Matplotlib plotting utilities
+├── Data/
+│   ├── benchmark_data/             # Raw CSV files from EpochAI (~47 files)
+│   ├── benchmark_data_RAND/        # RAND Corporation benchmark data
+│   ├── benchmark_data_processed/   # Processed/normalized data (output of notebook 0)
+│   ├── benchmarks_lower_bounds.csv # Random-chance baselines per benchmark
+│   └── human_baselines.csv         # Human performance baselines
+├── Plots/
+│   ├── 0-Note-figures/         # FR note figures (PNG, gitignored)
+│   ├── 1-High_level/           # Key summary figures: saturation proportion, Harvey asymmetry (EN paper)
+│   ├── 2-Forecasts/            # Main forecast trajectories per category (EN paper + FR note)
+│   ├── 3-Calibration/          # Calibration curves for all model variants
+│   └── 4-Sensitivity/          # Ablation: variant forecasts, saturation plots, ablation_results.json
+├── Fits/                       # Saved model posteriors (NetCDF, gitignored)
+├── Paper/                      # Publications (LaTeX)
+└── tmp/                        # Jupytext conversions (gitignored)
+```
+
+### Data Files
+
+- **`Data/benchmarks_lower_bounds.csv`** — Per-benchmark random-chance performance lower bounds (semicolon-delimited, European decimal notation)
+- **`Data/human_baselines.csv`** — Human performance reference points for plotting (columns: `benchmark`, `group`, `score`, `note`, `source`)
 
 ## Model Details
 
-Let $y_{i}(t)$ be the observed score for benchmark $i$ at time $t$. 
+Let $y_{i}(t)$ be the observed score for benchmark $i$ at time $t$.
 
 The score is modeled as a sigmoidal growth curve $\mu_i(t)$ plus skewed heteroskedastic noise $\xi_i(t)$:
 
@@ -29,7 +63,7 @@ $$
 y_{i}(t) \sim \text{SkewNormal}\big(\mu_i(t), \xi_i(t), s_i\big),
 $$
 
-where $s_i \le 0$ is the skewness parameter allowing asymmetric residuals, i.e. benchmarks scores mostly below the latent optimal performance over time.
+where $s_i$ is the skewness parameter allowing asymmetric residuals. Negative values of $s_i$ (which the data strongly favors) mean benchmark scores fall predominantly below the latent optimal performance curve. When `skew=False` in the model configuration, a symmetric Normal likelihood is used instead.
 
 ### Sigmoidal growth curves
 
@@ -37,7 +71,7 @@ The sigmoidal curves model the latent mean performance $\mu_i(t)$ over time. Two
 
 The sigmoids are defined on the range $[\ell_i, L_i]$, where $\ell_i$ is a benchmark-specific lower bound (random-chance performance) and $L_i$ is the upper asymptote (final performance).
 
-The lower bound $\ell_i$ is manually gathered per benchmark (or set to 0 if unknown). See `benchmarks_lower_bounds.csv` for details. It is not necessarily 0, as some benchmarks may have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
+The lower bound $\ell_i$ is manually gathered per benchmark (or set to 0 if unknown). See `Data/benchmarks_lower_bounds.csv` for details. It is not necessarily 0, as some benchmarks may have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
 
 The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores.
 
@@ -57,7 +91,7 @@ $$
 \sigma_i^{\text{log}}(t) = \frac{1}{1 + \exp\big(-k_i (t - \tau_i)\big)},
 $$
 
-where $k_i$ is the growth rate and $\tau_i$ is the inflection time. 
+where $k_i$ is the growth rate and $\tau_i$ is the inflection time.
 
 #### Harvey function
 
@@ -81,7 +115,7 @@ peaking near the inflection point and shrinking near the bounds, where $\xi_0$ i
 
 ### Hierarchical (joint) models
 
-The joint notebooks define hierarchical versions where benchmarks share hyperpriors over parameters, allowing benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories.
+The joint models define hierarchical versions where benchmarks share hyperpriors over parameters, allowing benchmarks to borrow statistical strength from each other while keeping benchmark-specific trajectories. When `joint=False`, each benchmark gets fully independent priors.
 
 #### Upper asymptotes $L_i$:
 
@@ -120,17 +154,17 @@ where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and st
 
 #### Skewness parameters $s_i$:
 
-Skewness parameters $s_i$ follow a Truncated-Normal distribution (truncated at 0):
+Skewness parameters $s_i$ follow a Normal distribution:
 
 $$
-s_i \sim \text{TruncatedNormal}(s_{\mu}, s_{\sigma}, -\infty, 0),
+s_i \sim \text{Normal}(s_{\mu}, s_{\sigma}),
 $$
 
-where $s_ {\mu}, s_{\sigma}$ are the (untruncated) mean and standard deviation hyperparameters.
+where $s_{\mu}, s_{\sigma}$ are the mean and standard deviation hyperparameters. The prior on $s_{\mu}$ is centered on negative values (reflecting the expectation that frontier scores tend to fall below latent capability), but is not truncated — the data is free to push $s_i$ toward zero or positive values. When `skew=False`, this parameter is omitted and the likelihood uses a symmetric Normal.
 
 #### Harvey shape parameters $\alpha_i$:
 
-Harvey shape parameters $\alpha_i$ follow a shifted Gamma distribution to enforce $\alpha_i > 1$: 
+Harvey shape parameters $\alpha_i$ follow a shifted Gamma distribution to enforce $\alpha_i > 1$:
 
 $$
 \alpha_i = 1 + \alpha^{\text{raw}}_i, \quad
@@ -141,10 +175,51 @@ where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean an
 
 ## Usage
 
-1. First run `0_Process_benchmarks.ipynb` to generate the dataset `benchmark_data_processed/all_normalized_updated_benchmarks.csv`.
-2. Then, open, setup and run `1_Forecasts.ipynb` to generate the forecasts and plots. Figures are written to `Images/`.
+### Quick start
 
-The human baselines can be found in `human_baselines.csv`.
-The `benchmark_lower_bounds.csv` file contains the per-benchmark random-chance performance lower bounds.
+```bash
+# Install dependencies
+uv sync
 
-The two files `forecasting.py` and `plotting.py` contain helper functions for model fitting and plotting, respectively. They are called by the `1_Forecasts.ipynb` notebook.
+# Run the data processing notebook
+uv run jupyter nbconvert --execute --inplace 0_Process_benchmarks.ipynb
+
+# Run the main analysis as a Python script (recommended over nbconvert,
+# which can hit IOPub timeouts on long MCMC sampling cells)
+mkdir -p tmp
+uv run jupytext --to py:percent 1_Forecasts.ipynb -o tmp/1_Forecasts_run.py
+uv run python tmp/1_Forecasts_run.py
+```
+
+Or run interactively in Jupyter / VS Code.
+
+### Step by step
+
+1. Run `0_Process_benchmarks.ipynb` to generate `Data/benchmark_data_processed/all_normalized_updated_benchmarks.csv`. The `DATA_CUTOFF_DATE` parameter (default: 2026-01-01) excludes model results released after that date, ensuring reproducibility even if new data is added to the CSVs.
+2. Open `1_Forecasts.ipynb` and verify the settings at the top:
+   - `LANGUAGE` / `DOCUMENT_TYPE`: controls the main figures. Default is `"en"` / `"paper"` (PDF output).
+   - `ALSO_GENERATE_FR`: when `True` (default), the notebook also generates French note figures (PNG) at the end, reusing already-fitted models (no extra MCMC).
+   - `SAVEFIGS`: `True` to save all figures to `Plots/`.
+3. Run all cells. The notebook will:
+   - Fit 4 retrodiction models and produce calibration curves → `Plots/3-Calibration/`
+   - Fit the main model and produce forecasts, saturation, and asymmetry figures → `Plots/1-High_level/` and `Plots/2-Forecasts/`
+   - Run 4 ablation models (skew/normal × joint/independent) with forecasts, saturation, and calibration → `Plots/4-Sensitivity/`
+   - Compute CQR conformal prediction intervals on all variants → `Plots/4-Sensitivity/ablation_results.json`
+   - Generate French (note/PNG) versions of all main figures → `Plots/0-Note-figures/` and `Plots/2-Forecasts/`
+
+**Runtime**: expect 30–60 minutes total (12 MCMC models, ~100 figures).
+
+**Note on execution method**: `jupyter nbconvert --execute` may fail on this notebook due to IOPub timeouts during long MCMC sampling steps. The recommended approach is to convert to a Python script with jupytext and run directly (see Quick start above). For interactive use, Jupyter Lab / VS Code handles long-running cells without issue.
+
+### Configuration
+
+```python
+MODEL_CONFIG = forecasting.ModelConfig(
+    sigmoid="harvey",  # or "logistic"
+    joint=True,        # hierarchical (True) or independent (False)
+    top_n=3,           # track top-N frontier models
+    skew=True,         # skew-normal (True) or normal (False) likelihood
+)
+```
+
+The sensitivity analyses section always runs all 4 combinations of `joint` × `skew` and produces English paper figures (PDF), regardless of the main `LANGUAGE`/`DOCUMENT_TYPE` settings.

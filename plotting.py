@@ -17,11 +17,8 @@ import arviz as az
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from matplotlib.legend_handler import HandlerTuple
-from matplotlib.lines import Line2D
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
-from matplotlib.legend import Legend
 
 import numpy as np
 import pandas as pd
@@ -254,7 +251,7 @@ def plot_forecasts_by_category(
             preds_b,
             end_date=pd.to_datetime("2030-01-01"),
             color=color,
-            size=(80 if plot_style.document_type == "note" else 150) * plot_style.scale,
+            size=(80 if plot_style.document_type == "note" else 100) * plot_style.scale,
             zorder=3,
             note_mode=plot_style.document_type == "note",
         )
@@ -294,16 +291,15 @@ def plot_forecasts_by_category(
         line.set_alpha(1.0)
     ax.add_artist(bench_legend)
 
-    # Inline baseline labels for note figures (replaces complex legend).
-    if plot_style.document_type == "note":
-        _add_baseline_labels(
-            ax,
-            baselines=baselines,
-            preds=forecast,
-            end_date=pd.to_datetime("2030-01-01"),
-            benchmark_colors=benchmark_colors,
-            plot_style=plot_style,
-        )
+    # Inline baseline labels (note and paper figures).
+    _add_baseline_labels(
+        ax,
+        baselines=baselines,
+        preds=forecast,
+        end_date=pd.to_datetime("2030-01-01"),
+        benchmark_colors=benchmark_colors,
+        plot_style=plot_style,
+    )
 
     fig.tight_layout()
     return fig, ax
@@ -886,7 +882,7 @@ def _add_baseline_labels(
             "Committee of Skilled Generalists": ("Comité de généralistes", "Comités de généralistes"),
             "Committee of Domain Experts": ("Comité d'experts", "Comités d'experts"),
             "High School Qualifier": ("Lycéen qualifié", "Lycéens qualifiés"),
-            "High School Top Performer": ("Meilleur lycéen", "Meilleurs lycéens"),
+            "High School Top Performer": ("Top lycéen", "Top lycéens"),
         },
         "en": {
             "Average Human": ("Avg. human", "Avg. humans"),
@@ -897,7 +893,7 @@ def _add_baseline_labels(
             "Committee of Skilled Generalists": ("Generalist committee", "Generalist committees"),
             "Committee of Domain Experts": ("Expert committee", "Expert committees"),
             "High School Qualifier": ("HS qualifier", "HS qualifiers"),
-            "High School Top Performer": ("HS top perf.", "HS top perfs."),
+            "High School Top Performer": ("HS top performer", "HS top performers"),
         },
     }
     label_map = _labels.get(plot_style.language, {})
@@ -999,17 +995,17 @@ def _add_baseline_labels(
 
     # --- Overlap resolution in data-y space ---
     y_lo, y_hi = ax.get_ylim()
-    label_h = (y_hi - y_lo) * 0.05
+    label_h = (y_hi - y_lo) * (0.08 if plot_style.document_type == "paper" else 0.05)
 
     x_lo_num, x_hi_num = ax.get_xlim()
     x_range = x_hi_num - x_lo_num
     dx = x_range * 0.023  # small date offset to keep labels close
 
-    # Bidirectional displacement.
+    # Greedy initial placement: push each new label away from existing ones.
     label_ys: list[float] = []
     for ann in annotations:
         target_y = ann["score"]
-        for _ in range(20):
+        for _ in range(40):
             collision = False
             for prev_y in label_ys:
                 if abs(target_y - prev_y) < label_h:
@@ -1024,6 +1020,27 @@ def _add_baseline_labels(
         target_y = max(y_lo + label_h * 0.5, min(target_y, y_hi - label_h * 0.5))
         label_ys.append(target_y)
 
+    # Global relaxation: iteratively resolve remaining overlaps.
+    for _ in range(50):
+        moved = False
+        for i in range(len(label_ys)):
+            for j in range(i + 1, len(label_ys)):
+                gap = abs(label_ys[i] - label_ys[j])
+                if gap < label_h:
+                    push = (label_h - gap) / 2 + 0.001
+                    if label_ys[i] <= label_ys[j]:
+                        label_ys[i] -= push
+                        label_ys[j] += push
+                    else:
+                        label_ys[i] += push
+                        label_ys[j] -= push
+                    moved = True
+        # Clamp to axes
+        for i in range(len(label_ys)):
+            label_ys[i] = max(y_lo + label_h * 0.5, min(label_ys[i], y_hi - label_h * 0.5))
+        if not moved:
+            break
+
     bbox = dict(
         boxstyle="round,pad=0.2",
         facecolor="white",
@@ -1032,7 +1049,7 @@ def _add_baseline_labels(
         alpha=0.85,
     )
 
-    fontsize = 7.5
+    fontsize = 10 if plot_style.document_type == "paper" else 7.5
 
     # Pre-compute default side for each label (right of marker, or left if
     # near the right edge).  Then alternate sides for consecutive displaced
@@ -1114,63 +1131,3 @@ def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> lis
     return sorted(set(observed["benchmark"].astype(str)))
 
 
-def _add_baseline_legend(ax: Axes, *, plot_style: PlotStyle) -> Legend:
-    # Keep this list in the order you want to show it.
-    baseline_cols: list[tuple[str, int]] = [
-        ("Average Human", 3),
-        ("Skilled Generalist", 4),
-        ("Domain Expert", 5),
-        ("Top Performer", 6),
-    ]
-
-    def polygon(n: int):
-        return (n, 0, 0)
-
-    def star(n: int):
-        return (n, 1, 0)
-
-    handles: list[tuple[Line2D, Line2D]] = []
-    labels: list[str] = []
-
-    for label, n in baseline_cols:
-        committee = Line2D(
-            [],
-            [],
-            linestyle="None",
-            marker=polygon(n),
-            markersize=9,
-            markerfacecolor="none",
-            markeredgecolor=plot_style.gray_color,
-            markeredgewidth=1.2,
-        )
-        individual = Line2D(
-            [],
-            [],
-            linestyle="None",
-            marker=star(n),
-            markersize=9,
-            markerfacecolor=plot_style.gray_color,
-            markeredgecolor=plot_style.gray_color,
-            markeredgewidth=1.0,
-        )
-        handles.append((committee, individual))
-        labels.append(label)
-
-    leg = ax.legend(
-        handles,
-        labels,
-        handler_map={tuple: HandlerTuple(ndivide=None, pad=0.4)},
-        title="Baselines (committee, individual)",
-        loc="lower left",
-        fontsize=9,
-        frameon=False,
-        ncol=2,
-        columnspacing=1.2,
-        handletextpad=0.6,
-        handlelength=2.0,
-    )
-    leg.get_title().set_color(plot_style.base_color)
-    for t in leg.get_texts():
-        t.set_color(plot_style.base_color)
-
-    return leg

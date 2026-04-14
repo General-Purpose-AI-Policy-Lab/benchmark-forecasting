@@ -1,11 +1,21 @@
-benchmarks_lower_bounds.csv.numbers
+Data/benchmarks_lower_bounds.csv.numbers
 Paper/Note Saturation des benchmarks.pdf
+
+# Note figures (FR, generated for internal use, not tracked)
+Plots/0-Note-figures/
 Andreoletti_et_al_Benchmark_forecasting_ICML_2026_SuppMat.zip
 Benchmark_forecasting_ICML_2026_SuppMat.zip
 
 # ICML templates (not needed for arXiv version)
 Paper/icml2026_templates/
 Paper/ICML_position_paper_desiderata.txt
+Paper/Benchmark_forecasting_ICML.pdf
+Paper/Benchmark_forecasting.pdf
+Paper/main.tex
+Paper/main_revised.pdf
+Paper/main_revised.tex
+Paper/Reviews_round_1.pdf
+Paper/rebuttal_openreview.md
 
 # Temporary files
 tmp/
@@ -602,3 +612,4 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+Fits/

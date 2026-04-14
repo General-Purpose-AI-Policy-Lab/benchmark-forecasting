@@ -20,6 +20,7 @@ Optional:
 """
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Literal
 
 import numpy as np
@@ -27,6 +28,8 @@ import pandas as pd
 import arviz as az
 import pymc as pm
 from scipy.stats import energy_distance
+
+FITS_DIR = Path("Fits")
 
 
 SigmoidKind = Literal["logistic", "harvey"]
@@ -39,6 +42,15 @@ class ModelConfig:
     sigmoid: SigmoidKind = "harvey"
     joint: bool = True
     top_n: int = 3
+    skew: bool = True
+
+    @property
+    def slug(self) -> str:
+        """Short identifier for file naming."""
+        parts = [self.sigmoid]
+        parts.append("joint" if self.joint else "independent")
+        parts.append("skew" if self.skew else "normal")
+        return "_".join(parts)
 
 
 @dataclass(frozen=True)
@@ -140,7 +152,12 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             sigma=0.02 / L_range,
             dims=None if joint else "benchmark",
         )
-        L_raw = pm.Beta("L_raw", mu=L_raw_mu, sigma=L_raw_sigma, dims="benchmark")
+        # Clamp sigma so that Beta(mu, sigma) parameters stay valid: sigma < sqrt(mu*(1-mu)).
+        L_raw_sigma_safe = pm.math.minimum(
+            L_raw_sigma,
+            pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
+        )
+        L_raw = pm.Beta("L_raw", mu=L_raw_mu, sigma=L_raw_sigma_safe, dims="benchmark")
         L = pm.Deterministic("L", L_min + L_range * L_raw, dims="benchmark")
 
         # Lower bound l per benchmark (fixed data)
@@ -190,34 +207,71 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             dims=None if joint else "benchmark",
         )
         xi_base_sigma = pm.HalfNormal("xi_base_sigma", sigma=0.05, dims=None if joint else "benchmark")
-        xi_base = pm.Gamma("xi_base", mu=xi_base_mu, sigma=xi_base_sigma, dims="benchmark")
+        # Clamp sigma so that Gamma(mu, sigma) stays valid (alpha = (mu/sigma)^2 > 0).
+        xi_base_sigma_safe = pm.math.minimum(xi_base_sigma, xi_base_mu - 1e-6)
+        xi_base = pm.Gamma("xi_base", mu=xi_base_mu, sigma=xi_base_sigma_safe, dims="benchmark")
 
-        variance_shape = pm.math.sqrt((mu - l[idx]) * (L[idx] - mu))
+        variance_shape = pm.math.sqrt(pm.math.maximum((mu - l[idx]) * (L[idx] - mu), 0.0))
         max_variance = (L[idx] - l[idx]) / 2.0
         noise_factor = variance_shape / pm.math.maximum(max_variance, 1e-10)
 
-        xi = 0.01 + xi_base[idx] * noise_factor
+        xi = pm.math.maximum(0.01 + xi_base[idx] * noise_factor, 1e-6)
 
-        # Skewness (truncated negative)
-        s_mu = pm.Normal("s_mu", mu=-2 - top_n / 2, sigma=0.5, dims=None if joint else "benchmark")
-        s_sigma = pm.HalfNormal("s_sigma", sigma=1.0, dims=None if joint else "benchmark")
-        s = pm.TruncatedNormal("s", mu=s_mu, sigma=s_sigma, upper=0, dims="benchmark")
+        if cfg.skew:
+            # Skewness (negative values = scores below latent curve)
+            s_mu = pm.Normal("s_mu", mu=-2 - top_n / 2, sigma=0.5, dims=None if joint else "benchmark")
+            s_sigma = pm.HalfNormal("s_sigma", sigma=1.0, dims=None if joint else "benchmark")
+            s = pm.TruncatedNormal("s", mu=s_mu, sigma=s_sigma, upper=0, dims="benchmark")
 
-        pm.SkewNormal(
-            "y",
-            mu=mu,
-            sigma=xi,
-            alpha=s[idx],
-            observed=d["score"].to_numpy(),
-            dims="obs",
-        )
+            pm.SkewNormal(
+                "y",
+                mu=mu,
+                sigma=xi,
+                alpha=s[idx],
+                observed=d["score"].to_numpy(),
+                dims="obs",
+            )
+        else:
+            pm.Normal(
+                "y",
+                mu=mu,
+                sigma=xi,
+                observed=d["score"].to_numpy(),
+                dims="obs",
+            )
 
     return model
 
 
-def fit(prepared: pd.DataFrame, cfg: ModelConfig, samp: SamplingConfig) -> tuple[az.InferenceData, pm.Model]:
-    """Fit the model and return (idata, model)."""
+def fit(
+    prepared: pd.DataFrame,
+    cfg: ModelConfig,
+    samp: SamplingConfig,
+    *,
+    cache_tag: str | None = None,
+    use_cache: bool = True,
+) -> tuple[az.InferenceData, pm.Model]:
+    """Fit the model and return (idata, model).
+
+    Parameters
+    ----------
+    cache_tag : optional label appended to the slug for the NetCDF filename.
+        When *None*, the filename is ``Fits/{cfg.slug}.nc``.
+        Pass e.g. ``cache_tag="retro_2025"`` to get ``Fits/{cfg.slug}_retro_2025.nc``.
+    use_cache : if *True* (default), load from ``Fits/`` if the file exists,
+        and save there after sampling.  Set to *False* to force re-fitting.
+    """
     model = build_model(prepared, cfg)
+
+    # --- cache path ---
+    fname = cfg.slug if cache_tag is None else f"{cfg.slug}_{cache_tag}"
+    cache_path = FITS_DIR / f"{fname}.nc"
+
+    if use_cache and cache_path.exists():
+        print(f"  Loading cached fit: {cache_path}")
+        idata = az.from_netcdf(str(cache_path))
+        return idata, model
+
     with model:
         idata = pm.sample(
             draws=samp.draws,
@@ -227,7 +281,14 @@ def fit(prepared: pd.DataFrame, cfg: ModelConfig, samp: SamplingConfig) -> tuple
             target_accept=samp.target_accept,
             init=samp.init,
             progressbar=samp.progressbar,
+            idata_kwargs={"log_likelihood": True},
         )
+
+    if use_cache:
+        FITS_DIR.mkdir(exist_ok=True)
+        idata.to_netcdf(str(cache_path))
+        print(f"  Saved fit: {cache_path}")
+
     return idata, model
 
 
@@ -238,6 +299,7 @@ def temporal_holdout(
     cfg: ModelConfig,
     samp: SamplingConfig,
     min_train_points: int = 3,
+    use_cache: bool = True,
 ) -> az.InferenceData:
     """Train on data before cutoff_date, evaluate on data >= cutoff_date."""
     prepared = prepare_dataset(raw, top_n=cfg.top_n)
@@ -250,7 +312,8 @@ def temporal_holdout(
     test = prepared.loc[prepared["release_date"] >= cutoff_date].copy()
     test = test.loc[test["benchmark"].isin(train["benchmark"].unique())].copy()
 
-    idata, model = fit(train, cfg, samp)
+    cutoff_tag = cutoff_date.strftime("%Y%m%d")
+    idata, model = fit(train, cfg, samp, cache_tag=f"retro_{cutoff_tag}", use_cache=use_cache)
 
     bench_codes = pd.Categorical(
         test["benchmark"],
@@ -300,6 +363,83 @@ def point_error(idata: az.InferenceData, metric: ErrorMetric = "RMSE") -> float:
     if metric == "RMSE":
         return float(np.sqrt(np.mean((means - y_true) ** 2)))
     raise ValueError(f"Unsupported metric: {metric}")
+
+
+def conformal_prediction_coverage(idata: az.InferenceData, *, alpha: float = 0.20) -> dict[str, float]:
+    """Conformal Quantile Regression (CQR) coverage on holdout data.
+
+    Uses CQR (Romano et al., 2019): adjusts Bayesian credible intervals with a
+    distribution-free conformal correction Q, so the final interval is
+    [bayesian_lower - Q, bayesian_upper + Q].
+
+    If the Bayesian intervals are already well-calibrated, Q ≈ 0.
+
+    Parameters
+    ----------
+    idata : InferenceData with predictions group containing 'y' and 'y_true'.
+    alpha : Miscoverage rate (e.g. 0.20 for 80% nominal coverage).
+
+    Returns
+    -------
+    dict with keys:
+        'bayesian_coverage': empirical coverage of raw Bayesian CI on test set
+        'cqr_coverage': empirical coverage of CQR-adjusted intervals on test set
+        'cqr_Q': conformal adjustment (Q); ~0 means Bayesian CI is well-calibrated
+        'cqr_avg_width': average width of CQR intervals on test set
+        'bayesian_avg_width': average width of raw Bayesian CI on test set
+        'n_calibration': size of calibration set
+        'n_test': size of test set
+    """
+    y_pred_samples = idata.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()  # (n_obs, n_samples)
+    y_true = idata.predictions["y_true"].to_numpy()  # (n_obs,)
+
+    n_obs = len(y_true)
+
+    # Bayesian credible interval bounds
+    lower_q = alpha / 2
+    upper_q = 1 - alpha / 2
+    bayesian_lower = np.quantile(y_pred_samples, lower_q, axis=1)  # (n_obs,)
+    bayesian_upper = np.quantile(y_pred_samples, upper_q, axis=1)  # (n_obs,)
+
+    # Split: first half calibration, second half test
+    n_cal = n_obs // 2
+    if n_cal < 5:
+        raise ValueError(f"Too few observations for conformal calibration: {n_obs}")
+
+    # --- CQR non-conformity scores on calibration set ---
+    # E_i = max(q_lower_i - y_i, y_i - q_upper_i)
+    # Negative when y_i is inside the Bayesian interval
+    scores_cal = np.maximum(
+        bayesian_lower[:n_cal] - y_true[:n_cal],
+        y_true[:n_cal] - bayesian_upper[:n_cal],
+    )
+
+    # Conformal quantile with finite-sample correction
+    q_level = np.ceil((1 - alpha) * (n_cal + 1)) / n_cal
+    q_level = min(q_level, 1.0)
+    Q = float(np.quantile(scores_cal, q_level))
+
+    # --- CQR-adjusted intervals on test set ---
+    test_lower = bayesian_lower[n_cal:] - Q
+    test_upper = bayesian_upper[n_cal:] + Q
+    cqr_covered = (y_true[n_cal:] >= test_lower) & (y_true[n_cal:] <= test_upper)
+    cqr_coverage = float(np.mean(cqr_covered))
+    cqr_avg_width = float(np.mean(test_upper - test_lower))
+
+    # --- Raw Bayesian coverage on test set for comparison ---
+    bayesian_covered = (y_true[n_cal:] >= bayesian_lower[n_cal:]) & (y_true[n_cal:] <= bayesian_upper[n_cal:])
+    bayesian_coverage = float(np.mean(bayesian_covered))
+    bayesian_avg_width = float(np.mean(bayesian_upper[n_cal:] - bayesian_lower[n_cal:]))
+
+    return {
+        "bayesian_coverage": bayesian_coverage,
+        "cqr_coverage": cqr_coverage,
+        "cqr_Q": Q,
+        "cqr_avg_width": cqr_avg_width,
+        "bayesian_avg_width": bayesian_avg_width,
+        "n_calibration": n_cal,
+        "n_test": n_obs - n_cal,
+    }
 
 
 def _date_grid_for_benchmark(group: pd.DataFrame, *, end_date: pd.Timestamp, n_points: int) -> pd.DataFrame:
