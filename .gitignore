@@ -3,19 +3,28 @@ Paper/Note Saturation des benchmarks.pdf
 
 # Note figures (FR, generated for internal use, not tracked)
 Plots/0-Note-figures/
+*fr_note*
+
+# Old directories
+**/Old/
 Andreoletti_et_al_Benchmark_forecasting_ICML_2026_SuppMat.zip
 Benchmark_forecasting_ICML_2026_SuppMat.zip
 
-# ICML templates (not needed for arXiv version)
+# ICML-related files (anonymity + not needed for arXiv)
 Paper/icml2026_templates/
 Paper/ICML_position_paper_desiderata.txt
 Paper/Benchmark_forecasting_ICML.pdf
 Paper/Benchmark_forecasting.pdf
-Paper/main.tex
-Paper/main_revised.pdf
-Paper/main_revised.tex
+Paper/main_ICML.tex
+Paper/main_ICML_revised.tex
+Paper/main_ICML_revised.pdf
 Paper/Reviews_round_1.pdf
 Paper/rebuttal_openreview.md
+
+# NeurIPS-related files (anonymity)
+Paper/NeurIPS_position_paper_desiderata.txt
+Paper/main_NeurIPS.tex
+Paper/main_NeurIPS.pdf
 
 # Temporary files
 tmp/
