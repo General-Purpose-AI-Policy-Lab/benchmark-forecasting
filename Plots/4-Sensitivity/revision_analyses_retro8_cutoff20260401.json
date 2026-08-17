@@ -1,0 +1,76 @@
+{
+  "retrodiction_variants": [
+    {
+      "variant": "Harvey Joint (skew)",
+      "n_test": 298,
+      "coverage80": 0.8422818791946308,
+      "cqr_coverage": 0.6577181208053692,
+      "cqr_Q": -0.01765833589147167,
+      "crps": 0.050677159964176155,
+      "rmse": 0.09769681817776195
+    },
+    {
+      "variant": "Harvey Joint (normal)",
+      "n_test": 298,
+      "coverage80": 0.8489932885906041,
+      "cqr_coverage": 0.5838926174496645,
+      "cqr_Q": -0.026306977789368146,
+      "crps": 0.05403075870241437,
+      "rmse": 0.1013470588321456
+    },
+    {
+      "variant": "Harvey Independent (skew)",
+      "n_test": 298,
+      "coverage80": 0.8355704697986577,
+      "cqr_coverage": 0.6711409395973155,
+      "cqr_Q": -0.01445740123966645,
+      "crps": 0.05369126655183218,
+      "rmse": 0.10805009599248232
+    },
+    {
+      "variant": "Harvey Independent (normal)",
+      "n_test": 298,
+      "coverage80": 0.8557046979865772,
+      "cqr_coverage": 0.6308724832214765,
+      "cqr_Q": -0.03583107413780476,
+      "crps": 0.060645371140100615,
+      "rmse": 0.1128403593007943
+    },
+    {
+      "variant": "Logistic Joint (skew)",
+      "n_test": 298,
+      "coverage80": 0.7818791946308725,
+      "cqr_coverage": 0.7986577181208053,
+      "cqr_Q": 0.0019963851845016902,
+      "crps": 0.05251851760152181,
+      "rmse": 0.10161244023205163
+    },
+    {
+      "variant": "Logistic Joint (normal)",
+      "n_test": 298,
+      "coverage80": 0.825503355704698,
+      "cqr_coverage": 0.8053691275167785,
+      "cqr_Q": -0.005335194269862453,
+      "crps": 0.05425276934580512,
+      "rmse": 0.10221788141656121
+    },
+    {
+      "variant": "Logistic Independent (skew)",
+      "n_test": 298,
+      "coverage80": 0.785234899328859,
+      "cqr_coverage": 0.7651006711409396,
+      "cqr_Q": -0.00025469504187825953,
+      "crps": 0.053843060325878524,
+      "rmse": 0.10567160387758542
+    },
+    {
+      "variant": "Logistic Independent (normal)",
+      "n_test": 298,
+      "coverage80": 0.8590604026845637,
+      "cqr_coverage": 0.738255033557047,
+      "cqr_Q": -0.021681768586472076,
+      "crps": 0.05836930645566872,
+      "rmse": 0.10690579302854206
+    }
+  ]
+}

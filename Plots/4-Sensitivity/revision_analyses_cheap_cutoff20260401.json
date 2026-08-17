@@ -1,0 +1,407 @@
+{
+  "saturation_shifts": [
+    {
+      "variant": "Harvey Joint (skew)",
+      "median_sat_date": "2026-05-13 00:00:00",
+      "mean_shift_months": 0.0,
+      "median_shift_months": 0.0,
+      "q10_shift_months": 0.0,
+      "q90_shift_months": 0.0
+    },
+    {
+      "variant": "Harvey Joint (normal)",
+      "median_sat_date": "2026-05-24 00:00:00",
+      "mean_shift_months": 1.1170113310722394,
+      "median_shift_months": 1.0942756369216886,
+      "q10_shift_months": -0.014395032502093633,
+      "q90_shift_months": 3.028897143995198
+    },
+    {
+      "variant": "Harvey Independent (skew)",
+      "median_sat_date": "2026-07-20 00:00:00",
+      "mean_shift_months": 5.024677371928038,
+      "median_shift_months": 3.234309296087074,
+      "q10_shift_months": -0.18523903681267354,
+      "q90_shift_months": 11.988105529949932
+    },
+    {
+      "variant": "Harvey Independent (normal)",
+      "median_sat_date": "2026-09-18 00:00:00",
+      "mean_shift_months": 5.887058297967788,
+      "median_shift_months": 4.813927065948954,
+      "q10_shift_months": 0.8575162923858185,
+      "q90_shift_months": 10.791855181591481
+    },
+    {
+      "variant": "Logistic Joint (skew)",
+      "median_sat_date": "2026-09-07 00:00:00",
+      "mean_shift_months": 4.036600804544498,
+      "median_shift_months": 3.0393703367076013,
+      "q10_shift_months": 0.3265048032361764,
+      "q90_shift_months": 7.510288435983159
+    },
+    {
+      "variant": "Logistic Joint (normal)",
+      "median_sat_date": "2026-08-01 00:00:00",
+      "mean_shift_months": 3.6533984163673017,
+      "median_shift_months": 2.632141522705169,
+      "q10_shift_months": 0.8581007383386033,
+      "q90_shift_months": 10.069987012289284
+    },
+    {
+      "variant": "Logistic Independent (skew)",
+      "median_sat_date": "2026-10-16 00:00:00",
+      "mean_shift_months": 6.6637272440261555,
+      "median_shift_months": 4.265305533666565,
+      "q10_shift_months": -0.06296654225557549,
+      "q90_shift_months": 19.05522618062316
+    },
+    {
+      "variant": "Logistic Independent (normal)",
+      "median_sat_date": "2026-10-10 00:00:00",
+      "mean_shift_months": 7.660500264877977,
+      "median_shift_months": 5.460295082988434,
+      "q10_shift_months": 0.8694263196881514,
+      "q90_shift_months": 17.527988911241618
+    }
+  ],
+  "saturation_contrasts": {
+    "skew to normal": {
+      "mean": 0.6482407224466545,
+      "median": 0.8734240981987361,
+      "q10": -2.0593231254504176,
+      "q90": 3.7407882006719393
+    },
+    "joint to independent": {
+      "mean": 4.107238156703981,
+      "median": 2.5017924686553563,
+      "q10": -0.29860358564401007,
+      "q90": 10.05070150658531
+    },
+    "Harvey to logistic": {
+      "mean": 2.496369932211967,
+      "median": 1.431030179962558,
+      "q10": -0.13521561162331217,
+      "q90": 7.340215315534102
+    }
+  },
+  "excluded_benchmarks": {
+    "names": [
+      "DeepResearchBench"
+    ],
+    "proportion_with": {
+      "n_benchmarks": 63,
+      "median": 0.9682539682539683,
+      "mean": 0.972765873015873,
+      "ci": [
+        0.9523809523809523,
+        1.0
+      ],
+      "ci_level": 0.8
+    },
+    "proportion_without": {
+      "n_benchmarks": 62,
+      "median": 0.9838709677419355,
+      "mean": 0.9741673387096775,
+      "ci": [
+        0.9516129032258065,
+        1.0
+      ],
+      "ci_level": 0.8
+    }
+  },
+  "category_summary": [
+    {
+      "category": "Chemistry",
+      "n": 3,
+      "n_with_baseline": 2,
+      "n_baselines": 3,
+      "groups": "Domain Expert, Skilled Generalist",
+      "human_range": "22--83\\%",
+      "sat_median": "2024-10-11 00:00:00",
+      "sat_earliest": "2024-07-23 00:00:00",
+      "sat_latest": "2025-10-25 00:00:00"
+    },
+    {
+      "category": "Commonsense QA",
+      "n": 4,
+      "n_with_baseline": 4,
+      "n_baselines": 4,
+      "groups": "Average Human, Committee of Average Humans, Committee of Skilled Generalists",
+      "human_range": "92--96\\%",
+      "sat_median": "2023-10-21 12:00:00",
+      "sat_earliest": "2022-10-08 00:00:00",
+      "sat_latest": "2026-02-19 00:00:00"
+    },
+    {
+      "category": "Agentic Computer Use",
+      "n": 5,
+      "n_with_baseline": 1,
+      "n_baselines": 1,
+      "groups": "Skilled Generalist",
+      "human_range": "72\\%",
+      "sat_median": "2026-08-03 00:00:00",
+      "sat_earliest": "2026-04-03 00:00:00",
+      "sat_latest": "2027-01-29 00:00:00"
+    },
+    {
+      "category": "High End Math Reasoning",
+      "n": 4,
+      "n_with_baseline": 3,
+      "n_baselines": 5,
+      "groups": "Committee of Domain Experts, Domain Expert, High School Qualifier, High School Top Performer, Skilled Generalist",
+      "human_range": "35--93\\%",
+      "sat_median": "2026-06-18 12:00:00",
+      "sat_earliest": "2024-11-15 00:00:00",
+      "sat_latest": "2027-09-07 00:00:00"
+    },
+    {
+      "category": "Autonomous SWE",
+      "n": 8,
+      "n_with_baseline": 0,
+      "n_baselines": 0,
+      "groups": "",
+      "human_range": "---",
+      "sat_median": "2026-10-05 00:00:00",
+      "sat_earliest": "2025-07-03 00:00:00",
+      "sat_latest": "2027-12-16 00:00:00"
+    },
+    {
+      "category": "Biology",
+      "n": 8,
+      "n_with_baseline": 7,
+      "n_baselines": 8,
+      "groups": "Domain Expert, Skilled Generalist",
+      "human_range": "22--83\\%",
+      "sat_median": "2025-09-09 00:00:00",
+      "sat_earliest": "2024-04-07 00:00:00",
+      "sat_latest": "2028-01-09 00:00:00"
+    },
+    {
+      "category": "Multimodal Understanding",
+      "n": 6,
+      "n_with_baseline": 3,
+      "n_baselines": 3,
+      "groups": "Average Human, Skilled Generalist, Top Performer",
+      "human_range": "55--100\\%",
+      "sat_median": "2026-09-17 00:00:00",
+      "sat_earliest": "2025-05-03 00:00:00",
+      "sat_latest": "2028-02-21 00:00:00"
+    },
+    {
+      "category": "Domain Specific Questions",
+      "n": 8,
+      "n_with_baseline": 5,
+      "n_baselines": 7,
+      "groups": "Average Human, Committee of Domain Experts, Domain Expert, Skilled Generalist",
+      "human_range": "22--97\\%",
+      "sat_median": "2026-01-01 00:00:00",
+      "sat_earliest": "2022-12-11 00:00:00",
+      "sat_latest": "2028-02-23 00:00:00"
+    },
+    {
+      "category": "General Reasoning",
+      "n": 5,
+      "n_with_baseline": 1,
+      "n_baselines": 1,
+      "groups": "Average Human",
+      "human_range": "84\\%",
+      "sat_median": "2027-03-31 00:00:00",
+      "sat_earliest": "2025-08-05 00:00:00",
+      "sat_latest": "2028-08-27 00:00:00"
+    },
+    {
+      "category": "Advanced Language and Writing",
+      "n": 5,
+      "n_with_baseline": 0,
+      "n_baselines": 0,
+      "groups": "",
+      "human_range": "---",
+      "sat_median": "2026-11-25 00:00:00",
+      "sat_earliest": "2024-12-23 00:00:00",
+      "sat_latest": "2028-10-13 00:00:00"
+    },
+    {
+      "category": "Core AGI Progress",
+      "n": 6,
+      "n_with_baseline": 2,
+      "n_baselines": 5,
+      "groups": "Average Human, Committee of Average Humans, Skilled Generalist",
+      "human_range": "60--100\\%",
+      "sat_median": "2026-06-23 12:00:00",
+      "sat_earliest": "2025-06-02 00:00:00",
+      "sat_latest": "2030-04-17 00:00:00"
+    }
+  ],
+  "L_summary": {
+    "median": 0.9216421400137336,
+    "p10": 0.8722599085629051,
+    "p90": 0.9599724533490218,
+    "min": 0.7868630471358697,
+    "argmin": "SWE-Bench Verified"
+  },
+  "residual_diagnostics": {
+    "n_pairs": 224,
+    "n_pairs_same_lineage": 13,
+    "mean_corr_same_lineage": 0.5952086953566916,
+    "mean_corr_across_lineage": 0.25675991438800794,
+    "median_corr_same_lineage": 0.6627112742883348,
+    "median_corr_across_lineage": 0.27880934009238345,
+    "r2_model_identity": 0.3907627687815632,
+    "r2_model_identity_adjusted": 0.2748081007493489,
+    "n_models_r2": 123,
+    "n_obs_r2": 764,
+    "n_models": 396,
+    "per_model_mean_resid_mean": -0.0503406133008399,
+    "per_model_mean_resid_sd": 0.04203601307536606
+  },
+  "lineage_collapsed_saturation": {
+    "full": {
+      "n_benchmarks": 63,
+      "median": 0.9682539682539683,
+      "mean": 0.972765873015873,
+      "ci": [
+        0.9523809523809523,
+        1.0
+      ],
+      "ci_level": 0.8
+    },
+    "collapsed": {
+      "n_benchmarks": 50,
+      "median": 0.98,
+      "mean": 0.9708425,
+      "ci": [
+        0.94,
+        1.0
+      ],
+      "ci_level": 0.8
+    },
+    "collapsed_benchmarks": [
+      "APEX Agents",
+      "ARC (AI2)",
+      "ARC-AGI",
+      "Adversarial NLI",
+      "Aider Polyglot",
+      "AudioMultiChallenge",
+      "BALROG",
+      "BioLP-bench",
+      "CAD-Eval",
+      "Chess Puzzles",
+      "Cybench",
+      "DeepResearchBench",
+      "EnigmaEval",
+      "Fiction.LiveBench",
+      "FrontierMath",
+      "GDPVal",
+      "GPQA Diamond",
+      "GSM8K",
+      "GSO-Bench",
+      "GeoBench",
+      "HellaSwag",
+      "Humanity's Last Exam",
+      "LAB-Bench Cloning",
+      "Lech Mazur Writing",
+      "LiveBench",
+      "MATH Level 5",
+      "MCP Atlas",
+      "METR Time Horizons",
+      "MMLU Pro Biology",
+      "MultiNRC",
+      "OS World (Screenshot)",
+      "OTIS Mock AIME 2024-2025",
+      "OpenBookQA",
+      "PIQA",
+      "PRBench Finance",
+      "PostTrainBench",
+      "Remote Labor Index",
+      "SWE-Bench Bash Only",
+      "ScienceQA",
+      "SimpleBench",
+      "SimpleQA Verified",
+      "TerminalBench",
+      "The Agent Company",
+      "TutorBench",
+      "VPCT",
+      "Visual Task Assessment (VISTA)",
+      "VisualToolBench",
+      "WMDP Biology",
+      "WeirdML",
+      "WinoGrande"
+    ]
+  },
+  "lower_bounds": {
+    "n_zero": 41,
+    "n_nonzero": 22,
+    "n_zero_with_min_obs_below_10pct": 27,
+    "max_min_observed": 0.605,
+    "max_min_observed_benchmark": "Lech Mazur Writing",
+    "max_threshold_error": 0.03025,
+    "nonzero_bounds": {
+      "ARC (AI2)": 0.25,
+      "Adversarial NLI": 0.3329999999999999,
+      "GPQA Diamond": 0.25,
+      "GPQA Diamond Biology": 0.25,
+      "GPQA Diamond Chemistry": 0.25,
+      "HellaSwag": 0.25,
+      "LAB-Bench Cloning": 0.2,
+      "LAB-Bench LitQA2": 0.2,
+      "LAB-Bench Protocol": 0.2,
+      "LAB-Bench SeqQA": 0.2,
+      "METR Time Horizons": 0.05,
+      "MMLU Pro Biology": 0.1,
+      "MMLU Pro Chemistry": 0.1,
+      "OTIS Mock AIME 2024-2025": 0.001,
+      "OpenBookQA": 0.25,
+      "PIQA": 0.5,
+      "ScienceQA": 0.3983,
+      "SimpleBench": 0.166,
+      "VPCT": 0.3329999999999999,
+      "WMDP Biology": 0.25,
+      "WMDP Chemistry": 0.25,
+      "WinoGrande": 0.5
+    },
+    "zero_bound_min_observed": {
+      "ARC-AGI": 0.0,
+      "ARC-AGI-2": 0.0,
+      "GSO-Bench": 0.0,
+      "GSM8K": 0.0,
+      "FrontierMath Tier 4": 0.0,
+      "FrontierMath": 0.0,
+      "EnigmaEval": 0.0038,
+      "Remote Labor Index": 0.0083,
+      "BioLP-bench": 0.01,
+      "The Agent Company": 0.011,
+      "VisualToolBench": 0.0141,
+      "SWE-Bench Pro": 0.0151,
+      "WeirdML": 0.0173,
+      "Humanity's Last Exam": 0.0272,
+      "APEX Agents": 0.03,
+      "MATH Level 5": 0.0328549848942598,
+      "TerminalBench": 0.034,
+      "Aider Polyglot": 0.036,
+      "BALROG": 0.037,
+      "Chess Puzzles": 0.04,
+      "Cybench": 0.05,
+      "OS World (Screenshot)": 0.05,
+      "SimpleQA Verified": 0.059,
+      "PostTrainBench": 0.0725,
+      "MultiNRC": 0.0843999999999999,
+      "SWE-Bench Bash Only": 0.09,
+      "AudioMultiChallenge": 0.0929,
+      "CAD-Eval": 0.12,
+      "GDPVal": 0.12349,
+      "Visual Task Assessment (VISTA)": 0.1518,
+      "LiveBench": 0.2212,
+      "PRBench Finance": 0.2236,
+      "PRBench Legal": 0.2484,
+      "Fiction.LiveBench": 0.25,
+      "DeepResearchBench": 0.2919,
+      "SWE-Bench Verified": 0.3099173553719008,
+      "GeoBench": 0.32,
+      "TutorBench": 0.3611999999999999,
+      "MultiChallenge": 0.3635,
+      "MCP Atlas": 0.402,
+      "Lech Mazur Writing": 0.605
+    }
+  }
+}

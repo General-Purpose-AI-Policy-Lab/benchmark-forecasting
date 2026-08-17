@@ -1,0 +1,64 @@
+{
+  "prior_sensitivity": [
+    {
+      "variant": "Main ($L_{\\min}{=}0.75$, sd 0.02)",
+      "L_min": 0.75,
+      "L_prior_sd": 0.02,
+      "sat_median": 0.9682539682539683,
+      "sat_ci_low": 0.9523809523809523,
+      "sat_ci_high": 1.0,
+      "L_median_across_benchmarks": 0.9216421400137336,
+      "L_p10": 0.8722599085629051,
+      "L_p90": 0.9599724533490218,
+      "median_sat_date": "2026-05-13",
+      "rhat_max": 1.0083354143217695,
+      "ess_min": 579.1364432720634,
+      "n_divergences": 9
+    },
+    {
+      "variant": "Low floor ($L_{\\min}{=}0.50$)",
+      "L_min": 0.5,
+      "L_prior_sd": 0.02,
+      "sat_median": 0.9682539682539683,
+      "sat_ci_low": 0.9523809523809523,
+      "sat_ci_high": 1.0,
+      "L_median_across_benchmarks": 0.9256933341813057,
+      "L_p10": 0.8757893688090895,
+      "L_p90": 0.958127596661785,
+      "median_sat_date": "2026-05-21",
+      "rhat_max": 1.0112359004809335,
+      "ess_min": 550.3233435763843,
+      "n_divergences": 6
+    },
+    {
+      "variant": "Weak prior (sd 0.05)",
+      "L_min": 0.75,
+      "L_prior_sd": 0.05,
+      "sat_median": 0.9841269841269841,
+      "sat_ci_low": 0.9523809523809523,
+      "sat_ci_high": 1.0,
+      "L_median_across_benchmarks": 0.9021724621292608,
+      "L_p10": 0.8352905863963376,
+      "L_p90": 0.9623980011033866,
+      "median_sat_date": "2026-04-28",
+      "rhat_max": 1.0136102484123288,
+      "ess_min": 364.4981726812025,
+      "n_divergences": 4
+    },
+    {
+      "variant": "Low floor + weak prior",
+      "L_min": 0.5,
+      "L_prior_sd": 0.1,
+      "sat_median": 0.9841269841269841,
+      "sat_ci_low": 0.9682539682539683,
+      "sat_ci_high": 1.0,
+      "L_median_across_benchmarks": 0.8854424035438837,
+      "L_p10": 0.6869053571738061,
+      "L_p90": 0.9703920961526598,
+      "median_sat_date": "2025-12-27",
+      "rhat_max": 1.03859333235321,
+      "ess_min": 79.07575100422092,
+      "n_divergences": 38
+    }
+  ]
+}
