@@ -1,5 +1,8 @@
 Data/benchmarks_lower_bounds.csv.numbers
-Paper/Note Saturation des benchmarks.pdf
+
+# Manuscripts and everything conference-related (drafts, reviews, rebuttals,
+# templates, signed agreements, build artifacts): kept locally, not in the public repo
+Paper/
 
 # Note figures (FR, generated for internal use, not tracked)
 Plots/0-Note-figures/
@@ -10,37 +13,8 @@ Plots/0-Note-figures/
 Andreoletti_et_al_Benchmark_forecasting_ICML_2026_SuppMat.zip
 Benchmark_forecasting_ICML_2026_SuppMat.zip
 
-# ICML-related files (anonymity + not needed for arXiv)
-Paper/icml2026_templates/
-Paper/ICML_position_paper_desiderata.txt
-Paper/Benchmark_forecasting_ICML.pdf
-Paper/Benchmark_forecasting.pdf
-Paper/main_ICML.tex
-Paper/main_ICML_revised.tex
-Paper/main_ICML_revised.pdf
-Paper/Reviews_round_1.pdf
-Paper/rebuttal_openreview.md
-
-# NeurIPS-related files (anonymity)
-Paper/NeurIPS_position_paper_desiderata.txt
-Paper/main_NeurIPS.tex
-Paper/main_NeurIPS.pdf
-
 # Temporary files
 tmp/
-
-# LaTeX build artifacts
-Paper/*.aux
-Paper/*.bbl
-Paper/*.blg
-Paper/*.log
-Paper/*.out
-Paper/*.synctex.gz
-Paper/*.fdb_latexmk
-Paper/*.fls
-Paper/*.toc
-Paper/*.lof
-Paper/*.lot
 
 
 # ============================================================================================================== #
