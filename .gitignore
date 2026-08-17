@@ -1,8 +1,13 @@
 Data/benchmarks_lower_bounds.csv.numbers
 
-# Manuscripts and everything conference-related (drafts, reviews, rebuttals,
-# templates, signed agreements, build artifacts): kept locally, not in the public repo
-Paper/
+# Conference material (drafts, reviews, rebuttals, templates, signed agreements):
+# kept locally, not in the public repo. The bibliography and the arXiv preprint
+# sources are public and stay tracked; LaTeX build artifacts inside Paper/Arxiv/
+# are caught by the LaTeX rules further down.
+Paper/*
+!Paper/Benchmark_forecasting.bib
+!Paper/.latexmkrc
+!Paper/Arxiv/
 
 # Note figures (FR, generated for internal use, not tracked)
 Plots/0-Note-figures/
