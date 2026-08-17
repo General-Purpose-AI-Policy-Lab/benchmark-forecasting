@@ -17,11 +17,26 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 
   All figures in the `Plots/` directory are produced by this notebook.
 
+- **`2_Revision_analyses.ipynb`** (and its jupytext twin `2_Revision_analyses.py`)
+  Robustness and sensitivity analyses that go beyond the ablations of notebook 1: per-benchmark
+  posterior saturation dates and how they shift across the 8 model variants, long-horizon
+  retrodiction (cutoffs 2022–2025), prior sensitivity on the upper asymptote $L$, cross-benchmark
+  residual dependence, hyperparameter and per-benchmark $L$ posterior figures, and an audit of the
+  random-chance lower bounds. Results are written to `Plots/4-Sensitivity/` as CSV/JSON, and LaTeX
+  versions of the tables to `$TABLES_DIR` (see below). Runs in selectable stages so the expensive
+  refits can be skipped:
+
+  ```bash
+  uv run python 2_Revision_analyses.py cheap    # cached fits only
+  uv run python 2_Revision_analyses.py retro    # long-horizon retrodiction (3 new MCMC fits)
+  uv run python 2_Revision_analyses.py priors   # asymptote-prior sensitivity (3 new MCMC fits)
+  ```
+
 - **`forecasting.py`**
-  Core modeling utilities: model construction (`build_model`), MCMC fitting (`fit`), temporal holdout validation (`temporal_holdout`), scoring (CRPS, RMSE, MAE), forecast generation, and conformal prediction coverage (CQR).
+  Core modeling utilities: model construction (`build_model`), MCMC fitting (`fit`), temporal holdout validation (`temporal_holdout`), scoring (CRPS, RMSE, MAE), forecast generation, and conformal prediction coverage (CQR). Also `saturation_dates` and `saturated_proportion` (posterior saturation timing, by analytic inversion of the fitted sigmoid) and `residual_diagnostics` (cross-benchmark residual correlation, paired by model release).
 
 - **`plotting.py`**
-  Matplotlib plotting utilities with centralized styling, supporting both English (paper/PDF) and French (note/PNG) output.
+  Matplotlib plotting utilities with centralized styling, supporting both English (paper/PDF) and French (note/PNG) output, including `plot_L_intervals` and `plot_hyperparameters` for posterior diagnostics.
 
 ### Directory Structure
 
@@ -29,6 +44,8 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 .
 ├── 0_Process_benchmarks.ipynb  # Data loading and normalization
 ├── 1_Forecasts.ipynb           # Model fitting, validation, plotting, and sensitivity analyses
+├── 2_Revision_analyses.ipynb   # Robustness analyses (saturation dates, retrodiction, priors, residuals)
+├── 2_Revision_analyses.py      # Jupytext twin of the above; runs in stages from the CLI
 ├── forecasting.py              # Core modeling utilities
 ├── plotting.py                 # Matplotlib plotting utilities
 ├── Data/
@@ -39,13 +56,23 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 │   └── human_baselines.csv         # Human performance baselines
 ├── Plots/
 │   ├── 0-Note-figures/         # FR note figures (PNG, gitignored)
-│   ├── 1-High_level/           # Key summary figures: saturation proportion, Harvey asymmetry (EN paper)
+│   ├── 1-High_level/           # Saturation proportion, Harvey asymmetry, hyperparameter and L-interval posteriors
 │   ├── 2-Forecasts/            # Main forecast trajectories per category (EN paper + FR note)
-│   ├── 3-Calibration/          # Calibration curves for all model variants
-│   └── 4-Sensitivity/          # Ablation: variant forecasts, saturation plots, ablation_results.json
+│   ├── 3-Calibration/          # Calibration curves for all model variants and retrodiction cutoffs
+│   └── 4-Sensitivity/          # Ablation figures, plus CSV/JSON results from notebooks 1 and 2
+│       └── tables/             # LaTeX tables (default TABLES_DIR; see notebook 2)
 ├── Fits/                       # Saved model posteriors (NetCDF, gitignored)
-├── Paper/                      # Publications (LaTeX)
+├── Paper/                      # Bibliography and arXiv preprint sources; other manuscript
+│                               # working material is kept local and gitignored
 └── tmp/                        # Jupytext conversions (gitignored)
+```
+
+Only `Paper/Benchmark_forecasting.bib`, `Paper/Arxiv/` and `Paper/.latexmkrc` are tracked. Notebook 2
+writes its LaTeX tables to `Plots/4-Sensitivity/tables/` by default; point `TABLES_DIR` at a
+manuscript directory to regenerate them in place:
+
+```bash
+TABLES_DIR=path/to/manuscript/tables uv run python 2_Revision_analyses.py cheap
 ```
 
 ### Data Files
