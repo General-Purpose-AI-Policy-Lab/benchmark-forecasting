@@ -1,9 +1,8 @@
 Data/benchmarks_lower_bounds.csv.numbers
 
-# Conference material (drafts, reviews, rebuttals, templates, signed agreements):
-# kept locally, not in the public repo. The bibliography and the arXiv preprint
-# sources are public and stay tracked; LaTeX build artifacts inside Paper/Arxiv/
-# are caught by the LaTeX rules further down.
+# Manuscript working material: kept locally, not in the public repo. The
+# bibliography and the arXiv preprint sources are public and stay tracked;
+# LaTeX build artifacts inside Paper/Arxiv/ are caught by the rules further down.
 Paper/*
 !Paper/Benchmark_forecasting.bib
 !Paper/.latexmkrc
@@ -15,8 +14,7 @@ Plots/0-Note-figures/
 
 # Old directories
 **/Old/
-Andreoletti_et_al_Benchmark_forecasting_ICML_2026_SuppMat.zip
-Benchmark_forecasting_ICML_2026_SuppMat.zip
+*SuppMat.zip
 
 # Temporary files
 tmp/

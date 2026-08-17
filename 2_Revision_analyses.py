@@ -15,8 +15,9 @@
 # %% [markdown]
 # # Robustness and sensitivity analyses
 #
-# Supplementary analyses probing the modelling choices.  Each section
-# Item numbers are internal project identifiers.
+# Supplementary analyses probing how far the headline projections depend on the
+# modelling choices.  Item numbers are the internal identifiers used in the
+# project notes.
 #
 # 1. Saturation dates per benchmark and shifts across the 8 model variants
 # 2. Long-horizon retrodiction (cutoffs 2022 / 2023 / 2024 / 2025)
@@ -80,8 +81,10 @@ ALL_MODEL_CONFIGS = {
     "Logistic Independent (normal)": forecasting.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=False),
 }
 
-TABLES_DIR = "Plots/4-Sensitivity/tables"
 RESULTS_DIR = "Plots/4-Sensitivity"
+# Manuscript sources live outside this repository; set TABLES_DIR to the
+# manuscript's table directory to regenerate the LaTeX tables in place.
+TABLES_DIR = os.environ.get("TABLES_DIR", f"{RESULTS_DIR}/tables")
 os.makedirs(TABLES_DIR, exist_ok=True)
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
@@ -112,8 +115,8 @@ results: dict[str, object] = {}
 # ## Item 1 — Saturation dates and shifts across model variants
 #
 # `forecasting.saturation_dates` inverts the fitted sigmoid analytically, so the
-# saturation date is available per posterior draw and per benchmark.  The analysis
-# considers how much the skew-normal likelihood moves those dates.
+# saturation date is available per posterior draw and per benchmark.  The quantity of
+# interest is how much the skew-normal likelihood moves those dates.
 
 # %%
 if "cheap" in STAGES:
@@ -302,8 +305,8 @@ if "cheap" in STAGES:
 # %% [markdown]
 # ### Category summary table
 #
-# Replaces the per-benchmark bullet lists of Section 2.2, which are long
-# and which are now described in the benchmark appendix instead.
+# Condenses the per-benchmark detail into one row per capability category; the
+# per-benchmark numbers are tabulated in the appendix table instead.
 
 # %%
 if "cheap" in STAGES:
@@ -414,8 +417,8 @@ if "cheap" in STAGES:
 # %% [markdown]
 # ## Item 7 — Cross-benchmark residual dependence
 #
-# The model treats benchmarks as conditionally independent, yet many
-# share datasets, tasks, or creators.  Residuals are paired by model release, so a
+# The model treats benchmarks as conditionally independent, yet many share datasets,
+# tasks, or creators.  Residuals are paired by model release, so a
 # shared unmodeled component would show up as positive correlation between
 # benchmarks of the same lineage.
 
@@ -506,8 +509,8 @@ if "cheap" in STAGES:
 # %% [markdown]
 # ## Item 20 — Lower bounds
 #
-# Random chance is not 0 for many multiple-choice or
-# structured benchmarks, so it matters how many fall back on the zero default.
+# Random chance is not 0 for many multiple-choice or structured benchmarks, so it
+# matters how many benchmarks fall back on the zero default.
 # We check the design of every benchmark set to zero and the weakest score ever
 # observed on it.
 
