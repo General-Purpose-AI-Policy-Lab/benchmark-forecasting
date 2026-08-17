@@ -291,17 +291,19 @@ def plot_forecasts_by_category(
         line.set_alpha(1.0)
     ax.add_artist(bench_legend)
 
-    # Inline baseline labels (note and paper figures).
+    # Inline baseline labels (note and paper figures).  These come after tight_layout
+    # because the label placement measures occlusion in pixels: deciding before the
+    # layout is settled would optimise a geometry the reader never sees.
+    fig.tight_layout()
     _add_baseline_labels(
         ax,
         baselines=baselines,
         preds=forecast,
+        observed=observed,
         end_date=pd.to_datetime("2030-01-01"),
         benchmark_colors=benchmark_colors,
         plot_style=plot_style,
     )
-
-    fig.tight_layout()
     return fig, ax
 
 
@@ -685,6 +687,209 @@ def plot_saturation_proportion_posterior(
     return fig, ax, summary
 
 
+def plot_L_intervals(
+    idata: az.InferenceData,
+    *,
+    prepared_frontier: pd.DataFrame | None = None,
+    ci_level: float = 0.80,
+    plot_style: PlotStyle = PlotStyle(),
+) -> tuple[Figure, Axes]:
+    """Forest plot of the per-benchmark upper asymptote $L$.
+
+    Benchmarks are ordered by posterior median.  When `prepared_frontier` is given,
+    the best score observed so far is overlaid, which shows how much of the
+    asymptote is already attained (and how much is extrapolation).
+    """
+    if "L" not in idata.posterior:
+        raise ValueError("Requires the deterministic 'L' in idata.posterior.")
+
+    L = idata.posterior["L"].stack(sample=("chain", "draw")).transpose("benchmark", "sample")
+    benchmarks = [str(b) for b in L.coords["benchmark"].to_numpy().tolist()]
+    values = L.to_numpy()
+
+    lo_q = 100.0 * (1.0 - ci_level) / 2.0
+    hi_q = 100.0 * (1.0 + ci_level) / 2.0
+    median = np.median(values, axis=1)
+    lower = np.percentile(values, lo_q, axis=1)
+    upper = np.percentile(values, hi_q, axis=1)
+
+    order = np.argsort(median)
+    y = np.arange(len(benchmarks))
+
+    best_observed = None
+    if prepared_frontier is not None:
+        best_observed = (
+            prepared_frontier.groupby("benchmark")["score"].max().reindex(benchmarks).to_numpy()
+        )
+
+    fig, ax = plt.subplots(figsize=(7, 0.19 * len(benchmarks) + 1.4))
+
+    ax.hlines(
+        y,
+        lower[order],
+        upper[order],
+        color=plot_style.palette[2],
+        linewidth=1.6,
+        alpha=0.9,
+        zorder=2,
+    )
+    ax.scatter(
+        median[order],
+        y,
+        s=14,
+        color=plot_style.base_color,
+        zorder=3,
+        label="Posterior median" if plot_style.language == "en" else "Médiane a posteriori",
+    )
+    if best_observed is not None:
+        ax.scatter(
+            best_observed[order],
+            y,
+            s=16,
+            marker="|",
+            linewidths=1.6,
+            color=plot_style.accent_color,
+            zorder=4,
+            label="Best score observed" if plot_style.language == "en" else "Meilleur score observé",
+        )
+
+    ax.set_yticks(y)
+    ax.set_yticklabels(
+        [plot_style._benchmark_name(benchmarks[i]) for i in order],
+        fontsize=6.5 * plot_style.scale,
+    )
+    ax.set_ylim(-1, len(benchmarks))
+
+    if plot_style.language == "fr":
+        ax.set_xlabel("Asymptote supérieure $L$")
+    else:
+        ax.set_xlabel("Upper asymptote $L$")
+
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
+    ax.grid(True, axis="x")
+    ax.grid(False, axis="y")
+    for side in ("top", "right", "left"):
+        ax.spines[side].set_visible(False)
+    ax.tick_params(axis="y", length=0)
+    ax.legend(loc="lower left", fontsize=8 * plot_style.scale)
+    fig.tight_layout()
+    return fig, ax
+
+
+def plot_hyperparameters(
+    idata: az.InferenceData,
+    *,
+    L_min: float = 0.75,
+    plot_style: PlotStyle = PlotStyle(),
+) -> tuple[Figure, np.ndarray]:
+    """Posterior distributions of the population-level hyperparameters.
+
+    Panels are drawn only for the hyperparameters present in the fit, so the same
+    function works for logistic variants (no $\\alpha$) and normal-likelihood
+    variants (no $s$).
+    """
+    posterior = idata.posterior
+
+    def _draws(name: str) -> np.ndarray | None:
+        if name not in posterior:
+            return None
+        return posterior[name].values.flatten()
+
+    panels: list[tuple[str, np.ndarray, str | None]] = []  # L_min maps L_raw_mu back onto the score scale
+
+    L_raw_mu = _draws("L_raw_mu")
+    if L_raw_mu is not None:
+        panels.append(
+            (
+                "Upper asymptote $\\mu_L$" if plot_style.language == "en" else "Asymptote $\\mu_L$",
+                L_min + (1.0 - L_min) * L_raw_mu,
+                None,
+            )
+        )
+
+    k_mu = _draws("k_mu")
+    if k_mu is not None:
+        panels.append(
+            (
+                "Growth rate $k_\\mu$ (per day)"
+                if plot_style.language == "en"
+                else "Taux de croissance $k_\\mu$ (par jour)",
+                k_mu,
+                None,
+            )
+        )
+
+    alpha_raw_mu = _draws("alpha_raw_mu")
+    if alpha_raw_mu is not None:
+        panels.append(
+            (
+                "Harvey shape $\\alpha_\\mu$" if plot_style.language == "en" else "Forme $\\alpha_\\mu$",
+                alpha_raw_mu + 1.0,
+                "$\\alpha = 2$ (logistic)" if plot_style.language == "en" else "$\\alpha = 2$ (logistique)",
+            )
+        )
+
+    s_mu = _draws("s_mu")
+    if s_mu is not None:
+        panels.append(
+            (
+                "Skewness $s_\\mu$" if plot_style.language == "en" else "Asymétrie $s_\\mu$",
+                s_mu,
+                "$s = 0$ (symmetric)" if plot_style.language == "en" else "$s = 0$ (symétrique)",
+            )
+        )
+
+    if not panels:
+        raise ValueError("No population-level hyperparameters found in the posterior.")
+
+    ncols = 2
+    nrows = int(np.ceil(len(panels) / ncols))
+    fig, axes = plt.subplots(nrows, ncols, figsize=(7, 2.5 * nrows))
+    axes_flat = np.atleast_1d(axes).flatten()
+
+    ylabel = "Probability density" if plot_style.language == "en" else "Densité de probabilité"
+
+    for ax, (title, draws, ref_label) in zip(axes_flat, panels):
+        ax.hist(
+            draws,
+            bins=50,
+            density=True,
+            color=plot_style.palette[2],
+            alpha=0.75,
+            edgecolor="white",
+            linewidth=0.4,
+        )
+        median = float(np.median(draws))
+        ax.axvline(
+            median,
+            color=plot_style.accent_color,
+            linewidth=2.0,
+            label=f"{median:.3g}",
+        )
+        if ref_label is not None:
+            ref_value = 2.0 if "alpha" in title or "\\alpha" in title else 0.0
+            ax.axvline(
+                ref_value,
+                color=plot_style.gray_color,
+                linestyle="--",
+                linewidth=1.4,
+                label=ref_label,
+            )
+        ax.set_xlabel(title, fontsize=9 * plot_style.scale)
+        ax.set_ylabel(ylabel, fontsize=8 * plot_style.scale)
+        ax.set_yticks([])
+        ax.grid(True, axis="x")
+        for side in ("top", "right", "left"):
+            ax.spines[side].set_visible(False)
+        ax.legend(fontsize=7.5 * plot_style.scale, loc="upper right")
+
+    for ax in axes_flat[len(panels) :]:
+        ax.set_visible(False)
+
+    fig.tight_layout()
+    return fig, axes_flat
+
+
 def _plot_datapoints(
     ax: plt.Axes,
     data: pd.DataFrame,
@@ -828,15 +1033,19 @@ def _assign_marker_to_baselines(baselines: pd.DataFrame) -> pd.Series:
     def asterisk(numsides):
         return (numsides, 2, 0)
 
+    # Only the number of branches encodes the expertise level.  Committees and the
+    # high-school cohort used to carry a second distinction (polygon vs star, hollow
+    # vs filled), which put up to ten marker meanings on one panel; the inline text
+    # label already names the group, so that channel was redundant.
     map_group_to_marker = {
         "Average Human": star(3),
         "Skilled Generalist": star(4),
         "Domain Expert": star(5),
         "Top Performer": star(6),
-        "Committee of Average Humans": polygon(3),
-        "Committee of Skilled Generalists": polygon(4),
-        "Committee of Domain Experts": polygon(5),
-        "Committee of Top Performers": polygon(6),
+        "Committee of Average Humans": star(3),
+        "Committee of Skilled Generalists": star(4),
+        "Committee of Domain Experts": star(5),
+        "Committee of Top Performers": star(6),
         "High School Qualifier": star(5),
         "High School Top Performer": star(6),
     }
@@ -848,12 +1057,207 @@ def _assign_facecolor_to_baselines(baselines: pd.DataFrame, color: str) -> pd.Se
     """Assign marker alpha to baseline points based on their name."""
 
     def marker_facecolor(group: str, color: str) -> str:
-        if "High School" in group:
-            return "none"
-        else:
-            return color
+        # Previously the high-school cohort was drawn hollow; that distinction now
+        # lives in the text label only, so every baseline marker is filled.
+        return color
 
     return baselines["group"].map(lambda group: marker_facecolor(group, color))
+
+
+# Nearest-neighbour linkage threshold for merging same-group baseline labels, as a
+# fraction of each axis range.  Calibrated on the two cases that matter: closing the
+# chain of seven biology expert baselines into one label needs 0.21, while the two
+# ARC-AGI committee markers, which sit four years apart and must stay separate, are
+# 0.47 apart.
+MERGE_TOL = 0.22
+
+
+def _label_box(
+    ax: Axes,
+    *,
+    x_num: float,
+    y: float,
+    ha: str,
+    size: tuple[float, float],
+) -> tuple[float, float, float, float]:
+    """Return the display-space extent a label would occupy at this anchor."""
+    px, py = ax.transData.transform((x_num, y))
+    w, h = size
+    if ha == "left":
+        x0 = px
+    elif ha == "right":
+        x0 = px - w
+    else:
+        x0 = px - w * 0.5
+    return x0, x0 + w, py - h * 0.5, py + h * 0.5
+
+
+def _measure_labels(
+    ax: Axes,
+    *,
+    labels: list[str],
+    fontsize: float,
+) -> list[tuple[float, float]]:
+    """Return each label's rendered (width, height) in pixels, box padding included.
+
+    Falls back to a character-count estimate when the backend cannot hand back a
+    renderer, so placement degrades to an approximation rather than failing.
+    """
+    fig = ax.figure
+    pad = 0.2 * fontsize * fig.dpi / 72.0  # boxstyle="round,pad=0.2", in font units
+    try:
+        renderer = fig.canvas.get_renderer()
+    except AttributeError:
+        est = 0.58 * fontsize * fig.dpi / 72.0
+        return [(len(t) * est + 2 * pad, fontsize * fig.dpi / 72.0 + 2 * pad) for t in labels]
+
+    sizes: list[tuple[float, float]] = []
+    for text in labels:
+        probe = ax.text(
+            0.5, 0.5, text, fontsize=fontsize, fontweight="bold", transform=ax.transAxes
+        )
+        extent = probe.get_window_extent(renderer)
+        sizes.append((extent.width + 2 * pad, extent.height + 2 * pad))
+        probe.remove()
+    return sizes
+
+
+def _choose_label_placements(
+    ax: Axes,
+    *,
+    annotations: list[dict[str, Any]],
+    label_ys: list[float],
+    observed: pd.DataFrame,
+    markers: list[dict[str, Any]],
+    label_h: float,
+    dx: float,
+    fontsize: float,
+    plot_style: PlotStyle,
+) -> list[tuple[float, float, str]]:
+    """Pick each label's side and height so it hides as little of the panel as possible.
+
+    Placing a label on a fixed side of its marker is what puts it on top of the data:
+    the vertical stack keeps labels apart from each other but knows nothing about where
+    the score markers are, so a label with no vertical displacement at all still lands
+    in the middle of a trajectory.  Here each label is scored against what it would
+    actually cover -- observed scores, baseline markers, its own marker, other labels,
+    the axes edges -- and the cheapest candidate wins, with displacement from the marker
+    priced in so proximity is traded off rather than ignored.
+
+    Returns ``(x in date units, y in data units, horizontal alignment)`` per annotation,
+    in the order given.
+    """
+    x_lo_num, x_hi_num = ax.get_xlim()
+    y_lo, y_hi = ax.get_ylim()
+    x_range = x_hi_num - x_lo_num
+
+    sizes = _measure_labels(ax, labels=[a["label"] for a in annotations], fontsize=fontsize)
+
+    obs_px = np.empty((0, 2))
+    if len(observed):
+        obs_px = ax.transData.transform(
+            np.column_stack(
+                [
+                    mdates.date2num(pd.to_datetime(observed["release_date"])),
+                    observed["score"].to_numpy(dtype=float),
+                ]
+            )
+        )
+    # Every baseline marker, not the annotation anchors: a grouped label's anchor is a
+    # centroid where no marker is drawn, and it is the drawn stars that must stay visible.
+    marker_px = ax.transData.transform(
+        np.array([[m["date_num"], m["score"]] for m in markers], dtype=float)
+    )
+    axes_box = ax.get_window_extent()
+
+    def _count_inside(points: np.ndarray, box: tuple[float, float, float, float]) -> int:
+        if not len(points):
+            return 0
+        x0, x1, y0, y1 = box
+        return int(
+            np.count_nonzero(
+                (points[:, 0] >= x0)
+                & (points[:, 0] <= x1)
+                & (points[:, 1] >= y0)
+                & (points[:, 1] <= y1)
+            )
+        )
+
+    def _overlap(a: tuple[float, float, float, float], b: tuple[float, float, float, float]) -> bool:
+        return not (a[1] <= b[0] or b[1] <= a[0] or a[3] <= b[2] or b[3] <= a[2])
+
+    def _candidates(i: int) -> list[tuple[float, float, str, float]]:
+        """Candidate (x, y, ha, tie-break penalty) placements for annotation ``i``."""
+        ann = annotations[i]
+        date_num = ann["date_num"]
+        near_right = date_num > x_lo_num + 0.70 * x_range
+        if ann.get("grouped", False):
+            # A grouped label names a cluster, so centring it on the centroid reads best;
+            # the offset variants are there for when the centre sits on the data.
+            xs = [(date_num, "center", 0.0), (date_num - dx, "right", 0.3), (date_num + dx, "left", 0.3)]
+        else:
+            default, other = ("left", "right") if near_right else ("right", "left")
+            xs = [
+                (date_num - dx if default == "left" else date_num + dx,
+                 "right" if default == "left" else "left", 0.0),
+                (date_num - dx if other == "left" else date_num + dx,
+                 "right" if other == "left" else "left", 0.3),
+            ]
+        out: list[tuple[float, float, str, float]] = []
+        # One label height is the largest vertical move worth making: beyond that the
+        # leader line has to cross a trajectory band, where it is the same colour as the
+        # curve and disappears, leaving the label floating with nothing to attach it to.
+        for step in (0.0, 1.0, -1.0):
+            y = label_ys[i] + step * label_h
+            if not (y_lo + label_h * 0.5 <= y <= y_hi - label_h * 0.4):
+                continue
+            for x_num, ha, x_pen in xs:
+                out.append((x_num, y, ha, x_pen + abs(step) * 0.6))
+        return out
+
+    # Worst offender first: it gets the pick of the placements, and later labels work
+    # around what it took.
+    initial = [
+        _count_inside(obs_px, _label_box(ax, x_num=c[0], y=c[1], ha=c[2], size=sizes[i]))
+        for i, c in enumerate(
+            [(_candidates(i) or [(annotations[i]["date_num"], label_ys[i], "left", 0.0)])[0]
+             for i in range(len(annotations))]
+        )
+    ]
+    order = sorted(range(len(annotations)), key=lambda i: -initial[i])
+
+    chosen: list[tuple[float, float, str] | None] = [None] * len(annotations)
+    placed_boxes: list[tuple[float, float, float, float]] = []
+
+    for i in order:
+        best: tuple[float, tuple[float, float, str], tuple[float, float, float, float]] | None = None
+        for x_num, y, ha, tie_pen in _candidates(i):
+            box = _label_box(ax, x_num=x_num, y=y, ha=ha, size=sizes[i])
+            cost = (
+                3.0 * _count_inside(obs_px, box)
+                + 4.0 * _count_inside(marker_px, box)
+                + 40.0 * sum(_overlap(box, other) for other in placed_boxes)
+                # Priced so that a label only leaves its marker's own height to clear at
+                # least two data points: moving is worth it, drifting is not.
+                + 2.5 * abs(y - annotations[i]["score"]) / label_h
+                + tie_pen
+            )
+            # Running off the panel is worse than any amount of occlusion.
+            if box[0] < axes_box.x0 or box[1] > axes_box.x1:
+                cost += 200.0
+            if best is None or cost < best[0]:
+                best = (cost, (x_num, y, ha), box)
+        if best is None:  # no candidate fits vertically; keep the stack position
+            date_num = annotations[i]["date_num"]
+            chosen[i] = (date_num + dx, label_ys[i], "left")
+            continue
+        chosen[i] = best[1]
+        placed_boxes.append(best[2])
+
+    # The caller zips this with `annotations`, so dropping an entry would silently
+    # attach every later label to the wrong marker.
+    assert all(c is not None for c in chosen)
+    return [c for c in chosen if c is not None]
 
 
 def _add_baseline_labels(
@@ -861,6 +1265,7 @@ def _add_baseline_labels(
     *,
     baselines: pd.DataFrame,
     preds: pd.DataFrame,
+    observed: pd.DataFrame,
     end_date: pd.Timestamp,
     benchmark_colors: dict[str, str],
     plot_style: PlotStyle,
@@ -950,14 +1355,35 @@ def _add_baseline_labels(
                 }
             )
         else:
-            # Cluster members by consecutive score proximity (≤15pp gap).
+            # Cluster members of the same group by proximity in both axes, so that
+            # markers far apart in time are labelled separately even when they share a
+            # group.  Linkage is nearest-neighbour: a marker joins a cluster when it is
+            # close to *any* of its members, rather than requiring every pair to be
+            # close.  That merges a spread-out family such as the biology experts into
+            # one label, while keeping distant markers apart.
+            x_span = max(ax.get_xlim()[1] - ax.get_xlim()[0], 1e-9)
+            y_span = max(ax.get_ylim()[1] - ax.get_ylim()[0], 1e-9)
+
+            def _gap(a: dict[str, Any], b: dict[str, Any]) -> float:
+                return max(
+                    abs(a["date_num"] - b["date_num"]) / x_span,
+                    abs(a["score"] - b["score"]) / y_span,
+                )
+
             members.sort(key=lambda m: m["score"])
-            clusters: list[list[dict[str, Any]]] = [[members[0]]]
-            for m in members[1:]:
-                if m["score"] - clusters[-1][-1]["score"] <= 0.15:
-                    clusters[-1].append(m)
-                else:
-                    clusters.append([m])
+            clusters = [[m] for m in members]
+            merged = True
+            while merged and len(clusters) > 1:
+                merged = False
+                for i in range(len(clusters)):
+                    for j in range(i + 1, len(clusters)):
+                        if any(_gap(a, b) <= MERGE_TOL for a in clusters[i] for b in clusters[j]):
+                            clusters[i].extend(clusters.pop(j))
+                            clusters[i].sort(key=lambda m: m["score"])
+                            merged = True
+                            break
+                    if merged:
+                        break
 
             for cluster in clusters:
                 if len(cluster) == 1:
@@ -1001,45 +1427,50 @@ def _add_baseline_labels(
     x_range = x_hi_num - x_lo_num
     dx = x_range * 0.023  # small date offset to keep labels close
 
-    # Greedy initial placement: push each new label away from existing ones.
-    label_ys: list[float] = []
-    for ann in annotations:
-        target_y = ann["score"]
-        for _ in range(40):
-            collision = False
-            for prev_y in label_ys:
-                if abs(target_y - prev_y) < label_h:
-                    collision = True
-                    if target_y >= prev_y:
-                        target_y = prev_y + label_h
-                    else:
-                        target_y = prev_y - label_h
-                    break
-            if not collision:
-                break
-        target_y = max(y_lo + label_h * 0.5, min(target_y, y_hi - label_h * 0.5))
-        label_ys.append(target_y)
+    def _place() -> list[float]:
+        """Place labels at least ``label_h`` apart, as close to their markers as possible.
 
-    # Global relaxation: iteratively resolve remaining overlaps.
-    for _ in range(50):
-        moved = False
-        for i in range(len(label_ys)):
-            for j in range(i + 1, len(label_ys)):
-                gap = abs(label_ys[i] - label_ys[j])
-                if gap < label_h:
-                    push = (label_h - gap) / 2 + 0.001
-                    if label_ys[i] <= label_ys[j]:
-                        label_ys[i] -= push
-                        label_ys[j] += push
-                    else:
-                        label_ys[i] += push
-                        label_ys[j] -= push
-                    moved = True
-        # Clamp to axes
-        for i in range(len(label_ys)):
-            label_ys[i] = max(y_lo + label_h * 0.5, min(label_ys[i], y_hi - label_h * 0.5))
-        if not moved:
-            break
+        Resolving collisions by pushing labels apart pairwise, or by hanging them from
+        the top of the axes, can leave a label far below the marker it names: on the
+        AGI-progress panel three baselines fall between 98% and 100%, and the third one
+        ended up fifteen points below its star.  Minimising the total squared
+        displacement instead is the classic isotonic-regression problem -- substituting
+        ``u_r = score_r - r * label_h`` turns the spacing constraints into a
+        monotonicity constraint -- so pool-adjacent-violators gives the exact optimum.
+        Labels that must move end up one label-height from their neighbour, on whichever
+        side of the marker costs least.
+        """
+        order = sorted(range(len(annotations)), key=lambda i: annotations[i]["score"])
+        offsets = [annotations[i]["score"] - r * label_h for r, i in enumerate(order)]
+
+        blocks: list[tuple[float, int]] = []  # (block mean, block size)
+        for value in offsets:
+            blocks.append((value, 1))
+            while len(blocks) > 1 and blocks[-2][0] > blocks[-1][0]:
+                (mean_hi, size_hi), (mean_lo, size_lo) = blocks.pop(), blocks.pop()
+                size = size_lo + size_hi
+                blocks.append(((mean_lo * size_lo + mean_hi * size_hi) / size, size))
+
+        pooled: list[float] = []
+        for mean, size in blocks:
+            pooled.extend([mean] * size)
+
+        ys = [0.0] * len(annotations)
+        for rank, i in enumerate(order):
+            ys[i] = pooled[rank] + rank * label_h
+        return ys
+
+    label_ys = _place()
+
+    # Keep the stack inside the axes by moving or growing them, never by compressing the
+    # stack: squeezing labels back together is what made them overlap in the first place.
+    deficit = (y_lo + label_h * 0.5) - min(label_ys)
+    if deficit > 0:
+        label_ys = [y + deficit for y in label_ys]
+    needed_top = max(label_ys) + label_h * 0.5
+    if needed_top > y_hi:
+        y_hi = needed_top
+        ax.set_ylim(y_lo, y_hi)
 
     bbox = dict(
         boxstyle="round,pad=0.2",
@@ -1051,51 +1482,44 @@ def _add_baseline_labels(
 
     fontsize = 10 if plot_style.document_type == "paper" else 7.5
 
-    # Pre-compute default side for each label (right of marker, or left if
-    # near the right edge).  Then alternate sides for consecutive displaced
-    # labels at similar x-positions to avoid horizontal bbox overlap.
-    last_side: str | None = None
-    last_displaced_x: float | None = None
+    placements = _choose_label_placements(
+        ax,
+        annotations=annotations,
+        label_ys=label_ys,
+        observed=observed,
+        markers=raw_annotations,
+        label_h=label_h,
+        dx=dx,
+        fontsize=fontsize,
+        plot_style=plot_style,
+    )
 
-    for ann, label_y in zip(annotations, label_ys):
+    for ann, (label_x_num, label_y, ha) in zip(annotations, placements):
         date_num = ann["date_num"]
         is_grouped = ann.get("grouped", False)
         displaced = abs(label_y - ann["score"]) > label_h * 0.3
 
-        if is_grouped:
-            # Grouped labels sit at the exact centroid x, centered —
-            # unless the centroid is near the right edge of the plot,
-            # in which case we right-align to avoid overflow.
-            if date_num > x_lo_num + 0.75 * x_range:
-                label_x_num = date_num - dx
-                ha = "right"
-            else:
-                label_x_num = date_num
-                ha = "center"
-        else:
-            # Default side based on position in the plot.
-            if date_num > x_lo_num + 0.70 * x_range:
-                side = "left"
-            else:
-                side = "right"
-
-            # Alternate side when consecutive displaced labels are at similar x.
-            if displaced and last_displaced_x is not None:
-                if abs(date_num - last_displaced_x) < x_range * 0.10:
-                    side = "left" if last_side == "right" else "right"
-
-            if displaced:
-                last_side = side
-                last_displaced_x = date_num
-
-            if side == "left":
-                label_x_num = date_num - dx
-                ha = "right"
-            else:
-                label_x_num = date_num + dx
-                ha = "left"
-
         label_x = mdates.num2date(label_x_num)
+
+        # A label pushed away from its marker by the overlap pass otherwise appears to
+        # point at nothing, and the reader cannot tell which marker it names.  This
+        # happens whenever two baselines share a score, as on ARC-AGI where the skilled
+        # generalist and the committee of average humans both sit at 98% and draw one
+        # visible star between them.  Connect displaced labels to their marker -- but
+        # only individual ones: a grouped label sits at the centroid of its cluster,
+        # where there is no marker for a connector to land on.
+        arrowprops = (
+            dict(
+                arrowstyle="-",
+                color=ann["color"],
+                linewidth=0.6,
+                alpha=0.7,
+                shrinkA=1.0,
+                shrinkB=3.0,
+            )
+            if displaced and not is_grouped
+            else None
+        )
 
         ax.annotate(
             ann["label"],
@@ -1108,6 +1532,7 @@ def _add_baseline_labels(
             ha=ha,
             va="center",
             bbox=bbox,
+            arrowprops=arrowprops,
             zorder=10,
             clip_on=True,
         )

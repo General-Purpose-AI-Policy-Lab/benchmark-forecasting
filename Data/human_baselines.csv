@@ -25,9 +25,9 @@ MMLU Chemistry,Top Performer,0.9,baseline represent the 95th percentile of human
 FrontierMath,Committee of Domain Experts,0.35,solved collectively across all teams (40 exceptional math undergraduates and subject-matter experts) in four and a half hours and with internet access,EpochAI
 MATH Level 5,Domain Expert,0.9,a three-time IMO gold medalist university student,https://arxiv.org/pdf/2103.03874v1
 MATH Level 5,Skilled Generalist,0.4,a computer science PhD student who does not especially like mathematics,https://arxiv.org/pdf/2103.03874v1
-ARC-AGI-1,Average Human,0.77,MTurk,https://arcprize.org/leaderboard
-ARC-AGI-1,Skilled Generalist,0.98,STEM Graduates,https://arcprize.org/leaderboard
-ARC-AGI-1,Committee of Average Humans,0.98,Human panel (at least two participants solved one or more sub-pairs within their first two attempts),https://arcprize.org/leaderboard
+ARC-AGI,Average Human,0.77,MTurk,https://arcprize.org/leaderboard
+ARC-AGI,Skilled Generalist,0.98,STEM Graduates,https://arcprize.org/leaderboard
+ARC-AGI,Committee of Average Humans,0.98,Human panel (at least two participants solved one or more sub-pairs within their first two attempts),https://arcprize.org/leaderboard
 ARC-AGI-2,Committee of Average Humans,1,Human panel,https://arcprize.org/leaderboard
 ARC-AGI-2,Average Human,0.6,average test-taker,https://arcprize.org/arc-agi/2/
 WMDP Biology,Domain Expert,0.6,2 PhDs in-domain,RAND
