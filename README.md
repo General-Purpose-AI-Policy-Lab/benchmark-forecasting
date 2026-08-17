@@ -17,7 +17,7 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 
   All figures in the `Plots/` directory are produced by this notebook.
 
-- **`2_Revision_analyses.ipynb`** (and its jupytext twin `2_Revision_analyses.py`)
+- **`2_Revision_analyses.py`** (jupytext percent format — opens as a notebook in Jupyter, and VS Code reads its `# %%` cells natively)
   Robustness and sensitivity analyses that go beyond the ablations of notebook 1: per-benchmark
   posterior saturation dates and how they shift across the 8 model variants, long-horizon
   retrodiction (cutoffs 2022–2025), prior sensitivity on the upper asymptote $L$, cross-benchmark
@@ -44,8 +44,7 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 .
 ├── 0_Process_benchmarks.ipynb  # Data loading and normalization
 ├── 1_Forecasts.ipynb           # Model fitting, validation, plotting, and sensitivity analyses
-├── 2_Revision_analyses.ipynb   # Robustness analyses (saturation dates, retrodiction, priors, residuals)
-├── 2_Revision_analyses.py      # Jupytext twin of the above; runs in stages from the CLI
+├── 2_Revision_analyses.py      # Robustness analyses (saturation dates, retrodiction, priors, residuals)
 ├── forecasting.py              # Core modeling utilities
 ├── plotting.py                 # Matplotlib plotting utilities
 ├── Data/
@@ -60,16 +59,16 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 │   ├── 2-Forecasts/            # Main forecast trajectories per category (EN paper + FR note)
 │   ├── 3-Calibration/          # Calibration curves for all model variants and retrodiction cutoffs
 │   └── 4-Sensitivity/          # Ablation figures, plus CSV/JSON results from notebooks 1 and 2
-│       └── tables/             # LaTeX tables (default TABLES_DIR; see notebook 2)
+│       └── tables/             # LaTeX tables (default TABLES_DIR; see 2_Revision_analyses.py)
 ├── Fits/                       # Saved model posteriors (NetCDF, gitignored)
 ├── Paper/                      # Bibliography and arXiv preprint sources; other manuscript
 │                               # working material is kept local and gitignored
 └── tmp/                        # Jupytext conversions (gitignored)
 ```
 
-Only `Paper/Benchmark_forecasting.bib`, `Paper/Arxiv/` and `Paper/.latexmkrc` are tracked. Notebook 2
-writes its LaTeX tables to `Plots/4-Sensitivity/tables/` by default; point `TABLES_DIR` at a
-manuscript directory to regenerate them in place:
+Only `Paper/Benchmark_forecasting.bib`, `Paper/Arxiv/` and `Paper/.latexmkrc` are tracked.
+`2_Revision_analyses.py` writes its LaTeX tables to `Plots/4-Sensitivity/tables/` by default; point
+`TABLES_DIR` at a manuscript directory to regenerate them in place:
 
 ```bash
 TABLES_DIR=path/to/manuscript/tables uv run python 2_Revision_analyses.py cheap
