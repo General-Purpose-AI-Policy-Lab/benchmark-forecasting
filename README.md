@@ -15,7 +15,9 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
   4. Runs sensitivity analyses (skew vs normal likelihood, joint vs independent, threshold sensitivity, conformal prediction intervals);
   5. Exports numerical results to JSON.
 
-  All figures in the `Plots/` directory are produced by this notebook.
+  Almost every figure in `Plots/` comes from this notebook; the posterior diagnostics in
+  `Plots/1-High_level/` and the long-horizon calibration curves come from
+  `2_Revision_analyses.py` instead.
 
 - **`2_Revision_analyses.py`** (jupytext percent format — opens as a notebook in Jupyter, and VS Code reads its `# %%` cells natively)
   Robustness and sensitivity analyses that go beyond the ablations of notebook 1: per-benchmark
