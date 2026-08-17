@@ -26,11 +26,22 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
   versions of the tables to `$TABLES_DIR` (see below). Runs in selectable stages so the expensive
   refits can be skipped:
 
+  | Stage | What it does | Cost |
+  |---|---|---|
+  | `cheap` | Saturation dates and variant shifts, posterior figures, residual dependence, lower-bound audit | cached fits only |
+  | `figures` | Redraws the 11 category forecast panels | 1 cached fit |
+  | `retro` | Long-horizon retrodiction (cutoffs 2022–2024) | 3 new MCMC fits |
+  | `priors` | Asymptote-prior sensitivity | 3 new MCMC fits |
+  | `retro8` | All 8 variants at the 2025 cutoff (CRPS, RMSE, coverage, calibration curves) | 8 new MCMC fits |
+  | `cqr` | Grouped repeated CQR at the main cutoff, 100 random benchmark splits × 8 variants | 8 new MCMC fits |
+
   ```bash
-  uv run python 2_Revision_analyses.py cheap    # cached fits only
-  uv run python 2_Revision_analyses.py retro    # long-horizon retrodiction (3 new MCMC fits)
-  uv run python 2_Revision_analyses.py priors   # asymptote-prior sensitivity (3 new MCMC fits)
+  uv run python 2_Revision_analyses.py cheap           # one stage
+  uv run python 2_Revision_analyses.py cheap figures   # or several at once
   ```
+
+  Each stage writes `Plots/4-Sensitivity/revision_analyses_<stage>_<cutoff>.json`. With no
+  argument, `cheap` runs by default.
 
 - **`forecasting.py`**
   Core modeling utilities: model construction (`build_model`), MCMC fitting (`fit`), temporal holdout validation (`temporal_holdout`), scoring (CRPS, RMSE, MAE), forecast generation, and conformal prediction coverage (CQR). Also `saturation_dates` and `saturated_proportion` (posterior saturation timing, by analytic inversion of the fitted sigmoid) and `residual_diagnostics` (cross-benchmark residual correlation, paired by model release).

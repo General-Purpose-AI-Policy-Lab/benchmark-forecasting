@@ -30,9 +30,15 @@
 #
 # ```bash
 # uv run python 2_Revision_analyses.py cheap    # items 1, 6, 7, 20 — cached fits only
-# uv run python 2_Revision_analyses.py retro    # item 2  — 3 new MCMC fits
-# uv run python 2_Revision_analyses.py priors   # item 5  — 3 new MCMC fits
+# uv run python 2_Revision_analyses.py figures  # redraw the 11 category panels — 1 cached fit
+# uv run python 2_Revision_analyses.py retro    # item 2 — 3 new MCMC fits
+# uv run python 2_Revision_analyses.py priors   # item 5 — 3 new MCMC fits
+# uv run python 2_Revision_analyses.py retro8   # 8 variants at the 2025 cutoff — 8 new MCMC fits
+# uv run python 2_Revision_analyses.py cqr      # grouped repeated CQR, 8 variants — 8 new MCMC fits
 # ```
+#
+# Several stages can be combined in one call (`... cheap figures`).  Each stage writes
+# `Plots/4-Sensitivity/revision_analyses_<stage>_<cutoff>.json`.
 
 # %%
 import json
