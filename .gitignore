@@ -8,9 +8,10 @@ Paper/*
 !Paper/.latexmkrc
 !Paper/Arxiv/
 
-# Note figures (FR, generated for internal use, not tracked)
-Plots/0-Note-figures/
+# FR note figures generated into Plots/2-Forecasts/ are duplicates of the paper
+# figures and stay untracked; the curated set in Plots/0-Note-figures/ is tracked.
 *fr_note*
+!Plots/0-Note-figures/**
 
 # Old directories
 **/Old/

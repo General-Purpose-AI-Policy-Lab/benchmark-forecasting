@@ -67,7 +67,7 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 │   ├── benchmarks_lower_bounds.csv # Random-chance baselines per benchmark
 │   └── human_baselines.csv         # Human performance baselines
 ├── Plots/
-│   ├── 0-Note-figures/         # FR note figures (PNG, gitignored)
+│   ├── 0-Note-figures/         # FR note figures (PNG)
 │   ├── 1-High_level/           # Saturation proportion, Harvey asymmetry, hyperparameter and L-interval posteriors
 │   ├── 2-Forecasts/            # Main forecast trajectories per category (EN paper + FR note)
 │   ├── 3-Calibration/          # Calibration curves for all model variants and retrodiction cutoffs
