@@ -1,112 +1,112 @@
 Model version,EM,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Shots,Notes,Source,Source link,id
-,0.633,,,,,,Palmyra X (43B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec4CueQU1xHD6ywH
-code-davinci-002,0.568,2022-03-15,OpenAI,United States of America,2.578e+24,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI,code-davinci-002,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recC9RJ4GUYLfhNZC
-,0.531,,,,,,gpt-3.5-turbo-0301,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recDLPnJQLx5mPIau
-text-davinci-003,0.506,2022-11-28,,,,,text-davinci-003,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec8hZWOfPZGc8t7Q
+,0.633,,,,,,Palmyra X (43B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec4CueQU1xHD6ywH
+code-davinci-002,0.568,2022-03-15,OpenAI,United States of America,2.578e+24,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI,code-davinci-002,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recC9RJ4GUYLfhNZC
+,0.531,,,,,,gpt-3.5-turbo-0301,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recDLPnJQLx5mPIau
+text-davinci-003,0.506,2022-11-28,,,,,text-davinci-003,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec8hZWOfPZGc8t7Q
 Llama-2-70b-hf ,0.484,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
 
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
-Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",Llama 2 (70B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recXJZtKCyb4P4SVF
-gpt-3.5-turbo-0613,0.469,2023-06-13,OpenAI,United States of America,,,gpt-3.5-turbo-0613,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recqp1V0mwUdsVRem
-LLaMA-65B,0.466,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA (65B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recroBXEiAHrbJ0G6
-text-davinci-002,0.415,2022-03-15,OpenAI,United States of America,2.578e+24,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI,text-davinci-002,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recoDKfXnKDzKIo3R
-Mistral-7B-v0.1,0.381,2023-09-27,Mistral AI,France,,,Mistral v0.1 (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recHcwXx5qAtSwauC
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",Llama 2 (70B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recXJZtKCyb4P4SVF
+gpt-3.5-turbo-0613,0.469,2023-06-13,OpenAI,United States of America,,,gpt-3.5-turbo-0613,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recqp1V0mwUdsVRem
+LLaMA-65B,0.466,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA (65B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recroBXEiAHrbJ0G6
+text-davinci-002,0.415,2022-03-15,OpenAI,United States of America,2.578e+24,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI,text-davinci-002,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recoDKfXnKDzKIo3R
+Mistral-7B-v0.1,0.381,2023-09-27,Mistral AI,France,,,Mistral v0.1 (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recHcwXx5qAtSwauC
 mpt-30b-instruct,0.344,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
-""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT-Instruct (30B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reciGMGxgYhthpF6j
+""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT-Instruct (30B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reciGMGxgYhthpF6j
 falcon-40b-instruct,0.338,2023-05-25,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
 
 Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
 
-2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon-Instruct (40B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rece6CXnlwtcJqjXw
-LLaMA-33B,0.32,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA (30B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recftyEtwpgppPQJY
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon-Instruct (40B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rece6CXnlwtcJqjXw
+LLaMA-33B,0.32,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA (30B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recftyEtwpgppPQJY
 falcon-40b,0.25,2023-03-15,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
 
 Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
 
-2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon (40B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reciN3EJDuJw028OV
-Llama-2-13b,0.245,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,Llama 2 (13B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recpxfs0xcllEJeu8
-vicuna-13b-v1.3,0.226,2023-06-18,"Large Model Systems Organization,University of California (UC) Berkeley",United States of America,,,Vicuna v1.3 (13B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3Y7X7VdJ4nw0QX
-,0.225,,,,,,Jurassic-2 Jumbo (178B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recyyp4t07UQ3ZaH5
-,0.171,,,,,,Anthropic-LM v4-s3 (52B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recQaQcqamlu5PKSd
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon (40B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reciN3EJDuJw028OV
+Llama-2-13b,0.245,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,Llama 2 (13B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recpxfs0xcllEJeu8
+vicuna-13b-v1.3,0.226,2023-06-18,"Large Model Systems Organization,University of California (UC) Berkeley",United States of America,,,Vicuna v1.3 (13B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3Y7X7VdJ4nw0QX
+,0.225,,,,,,Jurassic-2 Jumbo (178B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recyyp4t07UQ3ZaH5
+,0.171,,,,,,Anthropic-LM v4-s3 (52B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recQaQcqamlu5PKSd
 mpt-30b,0.164,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
-""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT (30B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recth8oFuGYbZWmt3
+""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT (30B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recth8oFuGYbZWmt3
 LLaMA-13B,0.154,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
 
 from paper, Llama-13B took 135,168 GPU hours using A100s
 
 312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
 This implies that the actual utilization was:
-MFU = 7.8e22/1.518e23 = 0.514",LLaMA (13B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec376aACcpELpmU8
-,0.146,,,,,,TNLG v2 (530B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recKwouXHcxopeJf1
-,0.138,,,,,,Cohere Command beta (52.4B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3SmeOMNoW5COjL
-,0.134,,,,,,Vicuna v1.3 (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recEecB1UymnGAnoH
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA (13B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec376aACcpELpmU8
+,0.146,,,,,,TNLG v2 (530B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recKwouXHcxopeJf1
+,0.138,,,,,,Cohere Command beta (52.4B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3SmeOMNoW5COjL
+,0.134,,,,,,Vicuna v1.3 (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recEecB1UymnGAnoH
 Llama-2-70b-hf ,0.133,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
 
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
-Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",Llama 2 (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recOJI8uhjSL51VhF
-,0.133,,,,,,Jurassic-2 Grande (17B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec7OERRU92S60XcW
-,0.112,,,,,,Luminous Supreme (70B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recF0xxpBLdkHHTBY
-,0.1,,,,,,Cohere xlarge v20221108 (52.4B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rect1yJAE3NqA5La5
-,0.096,,,,,,J1-Grande v2 beta (17B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recgExIqpdbU2tFdY
-bloom,0.095,2022-07-06,"Hugging Face,BigScience","France,United States of America",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",Llama 2 (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recOJI8uhjSL51VhF
+,0.133,,,,,,Jurassic-2 Grande (17B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec7OERRU92S60XcW
+,0.112,,,,,,Luminous Supreme (70B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recF0xxpBLdkHHTBY
+,0.1,,,,,,Cohere xlarge v20221108 (52.4B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rect1yJAE3NqA5La5
+,0.096,,,,,,J1-Grande v2 beta (17B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recgExIqpdbU2tFdY
+bloom,0.095,2022-07-06,"Hugging Face,BigScience","United States of America,France",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
 
 384 A100 GPUs * 314 TFLOPS throughput per GPU * 117 days * 0.3 (utilization assumption) = 3.65664e23
-https://www.wolframalpha.com/input?i=384+*+314+TFLOPS+*+117+days+*+0.3",BLOOM (176B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recAoaesoiJO7uTlT
+https://www.wolframalpha.com/input?i=384+*+314+TFLOPS+*+117+days+*+0.3",BLOOM (176B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recAoaesoiJO7uTlT
 davinci,0.09,,OpenAI,United States of America,3.14e+23,"Table D.1
-https://arxiv.org/abs/2005.14165",davinci (175B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recN3MvbzHfDJYOx0
+https://arxiv.org/abs/2005.14165",davinci (175B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recN3MvbzHfDJYOx0
 LLaMA-7B,0.08,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
-",LLaMA (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reczTfwmbEvxPqfHI
-,0.07,,,,,,Cohere xlarge v20220609 (52.4B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recrUXH7eLjFY4EFu
-,0.067,,,,,,Luminous Extended (30B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reclof9kk0IAc7WDr
-,0.063,,,,,,InstructPalmyra (30B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recmKV4Tds6c5lIOE
-,0.061,,,,,,GLM (130B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reckbpG01XNBl7qdp
-,0.054,,,,,,J1-Jumbo v1 (178B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec7RaORATBvc6IMl
-,0.054,,,,,,J1-Grande v1 (17B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3W8elfDYkMa3w5
-,0.053,,,,,,GPT-NeoX (20B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recSmCfOfOFtxYCEG
-,0.052,,,,,,Falcon-Instruct (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recPY25oC8cF7JPUD
-,0.049,,,,,,code-cushman-001 (12B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recsGPbcax6JOyzhx
+",LLaMA (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reczTfwmbEvxPqfHI
+,0.07,,,,,,Cohere xlarge v20220609 (52.4B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recrUXH7eLjFY4EFu
+,0.067,,,,,,Luminous Extended (30B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reclof9kk0IAc7WDr
+,0.063,,,,,,InstructPalmyra (30B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recmKV4Tds6c5lIOE
+,0.061,,,,,,GLM (130B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reckbpG01XNBl7qdp
+,0.054,,,,,,J1-Jumbo v1 (178B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec7RaORATBvc6IMl
+,0.054,,,,,,J1-Grande v1 (17B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3W8elfDYkMa3w5
+,0.053,,,,,,GPT-NeoX (20B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recSmCfOfOFtxYCEG
+,0.052,,,,,,Falcon-Instruct (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recPY25oC8cF7JPUD
+,0.049,,,,,,code-cushman-001 (12B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recsGPbcax6JOyzhx
 opt-175b,0.04,2022-05-02,Meta AI,United States of America,4.3e+23,"https://github.com/facebookresearch/metaseq/blob/main/projects/OPT/chronicles/final_update.md
 
-""As of yesterday, at 12:46pm PST on January 6, our 175B model finally completed its training run on 300B tokens. This required ~4.30E+23 FLOPs of compute""",OPT (175B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec5Tmjxxco3f4pmV
+""As of yesterday, at 12:46pm PST on January 6, our 175B model finally completed its training run on 300B tokens. This required ~4.30E+23 FLOPs of compute""",OPT (175B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec5Tmjxxco3f4pmV
 falcon-7b,0.04,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
 ""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
 
 Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
 
-730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recaVUOlS9XK6d01V
-,0.036,,,,,,Cohere Command beta (6.1B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec57vShxJRf01fKT
-,0.036,,,,,,GPT-J (6B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recNsIcYRc5CWdusZ
-,0.032,,,,,,Pythia (12B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recIpwVJzviyRFcS1
-,0.03,,,,,,Jurassic-2 Large (7.5B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recgzzYoN2Obu06FX
-,0.026,,,,,,Luminous Base (13B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec9lz6MoFiMtzQqG
-,0.024,,,,,,UL2 (20B),,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recAvetQksEkPeMk3
-,0.023,,,,,,T5 (11B),,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recMSiJgORxKn1mQg
-,0.021,,,,,,RedPajama-INCITE-Base (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recqOdjgXKSTdUfyz
-,0.018,,,,,,TNLG v2 (6.7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recB2wlUPM4E0D3qB
-opt-66b,0.018,2022-05-03,Meta AI,United States of America,1.100000000001e+23,"OPT-66B was trained for 140k steps, using a batch size of 2M tokens (see the OPT baselines logbook and Table 1 in Zhang et al. (2022), respectively), so training took 140e3 ∗ 2e6 ∗ 66e9 ∗ 6 = 1.1e23 FLOP",OPT (66B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recNXn5TKfIeDBCX1
-,0.018,,,,,,Cohere large v20220720 (13.1B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recRe4sqJ9eCgfgO7
-,0.017,,,,,,Cohere medium v20221108 (6.1B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3OZAHG2RCDqVZG
-,0.016,,,,,,RedPajama-INCITE-Instruct (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec0RRaE0qUMJBpPU
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recaVUOlS9XK6d01V
+,0.036,,,,,,Cohere Command beta (6.1B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec57vShxJRf01fKT
+,0.036,,,,,,GPT-J (6B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recNsIcYRc5CWdusZ
+,0.032,,,,,,Pythia (12B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recIpwVJzviyRFcS1
+,0.03,,,,,,Jurassic-2 Large (7.5B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recgzzYoN2Obu06FX
+,0.026,,,,,,Luminous Base (13B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec9lz6MoFiMtzQqG
+,0.024,,,,,,UL2 (20B),,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recAvetQksEkPeMk3
+,0.023,,,,,,T5 (11B),,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recMSiJgORxKn1mQg
+,0.021,,,,,,RedPajama-INCITE-Base (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recqOdjgXKSTdUfyz
+,0.018,,,,,,TNLG v2 (6.7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recB2wlUPM4E0D3qB
+opt-66b,0.018,2022-05-03,Meta AI,United States of America,1.100000000001e+23,"OPT-66B was trained for 140k steps, using a batch size of 2M tokens (see the OPT baselines logbook and Table 1 in Zhang et al. (2022), respectively), so training took 140e3 ∗ 2e6 ∗ 66e9 ∗ 6 = 1.1e23 FLOP",OPT (66B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recNXn5TKfIeDBCX1
+,0.018,,,,,,Cohere large v20220720 (13.1B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recRe4sqJ9eCgfgO7
+,0.017,,,,,,Cohere medium v20221108 (6.1B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3OZAHG2RCDqVZG
+,0.016,,,,,,RedPajama-INCITE-Instruct (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec0RRaE0qUMJBpPU
 curie,0.016,,OpenAI,United States of America,1.2e+22,"Table D.1
-https://arxiv.org/abs/2005.14165",curie (6.7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recG9AtQzNyxmyNcN
-,0.015,,,,,,Cohere medium v20220720 (6.1B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recJFFrPczWzQmiBR
-,0.014,,,,,,Pythia (6.9B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recRuFpBQ6ExADb5h
-,0.014,,,,,,J1-Large v1 (7.5B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recfTVUoayvro0LCh
-,0.012,,,,,,Alpaca (7B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recHIR8DMclXpho37
-,0.011,,,,,,RedPajama-INCITE-Instruct-v1 (3B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recgstza6y5IkJb4W
-,0.01,,,,,,RedPajama-INCITE-Base-v1 (3B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reckFHsWLvLSdMn74
+https://arxiv.org/abs/2005.14165",curie (6.7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recG9AtQzNyxmyNcN
+,0.015,,,,,,Cohere medium v20220720 (6.1B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recJFFrPczWzQmiBR
+,0.014,,,,,,Pythia (6.9B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recRuFpBQ6ExADb5h
+,0.014,,,,,,J1-Large v1 (7.5B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recfTVUoayvro0LCh
+,0.012,,,,,,Alpaca (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recHIR8DMclXpho37
+,0.011,,,,,,RedPajama-INCITE-Instruct-v1 (3B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recgstza6y5IkJb4W
+,0.01,,,,,,RedPajama-INCITE-Base-v1 (3B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,reckFHsWLvLSdMn74
 babbage,0.007,2020-06-22,OpenAI,United States of America,2.38e+21,"Table D.1
-https://arxiv.org/abs/2005.14165",babbage (1.3B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec2iML006beoMXFn
+https://arxiv.org/abs/2005.14165",babbage (1.3B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec2iML006beoMXFn
 ada,0.006,,OpenAI,United States of America,6.41e+20,"Table D.1
-https://arxiv.org/abs/2005.14165",ada (350M),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recV2EaPfHNBvr0hb
-text-curie-001,0.006,,OpenAI,United States of America,,,text-curie-001,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec191CB0bMuoPuGK
-,0.004,,,,,,Cohere small v20220720 (410M),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recjNFwom3HA53xs5
-text-ada-001,0.004,,OpenAI,United States of America,,,text-ada-001,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec0V8SZd0uPBlgyp
-text-babbage-001,0.0,,OpenAI,United States of America,,,text-babbage-001,5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recPnofjm1vlqkfwp
-,0.0,,,,,,T0pp (11B),,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recF8TzpBQW5P8RoY
-,0.0,,,,,,YaLM (100B),5,,Standford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3Ozt3KxljpCaIz
+https://arxiv.org/abs/2005.14165",ada (350M),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recV2EaPfHNBvr0hb
+text-curie-001,0.006,,OpenAI,United States of America,,,text-curie-001,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec191CB0bMuoPuGK
+,0.004,,,,,,Cohere small v20220720 (410M),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recjNFwom3HA53xs5
+text-ada-001,0.004,,OpenAI,United States of America,,,text-ada-001,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec0V8SZd0uPBlgyp
+text-babbage-001,0.0,,OpenAI,United States of America,,,text-babbage-001,5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recPnofjm1vlqkfwp
+,0.0,,,,,,T0pp (11B),,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,recF8TzpBQW5P8RoY
+,0.0,,,,,,YaLM (100B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/gsm,rec3Ozt3KxljpCaIz
 Llama-2-7b,0.146,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
 
 C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.

@@ -9,10 +9,10 @@ Epoch AI, ‘AI Benchmarking Hub’. Published online at epoch.ai. Retrieved fro
 ### BibTeX Citation
 ```
 @misc{EpochLLMBenchmarkingHub2024,
-  title = {AI Benchmarking Hub},
+  title = {{AI Benchmarking Hub}},
   author = {{Epoch AI}},
   year = {2026},
-  month = {04},
+  month = {08},
   url = {https://epoch.ai/benchmarks}
 }
 ```

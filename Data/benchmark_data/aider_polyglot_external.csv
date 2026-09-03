@@ -16,13 +16,13 @@ DeepSeek-V3.2-Exp_thinking,74.2,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24
 
 Then, ""this framework allocates a
 post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",92.4,diff,0.0058,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,,,recdHPvT3QOnVioE2
-gpt-5-2025-08-07_low,81.3,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_low,81.3,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",86.7,diff,0.22,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,,,recUEmzrfcnLZAiii
-gpt-5-2025-08-07_medium,86.7,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_medium,86.7,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",88.4,diff,0.079,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,,,recESWz46G8mPRBRc
-gpt-5-2025-08-07_high,88.0,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_high,88.0,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",91.6,diff,0.13,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,,,recusk6NHwVicJ6kW
 o3-2025-04-16_medium,76.9,2025-04-16,OpenAI,United States of America,,,93.8,diff,0.061,Aider LLM Leaderboards,https://aider.chat/docs/leaderboards/#polyglot-leaderboard,,,,rec6DP0rm1WZjXNb1

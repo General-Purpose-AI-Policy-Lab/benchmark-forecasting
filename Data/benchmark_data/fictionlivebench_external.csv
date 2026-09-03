@@ -70,7 +70,7 @@ https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scroll
 This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
 
 In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",1.0,0.944,0.833,0.833,0.833,0.722,0.639,0.639,0.667,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recxY9ZAuaCjDhXWj
-gpt-5-2025-08-07_medium,0.969,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_medium,0.969,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",1.0,0.972,0.944,0.972,0.972,1.0,0.972,0.972,1.0,0.875,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,rec5ebPSkPFSMrFog
 gpt-5-mini-2025-08-07_medium,0.625,2025-08-07,OpenAI,United States of America,,,1.0,0.972,0.889,0.806,0.778,0.667,0.694,0.639,0.611,0.594,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recD4lezAe4h8rXLG
@@ -81,7 +81,15 @@ grok-4-0709,0.969,2025-07-09,xAI,United States of America,5.0000000000001e+26,"W
 The geometric mean is (rounded to one sig fig): 5e26
 ",1.0,0.972,1.0,0.889,0.944,1.0,0.944,0.917,0.972,0.844,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,rec1710QvfYzhnUy3
 grok-4-fast,0.75,2025-09-19,xAI,United States of America,,,1.0,1.0,0.944,1.0,0.972,0.944,0.944,0.917,0.806,0.781,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recSUyk1OUgBytYVw
-kimi-k2.5,0.781,2026-01-27,Moonshot,China,,,1.0,1.0,1.0,1.0,0.944,0.889,0.861,0.889,0.889,0.875,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,High reasoning,recEJI420l5GzobVI
+kimi-k2.5,0.781,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",1.0,1.0,1.0,1.0,0.944,0.889,0.861,0.889,0.889,0.875,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,High reasoning,recEJI420l5GzobVI
 o1-2024-12-17_medium,0.531,2024-12-17,OpenAI,United States of America,,,1.0,0.972,1.0,0.944,0.944,0.861,0.833,0.833,0.722,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recGwARcoUTbSBMel
 o3-2025-04-16_medium,1.0,2025-04-16,OpenAI,United States of America,,,1.0,1.0,1.0,1.0,1.0,1.0,0.889,1.0,0.833,0.581,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming medium reasoning effort,rectq32FQAnUPr23W
 o3-mini-2025-01-31_medium,0.438,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",1.0,0.639,0.583,0.472,0.472,0.5,0.5,0.556,0.444,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recz82I1vqPvL5SHN

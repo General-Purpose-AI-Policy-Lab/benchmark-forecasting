@@ -43,7 +43,7 @@ claude-instant-1.2,0.688,2023-08-09,Anthropic,United States of America,,,Claude 
 claude-instant-1.2,0.732,2023-08-09,Anthropic,United States of America,,,Claude Instant 1.2,5,Releasing Claude Instant 1.2,https://www.anthropic.com/news/releasing-claude-instant-1-2,,rece9mgHXM0QhmiDh
 CodeQwen1.5-7B,0.405,2024-04-15,,,,,CodeQwen1.5-7B,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recBAF9M2T4QfIHAR
 c4ai-command-r-08-2024,0.652,2024-08-30,,,,,Command R,5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recalVfY5uZ17cXy1
-c4ai-command-r-plus-08-2024,0.694,2024-08-30,"Cohere,Cohere for AI",Canada,,,Command R Plus,5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,rectFxVzTinEXE5UP
+c4ai-command-r-plus-08-2024,0.694,2024-08-30,"Cohere,Cohere Labs (formerly Cohere for AI)",Canada,,,Command R Plus,5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,rectFxVzTinEXE5UP
 ,0.741,,,,,,DBRX Instruct,5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recNBl9C5PMTK1z60
 ,0.725,,,,,,DeepSeek LLM Chat (67B),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recSzBzlqINbmZstc
 DeepSeek-V3,0.872,2024-12-26,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
@@ -494,17 +494,17 @@ Mistral-7B-v0.1,0.625,2023-09-27,Mistral AI,France,,,Mistral 7B,5,Mixtral of Exp
 Mistral-7B-v0.1,0.601,2023-09-27,Mistral AI,France,,,Mistral 7B,5,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recobovxkli2yXD7Q
 Mistral-7B-v0.1,0.617,2023-09-27,Mistral AI,France,,,Mistral 7b             ,5,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recrKIaLtBWuoRKy0
 Mistral-7B-Instruct-v0.3,0.599,2024-05-27,Mistral AI,France,,,Mistral Instruct v0.3 (7B),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recxGM6lCcs0CnKWO
-mistral-large-2402,0.688,2024-02-26,Mistral AI,France,1.12e+25,"https://www.wsj.com/tech/ai/the-9-month-old-ai-startup-challenging-silicon-valleys-giants-ee2e4c48
+mistral-large-2402,0.688,2024-02-26,Mistral AI,France,,"https://www.wsj.com/tech/ai/the-9-month-old-ai-startup-challenging-silicon-valleys-giants-ee2e4c48
 
-Mistral spent <20 million euro (meaning approximately 20 million?) to train Mistral Large:
+Mistral spent <20 million euro (meaning approximately 20 million?) to train Mistral Large.
 
-https://x.com/EMostaque/status/1762152740938031484?s=20
-""assuming this is on H100s with @Scaleway who are €1.9/hour => 10m H100 hours (c 30m A100 hrs), 3 months at 4k H100s :timer_clock:"" -Emad Mostaque
 
 Assuming bf16 or fp16, H100 SXM performance is 989 TFLOPS
 At 1.9 euro per H100-hour and 30% utilization, spending 20M euro produces 1.12*10^25 FLOP.
 https://www.wolframalpha.com/input?i=20+million+%2F+%281.9%2Fhour%29+*+989+TFLOPS+*+0.30 ",Mistral Large (2402),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recMfHwyb3g0GU3WP
-mistral-large-2407,0.8,2024-07-24,Mistral AI,France,2.13e+25,"Details are sparse, but we can hazard a guess based on evidence about the training cluster they may have used, the scale up in compute they likely would have used relative to Mistral Large 1, and from the model's MMLU score. Extended reasoning given here: https://docs.google.com/document/d/1I2ZWBLFMpRZYcdMMUfKAGZFJrOJpduNDS9ZeVFIHnd8/edit?usp=sharing",Mistral Large 2 (2407),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recKDxkbfoASopZz7
+mistral-large-2407,0.8,2024-07-24,Mistral AI,France,,"[Editor's note: this record previously contained a training compute estimate of ~1e25 FLOP. This is better described as an upper bound instead. See note below for details]
+
+Details are sparse, but we can hazard a guess based on evidence about the training cluster they may have used, the scale up in compute they likely would have used relative to Mistral Large 1, and from the model's MMLU score. Extended reasoning given here: https://docs.google.com/document/d/1I2ZWBLFMpRZYcdMMUfKAGZFJrOJpduNDS9ZeVFIHnd8/edit?usp=sharing",Mistral Large 2 (2407),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recKDxkbfoASopZz7
 ,0.653,,,,,,Mistral NeMo (2402),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,reccvR6S88KxSkuED
 mistral-small-2402,0.687,2024-02-26,,,,,Mistral Small (2402),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recKStU0sPWNiLWCM
 Mistral-7B-v0.1,0.566,2023-09-27,Mistral AI,France,,,Mistral v0.1 (7B),5,Stanford CRFM Leaderboard,https://crfm.stanford.edu/helm/lite/latest/#/leaderboard/mmlu,,recdbbEpQDnuQx1SM

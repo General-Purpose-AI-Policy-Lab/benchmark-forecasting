@@ -58,7 +58,9 @@ sqrt(7.48062e+24*6.3e+24) = 6.8649768e+24",recqRhjWWfSXwVHbY,50.75,36.59,42.24,4
 gemma-3-27b-it,49.99,2025-03-12,Google DeepMind,United States of America,2.268e+24,6ND =  6 * 27B parameters * 14T training tokens = 2.268 × 10^24 FLOP,recOyXHP5UWsgi4xw,43.75,39.87,55.39,51.45,34.59,74.9,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemma-3-27b-it
 ,49.18,,,,,,recIYtAnRrJZ0fcOh,37.0,45.15,45.84,54.27,43.16,69.62,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,grok-beta
 claude-3-opus-20240229,49.16,2024-02-29,Anthropic,United States of America,,Training compute estimated to be 1.64e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,recllZLsRVWcJ9ofq,40.58,38.59,43.62,57.89,50.39,63.89,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,claude-3-opus-20240229
-mistral-large-2411,48.43,2024-11-18,Mistral AI,France,2.13e+25,"Details are sparse, but we can hazard a guess based on evidence about the training cluster they may have used, the scale up in compute they likely would have used relative to Mistral Large 1, and from the model's MMLU score. Extended reasoning given here: https://docs.google.com/document/d/1I2ZWBLFMpRZYcdMMUfKAGZFJrOJpduNDS9ZeVFIHnd8/edit?usp=sharing",recrBUHMIocn0t6te,43.5,47.08,42.55,50.15,39.39,67.93,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,mistral-large-2411
+mistral-large-2411,48.43,2024-11-18,Mistral AI,France,,"[Editor's note: this record previously contained a training compute estimate of ~1e25 FLOP. This is better described as an upper bound instead. See note below for details]
+
+Details are sparse, but we can hazard a guess based on evidence about the training cluster they may have used, the scale up in compute they likely would have used relative to Mistral Large 1, and from the model's MMLU score. Extended reasoning given here: https://docs.google.com/document/d/1I2ZWBLFMpRZYcdMMUfKAGZFJrOJpduNDS9ZeVFIHnd8/edit?usp=sharing",recrBUHMIocn0t6te,43.5,47.08,42.55,50.15,39.39,67.93,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,mistral-large-2411
 sonar,46.88,,,,,,receeu3ATJSDcWmNq,46.25,35.15,41.63,37.91,44.12,76.23,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,perplexity-sonar
 Qwen2.5-Coder-32B-Instruct,46.23,2024-11-21,Alibaba,China,1.0725e+24,"Assuming 1 epoch
 
@@ -93,7 +95,7 @@ trained on 13T tokens
 6ND = 6*27000000000*13000000000000=2.106e+24",rec65t7mJTi9ef4zU,28.08,35.95,26.46,47.87,32.62,58.1,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemma-2-27b-it
 amazon.nova-lite-v1:0,36.35,2024-12-03,Amazon,United States of America,,,recZ9vtVonvV3qGLO,36.67,27.46,36.7,37.23,25.93,54.13,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,amazon.nova-lite-v1:0
 ,34.9,,,,,,recJgbOmrotKr2ZE5,28.42,38.37,39.51,35.22,15.8,52.11,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwen2.5-7b-instruct-turbo
-c4ai-command-r-plus-08-2024,31.76,2024-08-30,"Cohere,Cohere for AI",Canada,,,recp6SMmvnWO1UAo7,24.75,19.14,21.27,38.06,29.73,57.61,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,command-r-plus-08-2024
+c4ai-command-r-plus-08-2024,31.76,2024-08-30,"Cohere,Cohere Labs (formerly Cohere for AI)",Canada,,,recp6SMmvnWO1UAo7,24.75,19.14,21.27,38.06,29.73,57.61,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,command-r-plus-08-2024
 amazon.nova-micro-v1:0,29.59,2024-12-03,Amazon,United States of America,,,recYbm1OGUQKd0CUI,25.08,20.18,34.49,33.95,15.78,48.04,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,amazon.nova-micro-v1:0
 gemma-2-9b-it,28.66,2024-06-24,Google DeepMind,United States of America,4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
 

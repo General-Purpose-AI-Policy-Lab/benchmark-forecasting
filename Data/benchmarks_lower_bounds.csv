@@ -74,9 +74,32 @@ WMDP Chemistry;25 %;4-option MCQ across subjects;https://www.wmdp.ai
 MultiNRC;0 %;LLM-judged short-answer tasks;https://scale.com/research/multinrc
 MultiChallenge;0 %;LLM-judged multi-turn conversations;https://scale.com/leaderboard/multichallenge
 AudioMultiChallenge;0 %;LLM-judged multi-turn audio conversations;https://scale.com/leaderboard/audiomc
-EnigmaEval;0 %;Exact-match puzzle answers;https://scale.com/leaderboard/enigma_eval
 Visual Task Assessment (VISTA);0 %;LLM-judged visual tasks;https://scale.com/leaderboard/visual_language_understanding
 TutorBench;0 %;LLM-judged tutoring;https://scale.com/leaderboard/tutorbench
 APEX Agents;0 %;Rubric-graded professional tasks;https://epoch.ai/benchmarks/apex-agents/
 GDPVal;0 %;Win+tie rate against expert baselines;https://epoch.ai/benchmarks/gdpval
 PostTrainBench;0 %;Post-training improvement score;https://posttrainbench.com/
+ForecastBench;50 %;Brier Index ou 50 % = pronostic non informe (doc Epoch);https://epoch.ai/benchmarks/forecastbench
+MindCube;32,35 %;Ligne "Random (chance)" du leaderboard officiel;https://mind-cube.github.io/
+SpatialViz-Bench;25 %;QCM a 4 options (A/B/C/D dans le code d'extraction officiel);https://github.com/wangst0181/Spatial-Visualization-Benchmark
+Blueprint-Bench 2;0 %;Scores <= baseline aleatoire clampes a 0 par les auteurs;https://epoch.ai/benchmarks/blueprint-bench-2
+CritPt;0 %;Formats guess-resistant (tableaux numeriques, expressions symboliques);https://epoch.ai/benchmarks/critpt
+ProofBench;0 %;Preuves Lean 4 verifiees par le compilateur;https://epoch.ai/benchmarks/proofbench
+DeepSWE;0 %;Verificateurs programmatiques;https://epoch.ai/benchmarks/deepswe
+FrontierCode;0 %;Rubrique avec criteres bloquants;https://epoch.ai/benchmarks/frontiercode
+CursorBench;0 %;Edition de code en reponse libre;https://epoch.ai/benchmarks/cursorbench
+MirrorCode;0 %;Reimplementation complete, sortie identique a la reference;https://epoch.ai/benchmarks/mirrorcode
+GBAEval;0 %;Ecriture d'un emulateur, note par replay;https://epoch.ai/benchmarks/gbaeval
+ExploitBench;0 %;Fraction de flags atteints;https://epoch.ai/benchmarks/exploitbench
+OSWorld 2.0;0 %;Tache entierement reussie (tous les checkpoints);https://epoch.ai/benchmarks/osworld-2
+SciCode;0 %;Code Python devant passer des tests;https://epoch.ai/benchmarks/scicode
+Surface Evolver Bench;0 %;Pass rate, tous les checks doivent passer;https://epoch.ai/benchmarks/surface-evolver-bench
+GDP.pdf;0 %;Rubriques de criteres atomiques, reponse libre;https://epoch.ai/benchmarks/gdp-pdf
+CL-bench;0 %;Toutes les rubriques d'une tache doivent passer;https://epoch.ai/benchmarks/cl-bench
+CL-bench Life;0 %;Idem CL-bench;https://epoch.ai/benchmarks/cl-bench-life
+Mystery Game Puzzles;0 %;Non determinable (jeu et positions non publies), 0 par defaut;https://epoch.ai/benchmarks/mystery-game-puzzles
+DrugDiscoveryBench;0 %;Taches agentiques, reponse unique verifiable (nombre, SMILES, ranking);https://labs.scale.com/leaderboard/drugdiscoverybench
+HiL-Bench;0 %;Pass@3 sur taches agentiques SWE et text-to-SQL verifiees;https://labs.scale.com/leaderboard/hil
+SWE Atlas Codebase QnA;0 %;Resolution notee sur rubrique, tous les criteres requis;https://labs.scale.com/leaderboard/sweatlas-qna
+SWE Atlas Refactoring;0 %;Tests qui passent + criteres obligatoires de rubrique;https://labs.scale.com/leaderboard/sweatlas-refactoring
+SWE Atlas Test Writing;0 %;Manifest verification + mutation testing + rubrique;https://labs.scale.com/leaderboard/sweatlas-tw

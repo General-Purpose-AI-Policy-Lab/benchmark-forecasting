@@ -4,7 +4,7 @@ claude-opus-4-5-20251101,0.455,0.5959599999999999,2025-11-24,Anthropic,United St
 claude-opus-4-1-20250805,0.436,0.47576,2025-08-05,Anthropic,United States of America,,,Claude Opus 4.1,rechImbYYM7BaW9f2
 claude-sonnet-4-5-20250929,0.425,0.502525,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5,recgGv7NYJkLHPSjn
 gemini-3-pro-preview,0.40299999999999997,0.535354,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro,recpJDfwotqNLiCaw
-gpt-5-2025-08-07_medium,0.348,0.37996,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_medium,0.348,0.37996,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5,recA9mPzDrm2XCNZc
 o3-2025-04-16_medium,0.308,0.34057000000000004,2025-04-16,OpenAI,United States of America,,,o3,rec92NYmhzWbgq0aG

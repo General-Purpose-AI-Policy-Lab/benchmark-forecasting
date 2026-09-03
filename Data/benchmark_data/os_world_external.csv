@@ -1,5 +1,15 @@
 Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Agent,Source,Source link,Notes (details),Date added,Trajectories
 ,65.4,,,,,,agi-0 (50 steps),OS World Website,https://os-world.github.io/,,2025-11-16,
+claude-sonnet-4-6,72.1,2026-02-17,Anthropic,United States of America,,,claude-sonnet-4-6 (100 steps),OS World Website,https://os-world.github.io/,,,
+kimi-k2.5,,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5 (100 steps),OS World Website,https://os-world.github.io/,,,
 claude-sonnet-4-5-20250929,62.9,2025-09-29,Anthropic,United States of America,,,claude-sonnet-4-5-20250929 (100 steps),OS World Website,https://os-world.github.io/,,2025-10-30,
 claude-sonnet-4-5-20250929,58.1,2025-09-29,Anthropic,United States of America,,,claude-sonnet-4-5-20250929 (50 steps),OS World Website,https://os-world.github.io/,,2025-10-30,
 ,53.9,,,,,,DeepMiner-Mano-72B (100 steps),OS World Website,https://os-world.github.io/,,2025-10-30,
@@ -58,4 +68,12 @@ Qwen2.5-VL-72B-Instruct,4.4,2024-09-19,Alibaba,China,7.8e+24,"Training dataset s
 ,3.9,,,,,,qwen2.5-vl-32b-instruct (100 steps),OS World Website,https://os-world.github.io/,,2025-07-27,
 ,3.0,,,,,,qwen2.5-vl-32b-instruct (15 steps),OS World Website,https://os-world.github.io/,,2025-07-27,
 claude-opus-4-5-20251101,66.3,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5,Anthropic annoucement,https://www.anthropic.com/news/claude-opus-4-5,,2025-11-25,
-kimi-k2.5,63.3,2026-01-27,Moonshot,China,,,Kimi-K2.5,OS World Website,https://os-world.github.io/,,2026-02-03,
+kimi-k2.5,63.3,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi-K2.5,OS World Website,https://os-world.github.io/,,2026-02-03,

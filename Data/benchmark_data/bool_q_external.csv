@@ -155,7 +155,7 @@ This implies that the actual utilization was:
 MFU = 7.8e22/1.518e23 = 0.514",LLaMA (13B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,rec8uZxM89GP1el28
 ,0.713,,,,,,RedPajama-INCITE-Base (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,recjNKU5sEcFWlNXL
 ,0.705,,,,,,RedPajama-INCITE-Instruct (7B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,recmg2FxS47biEbAo
-bloom,0.704,2022-07-06,"Hugging Face,BigScience","France,United States of America",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
+bloom,0.704,2022-07-06,"Hugging Face,BigScience","United States of America,France",3.65664e+23,"https://bigscience.huggingface.co/blog/bloom Blog post says 117 days.
 
 384 A100 GPUs * 314 TFLOPS throughput per GPU * 117 days * 0.3 (utilization assumption) = 3.65664e23
 https://www.wolframalpha.com/input?i=384+*+314+TFLOPS+*+117+days+*+0.3",BLOOM (176B),5,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/boolq,recAvnz7EM41lTjc4

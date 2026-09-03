@@ -1,15 +1,19 @@
 Model version,Time horizon,Release date,Organization,Country,Training compute (FLOP),Training compute notes,CI_high,CI_low,Source,Source link,average_score,Notes,Time Horizon (80%),METR version,id
+claude-mythos-preview-early,1044.780145,2026-04-07,Anthropic,United States of America,,,3304.261235,508.876789,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,,0.85205,,185.911829,METR-Horizon-v1.1,recW9gDVlpPKxhewo
 claude-opus-4-6_unknown,718.80683,2026-02-05,Anthropic,United States of America,,,3949.750392,319.32091,,,0.788644,,69.874587,METR-Horizon-v1.1,recF8cs4o1pSE7d15
+gemini-3.1-pro-preview,384.147435,2026-02-19,Google DeepMind,United States of America,,,694.750898,233.50073,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,,0.77035,,89.801503,METR-Horizon-v1.1,recVAgCABLb9qKDM9
 gpt-5.2-2025-12-11_high,352.249302,2025-12-11,OpenAI,United States of America,,,862.339204,191.31908,,,0.752875,,66.002649,METR-Horizon-v1.1,rect0q40LX3bSJ36F
 gpt-5.3-codex,349.530732,2026-02-05,OpenAI,United States of America,,,858.325814,192.048863,,,0.745439,,54.739407,METR-Horizon-v1.1,recLuqsMcBzVzYHTQ
+gpt-5.4-2026-03-05_unknown,341.735276,2026-03-05,OpenAI,United States of America,,,768.779526,186.581591,,,0.743443,,53.877851,METR-Horizon-v1.1,recPEtP2SPnSo2EJr
+gpt-5.4-2026-03-05_xhigh,341.735276,2026-03-05,OpenAI,United States of America,,,768.779526,186.581591,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,,0.743443,,53.877851,METR-Horizon-v1.1,recVtYP9KdMolGtGf
 claude-opus-4-5-20251101,292.994594,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,638.619623,160.539157,,,0.73007,,49.430584,METR-Horizon-v1.1,recTbrNrOzFe3rE8x
 claude-opus-4-5-20251101_16K,288.904952,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1225.190511,108.873592,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.74969,,,,recPjuZumaNjbylqU
 gemini-3-pro-preview,224.325884,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,387.478199,136.865815,,,0.709822,,54.142849,METR-Horizon-v1.1,rec9ydnu1B0h4VV1V
-gpt-5-2025-08-07_high,203.012577,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_high,203.012577,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",406.743053,114.211156,,,0.693697,,38.312431,METR-Horizon-v1.1,recf6lql8VssXVJPx
 gpt-5.1-codex-max,161.753349,2025-11-19,OpenAI,United States of America,,,348.268743,74.813807,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.715789,,,,recio8mNX4NbLwCsZ
-gpt-5-2025-08-07_medium,137.318539,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_medium,137.318539,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",271.115115,66.869835,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.696053,,,,recNwo7dbEyB1crye
 claude-sonnet-4-5-20250929_16K,121.946588,2025-09-29,Anthropic,United States of America,,,254.328258,56.041225,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,0.673842,,,,recwCLGT9Kr3iDcqu
