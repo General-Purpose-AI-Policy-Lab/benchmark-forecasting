@@ -13,11 +13,14 @@ kimi-k3_max,1524.47,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models s
 
 K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",kimi-k3-max,1.281554,,88.2944,3.4222,84.8723,328.4,recPTGSK6832BNjII
 gpt-5.4-2026-03-05_medium,1520.72,2026-03-05,OpenAI,United States of America,,,gpt-5.4-medium,0.26258,,23.9929,7.3261,16.6669,321.07,rec6y7fVydiA2X9U9
+grok-4.6_xhigh,1508.08,2026-08-12,xAI,United States of America,,,grok-4.6-xhigh,0.24005,,42.8426,3.259,39.5836,316.98,recnZJup9M0H9yYwP
 claude-sonnet-5_high,1463.12,2026-06-30,Anthropic,United States of America,,,claude-sonnet-5-high,0.96046,,67.3612,4.1632,63.198,356.27,rec4QpFWnpOanOnNm
 claude-opus-4-8_none,1411.83,2026-05-28,Anthropic,United States of America,,,claude-4.8-opus-no-thinking,0.421746,,20.2004,4.1632,16.0372,365.7,recw5YfULeyAfAYgR
+deepseek-v4-pro-0813_max,1403.15,2026-08-13,DeepSeek,China,9.702e+24,From https://api-docs.deepseek.com/news/news260813/: built on the DeepSeek-V4-Pro (Preview) model structure with a DSpark speculative-decoding module; agent-focused post-training upgrades. Pre-training compute carried over from DeepSeek-V4-Pro (6 * 49e9 active parameters * 33e12 tokens = 9.702E24).,deepseek-v4-pro-0813-max,0.072764,,85.272,3.0482,82.2238,375.35,receNOu1SaASh6NZL
 gemini-3-flash-preview,1367.2,2025-12-17,Google DeepMind,United States of America,,,gemini-3-flash-preview-high,0.091067,,33.2479,3.2603,29.9876,388.55,recfMGg7Kvqpid4qZ
 claude-sonnet-4-6_medium,1327.3,2026-02-17,Anthropic,United States of America,,,claude-4.6-sonnet-medium,1.770753,,162.211,55.201,107.01,421.05,rec79auRfHPVtkKyP
 claude-opus-4-7,1323.05,2026-04-16,Anthropic,United States of America,,,claude-4.7-opus-no-thinking,0.224549,,12.3165,4.1682,8.1483,397.45,recy14NQpCEvMvUAx
+glm-5.3_high,1317.4,2026-08-14,Z.ai (Zhipu AI),China,,,glm-5.3-high,0.284001,,67.1225,3.4042,63.7183,412.48,recNCRjM56K1cVX2R
 grok-4.5_high,1309.28,2026-07-08,xAI,United States of America,,,grok-4.5-high,0.176767,,32.3465,3.4772,28.8693,406.35,recTr2zSEcDvzbwvB
 deepseek-v4-flash-0731_max,1306.08,2026-07-31,DeepSeek,China,2.496e+24,"From https://api-docs.deepseek.com/updates/: ""DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained.""
 
@@ -47,11 +50,12 @@ deepseek-v4-pro_high,1006.08,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active
 gpt-5.4-nano-2026-03-17_high,1004.52,2026-03-17,OpenAI,United States of America,,,gpt-5.4-nano-high,0.027084,,24.3781,2.98,21.3981,575.6,rec9SvDfW1FDfMZ6h
 claude-opus-4-6,996.5,2026-02-05,Anthropic,United States of America,,,claude-4.6-opus-no-thinking,0.061688,,5.1533,3.3572,1.7961,571.3,recYZMZozZDvmw4y5
 Inkling,946.0,2026-07-15,Thinking Machines,United States of America,1.845e+24,6ND = 41e9 active parameters * 45e12 tokens = 1.845e+24 FLOP,inkling-max,0.202548,,55.7165,7.2171,48.4994,601.9,rec9Usn4fwoVZrJbE
-grok-4-3,944.17,2026-04-17,xAI,United States of America,,,grok-4.3,0.055799,,24.0658,3.0132,21.0526,590.83,reczLlezoqIBH2cwe
+grok-4.3_unknown,944.17,2026-04-17,xAI,United States of America,,,grok-4.3,0.055799,,24.0658,3.0132,21.0526,590.83,reczLlezoqIBH2cwe
 o3-2025-04-16_high,933.55,2025-04-16,OpenAI,United States of America,,,o3-high,0.103474,,15.2839,2.98,12.3039,594.5,recxPLRj9LORsZ4hq
 gemma-4-26b-a4b,927.17,2026-04-02,Google DeepMind,United States of America,,,gemma-4-26b-a4b-it,0.009725,,27.3503,4.5004,22.8499,592.62,recatyI2kjiCX3JZJ
 gemma-4-31b-it,925.5,2026-04-02,Google DeepMind,United States of America,,,gemma-4-31b-it,0.00475,,14.0371,3.3277,10.7095,590.02,recRBJmJYtgEGyP5M
-gemini-3.5-flash_high,911.02,2026-05-19,Google,United States of America,,,gemini-3.5-flash-high,0.441921,,51.8804,3.2603,48.6201,566.17,recqmNjSqCngkNswY
+gemini-3.5-flash_high,911.02,2026-05-19,Google DeepMind,United States of America,,,gemini-3.5-flash-high,0.441921,,51.8804,3.2603,48.6201,566.17,recqmNjSqCngkNswY
+gemini-3.7-flash_high,904.3,2026-08-13,Google DeepMind,United States of America,,,gemini-3.7-flash-high,0.243628,,35.1103,3.2603,31.85,561.48,recocjfk7wUzbsucJ
 mimo-v2.5-pro,899.8,,Xiaomi Corp,China,6.804e+24,6 FLOPS/token/active parameter * 27e12 tokens * 42e9 active parameters = 6.804E24 FLOP,mimo-v2.5-pro,0.102977,,37.1647,3.1441,34.0206,615.67,recregiKTmVaqrBkO
 glm-5.1,887.1,2026-04-07,Z.ai (Zhipu AI),China,,,glm-5.1,0.12937,,31.9284,3.0028,28.9256,613.4,recZnRHVnR4hKTTVy
 kimi-k2.7-code,886.23,2026-06-12,Moonshot,China,,,kimi-k2.7-code,0.184743,,48.4326,2.9264,45.5061,588.52,rec4wsb1ZD4xGsic4
@@ -102,7 +106,7 @@ MiniMax-M2.1,623.83,2025-12-23,MiniMax,China,,,minimax-m2.1,0.05359,,47.8882,3.5
 qwen3.5-plus,621.92,2026-02-16,Alibaba,China,,,qwen3.5-397b-a17b,0.03981,,13.7706,3.2546,10.516,713.95,recnZ9X6dzou95O2Z
 MiniMax-M2.5,618.17,2026-02-12,MiniMax,China,,,minimax-m2.5,0.036658,,33.1086,2.9153,30.1933,718.15,rec42FtxIr02i8ymQ
 MiniMax-M2.7,599.25,2026-03-18,MiniMax,China,,,minimax-m2.7,0.047177,,41.9118,3.0283,38.8835,732.75,recxlSP1YCTC8EWDT
-kimi-k2-thinking,597.5,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",kimi-k2-thinking,0.087819,,51.3565,20.9699,30.3866,717.88,rec12bf4Di9CdFcWo
+kimi-k2-thinking,597.5,2025-11-06,Moonshot,China,4.1999999999999997e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",kimi-k2-thinking,0.087819,,51.3565,20.9699,30.3866,717.88,rec12bf4Di9CdFcWo
 grok-code-fast-1,587.73,2025-08-28,,,,,grok-code-fast-1,0.008947,,8.9098,3.0902,5.8196,761.2,recbNjBcKr8QDUSq1
 gpt-oss-120b,575.62,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
 (2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
@@ -137,12 +141,13 @@ glm-4.6,340.82,2025-09-30,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,6
 qwen3.6-flash,326.4,2026-04-27,Alibaba,China,,,qwen3.6-flash,0.035628,,26.4632,3.2538,23.2094,820.55,recfF5fHwXAQjWfmf
 gemini-2.5-flash-lite-preview-06-17-thinking,325.9,2025-06-17,Google DeepMind,United States of America,,,gemini-2.5-flash-lite-thinking,0.011091,,30.3665,3.2603,27.1062,815.98,rec8Y7bVTallu536A
 deepseek-v4-flash_none,324.98,2026-04-24,DeepSeek,China,2.496e+24,6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training,deepseek-v4-flash-no-thinking,0.000882,,5.2134,2.9562,2.2572,820.05,recWsgZQjBL5E6mbZ
+glm-5.3-flash_high,303.55,2026-08-20,Z.ai (Zhipu AI),China,,,glm-5.3-flash-high,0.010869,,23.9748,3.0098,20.965,812.88,recuPsUOAayyoYdDf
 moonshotai/kimi-k2-0905,267.12,2025-09-05,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,kimi-k2-0905,0.008051,,5.4443,2.9264,2.5179,832.52,rec7ES6bAyOQJGeOi
 mistral-large-2512,264.7,2025-12-02,Mistral AI,France,,,mistral-large-3-2512,0.005104,,5.4823,3.1195,2.3628,839.0,recyERFlruRqxpyzN
 amazon.nova-lite-v1:0,236.25,2024-12-03,Amazon,United States of America,,,nova-2-lite-v1,0.004156,,4.2199,2.9063,1.3136,847.48,recDn1v3tPnzJqBcR
 qwen3.5-flash,221.8,2026-02-25,Alibaba,China,,,qwen3.5-35b-a3b,0.03787,,21.782,3.2538,18.5282,845.98,recEk656rx6DJXFA2
 nemotron-3-super,213.9,2026-03-11,NVIDIA,United States of America,,,nemotron-3-super,0.008207,,18.9185,3.1305,15.788,838.0,rec81MFJjUipO1wMs
-mistral-medium-2508,210.18,2025-08-12,,,,,mistral-medium-3.1,0.007372,,6.1817,3.1195,3.0622,848.05,recSrNJEdMR2lieIW
+mistral-medium-2508,210.18,2025-08-12,Mistral AI,France,,,mistral-medium-3.1,0.007372,,6.1817,3.1195,3.0622,848.05,recSrNJEdMR2lieIW
 Llama-4-Maverick-17B-128E-Instruct-FP8,172.97,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
 
 https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   

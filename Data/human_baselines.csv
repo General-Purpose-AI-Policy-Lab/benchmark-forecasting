@@ -28,16 +28,16 @@ MATH Level 5,Skilled Generalist,0.4,a computer science PhD student who does not 
 ARC-AGI,Average Human,0.77,MTurk,https://arcprize.org/leaderboard
 ARC-AGI,Skilled Generalist,0.98,STEM Graduates,https://arcprize.org/leaderboard
 ARC-AGI,Committee of Average Humans,0.98,Human panel (at least two participants solved one or more sub-pairs within their first two attempts),https://arcprize.org/leaderboard
-ARC-AGI-2,Committee of Average Humans,1,Human panel,https://arcprize.org/leaderboard
+ARC-AGI-2,Committee of Average Humans,1.0,Human panel,https://arcprize.org/leaderboard
 ARC-AGI-2,Average Human,0.6,average test-taker,https://arcprize.org/arc-agi/2/
 WMDP Biology,Domain Expert,0.6,2 PhDs in-domain,RAND
 WMDP Chemistry,Domain Expert,0.43,2 PhDs in-domain,RAND
-LAB-Bench Cloning,Domain Expert,0.60,PhDs in-domain,RAND
-LAB-Bench LitQA2,Domain Expert,0.70,PhDs in-domain,RAND
+LAB-Bench Cloning,Domain Expert,0.6,PhDs in-domain,RAND
+LAB-Bench LitQA2,Domain Expert,0.7,PhDs in-domain,RAND
 LAB-Bench Protocol,Domain Expert,0.79,PhDs in-domain,RAND
 LAB-Bench SeqQA,Domain Expert,0.78,PhDs in-domain,RAND
 BioLP-bench,Domain Expert,0.38,have at least a bachelor degree in a relevant field and hands-on laboratory experience,RAND
-VPCT,Average Human,1,three volunteers,EpochAI
+VPCT,Average Human,1.0,three volunteers,EpochAI
 PubMedQA,Domain Expert,0.78,single annotator,https://arxiv.org/pdf/2505.06108
 PIQA,Committee of Skilled Generalists,0.949,majority vote of top annotators,https://arxiv.org/pdf/1911.11641
 OpenBookQA,Average Human,0.92,probability from random human subjects,https://arxiv.org/pdf/1809.02789
@@ -58,3 +58,6 @@ ScienceQA,Average Human,0.884,MTurk with high school or higher degree and who ha
 GSM8K,Skilled Generalist,0.9677,qualified human annotators who have passed a qualification exam with at least a bachelor’sdegree,https://aclanthology.org/2024.acl-long.163.pdf
 OTIS Mock AIME 2024-2025,High School Qualifier,0.53,average score by high school students from the OTIS program (percentage from number of questions answered),https://web.evanchen.cc/exams/sols-OTIS-Mock-AIME-2025.pdf
 OTIS Mock AIME 2024-2025,High School Top Performer,0.93,top scorer from the OTIS program (percentage from number of questions answered),https://web.evanchen.cc/exams/sols-OTIS-Mock-AIME-2025.pdf
+EBR-bench,Top Performer,1.0,"Best of 13 human participants (10 playthroughs, best of final two scored; 21/21 objectives reached on 5th playthrough)",https://epoch.ai/data/ebr_bench/topline_scores.csv
+EBR-bench,Average Human,0.5275,"Mean topline of 13 participants with mixed prior experience, 11.08/21 objectives (90% CI 7.67-14.49), Epoch human baseline study Jul-Aug 2026",https://epoch.ai/data/ebr_bench/topline_scores.csv
+SimpleBench,Top Performer,0.954,Highest Human Score reported on the official leaderboard,https://simple-bench.com/

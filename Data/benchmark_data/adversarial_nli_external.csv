@@ -44,7 +44,7 @@ text-davinci-001,0.354,2022-01-27,OpenAI,United States of America,3.19181e+23,""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3         ,,,,0,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,rectdKW9XkJ6YqRKY
-Megatron-Turing NLG 530B,0.366,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+Megatron-Turing NLG 530B,0.366,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
@@ -57,7 +57,7 @@ text-davinci-001,0.339,2022-01-27,OpenAI,United States of America,3.19181e+23,""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3         ,,,,1,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,recahBXKhmGNiqjFA
-Megatron-Turing NLG 530B,0.397,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+Megatron-Turing NLG 530B,0.397,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
@@ -70,7 +70,7 @@ text-davinci-001,0.34,2022-01-27,OpenAI,United States of America,3.19181e+23,"""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3         ,,,,few,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,rec3lMHRJFfrxLZFJ
-Megatron-Turing NLG 530B,0.396,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+Megatron-Turing NLG 530B,0.396,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23

@@ -80,9 +80,9 @@ Since these are close, we will use the 6NC estimate and derive hardware utilizat
 
 Later they say they measured 326W power usage per chip, which could maybe be used to estimate utilization.",GLaM,0,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,recEoJmc12bQ9cfIJ
 gpt-3.5-turbo-1106,0.86,2023-11-06,OpenAI,United States of America,,,GPT-3.5 version 1106   ,10,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec39keFceUY6rwsC
-gpt-j-6b,0.382,2021-08-05,"EleutherAI,LAION","United States of America,Germany",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,"0
+gpt-j-6b,0.382,2021-08-05,"EleutherAI,LAION","Germany,United States of America",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,"0
 ",XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,rec9RxSC1PV3tdeZJ
-gpt-neo-2.7B,0.232,2023-03-30,EleutherAI,United States of America,7.9e+21,"source: https://www.aitracker.org/
+gpt-neo-2.7B,0.232,2021-03-30,EleutherAI,United States of America,7.9e+21,"source: https://www.aitracker.org/
 
 6 FLOP / token / parameter * 2.7 * 10^9 parameters * 420000000000 tokens [see dataset size notes] = 6.804e+21 FLOP",GPT-Neo-2.7B,0,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recPK1fpfiUrqmnGQ
 gpt-neox-20b,0.388,2022-04-07,EleutherAI,United States of America,9.31627008e+22,Trained for 3 months on 96 A100s (according to correspondence with author). Let's say 0.4 utilization rate.,GPT-neox-20B,"0
@@ -182,11 +182,11 @@ Mistral-7B-v0.1,0.798,2023-09-27,Mistral AI,France,,,Mistral 7b             ,10,
 Mixtral-8x7B-v0.1,0.858,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
 
 6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7b           ,10,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recSGILLdlIug5JEV
-mpt-7b,0.514,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,"0
+mpt-7b,0.514,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,"0
 ",Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recf1oPTFEEiXW0lC
-mpt-7b,0.418,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,"0
+mpt-7b,0.418,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,"0
 ",XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recwkbIifsqHWBylq
-mpt-7b,0.314,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,rec8wCqr8Hi1klVLR
+mpt-7b,0.314,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,rec8wCqr8Hi1klVLR
 mpt-30b,0.52,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
 ""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,"0
 ",Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,rec8lDHmcxKwxjWvp

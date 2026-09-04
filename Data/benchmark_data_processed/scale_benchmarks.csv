@@ -17,6 +17,7 @@ Qwen 3.7 Max (mini-SWE-agent) xhigh,0.293,,Alibaba,DrugDiscoveryBench,2.5,Scale
 Claude Opus 4.6 (Claude Code) max,0.27699999999999997,,Anthropic,DrugDiscoveryBench,6.7,Scale
 Claude Sonnet 4.6 (Claude Code) max,0.24,,Anthropic,DrugDiscoveryBench,0.7,Scale
 MiniMax M3 (mini-SWE-agent) xhigh,0.228,,,DrugDiscoveryBench,4.6,Scale
+Claude Fable 5.1,0.615,,Anthropic,HiL-Bench,6.47,Scale
 Claude Opus 5,0.57,,Anthropic,HiL-Bench,5.48,Scale
 Claude Fable 5,0.5633,,Anthropic,HiL-Bench,5.5,Scale
 GLM 5.2,0.43670000000000003,,,HiL-Bench,5.65,Scale
@@ -33,6 +34,7 @@ GPT-5.4,0.0967,,,HiL-Bench,3.87,Scale
 Minimax-M2.5,0.0633,,,HiL-Bench,3.35,Scale
 GPT-5.3-codex,0.0433,,,HiL-Bench,2.94,Scale
 Opus 5 (Claude Code) xHigh,0.6317,,Anthropic,SWE Atlas Codebase QnA,5.01,Scale
+Fable-5.1 (Claude Code) xHigh,0.5995,,Anthropic,SWE Atlas Codebase QnA,4.85,Scale
 Opus 4.8 (Claude Code) xhigh,0.5726,,Anthropic,SWE Atlas Codebase QnA,4.93,Scale
 GLM 5.2 (Mini-SWE-Agent),0.48119999999999996,,,SWE Atlas Codebase QnA,5.07,Scale
 GPT-5.6-Sol (Codex) xHigh,0.46,,,SWE Atlas Codebase QnA,5.0,Scale
@@ -53,6 +55,7 @@ Gemini 3.1 Pro (Mini-SWE-Agent),0.135,,Google,SWE Atlas Codebase QnA,3.9,Scale
 Kimi K2.5 (Mini-SWE-Agent),0.131,,,SWE Atlas Codebase QnA,4.1,Scale
 Minimax M2.5 (Mini-SWE-Agent),0.10300000000000001,,,SWE Atlas Codebase QnA,3.5,Scale
 Gemini 3 Flash (Mini-SWE-Agent),0.08199999999999999,,Google,SWE Atlas Codebase QnA,3.3,Scale
+Fable-5.1 (Claude Code) xHigh,0.5667,,Anthropic,SWE Atlas Refactoring,6.52,Scale
 Fable-5 (Claude Code) xHigh,0.5476,,Anthropic,SWE Atlas Refactoring,6.76,Scale
 Opus-4.7 (Claude Code),0.4857,,Anthropic,SWE Atlas Refactoring,6.73,Scale
 Opus 4.8 (Claude Code),0.4667,,Anthropic,SWE Atlas Refactoring,6.75,Scale
@@ -67,6 +70,7 @@ Glm-5 (Mini-SWE-Agent),0.24239999999999998,,,SWE Atlas Refactoring,6.27,Scale
 Kimi-K2.5 (Mini-SWE-Agent),0.2095,,,SWE Atlas Refactoring,6.0,Scale
 Minimax-M2.5 (Mini-SWE-Agent),0.19519999999999998,,,SWE Atlas Refactoring,5.89,Scale
 Gemini-3-Flash (Mini-SWE-Agent),0.1,,Google,SWE Atlas Refactoring,4.8,Scale
+Fable-5.1 (Claude Code) xHigh,0.6704000000000001,,Anthropic,SWE Atlas Test Writing,5.33,Scale
 Opus 5 (Claude Code) xHigh,0.6222,,Anthropic,SWE Atlas Test Writing,5.58,Scale
 Fable-5 (Claude Code) xHigh,0.556,,Anthropic,SWE Atlas Test Writing,5.8,Scale
 Opus 4.8 (Claude Code) xhigh,0.4963,,Anthropic,SWE Atlas Test Writing,5.93,Scale
@@ -144,11 +148,12 @@ glm-4.6,0.0967,,,SWE-Bench Pro,2.15,Scale
 llama4-maverick-17b-instruct,0.0524,,Meta,SWE-Bench Pro,1.24,Scale
 codestral-2405,0.0151,,,SWE-Bench Pro,1.51,Scale
 Muse Spark 1.1,0.5501,,,PRBench Finance,0.14,Scale
-claude-fable-5 (max),0.5386,,Anthropic,PRBench Finance,0.14,Scale
+claude-fable 5,0.5386,,Anthropic,PRBench Finance,0.14,Scale
 claude-opus-4-6 (Non-Thinking),0.5328,,Anthropic,PRBench Finance,0.18,Scale
 Muse Spark,0.5244,,,PRBench Finance,0.06,Scale
 gpt-5,0.5132,,,PRBench Finance,0.17,Scale
 gpt-5-pro,0.5106,,,PRBench Finance,0.59,Scale
+Fable 5.1 (xHigh),0.508,,,PRBench Finance,0.22,Scale
 gpt-5.6-sol (max),0.5045000000000001,,,PRBench Finance,0.33,Scale
 o3-pro,0.49079999999999996,,OpenAI,PRBench Finance,0.79,Scale
 gpt-5.1-thinking,0.48009999999999997,,,PRBench Finance,0.09,Scale
@@ -175,9 +180,10 @@ deepseek-r1-0528,0.3267,,DeepSeek,PRBench Finance,0.64,Scale
 gpt-4.1-mini,0.3045,,OpenAI,PRBench Finance,0.42,Scale
 llama4-maverick-instruct-basic,0.2236,,Meta,PRBench Finance,0.42,Scale
 Muse Spark 1.1,0.5705,,,PRBench Legal,0.22,Scale
-claude-fable-5 (max),0.5256000000000001,,Anthropic,PRBench Legal,0.54,Scale
+claude-fable 5,0.5256000000000001,,Anthropic,PRBench Legal,0.54,Scale
 Muse Spark,0.5229,,,PRBench Legal,0.06,Scale
 claude-opus-4-6 (Non-Thinking),0.5227,,Anthropic,PRBench Legal,0.66,Scale
+Fable 5.1 (xHigh),0.516,,,PRBench Legal,0.24,Scale
 gpt-5.6-sol (max),0.505,,,PRBench Legal,0.54,Scale
 gpt-5-pro,0.4989,,,PRBench Legal,0.36,Scale
 o3-pro,0.49670000000000003,,OpenAI,PRBench Legal,0.5,Scale
@@ -191,10 +197,10 @@ gemini-3.1-pro,0.44020000000000004,,Google,PRBench Legal,1.12,Scale
 kimi-k2.5,0.43829999999999997,,,PRBench Legal,0.18,Scale
 gemini-2.5-pro,0.4143,,Google,PRBench Legal,0.2,Scale
 gemini-2.5-flash,0.4102,,Google,PRBench Legal,0.61,Scale
-kimi-k2-thinking,0.409,,,PRBench Legal,0.26,Scale
 claude-sonnet-4-5-20250929,0.40840000000000004,,Anthropic,PRBench Legal,0.4,Scale
-gemini-3-pro-preview,0.406,,Google,PRBench Legal,0.28,Scale
 gpt-oss-120b,0.4021,,,PRBench Legal,2.07,Scale
+kimi-k2-thinking,0.409,,,PRBench Legal,0.26,Scale
+gemini-3-pro-preview,0.406,,Google,PRBench Legal,0.28,Scale
 mistral-medium-latest,0.39549999999999996,,Mistral,PRBench Legal,0.91,Scale
 qwen.qwen3-235b-a22b-2507-v1:0,0.38299999999999995,,Alibaba,PRBench Legal,0.43,Scale
 o4-mini,0.3811,,,PRBench Legal,0.69,Scale
@@ -205,6 +211,7 @@ kimi-k2-instruct,0.3638,,,PRBench Legal,0.25,Scale
 claude-opus-4-1-20250805,0.34,,Anthropic,PRBench Legal,2.54,Scale
 gpt-4.1-mini,0.3038,,OpenAI,PRBench Legal,0.55,Scale
 llama4-maverick-instruct-basic,0.2484,,Meta,PRBench Legal,0.9,Scale
+Fable 5.1 (xhigh),0.465,,,Humanity's Last Exam,2.0,Scale
 gemini-3.1-pro-preview (thinking high),0.4644,,Google,Humanity's Last Exam,1.96,Scale
 gpt-5.4-pro-2026-03-05,0.4432,,,Humanity's Last Exam,1.95,Scale
 Muse Spark,0.4056,,,Humanity's Last Exam,1.92,Scale
@@ -224,8 +231,8 @@ gpt-5-mini-2025-08-07,0.19440000000000002,,,Humanity's Last Exam,1.55,Scale
 o3 (medium) (April 2025),0.192,,OpenAI,Humanity's Last Exam,1.54,Scale
 claude-opus-4-6 (Non-Thinking),0.19,,Anthropic,Humanity's Last Exam,1.54,Scale
 Gemini 2.5 Pro Experimental (March 2025),0.1816,,Google,Humanity's Last Exam,1.51,Scale
-Gemini 2.5 Pro Preview (May 06 2025),0.17800000000000002,,Google,Humanity's Last Exam,1.5,Scale
 o4-mini (high) (April 2025),0.1808,,,Humanity's Last Exam,1.51,Scale
+Gemini 2.5 Pro Preview (May 06 2025),0.17800000000000002,,Google,Humanity's Last Exam,1.5,Scale
 o4-mini (medium) (April 2025),0.14279999999999998,,,Humanity's Last Exam,1.37,Scale
 claude-opus-4-5-20251101,0.1416,,Anthropic,Humanity's Last Exam,1.37,Scale
 claude-sonnet-4-5-20250929-thinking,0.13720000000000002,,Anthropic,Humanity's Last Exam,1.35,Scale
@@ -235,8 +242,8 @@ Gemini 2.5 Flash Preview (May 2025),0.1096,,Google,Humanity's Last Exam,1.22,Sca
 Claude Opus 4 (Thinking),0.1072,,Anthropic,Humanity's Last Exam,1.21,Scale
 gemini-3.1-flash-lite-preview,0.0864,,Google,Humanity's Last Exam,1.1,Scale
 glm-4p5,0.0832,,,Humanity's Last Exam,1.08,Scale
-o1 Pro,0.0812,,OpenAI,Humanity's Last Exam,1.07,Scale
 glm-4p5-air,0.0812,,,Humanity's Last Exam,1.07,Scale
+o1 Pro,0.0812,,OpenAI,Humanity's Last Exam,1.07,Scale
 Claude 3.7 Sonnet (Thinking),0.08039999999999999,,Anthropic,Humanity's Last Exam,1.07,Scale
 o1 (December 2024),0.0796,,OpenAI,Humanity's Last Exam,1.06,Scale
 claude-opus-4-1-20250805,0.07919999999999999,,Anthropic,Humanity's Last Exam,1.06,Scale

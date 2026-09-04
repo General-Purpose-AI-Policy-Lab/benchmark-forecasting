@@ -1,24 +1,12 @@
-Model version,Harness,Dominance,Average rank,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Implementation rank,Performance rank,Research rank,Aggregation,Source,Notes
-gpt-5.5_unknown,Codex,0.76,3.91,2026-04-23,OpenAI,United States of America,,,GPT-5.5,5.6,3.0,3.83,Mean@5,https://www.frontierswe.com/,
-claude-opus-4-7_unknown,Claude Code,0.66,5.12,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7,4.4,5.67,4.67,Mean@5,https://www.frontierswe.com/,
-claude-opus-4-6_unknown,Claude Code,0.59,5.94,2026-02-05,Anthropic,United States of America,,,Claude Opus 4.6,5.8,6.22,5.33,Mean@5,https://www.frontierswe.com/,
-gpt-5.4-2026-03-05_unknown,Codex,0.56,6.29,2026-03-05,OpenAI,United States of America,,,GPT-5.4,5.5,7.83,3.0,Mean@5,https://www.frontierswe.com/,
-gemini-3.1-pro-preview,Gemini CLI,0.41000000000000003,8.03,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro,10.0,5.94,11.0,Mean@5,https://www.frontierswe.com/,
-kimi-k2.6,Kimi CLI,0.28,9.59,2026-04-20,Moonshot,China,,,Kimi K2.6,8.0,10.56,9.33,Mean@5,https://www.frontierswe.com/,
-kimi-k2.5,Kimi CLI,0.27,9.74,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+Model version,Score,Best@5,Worst@5,Harness,Aggregation,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Implementation,Performance,Research,Source,Notes,id
+claude-fable-5-1_max,0.5629078999999999,0.6665000000000001,0.4447,proximus,Mean@5,2026-09-01,Anthropic,United States of America,,,Claude Fable 5.1,0.7322,0.4314,0.5135000000000001,https://www.frontierswe.com/,"FrontierSWE V2 (mean@5 across 34 tasks, proximus harness, max reasoning effort). Site footnote: Claude Opus 5 used as fallback for tasks blocked by content filters.",claude-fable-5-1_max
+gpt-5.6-sol_max,0.3220246705882353,0.4417,0.222,proximus,Mean@5,2026-07-09,OpenAI,United States of America,,,GPT-5.6,0.4039,0.2201,0.282,https://www.frontierswe.com/,,gpt-5.6-sol_max
+glm-5.3_max,0.3018186411764705,0.4064,0.1772,proximus,Mean@5,2026-08-14,Z.ai (Zhipu AI),China,,,GLM-5.3,0.3465,0.2056,0.2556,https://www.frontierswe.com/,,glm-5.3_max
+kimi-k3_max,0.2586503205882353,0.3755,0.1387,proximus,Mean@5,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
 
-Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
-
-There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
-
-30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
-
-Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5,10.7,8.56,11.67,Mean@5,https://www.frontierswe.com/,
-claude-fable-5_unknown,Claude Code,0.9,2.21,2026-06-09,Anthropic,United States of America,,,Claude Fable 5,1.5,1.67,5.0,Mean@5,https://www.frontierswe.com/,
-claude-opus-4-8_unknown,Claude Code,0.78,3.65,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8,2.6,4.22,3.67,Mean@5,https://www.frontierswe.com/,
-glm-5.1,Claude Code,0.32,9.15,2026-04-07,Z.ai (Zhipu AI),China,,,GLM-5.1,9.2,9.28,8.67,Mean@5,https://www.frontierswe.com/,
-deepseek-v4-pro_unknown,Claude Code,0.31,9.29,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training,DeepSeek V4 Pro,9.2,9.44,9.0,Mean@5,https://www.frontierswe.com/,
-qwen3.6-plus,Qwen Code,0.24,10.15,2026-03-31,Alibaba,China,,,Qwen3.6-Plus,11.9,8.78,11.33,Mean@5,https://www.frontierswe.com/,
-grok-4.5_unknown,Grok CLI,0.78,4.09,2026-07-08,xAI,United States of America,,,Grok 4.5,5.7,3.89,2.0,Mean@5,https://www.frontierswe.com/,
-glm-5.2_unknown,Claude Code,0.72,4.85,2026-06-16,Z.ai (Zhipu AI),China,,,GLM-5.2,4.7,5.78,2.33,Mean@5,https://www.frontierswe.com/,
-Composer 2.5,Cursor CLI,0.38,9.65,2026-05-18,Cursor,United States of America,3.87e+25,"Said by Cursor that 85% of the total compute was performed by their team (from figure following ""Composer 2.5 is built on the same open-source checkpoint as Composer 2, Moonshot's Kimi K2.5."" here https://cursor.com/blog/composer-2-5) - 5.8e24 / 0.15 = 3.8666666667E25 FLOP",Composer 2.5,8.0,11.61,6.5,Mean@5,https://www.frontierswe.com/,
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3,0.2989,0.1882,0.2105,https://www.frontierswe.com/,,kimi-k3_max
+grok-4.6_xhigh,0.2528619588235294,0.3729,0.1286,proximus,Mean@5,2026-08-12,xAI,United States of America,,,Grok 4.6,0.2457,0.1638,0.2521,https://www.frontierswe.com/,,grok-4.6_xhigh
+gemini-3.7-flash_high,0.2026059058823529,0.3123,0.1028,proximus,Mean@5,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash,0.2485,0.1502,0.1431,https://www.frontierswe.com/,,gemini-3.7-flash_high
+qwen3.8-max_xhigh,0.1580935058823529,0.2427,0.087,proximus,Mean@5,2026-08-02,Alibaba,China,,,Qwen3.8-Max,0.1094,0.1185,0.1547,https://www.frontierswe.com/,,qwen3.8-max_xhigh
+muse-spark-1.2_xhigh,0.1197025647058823,0.1835999999999999,0.0684,proximus,Mean@5,2026-08-05,Meta AI,United States of America,,,Muse Spark 1.2,0.0265,0.1144999999999999,0.1468,https://www.frontierswe.com/,,muse-spark-1.2_xhigh
+Inkling_xhigh,0.0411888647058823,0.1079,0.0013,proximus,Mean@5,2026-07-15,Thinking Machines,United States of America,1.845e+24,6ND = 41e9 active parameters * 45e12 tokens = 1.845e+24 FLOP,Inkling,0.004,0.0393,0.0542,https://www.frontierswe.com/,,Inkling_xhigh

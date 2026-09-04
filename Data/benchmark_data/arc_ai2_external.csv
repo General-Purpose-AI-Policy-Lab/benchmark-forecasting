@@ -67,7 +67,7 @@ falcon-180B,0.637,2023-09-06,Technology Innovation Institute,United Arab Emirate
 
 
 C = 6ND = 6 FLOP/token/parameter * 3.5 trillion tokens * 180 billion parameters = 3.78*10^24 FLOP",Falcon 180B,0.847,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,rec7VFstStJ24o6LM
-mpt-7b,0.426,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recpTlvsgRj6K0TU9
+mpt-7b,0.426,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recpTlvsgRj6K0TU9
 falcon-7b,0.424,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
 ""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
 
@@ -106,7 +106,7 @@ Llama-2-70b-hf ,0.783,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pre
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
 Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recsMnkbkzX4mZGhQ
-StableBeluga2,0.861,2023-07-20,Stability AI,United Kingdom of Great Britain and Northern Ireland,,,StableBeluga2 70B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,reca6kz5FN4kqYoLL
+StableBeluga2,0.861,2023-07-20,Stability AI,United Kingdom,,,StableBeluga2 70B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,reca6kz5FN4kqYoLL
 Qwen-1_8B,0.532,2023-11-30,,,,,QWEN 1.8B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recTH4MZO44wHEljJ
 Qwen-7B,0.753,2023-09-28,Alibaba,China,1.01e+23,"2.4T tokens per Table 1
 
@@ -176,7 +176,7 @@ falcon-40b,0.6186,2023-03-15,Technology Innovation Institute,United Arab Emirate
 Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
 
 2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon 40B,,25-shot,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recct3WooWBjSgf7i
-mpt-7b,0.426,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0.702,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recIwq5o7M0MzTSOQ
+mpt-7b,0.426,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0.702,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recIwq5o7M0MzTSOQ
 mpt-30b,0.506,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
 ""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,0.765,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,receG6c5LTBxKHwK3
 falcon-7b,0.424,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
@@ -365,7 +365,7 @@ Also, 7B model was trained on 184320 GPU-hours
 312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",Llama2-7B,0.763,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recSNV2YipA1bob60
 LLaMA-7B,0.385,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
 ",Llama-7B,0.682,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recH3a6zzXMsqvy9U
-mpt-7b,0.405,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0.749,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,rec81EbC7EomkLKBX
+mpt-7b,0.405,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0.749,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,rec81EbC7EomkLKBX
 falcon-7b,0.363,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
 ""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
 
@@ -461,12 +461,12 @@ falcon-7b,0.434,2023-04-24,Technology Innovation Institute,United Arab Emirates,
 Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
 
 730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recIJQRtQygxkLIBx
-mpt-7b,0.417,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recbWNpk3h1b9y7PR
+mpt-7b,0.417,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recbWNpk3h1b9y7PR
 open_llama_7b,0.387,2023-06-07,,,,,OpenLLaMA-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recdgUh5eB5jQ4oyE
 RedPajama-INCITE-7B-Base,0.391,2023-05-04,,,,,Redpajama-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,rec8cEStkqtkCyGmJ
 gpt-neox-20b,0.411,2022-04-07,EleutherAI,United States of America,9.31627008e+22,Trained for 3 months on 96 A100s (according to correspondence with author). Let's say 0.4 utilization rate.,GPT-neox-20B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recSYskjlkTSJPrPU
 opt-13b,0.358,2022-05-11,,,,,OPT-13B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recsLxqhuH0roOIAF
-gpt-j-6b,0.363,2021-08-05,"EleutherAI,LAION","United States of America,Germany",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recPDicLmVESGltVO
+gpt-j-6b,0.363,2021-08-05,"EleutherAI,LAION","Germany,United States of America",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recPDicLmVESGltVO
 dolly-v2-12b,0.396,2023-04-11,Databricks,United States of America,,,Dolly-v2-12B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recpM34slUJwZbjqj
 Cerebras-GPT-13B,0.324,2023-03-20,Cerebras Systems,United States of America,2.3e+22,"2.3e22, per table 2",Cerebras-GPT-13B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recuKcLt2nDob6ZLa
 stablelm-tuned-alpha-7b,0.27,2023-04-19,,,,,StableLM-alpha-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recHdiAAANd9V5aXp
