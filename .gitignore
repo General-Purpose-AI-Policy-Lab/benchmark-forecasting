@@ -8,10 +8,13 @@ Paper/*
 !Paper/.latexmkrc
 !Paper/Arxiv/
 
-# FR note figures generated into Plots/2-Forecasts/ are duplicates of the paper
-# figures and stay untracked; the curated set in Plots/0-Note-figures/ is tracked.
+# FR note figures are tracked only where they are curated or filed per cutoff:
+# Plots/0-Note-figures/ and Plots/{2-Forecasts,3-Calibration,4-Sensitivity}/cutoffYYYYMMDD/fr/.
 *fr_note*
 !Plots/0-Note-figures/**
+!Plots/2-Forecasts/**
+!Plots/3-Calibration/**
+!Plots/4-Sensitivity/**
 
 # Old directories
 **/Old/
