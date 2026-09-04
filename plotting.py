@@ -74,7 +74,46 @@ class PlotStyle:
             "#2a9d8f",
         ]
 
-        self.benchmark_name_overrides = {}
+        # Display names only (data keeps the bare benchmark name).  Benchmarks whose
+        # series comes from a specific version of the benchmark carry it in the label;
+        # names that already embed a version (ARC-AGI-2, OSWorld 2.0, Blueprint-Bench 2)
+        # need no override.  Versions are written without parentheses.
+        # Benchmark legend corner per category (default "lower right"): Autonomous SWE
+        # has its curves bunched in the lower-right corner, so the legend goes top-left.
+        # Benchmark legend placement.  By default the corner is chosen automatically
+        # (see _pick_legend_loc): the candidates are tried in this order and the one
+        # covering the fewest plotted points and curve samples wins.  A category can
+        # still be forced to a corner here, e.g. {"Autonomous SWE": "upper left"}.
+        self.legend_loc_overrides = {"General Reasoning": "upper left", "Mathematics": "lower right"}
+        self.legend_loc_candidates = ["lower right", "upper left", "center left", "lower center", "center right", "upper center"]
+        # Legend labels are single-line except the explicit line breaks listed here,
+        # used where a long name would otherwise widen the legend over the curves.
+        self.legend_label_overrides = {
+            "OTIS Mock AIME 2024-2025": "OTIS Mock AIME\n2024-2025",
+        }
+        # Human-baseline labels whose position is forced rather than chosen by the
+        # occlusion search: {(benchmark, group): "below"} puts the label right under its
+        # marker (used where the automatic search keeps landing on neighbouring curves).
+        self.baseline_label_overrides = {
+            ("FrontierMath", "Committee of Domain Experts"): "below",
+        }
+        # A baseline marker is dated where the forecast curve reaches its score minus this
+        # offset (in score units).  The curve approaches its asymptote L <= 1 without ever
+        # reaching it, so a 100% baseline dated at exact equality would sit at the end of
+        # the axis; one percentage point below gives the date the curve becomes
+        # indistinguishable from it.
+        self.baseline_date_offset = 0.01
+
+        self.benchmark_name_overrides = {
+            "FrontierMath": "FrontierMath v2",
+            "FrontierMath Tier 4": "FrontierMath Tier 4 v2",
+            "FrontierSWE": "FrontierSWE v2",
+            "TerminalBench": "TerminalBench v2",
+            "WeirdML": "WeirdML v2",
+            "PostTrainBench": "PostTrainBench v1.1",
+            # Shorter label so the Domain Specific Questions legend hugs the right edge.
+            "Humanity's Last Exam": "HLE",
+        }
 
         self.category_name_overrides = {
             "en": {},
@@ -87,7 +126,7 @@ class PlotStyle:
                 "Biology": "Expertise en Biologie",
                 "Agentic Computer Use": "Opérations Agentiques sur Ordinateur",
                 "Advanced Language and Writing": "Langage et Rédaction",
-                "High End Math Reasoning": "Raisonnement Mathématique Avancé",
+                "Mathematics": "Mathématiques",
                 "Chemistry": "Expertise en Chimie",
                 "Commonsense QA": "Sens Commun",
             },
@@ -136,6 +175,10 @@ class PlotStyle:
     def _benchmark_name(self, raw_name: str) -> str:
         """Return the benchmark name used for display."""
         return self.benchmark_name_overrides.get(raw_name, raw_name)
+
+    def _legend_label(self, raw_name: str) -> str:
+        """Display name for the benchmark legend (see ``legend_label_overrides``)."""
+        return self.legend_label_overrides.get(raw_name, self._benchmark_name(raw_name))
 
     def _category_name(self, raw_name: str) -> str:
         """Return the category name used for display."""
@@ -237,7 +280,7 @@ def plot_forecasts_by_category(
             preds_b,
             color=color,
             last_observed_date=last_date,
-            label=plot_style._benchmark_name(str(bench)),
+            label=plot_style._legend_label(str(bench)),
             ci_alpha=0.2,
             observed_alpha=0.8,
             forecast_alpha=0.5,
@@ -254,6 +297,7 @@ def plot_forecasts_by_category(
             size=(80 if plot_style.document_type == "note" else 100) * plot_style.scale,
             zorder=3,
             note_mode=plot_style.document_type == "note",
+            date_offset=plot_style.baseline_date_offset,
         )
 
     ax.set_xlim(right=end_date)
@@ -277,12 +321,10 @@ def plot_forecasts_by_category(
     if plot_style.language == "fr":
         ax.set_title(plot_style._category_name(str(category_name)), pad=8)
 
-    bench_legend = ax.legend(
-        loc="lower right",
-        fancybox=False,
-        ncol=1,
-        handlelength=1.5,
-    )
+    legend_kwargs = dict(fancybox=False, ncol=1, handlelength=1.5)
+    forced = plot_style.legend_loc_overrides.get(str(category_name))
+    loc = forced if forced else _pick_legend_loc(fig, ax, observed, forecast, plot_style, legend_kwargs)
+    bench_legend = ax.legend(loc=loc, **legend_kwargs)
     for text in bench_legend.get_texts():
         text.set_color(plot_style.base_color)
     for line in bench_legend.get_lines():
@@ -776,6 +818,87 @@ def plot_L_intervals(
     return fig, ax
 
 
+def plot_L_distribution(
+    idata: az.InferenceData,
+    *,
+    L_min: float = 0.75,
+    plot_style: PlotStyle = PlotStyle(),
+    ci_level: float = 0.80,
+) -> tuple[Figure, Axes]:
+    """Population distribution of the upper asymptotes L, with one point per benchmark.
+
+    The hierarchical prior on the rescaled asymptote is Beta(mu, sigma) on
+    [L_min, 1]; the curve is that Beta at the posterior medians of ``L_raw_mu`` and
+    ``L_raw_sigma``, and the points are the per-benchmark posterior medians of ``L``
+    (pinned asymptotes appear as points at their fixed value).  This is the note figure
+    formerly produced by the retired 3_Plot_forecasts notebook, rebuilt from the
+    current model.
+    """
+    from scipy import stats
+
+    posterior = idata.posterior
+    L_range = 1.0 - L_min
+    mu = float(np.median(posterior["L_raw_mu"].values))
+    sigma = float(np.median(posterior["L_raw_sigma"].values))
+    sigma = min(sigma, np.sqrt(mu * (1 - mu)) * 0.98)
+    nu = mu * (1 - mu) / sigma**2 - 1
+    a, b = max(mu * nu, 0.5), max((1 - mu) * nu, 0.5)
+    beta = stats.beta(a, b, loc=L_min, scale=L_range)
+
+    L_med = np.median(posterior["L"].values.reshape(-1, posterior["L"].shape[-1]), axis=0)
+    n_bench = L_med.size
+    mean_L = L_min + L_range * mu
+
+    grid = np.linspace(0.5, 1.0, 600)
+    pdf = beta.pdf(grid)
+    pdf = pdf / pdf.max() * 8.0
+    lo, hi = beta.ppf((1 - ci_level) / 2), beta.ppf(1 - (1 - ci_level) / 2)
+
+    fr = plot_style.language == "fr"
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(grid, pdf, color=plot_style.palette[0], linewidth=3, zorder=3)
+    ax.fill_between(grid, 0, pdf, color="#b8cfe0", alpha=0.3, zorder=2)
+    mask = (grid >= lo) & (grid <= hi)
+    ax.fill_between(grid[mask], 0, pdf[mask], color="#7fa8c9", alpha=0.5, zorder=2.5)
+
+    rng = np.random.default_rng(42)
+    jitter = rng.uniform(-0.3, 0.3, size=n_bench)
+    ax.scatter(L_med, jitter, s=60, color=plot_style.palette[2], edgecolors="white",
+               linewidth=1.5, alpha=0.7, zorder=4)
+
+    ymax = pdf.max() * 1.12
+    ax.set_ylim(-1, ymax)
+    ax.axvline(1.0, color=plot_style.gray_color, linestyle="--", linewidth=2, alpha=0.5, zorder=1)
+    ax.text(1.011, ymax, "Perfection (100%)" if fr else "Perfect score (100%)", fontsize=12,
+            color=plot_style.gray_color, ha="right", va="top", rotation=90)
+    ax.axvline(mean_L, color=plot_style.palette[0], linestyle=":", linewidth=2, alpha=0.7, zorder=2)
+    ax.text(mean_L + 0.006, ymax, (f"Moyenne ({mean_L:.1%})" if fr else f"Mean ({mean_L:.1%})"),
+            fontsize=12, color=plot_style.palette[0], ha="center", va="top", rotation=90,
+            bbox=dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="none", alpha=0.9))
+    ax.annotate(f"{n_bench} benchmarks", xy=(float(np.median(L_med)), 0), xytext=(0.95, -1.7),
+                fontsize=14, color=plot_style.palette[2], ha="center", va="center",
+                arrowprops=dict(arrowstyle="->", color=plot_style.palette[2], lw=1.5),
+                bbox=dict(boxstyle="round,pad=0.4", facecolor="white", edgecolor="none", alpha=0.9),
+                annotation_clip=False)
+
+    ax.set_xlabel("Performance maximale" if fr else "Upper asymptote", fontsize=17,
+                  fontweight="500", color=plot_style.base_color)
+    ax.set_title("Distribution estimée des performances maximales" if fr
+                 else "Estimated distribution of the upper asymptotes",
+                 fontsize=17, fontweight="600", color=plot_style.base_color, pad=20)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
+    ax.tick_params(axis="x", labelsize=13, colors=plot_style.base_color)
+    ax.set_yticks([])
+    ax.tick_params(axis="y", left=False, right=False)
+    ax.grid(True, alpha=0.15, linewidth=0.8, color=plot_style.grid_color, axis="x")
+    for side in ("top", "right", "left"):
+        ax.spines[side].set_visible(False)
+    ax.spines["bottom"].set_color(plot_style.base_color)
+    ax.set_xlim(0.5, 1.05)
+    fig.tight_layout()
+    return fig, ax
+
+
 def plot_hyperparameters(
     idata: az.InferenceData,
     *,
@@ -890,6 +1013,36 @@ def plot_hyperparameters(
     return fig, axes_flat
 
 
+def _legend_occlusion(fig, ax, observed: pd.DataFrame, forecast: pd.DataFrame, legend) -> float:
+    """Share of plotted material (observed points and curve samples) under a legend box."""
+    fig.canvas.draw()
+    bbox = legend.get_window_extent(fig.canvas.get_renderer())
+    pts = []
+    if not observed.empty:
+        xy = np.column_stack([mdates.date2num(pd.to_datetime(observed["release_date"])), observed["score"].to_numpy(float)])
+        pts.append(ax.transData.transform(xy))
+    if not forecast.empty and "mu_mean" in forecast.columns:
+        xy = np.column_stack([mdates.date2num(pd.to_datetime(forecast["release_date"])), forecast["mu_mean"].to_numpy(float)])
+        pts.append(ax.transData.transform(xy))
+    if not pts:
+        return 0.0
+    P = np.vstack(pts)
+    inside = (P[:, 0] >= bbox.x0) & (P[:, 0] <= bbox.x1) & (P[:, 1] >= bbox.y0) & (P[:, 1] <= bbox.y1)
+    return float(inside.mean())
+
+
+def _pick_legend_loc(fig, ax, observed, forecast, plot_style, legend_kwargs) -> str:
+    """Try each candidate corner and keep the one hiding the least; ties go to the first."""
+    best_loc, best_score = plot_style.legend_loc_candidates[0], np.inf
+    for loc in plot_style.legend_loc_candidates:
+        leg = ax.legend(loc=loc, **legend_kwargs)
+        score = _legend_occlusion(fig, ax, observed, forecast, leg)
+        leg.remove()
+        if score < best_score - 1e-9:
+            best_loc, best_score = loc, score
+    return best_loc
+
+
 def _plot_datapoints(
     ax: plt.Axes,
     data: pd.DataFrame,
@@ -978,9 +1131,10 @@ def _plot_baseline_points(
     size: float,
     zorder: int,
     note_mode: bool = False,
+    date_offset: float = 0.01,
 ) -> None:
     baselines = baselines.assign(
-        date=lambda df: _assign_dates_to_baselines(df, preds, end_date),
+        date=lambda df: _assign_dates_to_baselines(df, preds, end_date, offset=date_offset),
         marker=lambda df: _assign_marker_to_baselines(df),
         facecolor=lambda df: _assign_facecolor_to_baselines(df, color),
     )
@@ -1002,8 +1156,13 @@ def _assign_dates_to_baselines(
     baselines: pd.DataFrame,
     preds: pd.DataFrame,
     end_date: pd.Timestamp,
+    offset: float = 0.01,
 ) -> pd.Series:
-    """Assign dates to baseline points based on forecast curves."""
+    """Date each baseline where the forecast mean first reaches ``score - offset``.
+
+    ``offset`` (see ``PlotStyle.baseline_date_offset``) keeps baselines at or near 100%,
+    which the curve never reaches exactly, from being pushed to ``end_date``.
+    """
     out = pd.Series(index=baselines.index, dtype="datetime64[ns]")
     for bench, g in baselines.groupby("benchmark", sort=False):
         preds_bench = (
@@ -1012,7 +1171,7 @@ def _assign_dates_to_baselines(
             .drop_duplicates(subset=["mu_mean"])
         )
         dates = np.interp(
-            g["score"].to_numpy(),
+            g["score"].to_numpy() - offset,
             preds_bench["mu_mean"].to_numpy(),
             preds_bench["release_date"].to_numpy().astype(np.int64),
             right=end_date.value,
@@ -1190,6 +1349,9 @@ def _choose_label_placements(
         """Candidate (x, y, ha, tie-break penalty) placements for annotation ``i``."""
         ann = annotations[i]
         date_num = ann["date_num"]
+        if ann.get("place") == "below":
+            # Forced placement: centred right under the marker, no alternatives.
+            return [(date_num, ann["score"] - 0.9 * label_h, "center", 0.0)]
         near_right = date_num > x_lo_num + 0.70 * x_range
         if ann.get("grouped", False):
             # A grouped label names a cluster, so centring it on the centroid reads best;
@@ -1296,7 +1458,7 @@ def _add_baseline_labels(
             "Top Performer": ("Top performer", "Top performers"),
             "Committee of Average Humans": ("Avg. human committee", "Avg. human committees"),
             "Committee of Skilled Generalists": ("Generalist committee", "Generalist committees"),
-            "Committee of Domain Experts": ("Expert committee", "Expert committees"),
+            "Committee of Domain Experts": ("Expert\ncommittee", "Expert\ncommittees"),  # two lines: sits among steep curves
             "High School Qualifier": ("HS qualifier", "HS qualifiers"),
             "High School Top Performer": ("HS top performer", "HS top performers"),
         },
@@ -1312,7 +1474,7 @@ def _add_baseline_labels(
         preds_b = preds.loc[preds["benchmark"] == bench]
         if preds_b.empty:
             continue
-        dates = _assign_dates_to_baselines(g, preds_b, end_date)
+        dates = _assign_dates_to_baselines(g, preds_b, end_date, offset=plot_style.baseline_date_offset)
         for idx, row in g.iterrows():
             date = dates.loc[idx]
             score = float(row["score"])
@@ -1328,6 +1490,7 @@ def _add_baseline_labels(
                     "date_num": mdates.date2num(date),
                     "score": score,
                     "group": group,
+                    "benchmark": str(bench),
                     "singular": singular,
                     "plural": plural,
                     "color": color,
@@ -1352,6 +1515,7 @@ def _add_baseline_labels(
                     "score": m["score"],
                     "label": m["singular"],
                     "color": m["color"],
+                    "place": plot_style.baseline_label_overrides.get((m["benchmark"], m["group"])),
                 }
             )
         else:
@@ -1394,6 +1558,7 @@ def _add_baseline_labels(
                             "score": c["score"],
                             "label": c["singular"],
                             "color": c["color"],
+                            "place": plot_style.baseline_label_overrides.get((c["benchmark"], c["group"])),
                         }
                     )
                 else:

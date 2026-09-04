@@ -172,9 +172,9 @@ Digitizing figure 4 (d) indicates 139.67 TPU-years of training.
 Since these are close, we will use the 6NC estimate and derive hardware utilization from the training time information.
 
 Later they say they measured 326W power usage per chip, which could maybe be used to estimate utilization.",GLaM,8,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,rece76lEt406di379
-Gopher (280B),0.792,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.792,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher,0,,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,recwxUQUprmMr9I8j
-Gopher (280B),0.792,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.792,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher (280B),0,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,rec1fTXYPgL0mRzBe
 text-davinci-001,0.789,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
 
@@ -239,8 +239,8 @@ text-davinci-001,0.789,2022-01-27,OpenAI,United States of America,3.19181e+23,""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 Zero-Shot,0,,Language Models are Few-Shot Learners,http://arxiv.org/abs/2005.14165,recw7hL34oyte0hO4
-text-davinci-003,0.855,2022-11-28,,,,,GPT-3.5,10,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,recDZLIX5tZdFHfZV
-text-davinci-003,0.855,2022-11-28,,,,,GPT-3.5,10,,GPT-4 Technical Report,http://arxiv.org/abs/2303.08774,recSoaSkn6hHNrdDG
+text-davinci-003,0.855,2022-11-28,OpenAI,United States of America,,,GPT-3.5,10,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,recDZLIX5tZdFHfZV
+text-davinci-003,0.855,2022-11-28,OpenAI,United States of America,,,GPT-3.5,10,,GPT-4 Technical Report,http://arxiv.org/abs/2303.08774,recSoaSkn6hHNrdDG
 gpt-4-32k-0314,0.953,2023-03-14,OpenAI,United States of America,2.1e+25,"90% CI: 8.2E+24 to 4.4E+25
 
 NOTE: this is a rough estimate based on public information, much less information than most other systems in the database.
@@ -252,8 +252,8 @@ NOTE: this is a rough estimate based on public information, much less informatio
 
 Calculation and confidence intervals here: https://colab.research.google.com/drive/1O99z9b1I5O66bT78r9ScslE_nOj5irN9?usp=sharing",GPT-4,10,,GPT-4 Technical Report,http://arxiv.org/abs/2303.08774,recGg30WxShdoma6K
 ,0.663,,,,,,GPT-J (6B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recgEHai1fuGSnQ6U
-gpt-j-6b,0.662,2021-08-05,"EleutherAI,LAION","United States of America,Germany",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,reckIFCQgW9j4dxIA
-gpt-neo-2.7B,0.427,2023-03-30,EleutherAI,United States of America,7.9e+21,"source: https://www.aitracker.org/
+gpt-j-6b,0.662,2021-08-05,"EleutherAI,LAION","Germany,United States of America",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,reckIFCQgW9j4dxIA
+gpt-neo-2.7B,0.427,2021-03-30,EleutherAI,United States of America,7.9e+21,"source: https://www.aitracker.org/
 
 6 FLOP / token / parameter * 2.7 * 10^9 parameters * 420000000000 tokens [see dataset size notes] = 6.804e+21 FLOP",GPT-Neo-2.7B,,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,recdUHL8y6j09NCyI
 ,0.718,,,,,,GPT-NeoX (20B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recwi6H4QDJ5RnKhl
@@ -322,7 +322,7 @@ C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
 Also, 7B model was trained on 184320 GPU-hours
 
 312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",Llama2-7B,,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,rec18ziKAqmhepn9d
-Megatron-Turing NLG 530B,0.824,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+Megatron-Turing NLG 530B,0.824,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
@@ -335,22 +335,22 @@ Mixtral-8x7B-v0.1,0.867,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the mode
 Mixtral-8x7B-v0.1,0.844,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
 
 6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7B,,,Mixtral of Experts,https://arxiv.org/pdf/2401.04088,receQE7wX2SUXU5kj
-mpt-7b,0.764,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0,,Qwen Technical Report,http://arxiv.org/abs/2309.16609,recJnSsj1yJW0DpOz
-mpt-7b,0.571,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,recTjndtio3wpkQtJ
-mpt-7b,0.761,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,recjgraDh1VdRw31V
-Megatron-Turing NLG 530B,0.824,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+mpt-7b,0.764,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0,,Qwen Technical Report,http://arxiv.org/abs/2309.16609,recJnSsj1yJW0DpOz
+mpt-7b,0.571,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,recTjndtio3wpkQtJ
+mpt-7b,0.761,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,recjgraDh1VdRw31V
+Megatron-Turing NLG 530B,0.824,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
 
 6ND estimate: 6 * 530B * 270B = 8.586000e+23",MT-NLG,few,,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,recChavgsXvRqIfA4
-Megatron-Turing NLG 530B,0.802,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+Megatron-Turing NLG 530B,0.802,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
 
 6ND estimate: 6 * 530B * 270B = 8.586000e+23",MT-NLG,1,,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,recOS1vYKc0O63Nm9
-Megatron-Turing NLG 530B,0.8024,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+Megatron-Turing NLG 530B,0.8024,2021-10-11,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
 
 source: https://lair.lighton.ai/akronomicon/
 9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
@@ -430,13 +430,13 @@ Qwen2.5-Coder-32B,0.83,2024-09-18,Alibaba,China,1.0725e+24,"Assuming 1 epoch
 
 6ND = 6*32.5 parameters *10^9*5.5*10^12 tokens = 1.0725e+24",Qwen2.5-Coder-32B,,,Qwen2.5-Coder Technical Report,https://arxiv.org/pdf/2409.12186,recxMCtl8GTjOanHW
 RedPajama-INCITE-7B-Base,0.703,2023-05-04,,,,,Redpajama-7B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,recd9h5DECjR1gnE7
-StableBeluga2,0.841,2023-07-20,Stability AI,United Kingdom of Great Britain and Northern Ireland,,,StableBeluga2,0,,Qwen Technical Report,http://arxiv.org/abs/2309.16609,recRGvz0NvjpFvSSH
+StableBeluga2,0.841,2023-07-20,Stability AI,United Kingdom,,,StableBeluga2,0,,Qwen Technical Report,http://arxiv.org/abs/2309.16609,recRGvz0NvjpFvSSH
 stablelm-tuned-alpha-7b,0.407,2023-04-19,,,,,StableLM-alpha-7B,0,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,reczrfJheZMsfglky
 text-ada-001,0.429,,OpenAI,United States of America,,,text-ada-001,0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recNkQMe0Nqd3deYK
 text-babbage-001,0.561,,OpenAI,United States of America,,,text-babbage-001,0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recxrPuCbT16sDZrG
 text-curie-001,0.676,,OpenAI,United States of America,,,text-curie-001,0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recYhmf2CsNqDxs5a
 text-davinci-002,0.815,2022-03-15,OpenAI,United States of America,2.578e+24,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI,text-davinci-002,0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,rechG6XtFFAfGaxk8
-text-davinci-003,0.822,2022-11-28,,,,,text-davinci-003,0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recaAsccv7Ypq42Vf
+text-davinci-003,0.822,2022-11-28,OpenAI,United States of America,,,text-davinci-003,0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recaAsccv7Ypq42Vf
 ,0.704,,,,,,TNLG v2 (6.7B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,reccuWvUpVMjCYrR8
 ,0.799,,,,,,TNLG v2 (530B),0,,Stanford HELM,https://crfm.stanford.edu/helm/classic/latest/#/groups/hellaswag,recxjdjjCdbqbpobG
 ,0.866,,,,,,UNICORN,,,UNICORN on RAINBOW: A Universal Commonsense Reasoning Model on a New Multitask Benchmark,https://ojs.aaai.org/index.php/AAAI/article/view/17590,recuFfA1xvh9vebqC

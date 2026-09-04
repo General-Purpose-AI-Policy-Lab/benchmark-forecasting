@@ -4,8 +4,11 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 
 ## Repository Structure
 
+- **`refresh_epoch_data.py`**
+  Refreshes `Data/benchmark_data/*.csv` from the Epoch AI hub exports (`uv run python refresh_epoch_data.py tmp/epoch --download`). Each file becomes exactly the current Epoch export — Epoch is trusted as the source of truth, so models it drops or re-scores (e.g. SimpleQA Verified 1.2.0, PostTrainBench v1.1) change here too. Our two FrontierMath files are mapped to the v2 task sets.
+
 - **`0_Process_benchmarks.ipynb`**
-  Cleans and standardizes benchmark data from multiple sources (EpochAI, Scale AI SEAL, RAND). Includes: selecting and formatting benchmark scores for modeling, harmonizing benchmark identifiers, handling missing/irregular data, loading per-benchmark lower bounds (random-chance baselines), and exporting cleaned outputs.
+  Cleans and standardizes benchmark data from multiple sources (EpochAI files, Scale AI leaderboards scraped live with Playwright, RAND). Includes: selecting the score column per benchmark, harmonizing identifiers, filling and correcting model release dates (`DATE_OVERRIDES`), merging sibling Scale leaderboards into one series (SWE Atlas = Codebase QnA + Test Writing + Refactoring; PRBench = Finance + Legal), applying the manual exclusions, loading per-benchmark lower bounds (random-chance baselines) and categories, and exporting cleaned outputs.
 
 - **`1_Forecasts.ipynb`**
   Main analysis notebook. Loads the cleaned dataset and:
@@ -17,14 +20,16 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 
   Almost every figure in `Plots/` comes from this notebook; the posterior diagnostics in
   `Plots/1-High_level/` and the long-horizon calibration curves come from
-  `2_Revision_analyses.py` instead.
+  `2_Revision_analyses.py` instead. The frontier counts a model family once per
+  release day (best reasoning effort / size, see `forecasting.model_base_key`); the plots
+  show exactly the points used for fitting.
 
 - **`2_Revision_analyses.py`** (jupytext percent format — opens as a notebook in Jupyter, and VS Code reads its `# %%` cells natively)
   Robustness and sensitivity analyses that go beyond the ablations of notebook 1: per-benchmark
   posterior saturation dates and how they shift across the 8 model variants, long-horizon
   retrodiction (cutoffs 2022–2025), prior sensitivity on the upper asymptote $L$, cross-benchmark
   residual dependence, hyperparameter and per-benchmark $L$ posterior figures, and an audit of the
-  random-chance lower bounds. Results are written to `Plots/4-Sensitivity/` as CSV/JSON, and LaTeX
+  random-chance lower bounds. Results are written to `Plots/4-Sensitivity/cutoffYYYYMMDD/` as CSV/JSON, and LaTeX
   versions of the tables to `$TABLES_DIR` (see below). Runs in selectable stages so the expensive
   refits can be skipped:
 
@@ -42,11 +47,11 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
   uv run python 2_Revision_analyses.py cheap figures   # or several at once
   ```
 
-  Each stage writes `Plots/4-Sensitivity/revision_analyses_<stage>_<cutoff>.json`. With no
+  Each stage writes `Plots/4-Sensitivity/<cutoff>/revision_analyses_<stage>_<cutoff>.json`. With no
   argument, `cheap` runs by default.
 
 - **`forecasting.py`**
-  Core modeling utilities: model construction (`build_model`), MCMC fitting (`fit`), temporal holdout validation (`temporal_holdout`), scoring (CRPS, RMSE, MAE), forecast generation, and conformal prediction coverage (CQR). Also `saturation_dates` and `saturated_proportion` (posterior saturation timing, by analytic inversion of the fitted sigmoid) and `residual_diagnostics` (cross-benchmark residual correlation, paired by model release).
+  Core modeling utilities: frontier selection (`select_frontier_points`, with the same-day effort/size de-duplication), model construction (`build_model`, including pinned asymptotes via `ModelConfig.L_fixed`), MCMC fitting (`fit`, cached under `Fits/` with a fingerprint of the fitted data in the filename), temporal holdout validation (`temporal_holdout`), scoring (CRPS, RMSE, MAE), forecast generation, and conformal prediction coverage (CQR). Also `saturation_dates` and `saturated_proportion` (posterior saturation timing, by analytic inversion of the fitted sigmoid) and `residual_diagnostics` (cross-benchmark residual correlation, paired by model release).
 
 - **`plotting.py`**
   Matplotlib plotting utilities with centralized styling, supporting both English (paper/PDF) and French (note/PNG) output, including `plot_L_intervals` and `plot_hyperparameters` for posterior diagnostics.
@@ -58,10 +63,11 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 ├── 0_Process_benchmarks.ipynb  # Data loading and normalization
 ├── 1_Forecasts.ipynb           # Model fitting, validation, plotting, and sensitivity analyses
 ├── 2_Revision_analyses.py      # Robustness analyses (saturation dates, retrodiction, priors, residuals)
+├── refresh_epoch_data.py       # Refresh the Epoch CSVs from the hub exports
 ├── forecasting.py              # Core modeling utilities
 ├── plotting.py                 # Matplotlib plotting utilities
 ├── Data/
-│   ├── benchmark_data/             # Raw CSV files from EpochAI (~47 files)
+│   ├── benchmark_data/             # Raw CSV files from EpochAI (~75 files, see refresh_epoch_data.py)
 │   ├── benchmark_data_RAND/        # RAND Corporation benchmark data
 │   ├── benchmark_data_processed/   # Processed/normalized data (output of notebook 0)
 │   ├── benchmarks_lower_bounds.csv # Random-chance baselines per benchmark
@@ -69,18 +75,19 @@ This repository forecasts AI benchmark performance over time using Bayesian sigm
 ├── Plots/
 │   ├── 0-Note-figures/         # FR note figures (PNG)
 │   ├── 1-High_level/           # Saturation proportion, Harvey asymmetry, hyperparameter and L-interval posteriors
-│   ├── 2-Forecasts/            # Main forecast trajectories per category (EN paper + FR note)
-│   ├── 3-Calibration/          # Calibration curves for all model variants and retrodiction cutoffs
-│   └── 4-Sensitivity/          # Ablation figures, plus CSV/JSON results from notebooks 1 and 2
+│   ├── 2-Forecasts/            # Main forecast trajectories per category, one subfolder per cutoff
+│   │   └── cutoffYYYYMMDD/     #   EN paper PDFs; FR note PNGs in fr/ underneath
+│   ├── 3-Calibration/          # Calibration curves, one subfolder per cutoff (FR PNGs in fr/)
+│   └── 4-Sensitivity/          # Ablation figures and CSV/JSON results, one subfolder per cutoff
 │       └── tables/             # LaTeX tables (default TABLES_DIR; see 2_Revision_analyses.py)
-├── Fits/                       # Saved model posteriors (NetCDF, gitignored)
+├── Fits/                       # Saved model posteriors (NetCDF, gitignored; names end with _d<data hash>)
 ├── Paper/                      # Bibliography and arXiv preprint sources; other manuscript
 │                               # working material is kept local and gitignored
 └── tmp/                        # Jupytext conversions (gitignored)
 ```
 
 Only `Paper/Benchmark_forecasting.bib`, `Paper/Arxiv/` and `Paper/.latexmkrc` are tracked.
-`2_Revision_analyses.py` writes its LaTeX tables to `Plots/4-Sensitivity/tables/` by default; point
+`2_Revision_analyses.py` writes its LaTeX tables to `Plots/4-Sensitivity/<cutoff>/tables/` by default; point
 `TABLES_DIR` at a manuscript directory to regenerate them in place:
 
 ```bash
@@ -89,8 +96,12 @@ TABLES_DIR=path/to/manuscript/tables uv run python 2_Revision_analyses.py cheap
 
 ### Data Files
 
-- **`Data/benchmarks_lower_bounds.csv`** — Per-benchmark random-chance performance lower bounds (semicolon-delimited, European decimal notation)
+- **`Data/benchmarks_lower_bounds.csv`** — Per-benchmark random-chance performance lower bounds (semicolon-delimited, European decimal notation; no `;` inside the justification column). Values are aligned on Epoch's `random_baseline` where it exists (https://epoch.ai/data/benchmark_metadata.csv).
 - **`Data/human_baselines.csv`** — Human performance reference points for plotting (columns: `benchmark`, `group`, `score`, `note`, `source`)
+
+### Benchmark set (September 2026)
+
+75 benchmarks in 11 capability categories (Core AGI Progress, Mathematics, Autonomous SWE, Agentic Computer Use, Biology, Chemistry, Domain Specific Questions, General Reasoning, Multimodal Understanding, Advanced Language and Writing, Commonsense QA) plus one uncategorized benchmark (`Tier 2 Excluded`). Inclusion criteria: scores on a bounded 0–1 scale (Elo, speedups, dollar amounts and pool-relative "dominance" scores are excluded, see `UNNORMALIZED_BENCHMARKS`), capabilities rather than propensities, a ceiling that saturation can reach (ForecastBench's Brier index is excluded), and benchmark quality (SWE-Bench Verified/Pro, SciCode, CursorBench and HiL-Bench are excluded), a stable item set (LiveBench, whose items rotate and which is no longer evaluated, is excluded), and a frontier made of general-purpose models rather than developer-reported or task-fine-tuned entries (Adversarial NLI and ScienceQA are excluded); see `MANUALLY_EXCLUDED_BENCHMARKS` in notebook 0. Papers published before September 2026 refer to the earlier 63-benchmark dataset.
 
 ## Model Details
 
@@ -112,7 +123,7 @@ The sigmoids are defined on the range $[\ell_i, L_i]$, where $\ell_i$ is a bench
 
 The lower bound $\ell_i$ is manually gathered per benchmark (or set to 0 if unknown). See `Data/benchmarks_lower_bounds.csv` for details. It is not necessarily 0, as some benchmarks may have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
 
-The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores.
+The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores. It is estimated for most benchmarks, and pinned to 1 (`ModelConfig.L_fixed`) where the full range is known to be attainable: ARC-AGI, ARC-AGI-2, VPCT and EBR-bench (human baselines at or near 100%) and the two FrontierMath v2 sets (every problem has been solved at least once).
 
 The latent mean performance on benchmark $i$ at time $t$ is then the shifted sigmoid:
 
@@ -217,11 +228,15 @@ where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean an
 ### Quick start
 
 ```bash
-# Install dependencies
+# Install dependencies (Chromium is needed once for the Scale scraping in notebook 0)
 uv sync
+uv run playwright install chromium
 
-# Run the data processing notebook
-uv run jupyter nbconvert --execute --inplace 0_Process_benchmarks.ipynb
+# Optional: refresh the Epoch CSVs from the hub exports
+uv run python refresh_epoch_data.py tmp/epoch --download
+
+# Run the data processing notebook (scrapes the Scale leaderboards live)
+MPLBACKEND=Agg uv run jupyter nbconvert --execute --inplace 0_Process_benchmarks.ipynb
 
 # Run the main analysis as a Python script (recommended over nbconvert,
 # which can hit IOPub timeouts on long MCMC sampling cells)
@@ -234,19 +249,19 @@ Or run interactively in Jupyter / VS Code.
 
 ### Step by step
 
-1. Run `0_Process_benchmarks.ipynb` to generate `Data/benchmark_data_processed/all_normalized_updated_benchmarks.csv`. The `DATA_CUTOFF_DATE` parameter (default: 2026-01-01) excludes model results released after that date, ensuring reproducibility even if new data is added to the CSVs.
+1. Run `0_Process_benchmarks.ipynb` to generate `Data/benchmark_data_processed/all_normalized_updated_benchmarks.csv`. In `1_Forecasts.ipynb`, the `DATA_CUTOFF_DATE` parameter (default: 2026-09-04, inclusive) excludes model results released after that date, ensuring reproducibility even if new data is added to the CSVs; it also names the output subfolders and the fit caches.
 2. Open `1_Forecasts.ipynb` and verify the settings at the top:
    - `LANGUAGE` / `DOCUMENT_TYPE`: controls the main figures. Default is `"en"` / `"paper"` (PDF output).
    - `ALSO_GENERATE_FR`: when `True` (default), the notebook also generates French note figures (PNG) at the end, reusing already-fitted models (no extra MCMC).
    - `SAVEFIGS`: `True` to save all figures to `Plots/`.
 3. Run all cells. The notebook will:
-   - Fit 4 retrodiction models and produce calibration curves → `Plots/3-Calibration/`
-   - Fit the main model and produce forecasts, saturation, and asymmetry figures → `Plots/1-High_level/` and `Plots/2-Forecasts/`
-   - Run 4 ablation models (skew/normal × joint/independent) with forecasts, saturation, and calibration → `Plots/4-Sensitivity/`
-   - Compute CQR conformal prediction intervals on all variants → `Plots/4-Sensitivity/ablation_results.json`
-   - Generate French (note/PNG) versions of all main figures → `Plots/0-Note-figures/` and `Plots/2-Forecasts/`
+   - Fit 4 retrodiction models and produce calibration curves → `Plots/3-Calibration/cutoffYYYYMMDD/`
+   - Fit the main model and produce forecasts, saturation, and asymmetry figures → `Plots/1-High_level/` and `Plots/2-Forecasts/cutoffYYYYMMDD/`
+   - Run 4 ablation models (skew/normal × joint/independent) with forecasts, saturation, and calibration → `Plots/4-Sensitivity/cutoffYYYYMMDD/`
+   - Compute CQR conformal prediction intervals on all variants → `Plots/4-Sensitivity/cutoffYYYYMMDD/ablation_results_cutoffYYYYMMDD.json`
+   - Generate French (note/PNG) versions of all main figures → `Plots/0-Note-figures/` and `Plots/2-Forecasts/cutoffYYYYMMDD/fr/`
 
-**Runtime**: expect 30–60 minutes total (12 MCMC models, ~100 figures).
+**Runtime**: about one hour (18 MCMC fits of 3–4 minutes each, ~150 figures). The notebooks set `VECLIB_MAXIMUM_THREADS=1` / `OMP_NUM_THREADS=1` before importing numpy: with Apple Accelerate, four chain processes each spawning a full BLAS thread pool oversubscribe the cores and slow sampling down ~50x. Never run two samplings at the same time on one machine, for the same reason.
 
 **Note on execution method**: `jupyter nbconvert --execute` may fail on this notebook due to IOPub timeouts during long MCMC sampling steps. The recommended approach is to convert to a Python script with jupytext and run directly (see Quick start above). For interactive use, Jupyter Lab / VS Code handles long-running cells without issue.
 
@@ -258,7 +273,10 @@ MODEL_CONFIG = forecasting.ModelConfig(
     joint=True,        # hierarchical (True) or independent (False)
     top_n=3,           # track top-N frontier models
     skew=True,         # skew-normal (True) or normal (False) likelihood
+    L_fixed=L_FIXED,   # asymptotes pinned to 1 for a few benchmarks (see above)
 )
 ```
+
+`forecasting.prepare_dataset(raw, top_n=3)` builds the frontier used for fitting and plotting (one point per model family and day, then the expanding top-N); `dedupe_effort=False` keeps every published point, for diagnostics only.
 
 The sensitivity analyses section always runs all 4 combinations of `joint` × `skew` and produces English paper figures (PDF), regardless of the main `LANGUAGE`/`DOCUMENT_TYPE` settings.

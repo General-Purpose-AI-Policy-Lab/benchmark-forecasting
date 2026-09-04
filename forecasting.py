@@ -23,6 +23,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
+import os
+
+# Safety net for scripts that import this module first; the notebooks set these before
+# importing numpy (Accelerate thread oversubscription across PyMC chain processes).
+os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+
+import hashlib
+import re
 import numpy as np
 import pandas as pd
 import arviz as az
@@ -51,6 +60,13 @@ class ModelConfig:
     L_min: float = 0.75
     L_prior_mu: float = 0.96
     L_prior_sd: float = 0.02
+    # Benchmarks whose upper asymptote is pinned instead of estimated, as
+    # ``(("ARC-AGI", 1.0), ...)``.  Meant for benchmarks where a human baseline
+    # shows the full score range is attainable (no label-noise ceiling), or where
+    # the benchmark authors document a ceiling below 1.  A tuple of pairs rather
+    # than a dict so the frozen dataclass stays hashable.  Benchmarks absent from
+    # the fitted data (e.g. in a retrodiction subset) are ignored.
+    L_fixed: tuple[tuple[str, float], ...] = ()
 
     @property
     def slug(self) -> str:
@@ -64,6 +80,11 @@ class ModelConfig:
             parts.append(f"Lmu{round(self.L_prior_mu * 100)}")
         if self.L_prior_sd != 0.02:
             parts.append(f"Lsd{round(self.L_prior_sd * 1000)}")
+        if self.L_fixed:
+            # Count plus a short digest of the (benchmark, value) pairs, so two
+            # different pinned sets never share a cache file.
+            digest = hashlib.md5(repr(sorted(self.L_fixed)).encode()).hexdigest()[:6]
+            parts.append(f"Lfix{len(self.L_fixed)}-{digest}")
         return "_".join(parts)
 
 
@@ -94,14 +115,76 @@ def load_dataset(path: str) -> pd.DataFrame:
     return df
 
 
-def select_frontier_points(df: pd.DataFrame, top_n: int) -> pd.DataFrame:
-    """Keep points that are within top_n of the expanding best-so-far per benchmark."""
+_EFFORT_TOKENS = (
+    r"(?:xhigh|x-high|high|medium|med|low|minimal|promax|none|default|unknown|instant|"
+    r"thinking|non-thinking|no-thinking|nothinking|non-reasoning|reasoning|adaptive\s+thinking|"
+    r"thinking\s*\d+k?|reasoning\s*\d+k?|budget\s*\d+k?|effort\s*=\s*\w+|\d+k)"
+)
+
+
+def model_base_key(name: str) -> str:
+    """Identity of a model family once effort, thinking mode and size are removed.
+
+    Leaderboards publish the same model at several reasoning efforts on the same day
+    (``gpt-5.2_high`` / ``_xhigh`` / ``_low``, ``claude-sonnet-4-5_16K`` / ``_32K``,
+    ``(Thinking)`` / ``(Non-Thinking)``, ``-instant`` / ``-thinking``) and open
+    families at several parameter counts (``LLaMA-7B`` … ``65B``, ``Qwen3-235B-A22B``,
+    ``PaLM 2-S/M/L``).  Counted separately they fill the top-N frontier with one
+    release.  The key strips those markers, dated id fragments (the release date is
+    matched separately), ``pre-release`` / ``preview`` qualifiers and source tags,
+    then lower-cases and drops punctuation except dots (``gpt-4.1`` vs ``gpt-4``).
+    Product tiers (``-pro``, ``-mini``, ``-flash``, ``-air``, Qwen ``-max``) are kept.
+    Audited against the September 2026 dataset (same-day groups per benchmark).
+    """
+    s = str(name).strip().rstrip("†*").strip()
+    s = re.sub(r"_anthropic$", "", s, flags=re.I)  # source tag on some Scale rows
+    s = re.sub(r"[-_ ]?(?:20\d{2}-?\d{2}-?\d{2})(?=[_\s(-]|$)", "", s)  # dated ids
+    s = re.sub(r"\s*\(\d{1,2}/\d{1,2}\)", "", s)  # "Gemini 3 Deep Think (2/26)"
+    s = re.sub(r"[-_ ]pre-?release", "", s, flags=re.I)
+    s = re.sub(r"[-_ ]preview(?=[-_\s(]|$)", "", s, flags=re.I)
+    # Parameter counts: "-7B", " 0.5B", "(7B)", "-235B-A22B", "(64B/64E)", "PaLM 2-L",
+    # "-small" / "-large".
+    s = re.sub(r"\s*\(\d+(?:\.\d+)?[bB](?:/\d+[eE])?\)", "", s)
+    s = re.sub(r"[-_ ]?\d+(?:\.\d+)?[bB](?:[-_ ]?[aA]\d+(?:\.\d+)?[bB])?(?=[-_\s(]|$)", "", s)
+    s = re.sub(r"(?<=PaLM 2)-[SML]\b", "", s)
+    s = re.sub(r"[-_ ](?:small|large)(?=[-_\s(]|$)", "", s, flags=re.I)
+    prev = None
+    while prev != s:
+        prev = s
+        s = re.sub(
+            r"[_\s-]*\(\s*(?:reasoning[\s_-]*)?" + _EFFORT_TOKENS + r"(?:\s+thinking)?\s*\)\s*$",
+            "", s, flags=re.I,
+        ).strip()
+        s = re.sub(r"[_\s-]+(?:reasoning[\s_-]*)?" + _EFFORT_TOKENS + r"\s*$", "", s, flags=re.I).strip()
+        # "max" only in the Epoch/Scale effort spellings ("_max", " max", "(max)"),
+        # never "-max", which is a Qwen product tier.
+        s = re.sub(r"(?:[_\s]+|\(\s*)max\s*\)?\s*$", "", s, flags=re.I).strip()
+        s = re.sub(r"-thinking-max$", "", s, flags=re.I).strip()
+    return re.sub(r"[^a-z0-9.]", "", s.lower())
+
+
+def select_frontier_points(df: pd.DataFrame, top_n: int, *, dedupe_effort: bool = True) -> pd.DataFrame:
+    """Keep points that are within top_n of the expanding best-so-far per benchmark.
+
+    With ``dedupe_effort`` (the default for fitting), a model family published at
+    several efforts or sizes on the same day counts once, through its best score,
+    before the top-N selection.  Pass ``dedupe_effort=False`` for the display
+    frontier, which keeps every published point.
+    """
     required = {"benchmark", "release_date", "score"}
     missing = required - set(df.columns)
     if missing:
         raise ValueError(f"select_frontier_points: missing required columns: {sorted(missing)}")
 
     d = df.sort_values(["benchmark", "release_date"]).copy()
+    if dedupe_effort and "model_version" in d.columns:
+        d["_base"] = d["model_version"].map(model_base_key)
+        d = (
+            d.sort_values("score", ascending=False, kind="stable")
+            .drop_duplicates(["benchmark", "release_date", "_base"], keep="first")
+            .drop(columns="_base")
+            .sort_values(["benchmark", "release_date"])
+        )
     d["expanding_rank"] = (
         d.groupby("benchmark")["score"]
         .expanding()
@@ -112,9 +195,13 @@ def select_frontier_points(df: pd.DataFrame, top_n: int) -> pd.DataFrame:
     return d
 
 
-def prepare_dataset(df: pd.DataFrame, *, top_n: int) -> pd.DataFrame:
-    """Prepare dataset for modeling (frontier + time features)."""
-    d = select_frontier_points(df, top_n=top_n).copy()
+def prepare_dataset(df: pd.DataFrame, *, top_n: int, dedupe_effort: bool = True) -> pd.DataFrame:
+    """Prepare dataset for modeling (frontier + time features).
+
+    ``dedupe_effort=False`` gives the display variant (all same-day effort and size
+    variants kept); see :func:`select_frontier_points`.
+    """
+    d = select_frontier_points(df, top_n=top_n, dedupe_effort=dedupe_effort).copy()
 
     first_dates = d.groupby("benchmark")["release_date"].transform("min")
     d["days"] = (d["release_date"] - first_dates).dt.days.astype(int)
@@ -189,7 +276,28 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
         )
         L_raw = pm.Beta("L_raw", mu=L_raw_mu, sigma=L_raw_sigma_safe, dims="benchmark")
-        L = pm.Deterministic("L", L_min + L_range * L_raw, dims="benchmark")
+        L_free = L_min + L_range * L_raw
+
+        # Pinned asymptotes (cfg.L_fixed).  The Beta draw is kept for every
+        # benchmark so the coords stay uniform; for pinned benchmarks it is simply
+        # unused, which leaves the hyperposterior untouched (a latent child with no
+        # likelihood attached carries no information about its parents).
+        fixed_map = dict(cfg.L_fixed)
+        for name, value in fixed_map.items():
+            if not L_min < value <= 1.0:
+                raise ValueError(
+                    f"L_fixed[{name!r}]={value} must lie in (L_min={L_min}, 1]."
+                )
+        is_fixed = np.array([b in fixed_map for b in bench_names], dtype=bool)
+        if is_fixed.any():
+            fixed_vals = np.array([fixed_map.get(b, np.nan) for b in bench_names], dtype=float)
+            L_fixed_data = pm.Data("L_fixed", np.where(is_fixed, fixed_vals, 0.0), dims="benchmark")
+            L_is_fixed = pm.Data("L_is_fixed", is_fixed.astype(float), dims="benchmark")
+            L = pm.Deterministic(
+                "L", L_is_fixed * L_fixed_data + (1.0 - L_is_fixed) * L_free, dims="benchmark"
+            )
+        else:
+            L = pm.Deterministic("L", L_free, dims="benchmark")
 
         # Lower bound l per benchmark (fixed data)
         l_per_bench = d.groupby("benchmark_idx")["lower_bound"].first().to_numpy()
@@ -274,6 +382,15 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
     return model
 
 
+def data_fingerprint(prepared: pd.DataFrame) -> str:
+    """Short hash of the (benchmark, release_date, score) triples actually fitted."""
+    key = prepared[["benchmark", "release_date", "score"]].copy()
+    key["release_date"] = pd.to_datetime(key["release_date"]).dt.strftime("%Y-%m-%d")
+    key["score"] = key["score"].astype(float).round(6)
+    payload = key.sort_values(["benchmark", "release_date", "score"]).to_csv(index=False)
+    return hashlib.md5(payload.encode()).hexdigest()[:6]
+
+
 def fit(
     prepared: pd.DataFrame,
     cfg: ModelConfig,
@@ -287,15 +404,20 @@ def fit(
     Parameters
     ----------
     cache_tag : optional label appended to the slug for the NetCDF filename.
-        When *None*, the filename is ``Fits/{cfg.slug}.nc``.
-        Pass e.g. ``cache_tag="retro_2025"`` to get ``Fits/{cfg.slug}_retro_2025.nc``.
+        The name always ends with ``_d<hash>``, a fingerprint of the fitted data:
+        ``Fits/{cfg.slug}[_{cache_tag}]_d{hash}.nc``.
     use_cache : if *True* (default), load from ``Fits/`` if the file exists,
         and save there after sampling.  Set to *False* to force re-fitting.
     """
     model = build_model(prepared, cfg)
 
     # --- cache path ---
+    # The filename carries a fingerprint of the fitted observations: a cache is only
+    # reused for the exact same data.  Without it, a retrodiction fit computed on an
+    # older dataset would be silently reloaded after a data refresh (the cutoff tag
+    # alone does not change when the underlying files do).
     fname = cfg.slug if cache_tag is None else f"{cfg.slug}_{cache_tag}"
+    fname = f"{fname}_d{data_fingerprint(prepared)}"
     cache_path = FITS_DIR / f"{fname}.nc"
 
     if use_cache and cache_path.exists():

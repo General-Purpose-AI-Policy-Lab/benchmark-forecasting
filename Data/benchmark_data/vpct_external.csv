@@ -3,10 +3,10 @@ gemini-3-pro-preview,0.91,2025-11-18,Google DeepMind,United States of America,,A
 gpt-5.2-2025-12-11_xhigh,0.84,2025-12-11,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec44ii4M100mBK2S
 gemini-3-flash-preview,0.726,2025-12-17,Google DeepMind,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recvXJM6wzywb9IOE
 gpt-5.2-2025-12-11_high,0.67,2025-12-11,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,reckX2AKbtEWNzbZK
-gpt-5-2025-08-07_high,0.66,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_high,0.66,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,VPCT leaderboard,https://cbrower.dev/vpct,recr3Z2yR195jbjtt
-gpt-5-2025-08-07_medium,0.632,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+gpt-5-2025-08-07_medium,0.632,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
 
 https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,VPCT leaderboard,https://cbrower.dev/vpct,recsN4vpvg4hEFivY
 gpt-5.1-2025-11-13_high,0.587,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
@@ -33,7 +33,7 @@ gpt-5-mini-2025-08-07_medium,0.402,2025-08-07,OpenAI,United States of America,,,
 gpt-4o-2024-11-20,0.4,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,,VPCT leaderboard,https://cbrower.dev/vpct,recM0nqnoo0kn90F5
 claude-opus-4-5-20251101_32K,0.4,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Hasn't been added to leaderboard, but twitter thread confirms it.",Tweet from VPCT creator,https://x.com/ChaseBrowe32432/status/1993038782975951149,recx5AzuT2zNCCxlX
 claude-sonnet-4-5-20250929_32K,0.398,2025-09-29,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recrRiFpB4Yu07ICW
-claude-3-7-sonnet-20250219,0.39,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,VPCT leaderboard,https://cbrower.dev/vpct,recM5woYQkKuJ3OW3
+claude-3-7-sonnet-20250219,0.39,2025-02-24,Anthropic,United States of America,3.3499999999999998e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,VPCT leaderboard,https://cbrower.dev/vpct,recM5woYQkKuJ3OW3
 gpt-5-mini-2025-08-07_high,0.39,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recV0qj04cOD1aAYJ
 gemini-2.5-flash-preview-04-17,0.38,2025-04-17,Google DeepMind,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recDPItICe3yrLPoM
 claude-opus-4-20250514_16K,0.38,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recR0EgymqTMRoVGM
@@ -41,7 +41,7 @@ claude-sonnet-4-5-20250929,0.38,2025-09-29,Anthropic,United States of America,,,
 gpt-5-nano-2025-08-07_high,0.372,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec4oPG9VFZ9Hj1Nu
 o1-2024-12-17_medium,0.37,2024-12-17,OpenAI,United States of America,,,Assuming medium reasoning effort for o1,VPCT leaderboard,https://cbrower.dev/vpct,recKCsz6Np1hFa9Io
 gpt-5-nano-2025-08-07_medium,0.354,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec1Ak2IO7DaZW9Sm
-claude-3-7-sonnet-20250219_64K,0.35,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,VPCT leaderboard,https://cbrower.dev/vpct,recoN8YNFbyWyRXtj
+claude-3-7-sonnet-20250219_64K,0.35,2025-02-24,Anthropic,United States of America,3.3499999999999998e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,VPCT leaderboard,https://cbrower.dev/vpct,recoN8YNFbyWyRXtj
 claude-opus-4-1-20250805,0.35,2025-08-05,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recW1ZN2O62BUbQkk
 gpt-4o-mini-2024-07-18,0.34,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
 

@@ -171,7 +171,7 @@ text-davinci-001,0.712,2022-01-27,OpenAI,United States of America,3.19181e+23,""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3,64,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,recPrYWrsvsjKbhpk
-Gopher (280B),0.571,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.571,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher,64,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,recTPeBzo4moFIytC
 GLaM (MoE),0.758,2021-12-13,Google,United States of America,3.6363112434e+23,"The network activates 96.6 billion parameters per token and trained for 600B tokens.
 
@@ -204,7 +204,7 @@ text-davinci-001,0.712,2022-01-27,OpenAI,United States of America,3.19181e+23,""
 base model was reported 3.14e+23 FLOP
 
 3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3,few,,Language Models are Few-Shot Learners,http://arxiv.org/abs/2005.14165,recNaxMPrhoe9tttx
-mpt-7b,0.557,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recxHPOudfnEYsSKo
+mpt-7b,0.557,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recxHPOudfnEYsSKo
 mpt-30b,0.68,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
 ""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,0,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recZdKly7cWCpB6z4
 falcon-7b,0.526,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
@@ -246,7 +246,7 @@ Llama-2-70b-hf ,0.824,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pre
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
 Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,0,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recBs16PqLYX6M8Ct
-mpt-7b,0.596,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,1,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recF1NDi4Po3tFG0O
+mpt-7b,0.596,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,1,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recF1NDi4Po3tFG0O
 mpt-30b,0.713,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
 ""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,1,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recJwCErRtLEN58c3
 falcon-7b,0.568,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
@@ -288,7 +288,7 @@ Llama-2-70b-hf ,0.85,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pret
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
 Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,1,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recu7hSGTkBIUK6uz
-mpt-7b,0.612,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,5,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recAg3ij56SMsYKCs
+mpt-7b,0.612,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,5,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recAg3ij56SMsYKCs
 mpt-30b,0.733,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
 ""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,5,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,rec1R50MzTdbjFMas
 falcon-7b,0.646,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
@@ -330,7 +330,7 @@ Llama-2-70b-hf ,0.876,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pre
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
 Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,5,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recaPm1UihmalxzSJ
-mpt-7b,0.616,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,64,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,rechg030AkzmiWBU4
+mpt-7b,0.616,2023-05-05,MosaicML,United States of America,4.2e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,64,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,rechg030AkzmiWBU4
 mpt-30b,0.736,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
 ""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,64,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,reccDYpXS53UyENQM
 falcon-7b,0.611,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
@@ -372,9 +372,9 @@ Llama-2-70b-hf ,0.875,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pre
 311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
 
 Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,64,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recrVtUWFAXNf8Px7
-Gopher (280B),0.435,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.435,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher 280B,0,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,rec7K8WKjBBVw4Nsp
-Chinchilla (70B),0.554,2022-03-29,DeepMind,United Kingdom of Great Britain and Northern Ireland,5.76e+23,"""Both Chinchilla and Gopher have been trained for the same number of FLOPs but differ in the size of the model and the number of training tokens.""
+Chinchilla (70B),0.554,2022-03-29,DeepMind,United Kingdom,5.76e+23,"""Both Chinchilla and Gopher have been trained for the same number of FLOPs but differ in the size of the model and the number of training tokens.""
 
 We see the number of flops in table 3",Chinchilla 70B,0,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recFzzrC4aa3N4f2U
 LLaMA-7B,0.5,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
@@ -399,9 +399,9 @@ This implies that the actual utilization was:
 MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,1,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,rec5ASfpNuRqmCRrk
 LLaMA-33B,0.679,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,1,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recGlW4KYaVMMt6p6
 LLaMA-65B,0.716,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,1,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recys1yf6UaLOaiii
-Gopher (280B),0.57,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.57,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher 280B,5,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recYzKbqStsGq5bEP
-Chinchilla (70B),0.641,2022-03-29,DeepMind,United Kingdom of Great Britain and Northern Ireland,5.76e+23,"""Both Chinchilla and Gopher have been trained for the same number of FLOPs but differ in the size of the model and the number of training tokens.""
+Chinchilla (70B),0.641,2022-03-29,DeepMind,United Kingdom,5.76e+23,"""Both Chinchilla and Gopher have been trained for the same number of FLOPs but differ in the size of the model and the number of training tokens.""
 
 We see the number of flops in table 3",Chinchilla 70B,5,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recwZkD2OfndyATZ9
 LLaMA-7B,0.563,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
@@ -415,9 +415,9 @@ This implies that the actual utilization was:
 MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,5,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recJV7XYKa7kWSPU1
 LLaMA-33B,0.699,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,5,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recwHiE8DvowuL4XI
 LLaMA-65B,0.726,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,5,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recglHj9DVjwTu3Zp
-Gopher (280B),0.572,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.572,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher 280B,64,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recHEkMoe2cRJB06H
-Chinchilla (70B),0.646,2022-03-29,DeepMind,United Kingdom of Great Britain and Northern Ireland,5.76e+23,"""Both Chinchilla and Gopher have been trained for the same number of FLOPs but differ in the size of the model and the number of training tokens.""
+Chinchilla (70B),0.646,2022-03-29,DeepMind,United Kingdom,5.76e+23,"""Both Chinchilla and Gopher have been trained for the same number of FLOPs but differ in the size of the model and the number of training tokens.""
 
 We see the number of flops in table 3",Chinchilla 70B,64,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recOh6y9PPVkfB63f
 LLaMA-7B,0.576,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
@@ -431,7 +431,7 @@ This implies that the actual utilization was:
 MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,64,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recJ8krqb6kapQNSk
 LLaMA-33B,0.704,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,64,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,recnsnupizKu5Yg1D
 LLaMA-65B,0.73,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,64,,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,rec5qM6IHhVkLP5Mw
-Gopher (280B),0.571,2021-12-08,DeepMind,United Kingdom of Great Britain and Northern Ireland,6.31e+23,"Table A26
+Gopher (280B),0.571,2021-12-08,DeepMind,United Kingdom,6.31e+23,"Table A26
 6.31E+08 Train PFLOPs",Gopher 280B,64,,"Scaling Language Models: Methods, Analysis & Insights from Training Gopher",http://arxiv.org/abs/2112.11446,recEiFOxxUkVpTMNz
 claude-instant-1.1,0.789,,Anthropic,United States of America,,,Claude Instant 1.1,5,,Releasing Claude Instant 1.2,https://www.anthropic.com/news/releasing-claude-instant-1-2,recit7IX6ZlepTNtS
 claude-instant-1.2,0.787,2023-08-09,Anthropic,United States of America,,,Claude Instant 1.2,5,,Releasing Claude Instant 1.2,https://www.anthropic.com/news/releasing-claude-instant-1-2,recEOw6eMJ9XwFZTY

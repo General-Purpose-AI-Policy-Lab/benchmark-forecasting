@@ -1,414 +1,482 @@
 rank,model,score,stderr,is_new,benchmark_slug,category,url
-1,claude-opus-4-6 (CoWork),4.17,,True,rli,agentic,https://scale.com/leaderboard/rli
-2,claude-opus-4-5-20251101-thinking,3.75,,False,rli,agentic,https://scale.com/leaderboard/rli
-3,Manus_1.6 (Max),2.92,,True,rli,agentic,https://scale.com/leaderboard/rli
-4,gpt-5.2-2025-12-11 (medium),2.5,,False,rli,agentic,https://scale.com/leaderboard/rli
-4,Manus 1.5,2.5,,False,rli,agentic,https://scale.com/leaderboard/rli
-6,Manus 1.0,2.5,,False,rli,agentic,https://scale.com/leaderboard/rli
-7,claude-4-5-Sonnet,2.08,,False,rli,agentic,https://scale.com/leaderboard/rli
-7,gpt-5.2-2025-12-11 (default),2.08,,False,rli,agentic,https://scale.com/leaderboard/rli
-9,gpt-5-2025-08-07,1.67,,False,rli,agentic,https://scale.com/leaderboard/rli
-10,ChatGPT agent,1.25,,False,rli,agentic,https://scale.com/leaderboard/rli
-10,gemini-3-pro-preview,1.25,,False,rli,agentic,https://scale.com/leaderboard/rli
-12,gemini-2.5-pro-preview-06-05,0.83,,False,rli,agentic,https://scale.com/leaderboard/rli
-1,Muse Spark,78.3,2.4,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-1,"Claude Opus 4.6 (adaptive thinking, effort = max)",75.8,3.0,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-1,Gemini 3.1 Pro Preview (thinking_level = high),73.9,2.5,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-2,Claude Opus 4.6 (reasoning_effort = high),71.8,2.9,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-2,Gemini 3 Pro Preview (thinking_level = high),70.8,2.9,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-3,Claude Sonnet 4.6 (reasoning_effort = high),69.4,2.6,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-4,"Claude Opus 4.5 (effort = high, reasoning_budget = 10k tokens)",68.1,2.2,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-4,GPT-5.4 (reasoning = xhigh),68.1,3.2,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-6,GPT-5.2 (reasoning_effort = xhigh),65.1,2.7,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-9,Gemini 3 Flash Preview (thinking_level = high),61.4,3.1,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-10,"Claude Sonnet 4.5 (effort = high, reasoning_budget = 10k tokens)",58.9,2.9,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-10,GPT-5.4 mini (reasoning = xhigh),56.2,2.8,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-11,Kimi K2.5,55.1,3.0,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-12,Gemini 3.1 flash lite preview (thinking_level = high),53.0,2.8,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-12,GPT-5.1 (reasoning_effort = high),52.9,2.5,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-12,GLM 4.7,52.0,3.0,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-16,o3 pro,47.6,2.3,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-18,Claude Haiku 4.5,40.2,2.8,False,mcp_atlas,agentic,https://scale.com/leaderboard/mcp_atlas
-1,gpt-5.4-pro (xHigh),59.1,3.56,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-1,Muse Spark,55.0,3.6,True,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-2,claude-opus-4-6 (thinking),51.9,3.61,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-3,gemini-3.1-pro (thinking),46.1,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-3,claude-opus-4-5-20251101,45.89,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-4,claude-4-5-Sonnet,43.6,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-4,gemini-3-pro-preview,43.3,3.6,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-4,claude-4-Sonnet,42.7,3.59,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-4,gpt-5-2025-08-07 (High),41.78,3.49,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-4,gpt-5.2-codex,41.04,3.57,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-4,claude-4-5-haiku,39.45,3.55,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-6,qwen3-coder-480b-a35b,38.7,3.55,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-6,minimax-2.1,36.81,3.55,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-10,gemini-3-flash,34.63,3.55,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-15,gpt-5.2,29.94,2.15,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-15,kimi-k2-instruct,27.67,3.25,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-17,qwen3-235b-a22b,21.41,2.25,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-18,gpt-oss-120b,16.2,2.67,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-18,deepseek-v3p2,15.56,2.63,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-20,gemma-3-27b-it,11.38,2.15,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-21,llama3-1-405b-instruct,11.18,2.15,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-22,glm-4.6,9.67,2.15,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-23,llama4-maverick-17b-instruct,5.24,1.24,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-25,codestral-2405,1.51,1.51,False,swe_bench_pro_public,agentic,https://scale.com/leaderboard/swe_bench_pro_public
-1,claude-opus-4-6 (Non-Thinking),53.28,0.18,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-2,Muse Spark,52.44,0.06,True,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-3,gpt-5,51.32,0.17,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-3,gpt-5-pro,51.06,0.59,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-5,o3-pro,49.08,0.79,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-6,gpt-5.1-thinking,48.01,0.09,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-6,o3,47.69,0.45,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-8,kimi-k2.5,46.51,0.34,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-8,gpt-5.2-pro-2025-12-11,46.34,0.73,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-8,claude-opus-4-5-20251101-thinking,46.16,0.27,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-10,gpt-oss-120b,43.8,1.96,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-11,claude-sonnet-4-5-20250929,43.79,0.4,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-11,kimi-k2-thinking,43.41,0.23,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-13,gemini-3.1-pro,41.87,1.22,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,mistral-medium-latest,39.35,0.75,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,o4-mini,39.22,0.51,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,gemini-3-pro-preview,39.18,0.51,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,qwen.qwen3-235b-a22b-2507-v1:0,39.14,0.38,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,gemini-2.5-pro,38.92,0.48,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,gemini-2.5-flash,38.41,0.62,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-15,kimi-k2-instruct,38.34,0.42,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-22,claude-opus-4-1-20250805,35.15,1.27,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-22,deepseek-v3p1,35.09,0.15,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-23,gpt-4.1,34.32,0.26,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-25,deepseek-r1-0528,32.67,0.64,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-26,gpt-4.1-mini,30.45,0.42,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-27,llama4-maverick-instruct-basic,22.36,0.42,False,prbench-finance,frontier,https://scale.com/leaderboard/prbench-finance
-1,Muse Spark,52.29,0.06,True,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-1,claude-opus-4-6 (Non-Thinking),52.27,0.66,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-3,gpt-5-pro,49.89,0.36,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-3,o3-pro,49.67,0.5,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-3,gpt-5.1-thinking,49.33,0.38,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-5,gpt-5,48.96,0.03,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-5,o3,48.57,0.54,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-8,gpt-5.2-pro-2025-12-11,45.44,0.25,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-9,claude-opus-4-5-20251101-thinking,44.21,0.34,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-9,gemini-3.1-pro,44.02,1.12,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-9,kimi-k2.5,43.83,0.18,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-12,gemini-2.5-pro,41.43,0.2,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-12,gemini-2.5-flash,41.02,0.61,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-12,claude-sonnet-4-5-20250929,40.84,0.4,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-12,gpt-oss-120b,40.21,2.07,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-13,kimi-k2-thinking,40.9,0.26,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-13,gemini-3-pro-preview,40.6,0.28,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-14,mistral-medium-latest,39.55,0.91,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-17,qwen.qwen3-235b-a22b-2507-v1:0,38.3,0.43,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-17,o4-mini,38.11,0.69,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-18,deepseek-v3p1,37.62,0.64,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-21,deepseek-r1-0528,36.61,0.68,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-22,gpt-4.1,36.48,0.05,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-22,kimi-k2-instruct,36.38,0.25,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-22,claude-opus-4-1-20250805,34.0,2.54,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-26,gpt-4.1-mini,30.38,0.55,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-27,llama4-maverick-instruct-basic,24.84,0.9,False,prbench-legal,frontier,https://scale.com/leaderboard/prbench-legal
-1,gpt-5.4-pro-2026-03-05,44.32,1.95,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-1,Muse Spark,40.56,1.92,True,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-2,gemini-3-pro-preview,37.52,1.9,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-3,gpt-5.4-2026-03-05 (xhigh thinking),36.24,1.88,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-3,claude-opus-4-6-thinking-max,34.44,1.86,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-5,gpt-5-pro-2025-10-06,31.64,1.82,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-7,gpt-5.2-2025-12-11,27.8,1.76,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-7,gpt-5-2025-08-07,25.32,1.7,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-7,claude-opus-4-5-20251101-thinking,25.2,1.7,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-7,kimi-k2.5,24.37,1.81,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-8,gpt-5.1-thinking,23.68,1.67,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-10,gemini-2.5-pro-preview-06-05,21.64,1.61,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-12,o3 (high) (April 2025),20.32,1.58,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-12,gpt-5-mini-2025-08-07,19.44,1.55,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-12,o3 (medium) (April 2025),19.2,1.54,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-12,claude-opus-4-6 (Non-Thinking),19.0,1.54,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-13,Gemini 2.5 Pro Experimental (March 2025),18.16,1.51,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-13,o4-mini (high) (April 2025),18.08,1.51,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-13,Gemini 2.5 Pro Preview (May 06 2025),17.8,1.5,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-20,o4-mini (medium) (April 2025),14.28,1.37,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-20,claude-opus-4-5-20251101,14.16,1.37,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-20,claude-sonnet-4-5-20250929-thinking,13.72,1.35,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-20,Gemini 2.5 Flash (April 2025),12.08,1.28,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-22,claude-opus-4-1-20250805-thinking,11.52,1.25,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-23,Gemini 2.5 Flash Preview (May 2025),10.96,1.22,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-23,Claude Opus 4 (Thinking),10.72,1.21,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-25,gemini-3.1-flash-lite-preview,8.64,1.1,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,glm-4p5,8.32,1.08,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,o1 Pro,8.12,1.07,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,glm-4p5-air,8.12,1.07,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,Claude 3.7 Sonnet (Thinking),8.04,1.07,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,o1 (December 2024),7.96,1.06,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,claude-opus-4-1-20250805,7.92,1.06,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,Claude Sonnet 4 (Thinking),7.76,1.05,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,claude-sonnet-4-5-20250929,7.52,1.03,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,gpt-5.1-instant,6.8,0.99,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-27,Claude Opus 4,6.68,0.98,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-28,Gemini 2.0 Flash Thinking (January 2025),6.56,0.97,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-29,Llama 4 Maverick,5.68,0.91,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-36,Claude Sonnet 4,5.52,0.9,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-36,GPT 4.5 Preview,5.44,0.89,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-36,GPT-4.1,5.4,0.89,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-39,Gemini-1.5-Pro-002,4.6,0.82,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-39,Mistral Medium 3,4.52,0.81,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-40,Nova Pro,4.4,0.8,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-40,Claude 3.5 Sonnet (October 2024),4.08,0.78,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-43,Nova Lite,3.64,0.73,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-46,GPT-4o (November 2024),2.72,0.64,False,humanitys_last_exam,frontier,https://scale.com/leaderboard/humanitys_last_exam
-1,gpt-5.4-2026-03-05 (reasoning effort = high),29.17,0.13,False,vtb,frontier,https://scale.com/leaderboard/vtb
-1,gemini-3.1-pro-preview,28.97,0.91,False,vtb,frontier,https://scale.com/leaderboard/vtb
-2,claude-opus-4-6-thinking,27.52,1.45,False,vtb,frontier,https://scale.com/leaderboard/vtb
-3,gemini-3-pro-preview,26.85,0.54,False,vtb,frontier,https://scale.com/leaderboard/vtb
-5,gpt-5-2025-08-07-thinking,18.68,0.25,False,vtb,frontier,https://scale.com/leaderboard/vtb
-6,gpt-5-2025-08-07,16.96,0.06,False,vtb,frontier,https://scale.com/leaderboard/vtb
-7,o3-2025-04-16,13.74,1.78,False,vtb,frontier,https://scale.com/leaderboard/vtb
-7,gemini-2.5-pro-preview-06-05,11.75,1.14,False,vtb,frontier,https://scale.com/leaderboard/vtb
-8,o4-mini-2025-04-16,11.12,0.08,False,vtb,frontier,https://scale.com/leaderboard/vtb
-10,claude-sonnet-4-5-20250929-thinking,6.2,0.14,False,vtb,frontier,https://scale.com/leaderboard/vtb
-11,claude-sonnet-4-5-20250929,5.6,0.12,False,vtb,frontier,https://scale.com/leaderboard/vtb
-11,gpt-4.1-2025-04-14,5.52,0.21,False,vtb,frontier,https://scale.com/leaderboard/vtb
-11,claude-opus-4-1-20250805-thinking,5.16,0.57,False,vtb,frontier,https://scale.com/leaderboard/vtb
-13,claude-opus-4-1-20250805,4.71,0.4,False,vtb,frontier,https://scale.com/leaderboard/vtb
-13,gemini-2.5-flash,4.69,0.13,False,vtb,frontier,https://scale.com/leaderboard/vtb
-13,claude-sonnet-4,4.48,0.41,False,vtb,frontier,https://scale.com/leaderboard/vtb
-15,claude-sonnet-4-thinking,4.44,0.04,False,vtb,frontier,https://scale.com/leaderboard/vtb
-18,nova-premier,2.0,0.16,False,vtb,frontier,https://scale.com/leaderboard/vtb
-19,llama4-scout,1.58,0.04,False,vtb,frontier,https://scale.com/leaderboard/vtb
-19,llama4-maverick,1.41,0.25,False,vtb,frontier,https://scale.com/leaderboard/vtb
-1,gpt-5-pro-2025-10-06,65.2,1.24,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-1,gemini-3.1-pro-preview,64.74,2.88,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-1,gpt-5.4-pro-2026-03-05,62.27,2.92,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-2,Muse Spark,59.05,2.97,True,multinrc,frontier,https://scale.com/leaderboard/multinrc
-2,gemini-3-pro-preview,58.96,2.97,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-3,gpt-5.4-2026-03-05 (xhigh thinking),58.29,2.98,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-3,claude-opus-4-6-thinking-max,57.06,2.99,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-6,gpt-5-2025-08-07,52.13,3.01,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-7,o3-pro-2025-06-10-high,49.0,3.02,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-7,gpt-5.1-thinking,49.0,3.02,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-7,claude-opus-4-5-20251101-thinking,48.63,3.02,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-7,claude-opus-4-6 (Non-Thinking),48.34,3.02,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-8,o3-2025-04-16-high,45.5,3.0,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-8,Gemini-2.5-Pro-Preview-06-05,45.12,3.0,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-8,o3-2025-04-16-medium,44.45,3.0,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-12,gpt-5.2-2025-12-11,42.18,2.98,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-12,claude-opus-4-5-20251101,41.23,2.97,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-15,claude-opus-4-1-20250805-thinking,38.39,2.93,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-16,claude-sonnet-4-5-20250929-thinking,35.83,2.89,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-17,kimi-k2.5,35.17,2.88,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-17,Claude-4-Opus-20250514-thinking,33.93,2.86,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-19,claude-opus-4-1-20250805,29.67,2.76,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-20,Claude-4-Opus-20250514,29.0,2.74,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-21,claude-sonnet-4-5-20250929,28.15,2.71,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-21,Claude-3.7-Sonnet-thinking,27.77,2.7,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-21,Deepseek-R1-0528,27.58,2.7,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-21,Qwen3-235B-A22B-Thinking-2507,27.11,2.68,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-21,gemini-3.1-flash-lite-preview,25.02,2.61,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-22,Deepseek-R1,24.27,2.59,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-22,gpt-5-mini-2025-08-07,23.89,2.57,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-23,DeepSeek-V3.1,23.6,2.56,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-26,o4-mini-high,22.18,2.51,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-27,GPT-4.1,21.23,2.47,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-31,kimi-k2-instruct,18.48,2.34,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-31,Claude-4-Sonnet-20250514,18.39,2.34,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-31,gpt-5.1-instant,18.29,2.33,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-31,Qwen3-235B-A22B,17.63,2.3,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-31,glm-4p5,17.44,2.29,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-33,gpt-oss-120b,15.17,2.16,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-38,GPT-4o,12.42,1.99,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-39,gpt-oss-20b,10.43,1.84,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-39,glm-4p5-air,10.43,1.84,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-40,Llama-4-Maverick,8.44,1.68,False,multinrc,frontier,https://scale.com/leaderboard/multinrc
-1,gemini-3-pro-preview (Thinking),54.65,4.57,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-1,gemini-2.5-pro (Thinking),46.9,4.58,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-2,gemini-2.5-flash (Thinking),40.04,4.5,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-3,gemini-3.1-flash-live-preview (Thinking)†,36.06,4.41,True,audiomc,frontier,https://scale.com/leaderboard/audiomc
-3,gpt-realtime-1.5†,34.73,4.38,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-4,gpt-realtime-1.5,29.87,4.21,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-5,gemini-3.1-flash-live-preview†,26.77,4.06,True,audiomc,frontier,https://scale.com/leaderboard/audiomc
-5,Voxtral-Small-24B-2507,26.33,4.05,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-6,gemini-2.5-flash,26.11,4.04,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-6,gpt-4o-audio-preview-2025-06-03,25.44,4.0,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-6,Qwen3-Omni-30B-A3B-Instruct†,24.34,3.95,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-6,gpt-realtime-2025-08-28,23.45,3.9,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-6,gpt-4o-audio-preview-2025-06-03†,23.23,3.88,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-7,gemini-2.5-flash-native-audio-preview-12-2025 (thinking)†,21.46,3.48,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-7,gpt-realtime-2025-08-28†,20.35,3.7,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-7,MiMo-Audio-7B-Instruct (Thinking),19.69,3.66,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-9,MiMo-Audio-7B-Instruct,18.58,3.58,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-12,gpt-realtime-mini-2025-12-15,16.59,3.43,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-14,gemma-3n-E4B-it,15.49,3.33,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-14,Phi-4-multimodal-instruct,15.49,3.33,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-14,gpt-4o-mini-audio-preview-2024-12-17,14.82,3.28,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-15,gpt-realtime-mini-2025-12-15†,13.94,3.19,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-15,gemini-2.5-flash-native-audio-preview-12-2025 (non-thinking)†,13.9,3.19,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-15,Kimi-Audio-7B-Instruct,13.72,3.17,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-16,gpt-4o-mini-audio-preview-2024-12-17†,13.05,3.11,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-18,Qwen2.5-Omni-7B,11.95,2.99,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-18,Kimi-Audio-7B-Instruct†,10.4,2.82,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-21,LFM2-Audio-1.5B†,9.29,2.69,False,audiomc,frontier,https://scale.com/leaderboard/audiomc
-1,Muse Spark,75.52,4.05,True,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-1,gemini-3.1-pro-preview,71.37,1.74,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-1,gpt-5.4-pro-2026-03-05,69.23,3.05,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-3,gemini-3-pro-preview,65.67,2.2,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-4,gpt-5.1-2025-11-13-thinking,63.41,2.11,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-4,gpt-5-thinking,63.19,1.63,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-4,o3-pro-2025-06-10-reasoning-high,62.4,2.49,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-5,kimi-k2.5,61.39,0.46,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-5,gpt-5-mini-thinking,58.99,4.07,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-7,gemini-3.1-flash-lite-preview,60.61,0.38,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-9,o3-2025-04-16-reasoning-high,56.62,3.32,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-10,claude-opus-4-5-20251101-thinking,58.97,0.42,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-10,claude-4-opus-thinking,58.62,0.77,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-11,claude-opus-4-1-20250805-thinking,57.2,0.95,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-11,claude-4-sonnet-thinking,57.11,0.81,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-12,claude-opus-4-6 (Non-Thinking),56.02,1.08,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-12,kimi-k2-thinking,55.42,1.88,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-12,claude-sonnet-4-5-20250929-thinking,55.32,1.47,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-15,gemini-2-5-pro,53.62,1.32,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-16,claude-3-7-sonnet-thinking,51.58,3.07,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-19,gpt-5.1-2025-11-13-instant,51.23,1.79,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-19,claude-haiku-4-5-20251001-thinking,50.49,2.04,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-24,deepseek-v3p1,46.1,1.11,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-24,gpt-oss-120b,45.34,2.15,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-24,o4-mini-2025-04-16-reasoning-high,44.9,0.88,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-27,qwen3-235b-a22b,41.22,1.79,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-27,gpt-4.1,39.43,0.94,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-28,claude-opus-4-6-thinking-max,37.15,2.16,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-29,gemini-2-0-flash,36.35,0.78,False,multichallenge,frontier,https://scale.com/leaderboard/multichallenge
-1,gpt-5.4-pro-2026-03-05,23.82,2.43,True,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-1,gemini-3.1-pro-preview,19.76,2.27,True,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-2,gpt-5-pro-2025-10-06,18.75,2.22,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-2,gemini-3-pro-preview,18.24,2.2,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-2,gpt-5.4-2026-03-05 (xhigh thinking),15.96,2.09,True,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-5,o3 (medium) (April 2025),13.09,1.92,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-6,o3 (high) (April 2025),11.91,1.85,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-6,claude-opus-4-5-20251101-thinking,11.91,1.85,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-6,gpt-5.1-thinking,11.23,1.8,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-6,gpt-5-2025-08-07,10.47,1.74,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-6,gpt-5.2-2025-12-11,10.39,1.74,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-7,o4-mini (high) (April 2025),9.21,1.65,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-9,gpt-5-mini-2025-08-07,8.19,1.56,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-10,claude-opus-4-6-thinking-max,7.6,1.51,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-12,claude-opus-4-1-20250805-thinking,7.18,1.47,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-12,claude-opus-4-6 (Non-Thinking),6.84,1.44,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-12,o4-mini (medium) (April 2025),6.81,0.83,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-13,o1 Pro (March 2025),6.14,1.37,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-13,claude-sonnet-4-5-20250929-thinking,6.0,1.35,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-13,o1 (December 2024),5.65,1.32,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-13,Claude Opus 4 (Thinking),5.57,1.31,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-13,gemini-2.5-pro-preview-06-05,5.57,1.31,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-15,claude-opus-4-1-20250805,4.81,1.22,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-16,claude-opus-4-5-20251101,4.65,1.2,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-17,Claude 3.7 Sonnet Thinking (Feb 2025),4.23,1.17,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-18,Gemini 2.5 Pro Experimental (March 2025),4.14,1.16,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-20,claude-sonnet-4-5-20250929,3.38,1.03,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-20,kimi-k2.5,3.38,1.03,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-23,Claude Opus 4,3.21,1.0,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-23,GPT-4.5 Preview (February 2025),3.18,1.02,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-23,Claude Sonnet 4 (Thinking),3.12,0.99,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-23,gemini-3.1-flash-lite-preview,3.04,0.98,True,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-23,Gemini 2.5 Flash Preview (May 2025),2.7,0.92,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-25,Gemini 2.5 Pro Preview (May 06 2025),2.36,0.87,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-25,Claude 3.7 Sonnet (February 2025),2.26,0.86,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-26,Claude Sonnet 4,2.2,0.84,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-26,GPT-4.1,2.17,0.84,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-27,gpt-5.1-instant,1.94,0.79,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-34,Gemini 2.0 Flash Thinking (January 2025),1.1,0.6,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-35,Claude 3.5 Sonnet (October 2024),0.91,0.55,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-36,Pixtral Large (November 2024),0.84,0.53,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-38,Claude 3 Opus,0.82,0.45,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-38,GPT-4o (November 2024),0.8,0.44,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-38,Gemini 2.0 Pro Experimental (Feb 2025),0.69,0.48,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-39,Gemini 2.0 Flash (February 2025),0.63,0.45,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-39,Llama 4 Maverick,0.58,0.43,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-39,Llama 3.2 90B Vision Instruct,0.38,0.35,False,enigma_eval,frontier,https://scale.com/leaderboard/enigma_eval
-1,Gemini 2.5 Pro Experimental (March 2025),54.65,1.46,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-1,gemini-2.5-pro-preview-06-05,54.63,0.55,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-1,gpt-5.4-pro-2026-03-05,53.89,2.02,True,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-2,gpt-5-pro-2025-10-06,52.39,1.07,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,o4-mini (high) (April 2025),51.79,0.63,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,o4-mini (medium) (April 2025),51.66,1.08,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,o3 Pro (high) (June 2025),51.63,0.25,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,gemini-3-pro-preview,51.49,0.79,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,gpt-5.4-2026-03-05 (xhigh thinking),50.89,1.76,True,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,Gemini 2.5 Pro Preview (May 06 2025),50.78,0.57,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-3,gpt-5-mini-2025-08-07,50.39,2.28,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-6,o3 (high) (April 2025),50.07,1.14,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-7,gpt-5-2025-08-07,49.69,1.03,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-9,o3 (medium) (April 2025),49.59,0.66,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-9,claude-sonnet-4-5-20250929-thinking,48.75,1.67,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-9,gemini-3.1-flash-lite-preview,46.93,2.74,True,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-10,Gemini 2.5 Flash Preview (May 2025),49.15,0.36,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-11,o1 Pro (March 2025),47.32,1.78,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-12,Claude 3.7 Sonnet Thinking (Feb 2025),48.23,0.7,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-13,claude-opus-4-1-20250805-thinking,48.44,0.43,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-13,gpt-5.2-2025-12-11,46.62,2.23,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-15,Gemini 2.5 Flash (April 2025),46.97,1.29,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-17,Claude Opus 4 (Thinking),46.96,0.95,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-19,claude-opus-4-5-20251101-thinking,46.43,0.03,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-19,Gemini 2.0 Flash Thinking Experimental,45.5,1.2,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-20,claude-opus-4-6-thinking-max,46.07,0.26,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-20,GPT-4.1,45.34,0.91,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-20,kimi-k2.5,41.86,4.23,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-21,claude-opus-4-6 (Non-Thinking),45.48,0.44,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-21,claude-opus-4-1-20250805,45.25,0.66,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-22,Claude Sonnet 4 (Thinking),45.49,0.21,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-23,o1 (December 2024),45.25,0.4,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-24,claude-opus-4-5-20251101,45.32,0.03,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-26,claude-sonnet-4-5-20250929,45.0,0.12,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-26,gpt-5.1-thinking,43.82,1.35,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-29,Claude Opus 4,43.53,1.24,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-30,Gemini 2.0 Pro Experimental (Feb 2025),43.25,1.26,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-34,Claude Sonnet 4,43.21,0.52,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-34,Claude 3.7 Sonnet (February 2025),43.02,1.14,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-34,GPT-4.5 Preview (February 2025),42.11,1.39,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-39,GPT-4.1 mini,41.14,0.58,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-39,Gemini 2.0 Flash Experimental,39.95,0.8,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-40,Gemini 2.0 Flash (February 2025),39.85,0.71,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-41,Claude 3.5 Sonnet (October 2024),38.72,0.51,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-43,Claude 3.5 Sonnet (June 2024),38.37,0.7,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-43,Llama 4 Maverick,38.33,0.55,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-43,ChatGPT-4o-latest (November 2024),37.99,0.48,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-43,Gemini 1.5 Pro,37.07,1.34,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-48,gpt-5.1-instant,34.87,1.73,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-49,GPT-4o (August 2024),34.94,0.23,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-49,Mistral Medium 3,34.59,1.12,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-49,Gemini 1.5 Flash 002,34.03,1.41,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-50,Pixtral Large (November 2024),33.89,0.69,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-50,Gemini 2.0 Flash Lite Preview,32.69,1.4,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-55,Qwen2-VL-72B-Instruct,28.56,1.37,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-55,Claude 3 Opus,27.82,0.55,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-57,GPT-4.1 nano,26.55,0.35,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-57,Nova Pro,26.27,0.61,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-57,Pixtral 12B (September 2024),25.97,0.74,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-57,Nova Lite,25.5,0.77,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-59,Llama 3.2 90B Vision Instruct,24.61,0.8,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-62,Llama 3.2 11B Vision-Instruct,20.47,0.15,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-63,Phi 3.5 Vision-Instruct,15.18,0.81,False,visual_language_understanding,frontier,https://scale.com/leaderboard/visual_language_understanding
-1,Muse Spark,68.55,0.95,True,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-1,gpt-5.4-pro-2026-03-05,56.62,1.02,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-1,gemini-2.5-pro-preview-06-05,55.65,1.11,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-1,gpt-5-2025-08-07,55.33,1.02,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-1,o3-pro-2025-06-10,54.62,1.02,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-1,kimi-k2.5,54.56,1.2,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-2,gpt-5.1-thinking,54.09,1.06,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-2,claude-opus-4-6-thinking-max,53.68,1.02,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-2,gemini-3-pro-preview,53.67,1.05,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-2,claude-opus-4-6 (Non-Thinking),53.55,1.01,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-2,gpt-5.2-2025-12-11,53.49,1.06,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-4,gemini-3.1-pro-preview,52.99,1.06,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-4,o3-2025-04-16-medium,52.76,1.0,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-6,o3-2025-04-16-high,52.09,1.01,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-9,gemini-3.1-flash-lite-preview,51.5,1.04,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-11,claude-opus-4-5-20251101-thinking,51.2,0.99,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-12,claude-opus-4-1-20250805-thinking,50.78,1.05,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-14,claude-opus-4-5-20251101,49.82,0.98,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-14,claude-4-opus-20250514-thinking,49.71,1.02,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-16,gpt-5.1-instant,49.08,1.06,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-16,claude-sonnet-4-5-20250929-thinking,49.0,1.01,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-19,claude-opus-4-1-20250805_anthropic,47.4,1.06,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-21,claude-37-sonnet-thinking,46.45,1.03,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-21,claude-sonnet-4-5-20250929,45.7,1.01,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-21,claude-opus-4-20250514,45.46,1.06,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-25,llama4-maverick,40.2,1.0,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
-26,gpt-4o,36.12,0.96,False,tutorbench,frontier,https://scale.com/leaderboard/tutorbench
+1,GPT-5.5 (mini-SWE-agent) xhigh,51.6,4.3,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,Claude Sonnet 5 (mini-swe-agent) max,50.04,0.7,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,Gemini 3.5 Flash (Gemini CLI) high,50.0,2.4,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,Gemini 3.5 Flash (mini-SWE-agent) high,48.8,2.1,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,Claude Opus 4.8 (mini-SWE-agent) max,46.8,1.4,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,Claude Opus 4.8 (Claude Code) max,45.1,4.38,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,GPT-5.5 (Codex) xhigh,45.1,4.9,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+8,Claude Sonnet 5.0 (Claude Code) max,44.7,1.9,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+9,Gemini 3.1 Pro (Gemini CLI) high,41.9,4.6,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+10,GLM 5.2 (mini-SWE-agent) xhigh,36.2,3.7,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+10,Kimi K2.7 Code (mini-SWE-agent) xhigh,35.3,2.1,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+12,DeepSeek V4 Pro (mini-SWE-agent) xhigh,31.7,3.2,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+12,Claude Sonnet 4.6 (mini-SWE-agent) max,31.3,0.7,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+12,GPT-5.2 (Codex) xhigh,29.3,3.2,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+12,Qwen 3.7 Max (mini-SWE-agent) xhigh,29.3,2.5,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+16,Claude Opus 4.6 (Claude Code) max,27.7,6.7,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+16,Claude Sonnet 4.6 (Claude Code) max,24.0,0.7,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+16,MiniMax M3 (mini-SWE-agent) xhigh,22.8,4.6,False,drugdiscoverybench,agentic,https://labs.scale.com/leaderboard/drugdiscoverybench
+1,Claude Fable 5.1,61.5,6.47,True,hil,agentic,https://labs.scale.com/leaderboard/hil
+1,Claude Opus 5,57.0,5.48,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+1,Claude Fable 5,56.33,5.5,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,GLM 5.2,43.67,5.65,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Claude Opus 4.7,41.67,5.65,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,GPT-5.5,39.67,5.63,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Claude Opus 4.6,38.33,5.62,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Claude Opus 4.8,35.33,5.57,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Gemini 3.1 Pro,35.33,5.57,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,GPT 5.6 Sol,32.33,5.49,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Gemini 3.5 Flash,27.67,5.32,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Grok-4.20,20.0,6.09,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+2,Kimi-k2.6,18.67,4.79,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+12,GPT-5.4,9.67,3.87,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+12,Minimax-M2.5,6.33,3.35,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+12,GPT-5.3-codex,4.33,2.94,False,hil,agentic,https://labs.scale.com/leaderboard/hil
+1,Opus 5 (Claude Code) xHigh,63.17,5.01,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+1,Fable-5.1 (Claude Code) xHigh,59.95,4.85,True,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+1,Opus 4.8 (Claude Code) xhigh,57.26,4.93,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+2,GLM 5.2 (Mini-SWE-Agent),48.12,5.07,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+2,GPT-5.6-Sol (Codex) xHigh,46.0,5.0,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+2,GPT 5.5 (Codex) xHigh,45.43,5.08,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+2,Muse Spark 1.1 (Mini-SWE-Agent) xHigh,42.2,5.08,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+5,GPT 5.4 (Codex) xHigh,40.8,5.1,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+5,Opus 4.7 (Claude Code),40.32,5.06,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+5,Fable-5 (Claude Code) xHigh,39.0,5.0,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+7,Gpt 5.4 xHigh (Mini-SWE-Agent),36.3,4.9,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+7,Opus 4.6 (Claude Code),33.3,5.0,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+7,GPT 5.3 (Codex) xHigh,32.6,4.9,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+7,Sonnet 4.6 (Claude Code),31.2,5.0,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+11,Opus 4.6 (Mini-SWE-Agent),30.0,4.9,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+11,DeepSeek V4 Pro (Mini-SWE-Agent),27.15,4.74,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+13,Muse Spark,24.2,4.6,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+13,Glm 5 (Mini-SWE-Agent),20.5,4.5,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+15,Gemini 3.1 Pro (Mini-SWE-Agent),13.5,3.9,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+15,Kimi K2.5 (Mini-SWE-Agent),13.1,4.1,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+15,Minimax M2.5 (Mini-SWE-Agent),10.3,3.5,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+18,Gemini 3 Flash (Mini-SWE-Agent),8.2,3.3,False,sweatlas-qna,agentic,https://labs.scale.com/leaderboard/sweatlas-qna
+1,Fable-5.1 (Claude Code) xHigh,56.67,6.52,True,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,Fable-5 (Claude Code) xHigh,54.76,6.76,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,Opus-4.7 (Claude Code),48.57,6.73,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,Opus 4.8 (Claude Code),46.67,6.75,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,GPT-5.5 (Codex) xHigh,44.79,6.76,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,GPT 5.4 (Codex) xHigh,44.29,6.76,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,GLM 5.2 (Mini-SWE-Agent),42.38,6.76,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,GPT 5.3 (Codex) xHigh,42.38,6.76,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+3,Opus-4.6 (Claude Code),35.58,6.82,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+4,Gemini-3.1-Pro (Gemini CLI),33.81,6.64,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+5,Sonnet-4.6 (Claude Code),32.21,6.77,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+8,Glm-5 (Mini-SWE-Agent),24.24,6.27,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+10,Kimi-K2.5 (Mini-SWE-Agent),20.95,6.0,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+11,Minimax-M2.5 (Mini-SWE-Agent),19.52,5.89,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+13,Gemini-3-Flash (Mini-SWE-Agent),10.0,4.8,False,sweatlas-refactoring,agentic,https://labs.scale.com/leaderboard/sweatlas-refactoring
+1,Fable-5.1 (Claude Code) xHigh,67.04,5.33,True,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+1,Opus 5 (Claude Code) xHigh,62.22,5.58,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+1,Fable-5 (Claude Code) xHigh,55.6,5.8,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+1,Opus 4.8 (Claude Code) xhigh,49.63,5.93,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+1,GPT-5.6-Sol (Codex) xHigh,45.9,6.0,True,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+1,GPT-5.4 (Codex) xHigh,44.36,6.04,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+2,GPT-5.5 (Codex) xHigh,42.59,5.96,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+2,GLM 5.2 (Mini-SWE-Agent),41.48,5.96,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+2,Muse Spark 1.1 (Mini-SWE-Agent) xHigh,41.48,5.96,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+2,GPT-5.4 (Mini-SWE) xHigh,40.0,6.0,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+2,GPT 5.3 (Codex) xHigh,38.98,6.12,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+2,Opus 4.7 (Claude Code),38.52,5.93,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+3,Opus-4.6 (Claude Code),36.67,6.63,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+3,Opus-4.6 (Mini-SWE),36.08,6.02,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+5,Sonnet-4.6 (Claude Code),31.76,6.24,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+5,Muse Spark,31.11,5.76,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+6,Gemini-3-Flash (Mini-SWE),30.3,5.8,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+8,Gemini-3.1-Pro (Mini-SWE),29.84,5.86,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+8,Glm-5 (Mini-SWE),28.74,5.76,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+8,Deepseek V4 Pro (Mini-SWE-Agent),27.05,5.59,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+8,Kimi-K2.5 (Mini-SWE),25.77,5.63,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+9,Minimax-M2.5 (Mini-SWE),18.6,5.2,False,sweatlas-tw,agentic,https://labs.scale.com/leaderboard/sweatlas-tw
+1,Muse Spark 1.1,88.1,1.95,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,claude-opus-5 (xhigh),85.8,2.1,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,gemini-3.5-flash (high),83.6,2.3,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,Claude Fable 5,83.3,2.25,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,kimi-k3 (max),82.3,2.35,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,claude-opus-4-8 (max),82.2,2.4,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,Muse Spark,82.2,2.3,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,gpt-5.6 (sol),81.8,2.4,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+2,Inkling-small,79.2,2.5,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,claude-opus-4-7 (max),79.1,2.5,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,gemini-3.1-pro-preview (high),78.2,2.5,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,glm-5p2,77.8,2.6,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,claude-opus-4-6 (max),76.8,2.7,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,Inkling (xHigh),76.0,2.6,True,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,glm-5p1,75.6,2.7,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+3,gpt-5.5 (xhigh),75.3,2.7,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+13,gpt-5.4 (xhigh),70.6,2.8,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+13,gemini-3-pro-preview,70.3,2.8,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+13,claude-opus-4-5 (high),69.8,2.9,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+13,claude-sonnet-4-6,69.5,2.9,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+17,gpt-5.2 (xhigh),67.6,2.9,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+18,kimi-k2p5,64.4,3.0,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+18,gemini-3-flash-preview,62.0,3.0,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+19,claude-sonnet-4-5 (thinking),59.5,3.1,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+19,glm-4p7,58.1,3.0,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+19,gemini-3.1-flash-lite (high),57.1,3.0,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+19,gpt-5.4-mini (xhigh),56.7,3.1,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+24,gpt-5.1 (high),50.1,3.1,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+25,o3-pro,44.5,3.1,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+26,claude-haiku-4-5,40.2,3.0,False,mcp_atlas,agentic,https://labs.scale.com/leaderboard/mcp_atlas
+1,Muse Spark 1.1,61.5,3.1,True,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+1,gpt-5.4 (xHigh),59.1,3.56,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+3,Muse Spark,55.0,3.6,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+3,claude-opus-4-6 (thinking),51.9,3.61,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+5,gemini-3.1-pro (thinking),46.1,3.6,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+5,claude-opus-4-5-20251101,45.89,3.6,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+5,claude-4-5-Sonnet,43.6,3.6,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+5,gemini-3-pro-preview,43.3,3.6,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+5,claude-4-Sonnet,42.7,3.59,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+10,gpt-5-2025-08-07 (High),41.78,3.49,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+10,gpt-5.2-codex,41.04,3.57,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+10,claude-4-5-haiku,39.45,3.55,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+10,qwen3-coder-480b-a35b,38.7,3.55,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+14,minimax-2.1,36.81,3.55,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+14,gemini-3-flash,34.63,3.55,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+16,gpt-5.2,29.94,2.15,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+16,kimi-k2-instruct,27.67,3.25,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+18,qwen3-235b-a22b,21.41,2.25,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+19,gpt-oss-120b,16.2,2.67,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+19,deepseek-v3p2,15.56,2.63,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+21,gemma-3-27b-it,11.38,2.15,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+21,llama3-1-405b-instruct,11.18,2.15,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+21,glm-4.6,9.67,2.15,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+24,llama4-maverick-17b-instruct,5.24,1.24,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+25,codestral-2405,1.51,1.51,False,swe_bench_pro_public,agentic,https://labs.scale.com/leaderboard/swe_bench_pro_public
+1,Muse Spark 1.1,55.01,0.14,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+2,claude-fable 5,53.86,0.14,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+3,claude-opus-4-6 (Non-Thinking),53.28,0.18,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+4,Muse Spark,52.44,0.06,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+5,gpt-5,51.32,0.17,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+5,gpt-5-pro,51.06,0.59,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+6,Fable 5.1 (xHigh),50.8,0.22,True,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+6,gpt-5.6-sol (max),50.45,0.33,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+9,o3-pro,49.08,0.79,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+10,gpt-5.1-thinking,48.01,0.09,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+10,o3,47.69,0.45,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+12,kimi-k2.5,46.51,0.34,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+12,gpt-5.2-pro-2025-12-11,46.34,0.73,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+12,claude-opus-4-5-20251101-thinking,46.16,0.27,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+12,gpt-5.4 (High),45.63,0.56,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+14,gpt-oss-120b,43.8,1.96,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+16,claude-sonnet-4-5-20250929,43.79,0.4,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+16,kimi-k2-thinking,43.41,0.23,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+18,gemini-3.1-pro,41.87,1.22,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+20,mistral-medium-latest,39.35,0.75,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+20,o4-mini,39.22,0.51,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+20,gemini-3-pro-preview,39.18,0.51,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+20,qwen.qwen3-235b-a22b-2507-v1:0,39.14,0.38,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+20,gemini-2.5-pro,38.92,0.48,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+20,gemini-2.5-flash,38.41,0.62,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+24,kimi-k2-instruct,38.34,0.42,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+27,claude-opus-4-1-20250805,35.15,1.27,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+27,deepseek-v3p1,35.09,0.15,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+28,gpt-4.1,34.32,0.26,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+30,deepseek-r1-0528,32.67,0.64,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+31,gpt-4.1-mini,30.45,0.42,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+32,llama4-maverick-instruct-basic,22.36,0.42,False,prbench-finance,frontier,https://labs.scale.com/leaderboard/prbench-finance
+1,Muse Spark 1.1,57.05,0.22,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+2,claude-fable 5,52.56,0.54,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+2,Muse Spark,52.29,0.06,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+2,claude-opus-4-6 (Non-Thinking),52.27,0.66,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+4,Fable 5.1 (xHigh),51.6,0.24,True,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+6,gpt-5.6-sol (max),50.5,0.54,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+6,gpt-5-pro,49.89,0.36,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+6,o3-pro,49.67,0.5,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+7,gpt-5.1-thinking,49.33,0.38,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+9,gpt-5,48.96,0.03,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+9,o3,48.57,0.54,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+12,gpt-5.2-pro-2025-12-11,45.44,0.25,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+13,gpt-5.4 (High),44.35,0.28,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+13,claude-opus-4-5-20251101-thinking,44.21,0.34,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+13,gemini-3.1-pro,44.02,1.12,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+14,kimi-k2.5,43.83,0.18,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+17,gemini-2.5-pro,41.43,0.2,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+17,gemini-2.5-flash,41.02,0.61,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+17,claude-sonnet-4-5-20250929,40.84,0.4,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+17,gpt-oss-120b,40.21,2.07,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+18,kimi-k2-thinking,40.9,0.26,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+18,gemini-3-pro-preview,40.6,0.28,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+19,mistral-medium-latest,39.55,0.91,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+22,qwen.qwen3-235b-a22b-2507-v1:0,38.3,0.43,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+22,o4-mini,38.11,0.69,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+23,deepseek-v3p1,37.62,0.64,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+26,deepseek-r1-0528,36.61,0.68,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+27,gpt-4.1,36.48,0.05,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+27,kimi-k2-instruct,36.38,0.25,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+27,claude-opus-4-1-20250805,34.0,2.54,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+31,gpt-4.1-mini,30.38,0.55,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+32,llama4-maverick-instruct-basic,24.84,0.9,False,prbench-legal,frontier,https://labs.scale.com/leaderboard/prbench-legal
+1,Fable 5.1 (xhigh),46.5,2.0,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+1,gemini-3.1-pro-preview (thinking high),46.44,1.96,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+1,gpt-5.4-pro-2026-03-05,44.32,1.95,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+4,Muse Spark,40.56,1.92,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+5,gemini-3-pro-preview,37.52,1.9,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+6,gpt-5.4-2026-03-05 (xhigh thinking),36.24,1.88,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+6,claude-opus-4-7,36.2,1.88,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+6,claude-opus-4-6-thinking-max,34.44,1.86,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+9,gpt-5-pro-2025-10-06,31.64,1.82,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+10,gpt-5.2-2025-12-11,27.8,1.76,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+10,gpt-5-2025-08-07,25.32,1.7,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+10,claude-opus-4-5-20251101-thinking,25.2,1.7,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+10,kimi-k2.5,24.37,1.81,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+14,gpt-5.1-thinking,23.68,1.67,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+15,gemini-2.5-pro-preview-06-05,21.64,1.61,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+16,o3 (high) (April 2025),20.32,1.58,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+16,gpt-5-mini-2025-08-07,19.44,1.55,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+16,o3 (medium) (April 2025),19.2,1.54,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+16,claude-opus-4-6 (Non-Thinking),19.0,1.54,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+20,Gemini 2.5 Pro Experimental (March 2025),18.16,1.51,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+20,o4-mini (high) (April 2025),18.08,1.51,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+20,Gemini 2.5 Pro Preview (May 06 2025),17.8,1.5,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+23,o4-mini (medium) (April 2025),14.28,1.37,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+23,claude-opus-4-5-20251101,14.16,1.37,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+23,claude-sonnet-4-5-20250929-thinking,13.72,1.35,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+23,Gemini 2.5 Flash (April 2025),12.08,1.28,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+27,claude-opus-4-1-20250805-thinking,11.52,1.25,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+28,Gemini 2.5 Flash Preview (May 2025),10.96,1.22,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+28,Claude Opus 4 (Thinking),10.72,1.21,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+30,gemini-3.1-flash-lite-preview,8.64,1.1,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,glm-4p5,8.32,1.08,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,glm-4p5-air,8.12,1.07,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,o1 Pro,8.12,1.07,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,Claude 3.7 Sonnet (Thinking),8.04,1.07,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,o1 (December 2024),7.96,1.06,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,claude-opus-4-1-20250805,7.92,1.06,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,Claude Sonnet 4 (Thinking),7.76,1.05,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,claude-sonnet-4-5-20250929,7.52,1.03,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,gpt-5.1-instant,6.8,0.99,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+31,Claude Opus 4,6.68,0.98,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+41,Gemini 2.0 Flash Thinking (January 2025),6.56,0.97,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+42,Llama 4 Maverick,5.68,0.91,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+42,Claude Sonnet 4,5.52,0.9,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+42,GPT 4.5 Preview,5.44,0.89,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+42,GPT-4.1,5.4,0.89,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+43,Gemini-1.5-Pro-002,4.6,0.82,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+43,Mistral Medium 3,4.52,0.81,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+43,Nova Pro,4.4,0.8,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+43,Claude 3.5 Sonnet (October 2024),4.08,0.78,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+44,Nova Lite,3.64,0.73,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+45,GPT-4o (November 2024),2.72,0.64,False,humanitys_last_exam,frontier,https://labs.scale.com/leaderboard/humanitys_last_exam
+1,Muse Spark 1.1,44.77,2.82,True,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+2,gpt-5.4-2026-03-05 (reasoning effort = high),29.17,0.13,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+2,gemini-3.1-pro-preview,28.97,0.91,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+5,claude-opus-4-6-thinking,27.52,1.45,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+5,gemini-3-pro-preview,26.85,0.54,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+6,gpt-5-2025-08-07-thinking,18.68,0.25,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+6,gpt-5-2025-08-07,16.96,0.06,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+8,o3-2025-04-16,13.74,1.78,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+9,gemini-2.5-pro-preview-06-05,11.75,1.14,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+9,o4-mini-2025-04-16,11.12,0.08,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+10,claude-sonnet-4-5-20250929-thinking,6.2,0.14,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+11,claude-sonnet-4-5-20250929,5.6,0.12,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+11,gpt-4.1-2025-04-14,5.52,0.21,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+14,claude-opus-4-1-20250805-thinking,5.16,0.57,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+15,claude-opus-4-1-20250805,4.71,0.4,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+15,gemini-2.5-flash,4.69,0.13,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+15,claude-sonnet-4,4.48,0.41,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+15,claude-sonnet-4-thinking,4.44,0.04,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+19,nova-premier,2.0,0.16,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+20,llama4-scout,1.58,0.04,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+21,llama4-maverick,1.41,0.25,False,vtb,frontier,https://labs.scale.com/leaderboard/vtb
+1,Muse Spark 1.1,65.59,2.87,True,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+1,gpt-5-pro-2025-10-06,65.2,1.24,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+1,gemini-3.1-pro-preview,64.74,2.88,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+4,gpt-5.4-pro-2026-03-05,62.27,2.92,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+4,Muse Spark,59.05,2.97,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+6,gemini-3-pro-preview,58.96,2.97,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+6,gpt-5.4-2026-03-05 (xhigh thinking),58.29,2.98,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+6,claude-opus-4-6-thinking-max,57.06,2.99,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+9,gpt-5-2025-08-07,52.13,3.01,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+11,gpt-5.1-thinking,49.0,3.02,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+11,o3-pro-2025-06-10-high,49.0,3.02,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+11,claude-opus-4-5-20251101-thinking,48.63,3.02,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+11,claude-opus-4-6 (Non-Thinking),48.34,3.02,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+14,o3-2025-04-16-high,45.5,3.0,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+14,Gemini-2.5-Pro-Preview-06-05,45.12,3.0,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+14,o3-2025-04-16-medium,44.45,3.0,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+17,gpt-5.2-2025-12-11,42.18,2.98,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+17,claude-opus-4-5-20251101,41.23,2.97,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+17,claude-opus-4-1-20250805-thinking,38.39,2.93,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+20,claude-sonnet-4-5-20250929-thinking,35.83,2.89,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+20,kimi-k2.5,35.17,2.88,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+20,Claude-4-Opus-20250514-thinking,33.93,2.86,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+23,claude-opus-4-1-20250805,29.67,2.76,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+23,Claude-4-Opus-20250514,29.0,2.74,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+23,claude-sonnet-4-5-20250929,28.15,2.71,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+23,Claude-3.7-Sonnet-thinking,27.77,2.7,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+23,Deepseek-R1-0528,27.58,2.7,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+23,Qwen3-235B-A22B-Thinking-2507,27.11,2.68,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+29,gemini-3.1-flash-lite-preview,25.02,2.61,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+29,Deepseek-R1,24.27,2.59,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+29,gpt-5-mini-2025-08-07,23.89,2.57,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+29,DeepSeek-V3.1,23.6,2.56,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+33,o4-mini-high,22.18,2.51,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+33,GPT-4.1,21.23,2.47,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+35,kimi-k2-instruct,18.48,2.34,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+35,Claude-4-Sonnet-20250514,18.39,2.34,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+35,gpt-5.1-instant,18.29,2.33,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+35,Qwen3-235B-A22B,17.63,2.3,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+35,glm-4p5,17.44,2.29,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+40,gpt-oss-120b,15.17,2.16,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+41,GPT-4o,12.42,1.99,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+41,gpt-oss-20b,10.43,1.84,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+43,glm-4p5-air,10.43,1.84,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+44,Llama-4-Maverick,8.44,1.68,False,multinrc,frontier,https://labs.scale.com/leaderboard/multinrc
+1,Inkling (Thinking),56.64,4.55,True,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+1,Inkling-small,54.87,4.57,True,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+1,gemini-3-pro-preview (Thinking),54.65,4.57,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+1,gpt-realtime-2 (xHigh),48.45,4.59,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+1,gemini-2.5-pro (Thinking),46.9,4.58,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+1,tml-interaction-small,43.36,4.55,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+6,gemini-2.5-flash (Thinking),40.04,4.5,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+6,gpt-realtime-2,37.61,4.45,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+6,gemini-3.1-flash-live-preview (Thinking)†,36.06,4.41,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+9,gpt-realtime-1.5†,34.73,4.38,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+10,gpt-realtime-1.5,29.87,4.21,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+10,gemini-3.1-flash-live-preview†,26.77,4.06,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+10,Voxtral-Small-24B-2507,26.33,4.05,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+13,gemini-2.5-flash,26.11,4.04,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+13,gpt-4o-audio-preview-2025-06-03,25.44,4.0,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+13,Qwen3-Omni-30B-A3B-Instruct†,24.34,3.95,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+13,gpt-realtime-2025-08-28,23.45,3.9,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+13,gpt-4o-audio-preview-2025-06-03†,23.23,3.88,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+18,gemini-2.5-flash-native-audio-preview-12-2025 (thinking)†,21.46,3.48,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+18,gpt-realtime-2025-08-28†,20.35,3.7,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+18,MiMo-Audio-7B-Instruct (Thinking),19.69,3.66,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+18,MiMo-Audio-7B-Instruct,18.58,3.58,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,gpt-realtime-mini-2025-12-15,16.59,3.43,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,gemma-3n-E4B-it,15.49,3.33,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,Phi-4-multimodal-instruct,15.49,3.33,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,gpt-4o-mini-audio-preview-2024-12-17,14.82,3.28,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,gpt-realtime-mini-2025-12-15†,13.94,3.19,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,gemini-2.5-flash-native-audio-preview-12-2025 (non-thinking)†,13.9,3.19,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+22,Kimi-Audio-7B-Instruct,13.72,3.17,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+29,gpt-4o-mini-audio-preview-2024-12-17†,13.05,3.11,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+29,Qwen2.5-Omni-7B,11.95,2.99,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+29,Kimi-Audio-7B-Instruct†,10.4,2.82,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+32,LFM2-Audio-1.5B†,9.29,2.69,False,audiomc,frontier,https://labs.scale.com/leaderboard/audiomc
+1,Muse Spark,75.52,4.05,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+1,Muse Spark 1.1,75.3,0.6,True,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+3,gemini-3.1-pro-preview,71.37,1.74,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+4,gpt-5.4-pro-2026-03-05,69.23,3.05,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+5,gemini-3-pro-preview,65.67,2.2,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+6,gpt-5.1-2025-11-13-thinking,63.41,2.11,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+6,gpt-5-thinking,63.19,1.63,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+6,o3-pro-2025-06-10-reasoning-high,62.4,2.49,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+6,kimi-k2.5,61.39,0.46,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+10,gemini-3.1-flash-lite-preview,60.61,0.38,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,gpt-5-mini-thinking,58.99,4.07,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,claude-opus-4-5-20251101-thinking,58.97,0.42,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,claude-4-opus-thinking,58.62,0.77,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,claude-opus-4-1-20250805-thinking,57.2,0.95,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,claude-4-sonnet-thinking,57.11,0.81,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,o3-2025-04-16-reasoning-high,56.62,3.32,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,claude-opus-4-6 (Non-Thinking),56.02,1.08,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,kimi-k2-thinking,55.42,1.88,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+11,claude-sonnet-4-5-20250929-thinking,55.32,1.47,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+20,gemini-2-5-pro,53.62,1.32,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+21,claude-3-7-sonnet-thinking,51.58,3.07,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+21,gpt-5.1-2025-11-13-instant,51.23,1.79,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+21,claude-haiku-4-5-20251001-thinking,50.49,2.04,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+24,deepseek-v3p1,46.1,1.11,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+24,gpt-oss-120b,45.34,2.15,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+24,o4-mini-2025-04-16-reasoning-high,44.9,0.88,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+27,qwen3-235b-a22b,41.22,1.79,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+27,gpt-4.1,39.43,0.94,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+28,claude-opus-4-6-thinking-max,37.15,2.16,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+29,gemini-2-0-flash,36.35,0.78,False,multichallenge,frontier,https://labs.scale.com/leaderboard/multichallenge
+1,Gemini 2.5 Pro Experimental (March 2025),54.65,1.46,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+1,gemini-2.5-pro-preview-06-05,54.63,0.55,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+1,gpt-5.4-pro-2026-03-05,53.89,2.02,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+2,gpt-5-pro-2025-10-06,52.39,1.07,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,o4-mini (high) (April 2025),51.79,0.63,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,o4-mini (medium) (April 2025),51.66,1.08,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,o3 Pro (high) (June 2025),51.63,0.25,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,gemini-3-pro-preview,51.49,0.79,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,gpt-5.4-2026-03-05 (xhigh thinking),50.89,1.76,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,Gemini 2.5 Pro Preview (May 06 2025),50.78,0.57,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+3,gpt-5-mini-2025-08-07,50.39,2.28,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+6,o3 (high) (April 2025),50.07,1.14,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+7,gpt-5-2025-08-07,49.69,1.03,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+9,o3 (medium) (April 2025),49.59,0.66,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+9,claude-sonnet-4-5-20250929-thinking,48.75,1.67,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+9,gemini-3.1-flash-lite-preview,46.93,2.74,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+10,Gemini 2.5 Flash Preview (May 2025),49.15,0.36,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+11,o1 Pro (March 2025),47.32,1.78,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+12,Claude 3.7 Sonnet Thinking (Feb 2025),48.23,0.7,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+13,claude-opus-4-1-20250805-thinking,48.44,0.43,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+13,gpt-5.2-2025-12-11,46.62,2.23,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+15,Gemini 2.5 Flash (April 2025),46.97,1.29,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+17,Claude Opus 4 (Thinking),46.96,0.95,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+19,claude-opus-4-5-20251101-thinking,46.43,0.03,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+19,Gemini 2.0 Flash Thinking Experimental,45.5,1.2,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+20,claude-opus-4-6-thinking-max,46.07,0.26,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+20,GPT-4.1,45.34,0.91,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+20,kimi-k2.5,41.86,4.23,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+21,claude-opus-4-6 (Non-Thinking),45.48,0.44,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+21,claude-opus-4-1-20250805,45.25,0.66,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+22,Claude Sonnet 4 (Thinking),45.49,0.21,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+23,o1 (December 2024),45.25,0.4,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+24,claude-opus-4-5-20251101,45.32,0.03,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+26,claude-sonnet-4-5-20250929,45.0,0.12,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+26,gpt-5.1-thinking,43.82,1.35,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+29,Claude Opus 4,43.53,1.24,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+30,Gemini 2.0 Pro Experimental (Feb 2025),43.25,1.26,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+34,Claude Sonnet 4,43.21,0.52,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+34,Claude 3.7 Sonnet (February 2025),43.02,1.14,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+34,GPT-4.5 Preview (February 2025),42.11,1.39,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+39,GPT-4.1 mini,41.14,0.58,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+39,Gemini 2.0 Flash Experimental,39.95,0.8,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+40,Gemini 2.0 Flash (February 2025),39.85,0.71,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+41,Claude 3.5 Sonnet (October 2024),38.72,0.51,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+43,Claude 3.5 Sonnet (June 2024),38.37,0.7,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+43,Llama 4 Maverick,38.33,0.55,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+43,ChatGPT-4o-latest (November 2024),37.99,0.48,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+43,Gemini 1.5 Pro,37.07,1.34,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+48,gpt-5.1-instant,34.87,1.73,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+49,GPT-4o (August 2024),34.94,0.23,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+49,Mistral Medium 3,34.59,1.12,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+49,Gemini 1.5 Flash 002,34.03,1.41,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+50,Pixtral Large (November 2024),33.89,0.69,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+50,Gemini 2.0 Flash Lite Preview,32.69,1.4,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+55,Qwen2-VL-72B-Instruct,28.56,1.37,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+55,Claude 3 Opus,27.82,0.55,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+57,GPT-4.1 nano,26.55,0.35,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+57,Nova Pro,26.27,0.61,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+57,Pixtral 12B (September 2024),25.97,0.74,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+57,Nova Lite,25.5,0.77,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+59,Llama 3.2 90B Vision Instruct,24.61,0.8,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+62,Llama 3.2 11B Vision-Instruct,20.47,0.15,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+63,Phi 3.5 Vision-Instruct,15.18,0.81,False,visual_language_understanding,frontier,https://labs.scale.com/leaderboard/visual_language_understanding
+1,Muse Spark,68.55,0.95,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+1,gpt-5.4-pro-2026-03-05,56.62,1.02,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+1,gemini-2.5-pro-preview-06-05,55.65,1.11,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+1,gpt-5-2025-08-07,55.33,1.02,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+1,o3-pro-2025-06-10,54.62,1.02,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+1,kimi-k2.5,54.56,1.2,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+2,gpt-5.1-thinking,54.09,1.06,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+2,claude-opus-4-6-thinking-max,53.68,1.02,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+2,gemini-3-pro-preview,53.67,1.05,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+2,claude-opus-4-6 (Non-Thinking),53.55,1.01,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+2,gpt-5.2-2025-12-11,53.49,1.06,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+4,gemini-3.1-pro-preview,52.99,1.06,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+4,o3-2025-04-16-medium,52.76,1.0,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+6,o3-2025-04-16-high,52.09,1.01,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+9,gemini-3.1-flash-lite-preview,51.5,1.04,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+11,claude-opus-4-5-20251101-thinking,51.2,0.99,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+12,claude-opus-4-1-20250805-thinking,50.78,1.05,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+14,claude-opus-4-5-20251101,49.82,0.98,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+14,claude-4-opus-20250514-thinking,49.71,1.02,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+16,gpt-5.1-instant,49.08,1.06,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+16,claude-sonnet-4-5-20250929-thinking,49.0,1.01,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+19,claude-opus-4-1-20250805_anthropic,47.4,1.06,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+21,claude-37-sonnet-thinking,46.45,1.03,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+21,claude-sonnet-4-5-20250929,45.7,1.01,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+21,claude-opus-4-20250514,45.46,1.06,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+25,llama4-maverick,40.2,1.0,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench
+26,gpt-4o,36.12,0.96,False,tutorbench,frontier,https://labs.scale.com/leaderboard/tutorbench

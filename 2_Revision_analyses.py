@@ -38,12 +38,17 @@
 # ```
 #
 # Several stages can be combined in one call (`... cheap figures`).  Each stage writes
-# `Plots/4-Sensitivity/revision_analyses_<stage>_<cutoff>.json`.
+# `Plots/4-Sensitivity/<cutoff>/revision_analyses_<stage>_<cutoff>.json`.
 
 # %%
 import json
 import os
 import sys
+
+# Single-threaded BLAS before numpy loads: see the note at the top of 1_Forecasts.ipynb
+# (Accelerate thread oversubscription across chain processes slows NUTS ~50x).
+os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
 
 import arviz as az
 from scipy.stats import energy_distance
@@ -75,24 +80,30 @@ END_DATE = pd.to_datetime("2030-03-01")
 
 SAMPLING_CONFIG = forecasting.SamplingConfig(draws=2000, tune=1000, target_accept=0.9, seed=42, progressbar=True)
 
+# Same pinned asymptotes as 1_Forecasts.ipynb (see the comment there).
+L_FIXED = (("ARC-AGI", 1.0), ("ARC-AGI-2", 1.0), ("EBR-bench", 1.0), ("VPCT", 1.0),
+           ("FrontierMath", 1.0), ("FrontierMath Tier 4", 1.0))
 MAIN_MODEL = "Harvey Joint (skew)"
 ALL_MODEL_CONFIGS = {
-    "Harvey Joint (skew)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True),
-    "Harvey Joint (normal)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=False),
-    "Harvey Independent (skew)": forecasting.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=True),
-    "Harvey Independent (normal)": forecasting.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=False),
-    "Logistic Joint (skew)": forecasting.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=True),
-    "Logistic Joint (normal)": forecasting.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=False),
-    "Logistic Independent (skew)": forecasting.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=True),
-    "Logistic Independent (normal)": forecasting.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=False),
+    "Harvey Joint (skew)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_fixed=L_FIXED),
+    "Harvey Joint (normal)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=False, L_fixed=L_FIXED),
+    "Harvey Independent (skew)": forecasting.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=True, L_fixed=L_FIXED),
+    "Harvey Independent (normal)": forecasting.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=False, L_fixed=L_FIXED),
+    "Logistic Joint (skew)": forecasting.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=True, L_fixed=L_FIXED),
+    "Logistic Joint (normal)": forecasting.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=False, L_fixed=L_FIXED),
+    "Logistic Independent (skew)": forecasting.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=True, L_fixed=L_FIXED),
+    "Logistic Independent (normal)": forecasting.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=False, L_fixed=L_FIXED),
 }
 
-RESULTS_DIR = "Plots/4-Sensitivity"
+# One folder per cutoff, as in 1_Forecasts.ipynb.
+RESULTS_DIR = f"Plots/4-Sensitivity/{CUTOFF_TAG}"
+CALIB_DIR = f"Plots/3-Calibration/{CUTOFF_TAG}"
 # Manuscript sources live outside this repository; set TABLES_DIR to the
 # manuscript's table directory to regenerate the LaTeX tables in place.
 TABLES_DIR = os.environ.get("TABLES_DIR", f"{RESULTS_DIR}/tables")
 os.makedirs(TABLES_DIR, exist_ok=True)
 os.makedirs(RESULTS_DIR, exist_ok=True)
+os.makedirs(CALIB_DIR, exist_ok=True)
 
 paper_style = plotting.PlotStyle(language="en", document_type="paper")
 
@@ -110,7 +121,7 @@ def fmt_date(ts) -> str:
 
 # %%
 raw_all = forecasting.load_dataset(DATA_PATH)
-raw = raw_all[raw_all["release_date"] < DATA_CUTOFF_DATE].copy()
+raw = raw_all[raw_all["release_date"] <= DATA_CUTOFF_DATE].copy()  # inclusive, as in 1_Forecasts.ipynb
 data = forecasting.prepare_dataset(raw, top_n=3)
 print(f"{data['benchmark'].nunique()} benchmarks, {len(data)} frontier observations "
       f"(cutoff {DATA_CUTOFF_DATE.date()})")
@@ -317,7 +328,7 @@ if "cheap" in STAGES:
 # %%
 if "cheap" in STAGES:
     CATEGORY_ORDER = [
-        "Domain Specific Questions", "General Reasoning", "High End Math Reasoning",
+        "Domain Specific Questions", "General Reasoning", "Mathematics",
         "Core AGI Progress", "Agentic Computer Use", "Autonomous SWE",
         "Biology", "Chemistry", "Commonsense QA",
         "Advanced Language and Writing", "Multimodal Understanding",
@@ -622,7 +633,7 @@ if "retro" in STAGES:
 
         fig, _ = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=paper_style)
         fig.savefig(
-            f"Plots/3-Calibration/calibration_harvey_joint_skew_en_paper_retro{c.strftime('%Y%m%d')}"
+            f"{CALIB_DIR}/calibration_harvey_joint_skew_en_paper_retro{c.strftime('%Y%m%d')}"
             f"{'' if MIN_TRAIN_POINTS == 3 else f'_min{MIN_TRAIN_POINTS}'}.pdf",
             dpi=300, bbox_inches="tight",
         )
@@ -697,7 +708,7 @@ if "retro8" in STAGES:
 
         slug = name.lower().replace(" (", "_").replace(")", "").replace(" ", "_")
         fig, _ = plotting.plot_calibration_curve(idata_v, n_points=20, plot_style=paper_style)
-        fig.savefig(f"Plots/3-Calibration/calibration_{slug}_en_paper_{CUTOFF_TAG}.pdf",
+        fig.savefig(f"{CALIB_DIR}/calibration_{slug}_en_paper_{CUTOFF_TAG}.pdf",
                     dpi=300, bbox_inches="tight")
         plt.close(fig)
 
@@ -814,10 +825,10 @@ if "cqr" in STAGES:
 # rescaled axis, which caps sd at 0.092 when L_min = 0.75 and at 0.135 when
 # L_min = 0.50.  The widths below are the largest round values inside those caps.
 PRIOR_VARIANTS = {
-    "Main ($L_{\\min}{=}0.75$, sd 0.02)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True),
-    "Low floor ($L_{\\min}{=}0.50$)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50),
-    "Weak prior (sd 0.05)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_prior_sd=0.05),
-    "Low floor + weak prior": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50, L_prior_sd=0.10),
+    "Main ($L_{\\min}{=}0.75$, sd 0.02)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_fixed=L_FIXED),
+    "Low floor ($L_{\\min}{=}0.50$)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50, L_fixed=L_FIXED),
+    "Weak prior (sd 0.05)": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_prior_sd=0.05, L_fixed=L_FIXED),
+    "Low floor + weak prior": forecasting.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50, L_prior_sd=0.10, L_fixed=L_FIXED),
 }
 
 if "priors" in STAGES:
@@ -911,7 +922,7 @@ if "priors" in STAGES:
 
 # %%
 FIGURE_CATEGORIES = sorted(c for c in [
-    "Domain Specific Questions", "General Reasoning", "High End Math Reasoning", "Core AGI Progress",
+    "Domain Specific Questions", "General Reasoning", "Mathematics", "Core AGI Progress",
     "Agentic Computer Use", "Autonomous SWE", "Biology", "Chemistry", "Commonsense QA",
     "Advanced Language and Writing", "Multimodal Understanding",
 ])  # every panel carries baseline markers, so all are redrawn
@@ -930,6 +941,9 @@ if "figures" in STAGES:
         (plotting.PlotStyle(language="en", document_type="paper"), "pdf"),
         (plotting.PlotStyle(language="fr", document_type="note"), "png"),
     ]:
+        # Same layout as 1_Forecasts.ipynb: one folder per cutoff, FR figures in fr/.
+        fig_dir = f"Plots/2-Forecasts/{CUTOFF_TAG}" + ("/fr" if style.language == "fr" else "")
+        os.makedirs(fig_dir, exist_ok=True)
         for cat in FIGURE_CATEGORIES:
             obs_cat = data.loc[data["category"] == cat]
             pred_cat = forecast_fig.loc[forecast_fig["category"] == cat]
@@ -938,7 +952,7 @@ if "figures" in STAGES:
                 observed=obs_cat, forecast=pred_cat, baselines=baselines,
                 end_date=END_DATE, category_name=cat, plot_style=style,
             )
-            path = (f"Plots/2-Forecasts/forecast_{cat.replace(' ', '_')}"
+            path = (f"{fig_dir}/forecast_{cat.replace(' ', '_')}"
                     f"_{style.language}_{style.document_type}_{CUTOFF_TAG}.{ext}")
             fig.savefig(path, dpi=300, bbox_inches="tight")
             plt.close(fig)
