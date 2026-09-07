@@ -1,9 +1,9 @@
 {
   "pipeline_dir": "/Users/jeremyandreolettigpaipolicylab/Documents/Recherche/Forecasting-pipeline/benchmark-data-pipeline",
-  "pipeline_commit": "a5b92e02e94fea9352d6c5e433e5bea6b6a7645f",
-  "pipeline_built_at": "2026-09-07T18:14:04+00:00",
+  "pipeline_commit": "944dfbcf087ca3c13e8a00cb772e4b23308982d4",
+  "pipeline_built_at": "2026-09-07T18:29:35+00:00",
   "schema_version": "2.1",
-  "synced_at": "2026-09-07T18:14:07+00:00",
+  "synced_at": "2026-09-07T18:29:38+00:00",
   "files": [
     "dated_scores_flat.csv",
     "human_baselines.csv",
