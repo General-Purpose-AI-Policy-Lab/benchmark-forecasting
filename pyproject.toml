@@ -1,24 +1,49 @@
 [project]
 name = "benchmark-forecasting"
-version = "0.1.0"
-description = "Bayesian sigmoidal growth models for forecasting AI benchmark performance over time"
+version = "0.2.0"
+description = "Bayesian sigmoidal growth models for forecasting benchmark saturation, fed by benchmark-data-pipeline"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "arviz>=0.17.1",
-    "bs4>=0.0.2",
-    "ipywidgets>=8.1.8",
     "matplotlib>=3.9.4",
     "numpy>=1.26.4",
     "pandas>=2.3.3",
-    "playwright>=1.57.0",
     "pymc>=5.12.0",
-    "requests>=2.32.5",
     "scipy>=1.13.1",
-    "seaborn>=0.13.2",
 ]
 
 [dependency-groups]
 dev = [
-    "ipykernel>=6.31.0",
+    "jupytext>=1.16",
+    "pytest>=8",
+    "ruff>=0.6",
 ]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["1_model"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["1_model", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+ignore = ["E203"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["benchmark_forecasting"]
+
+[tool.ruff.lint.per-file-ignores]
+# Percent scripts: LaTeX captions and long labels are kept on one line on purpose.
+"1_forecasts.py" = ["E501"]
+"2_revision_analyses.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["1_model"]
