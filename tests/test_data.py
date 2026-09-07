@@ -80,13 +80,11 @@ def test_asymptote_bounds_apply_the_three_rules():
     assert bounds.loc["Low", "L_floor"] == 0.75, "a baseline below L_min changes nothing"
     assert bounds.loc["Solved", "L_fixed"] == 1.0, "a score of 1.0 pins the asymptote"
     assert bounds.loc["Beaten", "L_floor"] == 0.92, "the best score beats the human baseline"
-    assert bounds.loc["Beaten", "reason"] == "floor: best observed score"
+    assert bounds.loc["Beaten", "reason"] == "floor: best model score"
 
 
 def test_asymptote_bounds_switches_and_manual_pins():
-    off = config.ModelConfig(
-        L_floor_from_baselines=False, L_floor_from_scores=False, L_fixed_from_ceiling=False
-    )
+    off = config.ModelConfig(L_floor_observed=False, L_fixed_from_ceiling=False)
     bounds = asymptote_bounds(_bounds_frame(), off)
     assert (bounds["L_floor"] == 0.75).all() and bounds["L_fixed"].isna().all()
     manual = asymptote_bounds(_bounds_frame(), config.ModelConfig(L_fixed=(("Ceiled", 0.9),)))
@@ -99,10 +97,8 @@ def test_asymptote_bounds_switches_and_manual_pins():
 
 
 def test_slug_names_the_asymptote_rules():
-    assert config.ModelConfig().slug == "harvey_joint_skew_Lhuman_Lbest_Lceil"
-    plain = config.ModelConfig(
-        L_floor_from_baselines=False, L_floor_from_scores=False, L_fixed_from_ceiling=False
-    )
+    assert config.ModelConfig().slug == "harvey_joint_skew_Lobs_Lceil"
+    plain = config.ModelConfig(L_floor_observed=False, L_fixed_from_ceiling=False)
     assert plain.slug == "harvey_joint_skew"
 
 

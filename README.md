@@ -162,13 +162,12 @@ where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean an
 
 ### Bounds on the upper asymptote
 
-The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1]$ with $L_{\min} = 0.75$ and a shared hyperprior on its mean (0.96, sd 0.02). Three per-benchmark constraints come from the data (`data.asymptote_bounds`, all on by default in `ModelConfig`):
+The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1]$ with $L_{\min} = 0.75$ and a shared hyperprior on its mean (0.96, sd 0.02). Two per-benchmark constraints come from the data (`data.asymptote_bounds`, both on by default in `ModelConfig`):
 
-- `L_floor_from_baselines`: $L_i$ is at least the highest human baseline recorded for the benchmark. The shared Beta is cut off below that value (an interval transform on the draw), so the model cannot project a plateau under human performance while the population parameters keep describing the asymptotes themselves. `L_floor_renormalised=True` turns this into a proper truncated Beta, renormalised by $1 - F(\text{floor})$ per benchmark; the population then describes a latent untruncated distribution and its mean drops from about 0.95 to 0.83 on the September 2026 data, which is why it is off by default. Both are built by hand: PyMC's `Truncated` on the same model made the sampler diverge on nearly every draw. Twenty-one benchmarks get a floor above 0.75 in the September 2026 data, from LAB-Bench SeqQA (0.78) to GSM8K (0.97).
-- `L_floor_from_scores`: $L_i$ is at least the best score observed on the benchmark in the fitted data, since the frontier cannot plateau below what has already been reached. A benchmark where a score of 1.0 has been observed is thereby pinned at 1 (six benchmarks in September 2026: Cybench, Fiction.LiveBench, InterCode-CTF, NL2Bash, OTIS Mock AIME and ProofBench). In a temporal holdout the rule sees the training scores only.
-- `L_fixed_from_ceiling`: a benchmark with a known ceiling in the pipeline's metadata has $L_i$ pinned there instead of estimated (ARC-AGI, ARC-AGI-2, EBR-bench, VPCT, Cybench and the two FrontierMath v2 sets, all at 1.0). `ModelConfig.L_fixed` pins named benchmarks by hand and wins over the three rules.
+- `L_floor_observed`: $L_i$ is at least the best performance observed on the benchmark, its highest human baseline or its best model score in the fitted data, since a frontier cannot plateau below what has already been reached. The shared Beta is cut off below that value (an interval transform on the draw), so the population parameters keep describing the asymptotes themselves. Thirty-four benchmarks get a floor above 0.75 in the September 2026 data, twenty-one from a human baseline (LAB-Bench Protocol 0.79 to GSM8K 0.97) and thirteen from a model score; a benchmark where a human or a model scored 1.0 is pinned at 1 (Fiction.LiveBench, InterCode-CTF, NL2Bash, OTIS Mock AIME, ProofBench). In a temporal holdout the rule sees the training scores only. `L_floor_renormalised=True` turns the cut-off into a proper truncated Beta, renormalised by $1 - F(\text{floor})$ per benchmark; the population then describes a latent untruncated distribution and its mean drops from about 0.95 to 0.83, which is why it is off by default. Both are built by hand: PyMC's `Truncated` on the same model made the sampler diverge on nearly every draw.
+- `L_fixed_from_ceiling`: a benchmark with a known ceiling in the pipeline's metadata has $L_i$ pinned there instead of estimated (ARC-AGI, ARC-AGI-2, EBR-bench, VPCT, Cybench and the two FrontierMath v2 sets, all at 1.0). `ModelConfig.L_fixed` pins named benchmarks by hand and wins over both rules.
 
-`python -m benchmark_forecasting bounds` prints the resulting table. The `Lhuman`, `Lbest` and `Lceil` tokens in a fit's file name say which rules were active, and the data fingerprint in the name covers the baselines and ceilings as well as the scores.
+`python -m benchmark_forecasting bounds` prints the resulting table. The `Lobs` and `Lceil` tokens in a fit's file name say which rules were active, and the data fingerprint in the name covers the baselines and ceilings as well as the scores.
 
 ## Usage
 
@@ -202,8 +201,7 @@ MODEL_CONFIG = bf.ModelConfig(
     joint=True,                    # hierarchical (True) or independent (False)
     top_n=3,                       # expanding top-N frontier
     skew=True,                     # skew-normal (True) or normal (False) likelihood
-    L_floor_from_baselines=True,   # L at least the highest human baseline
-    L_floor_from_scores=True,      # L at least the best observed score
+    L_floor_observed=True,         # L at least the best human or model performance observed
     L_fixed_from_ceiling=True,     # L pinned at a known ceiling
 )
 ```

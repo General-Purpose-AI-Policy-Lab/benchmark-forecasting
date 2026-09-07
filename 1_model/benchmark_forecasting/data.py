@@ -58,11 +58,11 @@ def load_dataset(
 def asymptote_bounds(frame: pd.DataFrame, cfg: ModelConfig) -> pd.DataFrame:
     """Per-benchmark floor and pinned value of the upper asymptote L, one row per benchmark.
 
-    ``L_floor`` is ``cfg.L_min`` raised to the highest human baseline when
-    ``cfg.L_floor_from_baselines`` and the benchmark has one, and to the best observed score when
-    ``cfg.L_floor_from_scores``. ``L_fixed`` is NaN for an estimated
-    asymptote; otherwise the pinned value, from ``cfg.L_fixed`` first, then the pipeline's
-    ``ceiling`` when ``cfg.L_fixed_from_ceiling``, then 1.0 when the floor already reaches 1.
+    ``L_floor`` is ``cfg.L_min`` raised, when ``cfg.L_floor_observed``, to the best performance
+    observed on the benchmark: its highest human baseline or its best model score in ``frame``.
+    ``L_fixed`` is NaN for an estimated asymptote; otherwise the pinned value, from ``cfg.L_fixed``
+    first, then the pipeline's ``ceiling`` when ``cfg.L_fixed_from_ceiling``, then 1.0 when the
+    floor already reaches 1.
     ``reason`` says which rule applied.
     """
     benchmarks = sorted(frame["benchmark"].astype(str).unique())
@@ -78,11 +78,12 @@ def asymptote_bounds(frame: pd.DataFrame, cfg: ModelConfig) -> pd.DataFrame:
     for bench in benchmarks:
         floor, fixed, reason = cfg.L_min, np.nan, "estimated"
         hm = human_max.get(bench, np.nan)
-        if cfg.L_floor_from_baselines and pd.notna(hm) and hm > floor:
-            floor, reason = float(hm), "floor: highest human baseline"
         bs = best.get(bench, np.nan)
-        if cfg.L_floor_from_scores and pd.notna(bs) and bs > floor:
-            floor, reason = float(bs), "floor: best observed score"
+        if cfg.L_floor_observed:
+            if pd.notna(hm) and hm > floor:
+                floor, reason = float(hm), "floor: highest human baseline"
+            if pd.notna(bs) and bs > floor:
+                floor, reason = float(bs), "floor: best model score"
         ceil = ceiling.get(bench, np.nan)
         if bench in fixed_map:
             fixed, reason = float(fixed_map[bench]), "pinned: ModelConfig.L_fixed"

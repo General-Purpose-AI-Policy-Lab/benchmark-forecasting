@@ -51,9 +51,7 @@ def test_prior_draws_respect_the_pin_and_l_min():
 
 def test_without_rules_the_model_is_the_plain_scaled_beta():
     prepared = prepare_dataset(_raw(), top_n=3)
-    cfg = config.ModelConfig(
-        L_floor_from_baselines=False, L_floor_from_scores=False, L_fixed_from_ceiling=False
-    )
+    cfg = config.ModelConfig(L_floor_observed=False, L_fixed_from_ceiling=False)
     model = build_model(prepared, cfg)
     assert "L_fixed" not in model.named_vars and "L_truncation" not in model.named_vars
 

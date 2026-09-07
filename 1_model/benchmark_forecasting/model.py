@@ -30,8 +30,8 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
     """Build the PyMC model for the frontier points of ``prepared`` (see ``data.prepare_dataset``).
 
     The upper asymptote L of each benchmark is a Beta draw rescaled to [L_min, 1] around a shared
-    (or, when independent, per-benchmark) mean, floored at the benchmark's highest human baseline
-    and best observed score (``data.asymptote_bounds``), and pinned where a ceiling is known.
+    (or, when independent, per-benchmark) mean, floored at the best performance observed on it,
+    human baseline or model score (``data.asymptote_bounds``), and pinned where a ceiling is known.
     Pinned benchmarks keep an unused Beta draw so the coordinates stay uniform; a latent child with
     no likelihood attached carries no information about its parents, so the hyperposterior is
     untouched. Sample with ``sampler_initvals``: the default initial point of a truncated benchmark
