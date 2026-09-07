@@ -44,8 +44,8 @@ class ModelConfig:
     constraints refine it per benchmark (see ``data.asymptote_bounds``):
 
     - ``L_floor_from_baselines``: L is at least the highest human baseline recorded for the
-      benchmark (the Beta draw is rescaled onto [baseline, 1] instead of [L_min, 1]). A benchmark
-      whose best human baseline is 1.0 is thereby pinned at 1.
+      benchmark (the population Beta is truncated below at that value). A benchmark whose best
+      human baseline is 1.0 is thereby pinned at 1.
     - ``L_fixed_from_ceiling``: a benchmark with a known ceiling in the pipeline's metadata gets
       L pinned at that ceiling instead of estimated.
 

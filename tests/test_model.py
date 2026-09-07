@@ -7,7 +7,7 @@ import pymc as pm
 from benchmark_forecasting import config
 from benchmark_forecasting.data import prepare_dataset
 from benchmark_forecasting.fit import data_fingerprint
-from benchmark_forecasting.model import build_model
+from benchmark_forecasting.model import build_model, sampler_initvals
 
 
 def _raw():
@@ -34,23 +34,24 @@ def _raw():
     return pd.concat(frames, ignore_index=True)
 
 
-def test_prior_draws_respect_floor_and_pin():
+def test_prior_draws_respect_the_pin_and_l_min():
+    """Forward sampling ignores the truncation Potential; the floor is checked by MCMC below."""
     prepared = prepare_dataset(_raw(), top_n=3)
     model = build_model(prepared, config.ModelConfig())
     with model:
         prior = pm.sample_prior_predictive(draws=200, random_seed=1)
     L = prior.prior["L"]
     assert list(L.coords["benchmark"].values) == ["Ceiled", "Free", "Human"]
-    assert float(L.sel(benchmark="Human").min()) >= 0.9
     assert np.allclose(L.sel(benchmark="Ceiled"), 0.95)
     assert float(L.sel(benchmark="Free").min()) >= 0.75
+    assert "L_truncation" in model.named_vars, "Human carries the truncation normaliser"
 
 
 def test_without_rules_the_model_is_the_plain_scaled_beta():
     prepared = prepare_dataset(_raw(), top_n=3)
     cfg = config.ModelConfig(L_floor_from_baselines=False, L_fixed_from_ceiling=False)
     model = build_model(prepared, cfg)
-    assert "L_fixed" not in model.named_vars and "L_raw" in model.named_vars
+    assert "L_fixed" not in model.named_vars and "L_truncation" not in model.named_vars
 
 
 def test_fingerprint_changes_with_scores_baselines_and_ceilings():
@@ -62,13 +63,17 @@ def test_fingerprint_changes_with_scores_baselines_and_ceilings():
     assert data_fingerprint(prepared.sample(frac=1, random_state=0)) == base, "order-free"
 
 
-def test_a_short_sampling_runs_and_keeps_the_log_likelihood():
+def test_a_short_sampling_respects_the_floor_and_keeps_the_log_likelihood():
     prepared = prepare_dataset(_raw(), top_n=3)
-    with build_model(prepared, config.ModelConfig()):
+    cfg = config.ModelConfig()
+    init = sampler_initvals(prepared, cfg)
+    assert init["L_raw"][2] > (0.9 - cfg.L_min) / (1 - cfg.L_min), "Human starts above its floor"
+    with build_model(prepared, cfg):
         idata = pm.sample(
             draws=5,
             tune=5,
             chains=1,
+            initvals=init,
             progressbar=False,
             compute_convergence_checks=False,
             random_seed=1,

@@ -9,7 +9,7 @@ import pymc as pm
 
 from benchmark_forecasting.config import FITS_DIR, ModelConfig, SamplingConfig
 from benchmark_forecasting.data import prepare_dataset
-from benchmark_forecasting.model import build_model
+from benchmark_forecasting.model import build_model, sampler_initvals
 
 
 def data_fingerprint(prepared: pd.DataFrame) -> str:
@@ -66,6 +66,7 @@ def fit(
             random_seed=samp.seed,
             target_accept=samp.target_accept,
             init=samp.init,
+            initvals=sampler_initvals(prepared, cfg),
             progressbar=samp.progressbar,
             idata_kwargs={"log_likelihood": True},
         )

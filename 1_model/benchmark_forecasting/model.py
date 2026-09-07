@@ -3,21 +3,39 @@
 import numpy as np
 import pandas as pd
 import pymc as pm
+import pytensor.tensor as pt
+from pymc.distributions.transforms import Interval
 
 from benchmark_forecasting.config import ModelConfig
 from benchmark_forecasting.data import _ensure_constant_per_benchmark, asymptote_bounds
 
 
+def sampler_initvals(prepared: pd.DataFrame, cfg: ModelConfig) -> dict[str, np.ndarray]:
+    """Initial values for ``pm.sample``: L_raw starts inside its truncated interval.
+
+    The default initial point is the Beta's mean, which the Interval transform maps to -inf for a
+    benchmark whose floor lies above it. Passed at sampling time rather than stored on the variable
+    so the model keeps its pointwise log-likelihood.
+    """
+    bounds = asymptote_bounds(prepared, cfg)
+    floor_raw = np.clip(
+        (bounds["L_floor"].to_numpy(dtype=float) - cfg.L_min) / (1 - cfg.L_min), 0, 1
+    )
+    floor_raw = np.where(bounds["L_fixed"].notna().to_numpy(), 0.0, floor_raw)
+    mu_raw = (cfg.L_prior_mu - cfg.L_min) / (1.0 - cfg.L_min)
+    return {"L_raw": np.where(mu_raw > floor_raw, mu_raw, (floor_raw + 1.0) / 2.0)}
+
+
 def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
     """Build the PyMC model for the frontier points of ``prepared`` (see ``data.prepare_dataset``).
 
-    The upper asymptote L of each benchmark is a Beta draw rescaled to [floor, 1] around a shared
-    (or, when independent, per-benchmark) mean. ``data.asymptote_bounds`` gives the floor, L_min or
-    the benchmark's highest human baseline, and a pinned value where a ceiling is known. The
-    population Beta therefore describes where the asymptote sits within the feasible interval of
-    each benchmark, and the hyperparameter figures map it back onto [L_min, 1]. Pinned benchmarks
-    keep an unused Beta draw so the coordinates stay uniform; a latent child with no likelihood
-    attached carries no information about its parents, so the hyperposterior is untouched.
+    The upper asymptote L of each benchmark is a Beta draw rescaled to [L_min, 1] around a shared
+    (or, when independent, per-benchmark) mean, truncated below at the benchmark's highest human
+    baseline when it has one (``data.asymptote_bounds``), and pinned where a ceiling is known.
+    Pinned benchmarks keep an unused Beta draw so the coordinates stay uniform; a latent child with
+    no likelihood attached carries no information about its parents, so the hyperposterior is
+    untouched. Sample with ``sampler_initvals``: the default initial point of a truncated benchmark
+    can sit below its floor.
     """
     required = {"benchmark", "score", "lower_bound", "days", "days_mid"}
     missing = required - set(prepared.columns)
@@ -74,14 +92,31 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
         )
 
-        # Beta draw shared by every benchmark, mapped onto [floor, 1] where the floor is L_min or
-        # the benchmark's highest human baseline.  A truncated Beta was tried first and made NUTS
-        # diverge on nearly every draw (the normaliser 1 - CDF(floor) is tiny where the floor is
-        # high); rescaling keeps the geometry of the plain model.
-        L_raw = pm.Beta("L_raw", mu=L_raw_mu, sigma=L_raw_sigma_safe, dims="benchmark")
+        # Truncated Beta: the population Beta on [L_min, 1], restricted per benchmark to
+        # [floor, 1] where the floor is the highest human baseline.  Built by hand as an Interval
+        # transform on the Beta plus the normaliser as a Potential: pm.Truncated on the same model
+        # made NUTS diverge on nearly every draw, this construction samples like the plain model.
+        # Pinned benchmarks get no floor: their draw is unused.
         is_fixed = bounds["L_fixed"].notna().to_numpy()
-        L_lo = pm.Data("L_floor", bounds["L_floor"].to_numpy(dtype=float), dims="benchmark")
-        L_free = L_lo + (1.0 - L_lo) * L_raw
+        floor_raw = (bounds["L_floor"].to_numpy(dtype=float) - L_min) / L_range
+        floor_raw = np.where(is_fixed, 0.0, np.clip(floor_raw, 0.0, 1.0 - 1e-6))
+        L_raw = pm.Beta(
+            "L_raw",
+            mu=L_raw_mu,
+            sigma=L_raw_sigma_safe,
+            dims="benchmark",
+            default_transform=Interval(
+                bounds_fn=lambda *_: (pt.constant(floor_raw), pt.constant(1.0))
+            ),
+        )
+        floored = np.flatnonzero(floor_raw > 0)
+        if floored.size:
+            kappa = L_raw_mu * (1 - L_raw_mu) / L_raw_sigma_safe**2 - 1
+            a, b = L_raw_mu * kappa, (1 - L_raw_mu) * kappa
+            if not joint:
+                a, b = a[floored], b[floored]
+            pm.Potential("L_truncation", -pt.sum(pt.log1p(-pt.betainc(a, b, floor_raw[floored]))))
+        L_free = L_min + L_range * L_raw
 
         if is_fixed.any():
             fixed_vals = bounds["L_fixed"].fillna(0.0).to_numpy(dtype=float)

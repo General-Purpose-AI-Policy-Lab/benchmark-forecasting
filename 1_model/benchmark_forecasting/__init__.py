@@ -25,7 +25,7 @@ from benchmark_forecasting.evaluate import (
 )
 from benchmark_forecasting.fit import data_fingerprint, fit, temporal_holdout
 from benchmark_forecasting.forecast import generate_forecast
-from benchmark_forecasting.model import build_model
+from benchmark_forecasting.model import build_model, sampler_initvals
 from benchmark_forecasting.sync import sync
 
 __all__ = [
@@ -47,6 +47,7 @@ __all__ = [
     "point_error",
     "prepare_dataset",
     "residual_diagnostics",
+    "sampler_initvals",
     "saturated_proportion",
     "saturation_dates",
     "select_frontier_points",

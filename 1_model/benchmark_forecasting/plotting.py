@@ -80,6 +80,7 @@ class PlotStyle:
         self.legend_loc_overrides = {
             "General Reasoning": "upper left",
             "Mathematics": "lower right",
+            "Cyber": "lower right",
         }
         self.legend_loc_candidates = [
             "lower right",
@@ -112,6 +113,13 @@ class PlotStyle:
         # label is set here.
         self.benchmark_name_overrides = {
             "FrontierMath Tiers 1-3 v2": "FrontierMath v2",
+            # Cyber: the AISI series names are too long for a legend of thirteen entries.
+            "AISI CTF Suites - Apprentice": "AISI CTF Apprentice",
+            "AISI CTF Suites - Practitioner": "AISI CTF Practitioner",
+            "AISI CTF Suites - Expert": "AISI CTF Expert",
+            "AISI CTF Suites - Technical Non-Expert": "AISI CTF Non-Expert",
+            "AISI Cyber Ranges - Cooling Tower": "AISI Range Cooling Tower",
+            "AISI Cyber Ranges - The Last Ones": "AISI Range The Last Ones",
         }
 
         self.category_name_overrides = {
