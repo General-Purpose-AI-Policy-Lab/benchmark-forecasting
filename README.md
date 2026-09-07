@@ -208,6 +208,6 @@ MODEL_CONFIG = bf.ModelConfig(
 
 ## Benchmark set (September 2026)
 
-100 benchmarks in 12 capability categories, as included by the pipeline: Cyber (13), General Reasoning (13), Autonomous SWE (12), Biology (11), Domain Specific Questions (10), Mathematics (8), Multimodal Understanding (7), Agentic Computer Use (7), Core AGI Progress (5), Advanced Language and Writing (5), Chemistry (5), Commonsense QA (4). The inclusion criteria and every exclusion are documented in the pipeline (`docs/decisions.md` and `2_database/excluded_benchmarks.csv` there).
+98 benchmarks in 12 capability categories, as included by the pipeline: Cyber (13), Autonomous SWE (12), Biology (11), General Reasoning (10), Domain Specific Questions (9), Mathematics (8), Multimodal Understanding (7), Agentic Computer Use (7), Trivia & Commonsense QA (6), Core AGI Progress (5), Advanced Language and Writing (5), Chemistry (5). The inclusion criteria and every exclusion are documented in the pipeline (`docs/decisions.md` and `2_database/excluded_benchmarks.csv` there).
 
 Papers written before September 2026 used the 63-benchmark (April 2026) and 75-benchmark datasets built by the data-processing notebook this repository used to carry; that notebook and its `Data/` folder are in the git history up to the commit that introduced `0_input/`.

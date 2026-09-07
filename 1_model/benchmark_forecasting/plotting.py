@@ -127,7 +127,7 @@ class PlotStyle:
                 "Advanced Language and Writing": "Langage et Rédaction",
                 "Mathematics": "Mathématiques",
                 "Chemistry": "Expertise en Chimie",
-                "Commonsense QA": "Sens Commun",
+                "Trivia & Commonsense QA": "Culture Générale et Sens Commun",
                 "Cyber": "Cybersécurité",
             },
         }

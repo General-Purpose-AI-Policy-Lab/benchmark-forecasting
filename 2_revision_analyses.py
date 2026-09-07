@@ -280,7 +280,7 @@ if "cheap" in STAGES:
     CATEGORY_ORDER = [
         "Domain Specific Questions", "General Reasoning", "Mathematics",
         "Core AGI Progress", "Agentic Computer Use", "Autonomous SWE",
-        "Biology", "Chemistry", "Commonsense QA",
+        "Biology", "Chemistry", "Trivia & Commonsense QA",
         "Advanced Language and Writing", "Multimodal Understanding", "Cyber",
     ]
     baselines_csv = bf.load_baselines()
@@ -873,7 +873,7 @@ if "priors" in STAGES:
 # %%
 FIGURE_CATEGORIES = sorted(c for c in [
     "Domain Specific Questions", "General Reasoning", "Mathematics", "Core AGI Progress",
-    "Agentic Computer Use", "Autonomous SWE", "Biology", "Chemistry", "Commonsense QA",
+    "Agentic Computer Use", "Autonomous SWE", "Biology", "Chemistry", "Trivia & Commonsense QA",
     "Advanced Language and Writing", "Multimodal Understanding", "Cyber",
 ])
 
@@ -902,7 +902,7 @@ if "figures" in STAGES:
                 observed=obs_cat, forecast=pred_cat, baselines=baselines,
                 end_date=END_DATE, category_name=cat, plot_style=style,
             )
-            path = (f"{fig_dir}/forecast_{cat.replace(' ', '_')}"
+            path = (f"{fig_dir}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}"
                     f"_{style.language}_{style.document_type}_{CUTOFF_TAG}.{ext}")
             fig.savefig(path, dpi=300, bbox_inches="tight")
             plt.close(fig)

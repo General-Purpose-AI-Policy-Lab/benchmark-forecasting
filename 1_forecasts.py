@@ -187,7 +187,7 @@ for cat in categories:
     )
     if SAVEFIGS:
         fig.savefig(
-            f"{FORECAST_DIR_FR if plot_style.language == 'fr' else FORECAST_DIR}/forecast_{cat.replace(' ', '_')}_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
+            f"{FORECAST_DIR_FR if plot_style.language == 'fr' else FORECAST_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
             dpi=IMG_DPI,
             bbox_inches="tight",
         )
@@ -368,7 +368,7 @@ for name, cfg in ALL_MODEL_CONFIGS.items():
         )
         if SAVEFIGS:
             fig_fc.savefig(
-                f"{SENS_DIR}/forecast_{cat.replace(' ', '_')}_{slug}_en_paper{CUTOFF_TAG}.pdf",
+                f"{SENS_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{slug}_en_paper{CUTOFF_TAG}.pdf",
                 dpi=IMG_DPI, bbox_inches="tight",
             )
         plt.close(fig_fc)
@@ -552,7 +552,7 @@ if ALSO_GENERATE_FR:
         )
         if SAVEFIGS:
             fig.savefig(
-                f"{FORECAST_DIR_FR}/forecast_{cat.replace(' ', '_')}_fr_note{CUTOFF_TAG}.png",
+                f"{FORECAST_DIR_FR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_fr_note{CUTOFF_TAG}.png",
                 dpi=IMG_DPI, bbox_inches="tight",
             )
         plt.close(fig)

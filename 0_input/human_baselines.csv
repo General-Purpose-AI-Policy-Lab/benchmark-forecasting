@@ -43,7 +43,6 @@ PRBench,Committee of Domain Experts,0.796,agreement between human experts (same 
 SimpleBench,Average Human,0.837,nine non-specialized humans,https://simple-bench.com/
 SimpleBench,Top Performer,0.954,Highest human score reported on the official leaderboard.,https://simple-bench.com/
 SimpleQA Verified,Skilled Generalist,0.944,Grader Going through the test,OpenAI arXiv 2411.04368 §2.2
-SuperGLUE,Average Human,0.898,human performance estimates after training phase,https://arxiv.org/pdf/1905.00537
 TriviaQA,Average Human,0.797,human performance level,https://arxiv.org/pdf/1705.03551v2
 VPCT,Average Human,1.0,three volunteers,EpochAI
 Visual Task Assessment (VISTA),Skilled Generalist,0.554,16 full-time employees,https://scale.com/leaderboard/visual_language_understanding
