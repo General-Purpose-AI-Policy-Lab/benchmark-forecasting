@@ -54,17 +54,26 @@ class PlotStyle:
         self.gray_color = "#6c757d"
         self.grid_color = "#5F86A5"
 
+        # Fourteen colours for up to thirteen benchmarks per category.  The first three keep
+        # their roles in the other figures (navy median, green logistic, steel-blue bands); the
+        # rest follow Paul Tol's colour-blind-safe muted and light schemes, ordered so that
+        # neighbours differ in lightness as well as hue (deuteranopia and protanopia confuse
+        # red with green but not dark with light).
         self.palette = [
-            "#1f4788",
-            "#4a7c59",
-            "#457b9d",
-            "#8b7f7b",
-            "#264653",
-            "#6a4c93",
-            "#e76f51",
-            "#06aed5",
-            "#f4a261",
-            "#2a9d8f",
+            "#1f4788",  # navy
+            "#117733",  # green
+            "#457b9d",  # steel blue
+            "#EE8866",  # orange
+            "#882255",  # wine
+            "#DDCC77",  # sand
+            "#AA4499",  # purple
+            "#44AA99",  # teal
+            "#CC6677",  # rose
+            "#999933",  # olive
+            "#88CCEE",  # light cyan
+            "#661100",  # brown
+            "#BBCC33",  # pear
+            "#332288",  # indigo
         ]
 
         # Display names only (data keeps the bare benchmark name).  Benchmarks whose
@@ -84,7 +93,10 @@ class PlotStyle:
         }
         # Extra months added to the right x-limit of a category panel, so a forced legend corner
         # sits in empty space instead of on the curves (the curves still stop at end_date).
-        self.xlim_extra_months = {"Cyber": 18}
+        self.xlim_extra_months = {"Cyber": 24, "General Reasoning": 30}
+        # Legend columns per category: two columns halve the height of a long legend so a forced
+        # lower-right corner stays under the late-saturating bands.
+        self.legend_ncol_overrides = {"General Reasoning": 2}
         self.legend_loc_candidates = [
             "lower right",
             "upper left",
@@ -333,7 +345,11 @@ def plot_forecasts_by_category(
     if plot_style.language == "fr":
         ax.set_title(plot_style._category_name(str(category_name)), pad=8)
 
-    legend_kwargs = dict(fancybox=False, ncol=1, handlelength=1.5)
+    legend_kwargs = dict(
+        fancybox=False,
+        ncol=plot_style.legend_ncol_overrides.get(str(category_name), 1),
+        handlelength=1.5,
+    )
     forced = plot_style.legend_loc_overrides.get(str(category_name))
     loc = (
         forced
