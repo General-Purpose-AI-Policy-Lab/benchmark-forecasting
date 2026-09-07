@@ -279,25 +279,15 @@ plt.show()
 # %% [markdown]
 # ## FR note figures
 #
-# Drawn right after the main and asymmetry fits, so a run refreshes them before the hour of
-# retrodiction and ablation fits below.
+# Drawn right after the main and asymmetry fits, so a run refreshes `Plots/0-Note-figures/` and the
+# `fr/` forecast panels before the hour of retrodiction and ablation fits below. The FR calibration
+# curves need the retrodictions and follow them.
 
 # %%
 # --- Generate FR note figures ---
 if ALSO_GENERATE_FR:
     print("\n=== Generating FR note figures ===")
     fr_style = plotting.PlotStyle(language="fr", document_type="note")
-
-    # Calibration (retrodiction)
-    for model_name, idata_retro in retrodiction_idata.items():
-        fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=fr_style)
-        if SAVEFIGS:
-            fig.savefig(
-                f"{CALIB_DIR_FR}/{model_name.replace(' ', '_').lower()}_fr_note{CUTOFF_TAG}.png",
-                dpi=IMG_DPI, bbox_inches="tight",
-            )
-        plt.close(fig)
-    print("  FR calibration done")
 
     # Forecasts
     for cat in categories:
@@ -334,7 +324,7 @@ if ALSO_GENERATE_FR:
     plt.close(fig)
     print("  FR asymmetry done")
 
-    print("=== All FR figures generated ===")
+    print("=== FR note figures generated ===")
 
 # %% [markdown]
 # ## Retrodiction analysis
@@ -386,6 +376,20 @@ for model_name, idata_retro in retrodiction_idata.items():
     plt.close(fig)
 
 plt.show()
+
+# %%
+# FR calibration curves, once the retrodictions exist.
+if ALSO_GENERATE_FR:
+    fr_style = plotting.PlotStyle(language="fr", document_type="note")
+    for model_name, idata_retro in retrodiction_idata.items():
+        fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=fr_style)
+        if SAVEFIGS:
+            fig.savefig(
+                f"{CALIB_DIR_FR}/{model_name.replace(' ', '_').lower()}_fr_note{CUTOFF_TAG}.png",
+                dpi=IMG_DPI, bbox_inches="tight",
+            )
+        plt.close(fig)
+    print("  FR calibration done")
 
 # %% [markdown]
 # ## Sensitivity analyses
