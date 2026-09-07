@@ -78,7 +78,7 @@ class PlotStyle:
         # covering the fewest plotted points and curve samples wins.  A category can
         # still be forced to a corner here, e.g. {"Autonomous SWE": "upper left"}.
         self.legend_loc_overrides = {
-            "General Reasoning": "upper left",
+            "General Reasoning": "lower right",
             "Mathematics": "lower right",
             "Cyber": "lower right",
         }

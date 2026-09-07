@@ -220,6 +220,32 @@ plt.show()
 print(sat_summary)
 
 # %% [markdown]
+# ### Posterior of the asymptotes and of the hyperparameters
+#
+# Redrawn after every main fit: the population curve of L with one point per benchmark (EN paper
+# and FR note) and the hyperparameter posteriors (EN paper).
+
+# %%
+for style, folder, ext in (
+    (plotting.PlotStyle(language="en", document_type="paper"), "Plots/1-High_level", "pdf"),
+    (plotting.PlotStyle(language="fr", document_type="note"), "Plots/0-Note-figures", "png"),
+):
+    fig_L, _ = plotting.plot_L_distribution(idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=style)
+    if SAVEFIGS:
+        fig_L.savefig(
+            f"{folder}/Hierarchical_L_intervals_{style.language}_{style.document_type}{CUTOFF_TAG}.{ext}",
+            dpi=IMG_DPI, bbox_inches="tight",
+        )
+    plt.close(fig_L)
+
+fig_h, _ = plotting.plot_hyperparameters(
+    idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=plotting.PlotStyle(language="en", document_type="paper")
+)
+if SAVEFIGS:
+    fig_h.savefig(f"Plots/1-High_level/hyperparameters_en_paper{CUTOFF_TAG}.pdf", dpi=IMG_DPI, bbox_inches="tight")
+plt.close(fig_h)
+
+# %% [markdown]
 # ## Asymmetry visualization (Harvey curves vs logistic)
 
 # %%
@@ -249,6 +275,66 @@ if SAVEFIGS:
         bbox_inches="tight",
     )
 plt.show()
+
+# %% [markdown]
+# ## FR note figures
+#
+# Drawn right after the main and asymmetry fits, so a run refreshes them before the hour of
+# retrodiction and ablation fits below.
+
+# %%
+# --- Generate FR note figures ---
+if ALSO_GENERATE_FR:
+    print("\n=== Generating FR note figures ===")
+    fr_style = plotting.PlotStyle(language="fr", document_type="note")
+
+    # Calibration (retrodiction)
+    for model_name, idata_retro in retrodiction_idata.items():
+        fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=fr_style)
+        if SAVEFIGS:
+            fig.savefig(
+                f"{CALIB_DIR_FR}/{model_name.replace(' ', '_').lower()}_fr_note{CUTOFF_TAG}.png",
+                dpi=IMG_DPI, bbox_inches="tight",
+            )
+        plt.close(fig)
+    print("  FR calibration done")
+
+    # Forecasts
+    for cat in categories:
+        obs_cat = data if cat == "all" else data.loc[data["category"] == cat]
+        pred_cat = forecast_df if cat == "all" else forecast_df.loc[forecast_df["category"] == cat]
+        fig, ax = plotting.plot_forecasts_by_category(
+            observed=obs_cat, forecast=pred_cat, baselines=baselines,
+            end_date=END_DATE, category_name=cat, plot_style=fr_style,
+        )
+        if SAVEFIGS:
+            fig.savefig(
+                f"{FORECAST_DIR_FR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_fr_note{CUTOFF_TAG}.png",
+                dpi=IMG_DPI, bbox_inches="tight",
+            )
+        plt.close(fig)
+    print("  FR forecasts done")
+
+    # Saturation
+    fig, ax, _ = plotting.plot_saturation_proportion_posterior(
+        idata_forecast, prepared_frontier=data,
+        target_date=SATURATION_TARGET_DATE, saturation_fraction=SATURATION_FRACTION,
+        ci_level=0.80, plot_style=fr_style,
+    )
+    if SAVEFIGS:
+        fig.savefig(f"Plots/0-Note-figures/saturation_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
+    plt.close(fig)
+    print("  FR saturation done")
+
+    # Asymmetry
+    fig, ax = plotting.plot_harvey_asymmetry(idata_asym, plot_style=fr_style)
+    if SAVEFIGS:
+        fig.savefig(f"Plots/0-Note-figures/asymmetry_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
+
+    plt.close(fig)
+    print("  FR asymmetry done")
+
+    print("=== All FR figures generated ===")
 
 # %% [markdown]
 # ## Retrodiction analysis
@@ -521,67 +607,3 @@ for name, (_idata_abl, _cfg, idata_retro_abl) in ablation_idata.items():
 with open(f"{SENS_DIR}/ablation_results{CUTOFF_TAG}.json", "w") as f:
     json.dump({**{k: v for k, v in ablation_results.items()}, **cqr_results}, f, indent=2, default=str)
 print(f"\nResults saved to {SENS_DIR}/ablation_results{CUTOFF_TAG}.json")
-
-# %% [markdown]
-# # FR figures
-
-# %%
-# --- Generate FR note figures ---
-if ALSO_GENERATE_FR:
-    print("\n=== Generating FR note figures ===")
-    fr_style = plotting.PlotStyle(language="fr", document_type="note")
-
-    # Calibration (retrodiction)
-    for model_name, idata_retro in retrodiction_idata.items():
-        fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=fr_style)
-        if SAVEFIGS:
-            fig.savefig(
-                f"{CALIB_DIR_FR}/{model_name.replace(' ', '_').lower()}_fr_note{CUTOFF_TAG}.png",
-                dpi=IMG_DPI, bbox_inches="tight",
-            )
-        plt.close(fig)
-    print("  FR calibration done")
-
-    # Forecasts
-    for cat in categories:
-        obs_cat = data if cat == "all" else data.loc[data["category"] == cat]
-        pred_cat = forecast_df if cat == "all" else forecast_df.loc[forecast_df["category"] == cat]
-        fig, ax = plotting.plot_forecasts_by_category(
-            observed=obs_cat, forecast=pred_cat, baselines=baselines,
-            end_date=END_DATE, category_name=cat, plot_style=fr_style,
-        )
-        if SAVEFIGS:
-            fig.savefig(
-                f"{FORECAST_DIR_FR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_fr_note{CUTOFF_TAG}.png",
-                dpi=IMG_DPI, bbox_inches="tight",
-            )
-        plt.close(fig)
-    print("  FR forecasts done")
-
-    # Saturation
-    fig, ax, _ = plotting.plot_saturation_proportion_posterior(
-        idata_forecast, prepared_frontier=data,
-        target_date=SATURATION_TARGET_DATE, saturation_fraction=SATURATION_FRACTION,
-        ci_level=0.80, plot_style=fr_style,
-    )
-    if SAVEFIGS:
-        fig.savefig(f"Plots/0-Note-figures/saturation_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
-    plt.close(fig)
-    print("  FR saturation done")
-
-    # Asymmetry
-    fig, ax = plotting.plot_harvey_asymmetry(idata_asym, plot_style=fr_style)
-    if SAVEFIGS:
-        fig.savefig(f"Plots/0-Note-figures/asymmetry_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
-
-    # Distribution of the upper asymptotes L (population curve + one point per benchmark),
-    # formerly produced by the retired 3_Plot_forecasts notebook, rebuilt from the main fit.
-    fig_L, _ = plotting.plot_L_distribution(idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=fr_style)
-    if SAVEFIGS:
-        fig_L.savefig(f"Plots/0-Note-figures/Hierarchical_L_intervals_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
-    plt.close(fig_L)
-    plt.close(fig)
-    print("  FR asymmetry done")
-
-    print("=== All FR figures generated ===")
-
