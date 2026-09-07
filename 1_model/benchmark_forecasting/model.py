@@ -30,8 +30,8 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
     """Build the PyMC model for the frontier points of ``prepared`` (see ``data.prepare_dataset``).
 
     The upper asymptote L of each benchmark is a Beta draw rescaled to [L_min, 1] around a shared
-    (or, when independent, per-benchmark) mean, truncated below at the benchmark's highest human
-    baseline when it has one (``data.asymptote_bounds``), and pinned where a ceiling is known.
+    (or, when independent, per-benchmark) mean, floored at the benchmark's highest human baseline
+    and best observed score (``data.asymptote_bounds``), and pinned where a ceiling is known.
     Pinned benchmarks keep an unused Beta draw so the coordinates stay uniform; a latent child with
     no likelihood attached carries no information about its parents, so the hyperposterior is
     untouched. Sample with ``sampler_initvals``: the default initial point of a truncated benchmark
@@ -92,10 +92,11 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
         )
 
-        # Truncated Beta: the population Beta on [L_min, 1], restricted per benchmark to
-        # [floor, 1] where the floor is the highest human baseline.  Built by hand as an Interval
-        # transform on the Beta plus the normaliser as a Potential: pm.Truncated on the same model
-        # made NUTS diverge on nearly every draw, this construction samples like the plain model.
+        # Floored Beta: the population Beta on [L_min, 1], restricted per benchmark to [floor, 1]
+        # by an Interval transform.  By default the density is not renormalised, so the shared
+        # parameters keep describing the asymptotes themselves; cfg.L_floor_renormalised adds the
+        # 1 - CDF(floor) normaliser of a proper truncated Beta as a Potential.  Built by hand
+        # because pm.Truncated on the same model made NUTS diverge on nearly every draw.
         # Pinned benchmarks get no floor: their draw is unused.
         is_fixed = bounds["L_fixed"].notna().to_numpy()
         floor_raw = (bounds["L_floor"].to_numpy(dtype=float) - L_min) / L_range
@@ -110,7 +111,7 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             ),
         )
         floored = np.flatnonzero(floor_raw > 0)
-        if floored.size:
+        if cfg.L_floor_renormalised and floored.size:
             kappa = L_raw_mu * (1 - L_raw_mu) / L_raw_sigma_safe**2 - 1
             a, b = L_raw_mu * kappa, (1 - L_raw_mu) * kappa
             if not joint:

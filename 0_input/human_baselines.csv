@@ -6,8 +6,6 @@ ARC-AGI-2,Average Human,0.6,average test-taker,https://arcprize.org/arc-agi/2/
 ARC-AGI-2,Committee of Average Humans,1.0,Human panel,https://arcprize.org/leaderboard
 BioLP-bench,Domain Expert,0.384,Bachelor's w/ lab experience,https://www.rand.org/pubs/research_reports/RRA3797-1.html
 BlueprintBench 2,Skilled Generalist,0.586,"n=1, one human on 12 of the 50 apartments; the paper gives no qualification for them (probably from the researchers' circle, not an architect). User decision 2026-09-07.",https://epoch.ai/benchmarks/blueprint-bench-2 (normalized 0.59; Andon's own page 403s to fetches); protocol in arXiv 2509.25229 sec 4 (BlueprintBench 1). A raw composite of 0.547 circulates in secondary write-ups and is UNVERIFIED against the primary.
-CSQA2,Average Human,0.903,average accuracy of humans,https://arxiv.org/pdf/2201.05320
-CSQA2,Committee of Average Humans,0.941,majority vote,https://arxiv.org/pdf/2201.05320
 EBR-bench,Average Human,0.5275,"Mean topline of 13 participants with mixed prior experience, 11.08/21 objectives (90% CI 7.67-14.49), Epoch human baseline study Jul-Aug 2026.",https://epoch.ai/data/ebr_bench/topline_scores.csv
 EBR-bench,Top Performer,1.0,"Best of 13 human participants (10 playthroughs, best of final two scored; 21/21 objectives reached on the 5th playthrough).",https://epoch.ai/data/ebr_bench/topline_scores.csv
 FrontierMath Tiers 1-3 v2,Committee of Domain Experts,0.35,solved collectively across all teams (40 exceptional math undergraduates and subject-matter experts) in four and a half hours and with internet access,EpochAI

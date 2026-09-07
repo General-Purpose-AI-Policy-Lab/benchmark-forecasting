@@ -59,7 +59,8 @@ def asymptote_bounds(frame: pd.DataFrame, cfg: ModelConfig) -> pd.DataFrame:
     """Per-benchmark floor and pinned value of the upper asymptote L, one row per benchmark.
 
     ``L_floor`` is ``cfg.L_min`` raised to the highest human baseline when
-    ``cfg.L_floor_from_baselines`` and the benchmark has one. ``L_fixed`` is NaN for an estimated
+    ``cfg.L_floor_from_baselines`` and the benchmark has one, and to the best observed score when
+    ``cfg.L_floor_from_scores``. ``L_fixed`` is NaN for an estimated
     asymptote; otherwise the pinned value, from ``cfg.L_fixed`` first, then the pipeline's
     ``ceiling`` when ``cfg.L_fixed_from_ceiling``, then 1.0 when the floor already reaches 1.
     ``reason`` says which rule applied.
@@ -70,6 +71,7 @@ def asymptote_bounds(frame: pd.DataFrame, cfg: ModelConfig) -> pd.DataFrame:
         per_bench["human_max"].max() if "human_max" in frame.columns else pd.Series(dtype=float)
     )
     ceiling = per_bench["ceiling"].max() if "ceiling" in frame.columns else pd.Series(dtype=float)
+    best = per_bench["score"].max() if "score" in frame.columns else pd.Series(dtype=float)
     fixed_map = dict(cfg.L_fixed)
 
     rows = []
@@ -78,13 +80,16 @@ def asymptote_bounds(frame: pd.DataFrame, cfg: ModelConfig) -> pd.DataFrame:
         hm = human_max.get(bench, np.nan)
         if cfg.L_floor_from_baselines and pd.notna(hm) and hm > floor:
             floor, reason = float(hm), "floor: highest human baseline"
+        bs = best.get(bench, np.nan)
+        if cfg.L_floor_from_scores and pd.notna(bs) and bs > floor:
+            floor, reason = float(bs), "floor: best observed score"
         ceil = ceiling.get(bench, np.nan)
         if bench in fixed_map:
             fixed, reason = float(fixed_map[bench]), "pinned: ModelConfig.L_fixed"
         elif cfg.L_fixed_from_ceiling and pd.notna(ceil):
             fixed, reason = float(ceil), "pinned: known ceiling"
         elif floor >= 1.0 - 1e-9:
-            fixed, reason = 1.0, "pinned: human baseline at 1"
+            fixed, reason = 1.0, f"pinned: {reason.removeprefix('floor: ')} at 1"
         if pd.notna(fixed):
             if not cfg.L_min < fixed <= 1.0:
                 raise ValueError(f"L_fixed[{bench!r}]={fixed} must lie in (L_min={cfg.L_min}, 1].")

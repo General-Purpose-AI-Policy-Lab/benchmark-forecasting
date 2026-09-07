@@ -162,12 +162,13 @@ where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean an
 
 ### Bounds on the upper asymptote
 
-The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1]$ with $L_{\min} = 0.75$ and a shared hyperprior on its mean (0.96, sd 0.02). Two per-benchmark constraints come from the data (`data.asymptote_bounds`, both on by default in `ModelConfig`):
+The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1]$ with $L_{\min} = 0.75$ and a shared hyperprior on its mean (0.96, sd 0.02). Three per-benchmark constraints come from the data (`data.asymptote_bounds`, all on by default in `ModelConfig`):
 
-- `L_floor_from_baselines`: $L_i$ is at least the highest human baseline recorded for the benchmark. The population Beta is truncated below at that value, so the prior keeps its meaning across benchmarks and the model cannot project a plateau under human performance. The truncation is built by hand (an interval transform on the Beta plus the normaliser as a Potential): PyMC's `Truncated` on the same model made the sampler diverge on nearly every draw, whereas this construction samples like the plain model. Twenty-one benchmarks get a floor above 0.75 in the September 2026 data, from LAB-Bench SeqQA (0.78) to GSM8K (0.97).
-- `L_fixed_from_ceiling`: a benchmark with a known ceiling in the pipeline's metadata has $L_i$ pinned there instead of estimated (ARC-AGI, ARC-AGI-2, EBR-bench, VPCT, Cybench and the two FrontierMath v2 sets, all at 1.0). `ModelConfig.L_fixed` pins named benchmarks by hand and wins over both rules.
+- `L_floor_from_baselines`: $L_i$ is at least the highest human baseline recorded for the benchmark. The shared Beta is cut off below that value (an interval transform on the draw), so the model cannot project a plateau under human performance while the population parameters keep describing the asymptotes themselves. `L_floor_renormalised=True` turns this into a proper truncated Beta, renormalised by $1 - F(\text{floor})$ per benchmark; the population then describes a latent untruncated distribution and its mean drops from about 0.95 to 0.83 on the September 2026 data, which is why it is off by default. Both are built by hand: PyMC's `Truncated` on the same model made the sampler diverge on nearly every draw. Twenty-one benchmarks get a floor above 0.75 in the September 2026 data, from LAB-Bench SeqQA (0.78) to GSM8K (0.97).
+- `L_floor_from_scores`: $L_i$ is at least the best score observed on the benchmark in the fitted data, since the frontier cannot plateau below what has already been reached. A benchmark where a score of 1.0 has been observed is thereby pinned at 1 (six benchmarks in September 2026: Cybench, Fiction.LiveBench, InterCode-CTF, NL2Bash, OTIS Mock AIME and ProofBench). In a temporal holdout the rule sees the training scores only.
+- `L_fixed_from_ceiling`: a benchmark with a known ceiling in the pipeline's metadata has $L_i$ pinned there instead of estimated (ARC-AGI, ARC-AGI-2, EBR-bench, VPCT, Cybench and the two FrontierMath v2 sets, all at 1.0). `ModelConfig.L_fixed` pins named benchmarks by hand and wins over the three rules.
 
-`python -m benchmark_forecasting bounds` prints the resulting table. The `Lhuman` and `Lceil` tokens in a fit's file name say which rules were active, and the data fingerprint in the name covers the baselines and ceilings as well as the scores.
+`python -m benchmark_forecasting bounds` prints the resulting table. The `Lhuman`, `Lbest` and `Lceil` tokens in a fit's file name say which rules were active, and the data fingerprint in the name covers the baselines and ceilings as well as the scores.
 
 ## Usage
 
@@ -202,12 +203,13 @@ MODEL_CONFIG = bf.ModelConfig(
     top_n=3,                       # expanding top-N frontier
     skew=True,                     # skew-normal (True) or normal (False) likelihood
     L_floor_from_baselines=True,   # L at least the highest human baseline
+    L_floor_from_scores=True,      # L at least the best observed score
     L_fixed_from_ceiling=True,     # L pinned at a known ceiling
 )
 ```
 
 ## Benchmark set (September 2026)
 
-98 benchmarks in 12 capability categories, as included by the pipeline: Cyber (13), Autonomous SWE (12), Biology (11), General Reasoning (10), Domain Specific Questions (9), Mathematics (8), Multimodal Understanding (7), Agentic Computer Use (7), Trivia & Commonsense QA (6), Core AGI Progress (5), Advanced Language and Writing (5), Chemistry (5). The inclusion criteria and every exclusion are documented in the pipeline (`docs/decisions.md` and `2_database/excluded_benchmarks.csv` there).
+97 benchmarks in 12 capability categories, as included by the pipeline: Cyber (13), Autonomous SWE (12), Biology (11), General Reasoning (10), Domain Specific Questions (9), Mathematics (8), Multimodal Understanding (7), Agentic Computer Use (7), Trivia & Commonsense QA (5), Core AGI Progress (5), Advanced Language and Writing (5), Chemistry (5). The inclusion criteria and every exclusion are documented in the pipeline (`docs/decisions.md` and `2_database/excluded_benchmarks.csv` there).
 
 Papers written before September 2026 used the 63-benchmark (April 2026) and 75-benchmark datasets built by the data-processing notebook this repository used to carry; that notebook and its `Data/` folder are in the git history up to the commit that introduced `0_input/`.

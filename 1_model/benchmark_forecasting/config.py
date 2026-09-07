@@ -44,8 +44,11 @@ class ModelConfig:
     constraints refine it per benchmark (see ``data.asymptote_bounds``):
 
     - ``L_floor_from_baselines``: L is at least the highest human baseline recorded for the
-      benchmark (the population Beta is truncated below at that value). A benchmark whose best
-      human baseline is 1.0 is thereby pinned at 1.
+      benchmark (the population Beta is cut off below that value, see ``L_floor_renormalised``).
+      A benchmark whose best human baseline is 1.0 is thereby pinned at 1.
+    - ``L_floor_from_scores``: L is at least the best score observed on the benchmark in the fitted
+      data (the frontier cannot plateau below what has been reached). A benchmark where a score of
+      1.0 has been observed is thereby pinned at 1.
     - ``L_fixed_from_ceiling``: a benchmark with a known ceiling in the pipeline's metadata gets
       L pinned at that ceiling instead of estimated.
 
@@ -61,6 +64,13 @@ class ModelConfig:
     L_prior_mu: float = 0.96
     L_prior_sd: float = 0.02
     L_floor_from_baselines: bool = True
+    L_floor_from_scores: bool = True
+    # How the floors enter the prior.  False (default): the shared Beta is simply cut off below
+    # the floor, so the population parameters keep describing the asymptotes actually estimated.
+    # True: proper truncated Beta, renormalised per benchmark by 1 - CDF(floor); the population
+    # then describes a latent untruncated distribution and is pulled down by the floored
+    # benchmarks (population mean 0.83 instead of 0.95 on the September 2026 data).
+    L_floor_renormalised: bool = False
     L_fixed_from_ceiling: bool = True
     # A tuple of pairs rather than a dict so the frozen dataclass stays hashable. Benchmarks
     # absent from the fitted data (e.g. in a retrodiction subset) are ignored.
@@ -80,6 +90,10 @@ class ModelConfig:
             parts.append(f"Lsd{round(self.L_prior_sd * 1000)}")
         if self.L_floor_from_baselines:
             parts.append("Lhuman")
+        if self.L_floor_from_scores:
+            parts.append("Lbest")
+        if self.L_floor_renormalised:
+            parts.append("Ltrunc")
         if self.L_fixed_from_ceiling:
             parts.append("Lceil")
         if self.L_fixed:

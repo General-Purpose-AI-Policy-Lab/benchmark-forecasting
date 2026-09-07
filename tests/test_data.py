@@ -63,9 +63,10 @@ def test_prepare_dataset_adds_days_from_the_first_point():
 def _bounds_frame():
     return pd.DataFrame(
         {
-            "benchmark": ["Free", "Human", "Perfect", "Ceiled", "Low"],
-            "human_max": [np.nan, 0.9, 1.0, 0.8, 0.5],
-            "ceiling": [np.nan, np.nan, np.nan, 0.95, np.nan],
+            "benchmark": ["Free", "Human", "Perfect", "Ceiled", "Low", "Solved", "Beaten"],
+            "human_max": [np.nan, 0.9, 1.0, 0.8, 0.5, np.nan, 0.85],
+            "ceiling": [np.nan, np.nan, np.nan, 0.95, np.nan, np.nan, np.nan],
+            "score": [0.3, 0.5, 0.4, 0.6, 0.2, 1.0, 0.92],
         }
     )
 
@@ -77,24 +78,31 @@ def test_asymptote_bounds_apply_the_three_rules():
     assert bounds.loc["Perfect", "L_fixed"] == 1.0
     assert bounds.loc["Ceiled", "L_fixed"] == 0.95 and bounds.loc["Ceiled", "L_floor"] == 0.8
     assert bounds.loc["Low", "L_floor"] == 0.75, "a baseline below L_min changes nothing"
+    assert bounds.loc["Solved", "L_fixed"] == 1.0, "a score of 1.0 pins the asymptote"
+    assert bounds.loc["Beaten", "L_floor"] == 0.92, "the best score beats the human baseline"
+    assert bounds.loc["Beaten", "reason"] == "floor: best observed score"
 
 
 def test_asymptote_bounds_switches_and_manual_pins():
-    off = config.ModelConfig(L_floor_from_baselines=False, L_fixed_from_ceiling=False)
+    off = config.ModelConfig(
+        L_floor_from_baselines=False, L_floor_from_scores=False, L_fixed_from_ceiling=False
+    )
     bounds = asymptote_bounds(_bounds_frame(), off)
     assert (bounds["L_floor"] == 0.75).all() and bounds["L_fixed"].isna().all()
     manual = asymptote_bounds(_bounds_frame(), config.ModelConfig(L_fixed=(("Ceiled", 0.9),)))
     assert manual.loc["Ceiled", "L_fixed"] == 0.9, "ModelConfig.L_fixed wins over the ceiling"
     with pytest.raises(ValueError, match="above the ceiling"):
         asymptote_bounds(
-            _bounds_frame().assign(ceiling=[np.nan, 0.85, np.nan, 0.95, np.nan]),
+            _bounds_frame().assign(ceiling=[np.nan, 0.85, np.nan, 0.95, np.nan, np.nan, np.nan]),
             config.ModelConfig(),
         )
 
 
 def test_slug_names_the_asymptote_rules():
-    assert config.ModelConfig().slug == "harvey_joint_skew_Lhuman_Lceil"
-    plain = config.ModelConfig(L_floor_from_baselines=False, L_fixed_from_ceiling=False)
+    assert config.ModelConfig().slug == "harvey_joint_skew_Lhuman_Lbest_Lceil"
+    plain = config.ModelConfig(
+        L_floor_from_baselines=False, L_floor_from_scores=False, L_fixed_from_ceiling=False
+    )
     assert plain.slug == "harvey_joint_skew"
 
 
