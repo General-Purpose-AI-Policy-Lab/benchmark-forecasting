@@ -82,6 +82,9 @@ class PlotStyle:
             "Mathematics": "lower right",
             "Cyber": "lower right",
         }
+        # Extra months added to the right x-limit of a category panel, so a forced legend corner
+        # sits in empty space instead of on the curves (the curves still stop at end_date).
+        self.xlim_extra_months = {"Cyber": 18}
         self.legend_loc_candidates = [
             "lower right",
             "upper left",
@@ -118,8 +121,8 @@ class PlotStyle:
             "AISI CTF Suites - Practitioner": "AISI CTF Practitioner",
             "AISI CTF Suites - Expert": "AISI CTF Expert",
             "AISI CTF Suites - Technical Non-Expert": "AISI CTF Non-Expert",
-            "AISI Cyber Ranges - Cooling Tower": "AISI Range Cooling Tower",
-            "AISI Cyber Ranges - The Last Ones": "AISI Range The Last Ones",
+            "AISI Cyber Ranges - Cooling Tower": "AISI Range CT",
+            "AISI Cyber Ranges - The Last Ones": "AISI Range TLO",
         }
 
         self.category_name_overrides = {
@@ -308,7 +311,8 @@ def plot_forecasts_by_category(
             date_offset=plot_style.baseline_date_offset,
         )
 
-    ax.set_xlim(right=end_date)
+    extra_months = plot_style.xlim_extra_months.get(str(category_name), 0)
+    ax.set_xlim(right=end_date + pd.DateOffset(months=extra_months))
     ax.xaxis.set_major_locator(mdates.YearLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax.set_xlabel("")
