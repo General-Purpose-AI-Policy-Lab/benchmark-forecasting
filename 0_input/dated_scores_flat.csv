@@ -3270,7 +3270,7 @@ claude-opus-4-5-20251101_16K,0.74969,2025-11-24,Anthropic,METR Time Horizons,,ME
 claude-opus-4-6_unknown,0.788644,2026-02-05,Anthropic,METR Time Horizons,,EpochAI,,epoch,Autonomous SWE,0.05,
 claude-sonnet-4-20250514_16K,0.619725,2025-05-22,Anthropic,METR Time Horizons,,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,epoch,Autonomous SWE,0.05,
 claude-sonnet-4-5-20250929_16K,0.673842,2025-09-29,Anthropic,METR Time Horizons,,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,epoch,Autonomous SWE,0.05,
-davinci-002,0.161869,2020-06-11,OpenAI,METR Time Horizons,,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,epoch,Autonomous SWE,0.05,
+davinci,0.161869,2020-06-11,OpenAI,METR Time Horizons,,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,epoch,Autonomous SWE,0.05,
 gemini-2.5-pro-preview-06-05,0.5544,2025-06-05,Google DeepMind,METR Time Horizons,,METR - Measuring AI Ability to Complete Long Tasks,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,epoch,Autonomous SWE,0.05,
 gemini-3-pro-preview,0.709822,2025-11-18,Google DeepMind,METR Time Horizons,,EpochAI,,epoch,Autonomous SWE,0.05,
 gemini-3.1-pro-preview,0.77035,2026-02-19,Google DeepMind,METR Time Horizons,,https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/,,epoch,Autonomous SWE,0.05,
