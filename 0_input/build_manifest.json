@@ -1,7 +1,7 @@
 {
   "schema_version": "2.1",
-  "built_at": "2026-09-08T14:49:44+00:00",
-  "git_commit": "b154f407a1ee066dddb03097fa27049460de14c8",
+  "built_at": "2026-09-08T14:53:12+00:00",
+  "git_commit": "80198651b9d983720b25663e4e18372686474de1",
   "feeds": {
     "0_input/feed/cybench_site/cybench_leaderboard.csv": {
       "byte_size": 1179,
@@ -173,7 +173,7 @@
     "0_input/feed/epoch/aliases.csv": "45c6ab81618ad0c8f5030ededd252513f7aa121709ec59a99d0648d3252a4153",
     "0_input/feed/epoch_cyber/aliases.csv": "4ad790eb40751a6ca4583eeeb556b66096696a8946e38aa6257bc041433c1c11",
     "0_input/feed/epoch_live/aliases.csv": "bfb9e1a53b16a09f93c357f0ff6e6bb88a2d89da66f07bcb34718b762efcd75f",
-    "0_input/feed/kaggle/aliases.csv": "09d3a33ae60d94e28aea324b6ca10cd8cd18aa348dda0abb1e482f216bff855c",
+    "0_input/feed/kaggle/aliases.csv": "472969711708d3bb4ae600361f15f76dd42544c73cb46ac8f9cd4665015f6ec4",
     "0_input/feed/rand/aliases.csv": "1c9936a71988decb7af3673e306efc2221b4d3617ba74f25bedeb036e76e9550",
     "0_input/feed/seal/aliases.csv": "8276cd2b7f570fc41fbbe213eba14213321a44c3c7821d34923e4d8e7351a66a",
     "0_input/metadata/benchmarks.csv": "d3bb2ddde07f212b599071aec7a918eca148dee00f2fce6c60d6da2e8a4007ec",
