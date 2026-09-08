@@ -93,7 +93,7 @@ class PlotStyle:
         }
         # Extra months added to the right x-limit of a category panel, so a forced legend corner
         # sits in empty space instead of on the curves (the curves still stop at end_date).
-        self.xlim_extra_months = {"Cyber": 24, "General Reasoning": 4}
+        self.xlim_extra_months = {"Cyber": 15, "General Reasoning": 4}
         # Legend columns per category: two columns halve the height of a long legend so a forced
         # lower-right corner stays under the late-saturating bands.
         self.legend_ncol_overrides = {"General Reasoning": 2}
