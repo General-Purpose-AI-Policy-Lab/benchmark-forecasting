@@ -93,13 +93,15 @@ class PlotStyle:
         }
         # Extra months added to the right x-limit of a category panel, so a forced legend corner
         # sits in empty space instead of on the curves (the curves still stop at end_date).
-        self.xlim_extra_months = {"Cyber": 24, "General Reasoning": 15}
+        self.xlim_extra_months = {"Cyber": 24, "General Reasoning": 4}
         # Legend columns per category: two columns halve the height of a long legend so a forced
         # lower-right corner stays under the late-saturating bands.
         self.legend_ncol_overrides = {"General Reasoning": 2}
         # Padding between the legend and the axes edge, in font units (matplotlib default 0.5):
         # zero glues the Mathematics legend to the right edge without extending the axis.
         self.legend_borderaxespad_overrides = {"Mathematics": 0.0}
+        # Space between legend columns, in font units (matplotlib default 2.0).
+        self.legend_columnspacing_overrides = {"General Reasoning": 0.8}
         self.legend_loc_candidates = [
             "lower right",
             "upper left",
@@ -133,6 +135,7 @@ class PlotStyle:
             "FrontierMath Tiers 1-3 v2": "FM v2",
             "FrontierMath Tier 4 v2": "FM Tier 4 v2",
             "FrontierMath Erdos": "FM Erdos",
+            "Mystery Game Puzzles": "M. Game Puzzles",
             # Cyber: the AISI series names are too long for a legend of thirteen entries.
             "AISI CTF Suites - Apprentice": "AISI CTF Apprentice",
             "AISI CTF Suites - Practitioner": "AISI CTF Practitioner",
@@ -355,6 +358,7 @@ def plot_forecasts_by_category(
         ncol=plot_style.legend_ncol_overrides.get(str(category_name), 1),
         handlelength=1.5,
         borderaxespad=plot_style.legend_borderaxespad_overrides.get(str(category_name), 0.5),
+        columnspacing=plot_style.legend_columnspacing_overrides.get(str(category_name), 2.0),
     )
     forced = plot_style.legend_loc_overrides.get(str(category_name))
     loc = (
