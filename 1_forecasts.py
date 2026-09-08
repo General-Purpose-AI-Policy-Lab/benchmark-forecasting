@@ -27,6 +27,7 @@ import os
 os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 
+import dataclasses  # noqa: E402
 import json  # noqa: E402
 import sys  # noqa: E402
 from pathlib import Path  # noqa: E402
@@ -63,6 +64,16 @@ SAMPLING_CONFIG = bf.SamplingConfig(
     seed=42,
     progressbar=True,
 )
+
+# The independent variants give each benchmark its own asymptote prior, which can sit below
+# the benchmark's floor; NUTS then diverges on 20 to 40 % of draws at the default acceptance
+# target. They are sampled with a tighter target (slower, cleaner).
+SAMPLING_CONFIG_INDEPENDENT = dataclasses.replace(SAMPLING_CONFIG, target_accept=0.95)
+
+
+def sampling_for(cfg: bf.ModelConfig) -> bf.SamplingConfig:
+    """The sampling configuration matching a model variant."""
+    return SAMPLING_CONFIG if cfg.joint else SAMPLING_CONFIG_INDEPENDENT
 
 LANGUAGE: plotting.Language = "en"
 DOCUMENT_TYPE: plotting.DocumentType = "paper"
@@ -352,7 +363,7 @@ for model_name, model_config in ALL_MODEL_CONFIGS.items():
         raw,
         cutoff_date=cutoff_date,
         cfg=model_config,
-        samp=SAMPLING_CONFIG,
+        samp=sampling_for(model_config),
         min_train_points=5,
     )
     retrodiction_idata[model_name] = idata_retro
@@ -405,7 +416,7 @@ paper_style = plotting.PlotStyle(language="en", document_type="paper")
 for name, cfg in ALL_MODEL_CONFIGS.items():
     print(f"\nFitting: {name}")
     idata_abl, model_abl = bf.fit(
-        data, cfg, SAMPLING_CONFIG,
+        data, cfg, sampling_for(cfg),
         cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
     )
 

@@ -29,6 +29,7 @@ import os
 os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 
+import dataclasses  # noqa: E402
 import json  # noqa: E402
 import sys  # noqa: E402
 from pathlib import Path  # noqa: E402
@@ -60,6 +61,16 @@ SATURATION_TARGET_DATE = pd.Timestamp("2030-01-01")
 END_DATE = pd.to_datetime("2030-03-01")
 
 SAMPLING_CONFIG = bf.SamplingConfig(draws=2000, tune=1000, target_accept=0.9, seed=42, progressbar=True)
+
+# The independent variants give each benchmark its own asymptote prior, which can sit below
+# the benchmark's floor; NUTS then diverges on 20 to 40 % of draws at the default acceptance
+# target. They are sampled with a tighter target (slower, cleaner).
+SAMPLING_CONFIG_INDEPENDENT = dataclasses.replace(SAMPLING_CONFIG, target_accept=0.95)
+
+
+def sampling_for(cfg: bf.ModelConfig) -> bf.SamplingConfig:
+    """The sampling configuration matching a model variant."""
+    return SAMPLING_CONFIG if cfg.joint else SAMPLING_CONFIG_INDEPENDENT
 
 MAIN_MODEL = "Harvey Joint (skew)"
 ALL_MODEL_CONFIGS = {
@@ -117,7 +128,7 @@ results: dict[str, object] = {}
 if "cheap" in STAGES:
     sat_by_variant: dict[str, pd.DataFrame] = {}
     for name, cfg in ALL_MODEL_CONFIGS.items():
-        idata, _model = bf.fit(data, cfg, SAMPLING_CONFIG, cache_tag=CUTOFF_TAG)
+        idata, _model = bf.fit(data, cfg, sampling_for(cfg), cache_tag=CUTOFF_TAG)
         sat_by_variant[name] = bf.saturation_dates(
             idata,
             prepared_frontier=data,
@@ -644,7 +655,7 @@ if "retro8" in STAGES:
         print(f"\n=== {name} (cutoff 2025-01-01, min_train_points={MIN_TRAIN_POINTS}) ===")
         idata_v = bf.temporal_holdout(
             raw, cutoff_date=pd.to_datetime("2025-01-01"), cfg=cfg,
-            samp=SAMPLING_CONFIG, min_train_points=MIN_TRAIN_POINTS,
+            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS,
         )
         y_pred = idata_v.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
         y_true = idata_v.predictions["y_true"].to_numpy()
@@ -688,7 +699,7 @@ if "cqr" in STAGES:
     for name, cfg in ALL_MODEL_CONFIGS.items():
         idata_c = bf.temporal_holdout(
             raw, cutoff_date=pd.to_datetime("2025-01-01"), cfg=cfg,
-            samp=SAMPLING_CONFIG, min_train_points=MIN_TRAIN_POINTS,
+            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS,
         )
         g = bf.conformal_prediction_coverage_grouped(idata_c, alpha=0.20, n_repeats=100, seed=0)
         row = {
@@ -793,7 +804,7 @@ if "priors" in STAGES:
     prior_rows = []
     for name, cfg in PRIOR_VARIANTS.items():
         print(f"\n=== {name} (slug: {cfg.slug}) ===")
-        idata_p, _ = bf.fit(data, cfg, SAMPLING_CONFIG, cache_tag=CUTOFF_TAG)
+        idata_p, _ = bf.fit(data, cfg, sampling_for(cfg), cache_tag=CUTOFF_TAG)
 
         _, _, sat = plotting.plot_saturation_proportion_posterior(
             idata_p, prepared_frontier=data, target_date=SATURATION_TARGET_DATE,

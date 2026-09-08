@@ -37,8 +37,9 @@ def fit(
     Parameters
     ----------
     cache_tag : optional label appended to the slug for the NetCDF filename.
-        The name always ends with ``_d<hash>``, a fingerprint of the fitted data:
-        ``Fits/{cfg.slug}[_{cache_tag}]_d{hash}.nc``.
+        The name always ends with ``_d<hash>``, a fingerprint of the fitted data, and carries
+        ``_ta<target_accept>`` when the acceptance target is not the default 0.9:
+        ``Fits/{cfg.slug}[_{cache_tag}][_ta95]_d{hash}.nc``.
     use_cache : if *True* (default), load from ``Fits/`` if the file exists,
         and save there after sampling.  Set to *False* to force re-fitting.
     """
@@ -50,6 +51,9 @@ def fit(
     # older dataset would be silently reloaded after a data refresh (the cutoff tag
     # alone does not change when the underlying files do).
     fname = cfg.slug if cache_tag is None else f"{cfg.slug}_{cache_tag}"
+    if samp.target_accept != 0.9:
+        # A tighter acceptance target changes the posterior draws, so it names the cache too.
+        fname = f"{fname}_ta{round(samp.target_accept * 100)}"
     fname = f"{fname}_d{data_fingerprint(prepared)}"
     cache_path = FITS_DIR / f"{fname}.nc"
 

@@ -193,7 +193,7 @@ uv run pytest && uv run ruff check .
 | `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants | 8 new MCMC fits |
 | `priors` | Sensitivity to the prior on the asymptote | 4 new MCMC fits |
 
-Fits are cached in `Fits/<slug>[_<tag>]_d<hash>.nc`, where the slug encodes the `ModelConfig` and the hash fingerprints the fitted data; a cache is only reused for the exact same data and configuration. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
+Fits are cached in `Fits/<slug>[_<tag>][_ta95]_d<hash>.nc`, where the slug encodes the `ModelConfig`, `_ta95` marks a non-default acceptance target and the hash fingerprints the fitted data; a cache is only reused for the exact same data and configuration. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior can sit below its floor, and at the default target NUTS diverges on 20 to 40 % of their draws. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
 
 ```python
 MODEL_CONFIG = bf.ModelConfig(
