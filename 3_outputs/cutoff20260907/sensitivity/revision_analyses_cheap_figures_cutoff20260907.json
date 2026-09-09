@@ -10,79 +10,79 @@
     },
     {
       "variant": "Harvey Joint (normal)",
-      "median_sat_date": "2026-12-22 00:00:00",
-      "mean_shift_months": 4.275525015329242,
-      "median_shift_months": 3.71805452214809,
-      "q10_shift_months": 1.6999152196907894,
-      "q90_shift_months": 8.46187044584337
+      "median_sat_date": "2026-12-21 00:00:00",
+      "mean_shift_months": 4.277529047161492,
+      "median_shift_months": 3.702550488699871,
+      "q10_shift_months": 1.7009147020276576,
+      "q90_shift_months": 8.298694189725405
     },
     {
       "variant": "Harvey Independent (skew)",
-      "median_sat_date": "2026-10-20 00:00:00",
-      "mean_shift_months": 3.1765508252551538,
-      "median_shift_months": 1.390457979678474,
-      "q10_shift_months": -0.9315575091260356,
-      "q90_shift_months": 8.074252796695673
+      "median_sat_date": "2026-10-25 00:00:00",
+      "mean_shift_months": 3.1437652587761336,
+      "median_shift_months": 1.3760105753152307,
+      "q10_shift_months": -0.9451469292663668,
+      "q90_shift_months": 7.8450998895615545
     },
     {
       "variant": "Harvey Independent (normal)",
       "median_sat_date": "2026-12-29 00:00:00",
-      "mean_shift_months": 5.412395957630001,
-      "median_shift_months": 4.052677897880907,
-      "q10_shift_months": 1.1257769775288156,
-      "q90_shift_months": 10.802210573740837
+      "mean_shift_months": 5.375162541359456,
+      "median_shift_months": 4.183423369469818,
+      "q10_shift_months": 1.200995481532081,
+      "q90_shift_months": 10.780208722583746
     },
     {
       "variant": "Logistic Joint (skew)",
       "median_sat_date": "2026-12-19 00:00:00",
-      "mean_shift_months": 2.93720158059886,
-      "median_shift_months": 1.8875057999479856,
-      "q10_shift_months": -0.04445781622703035,
-      "q90_shift_months": 6.203873564750528
+      "mean_shift_months": 2.9206413488502156,
+      "median_shift_months": 1.8965187892537485,
+      "q10_shift_months": -0.05085364192385831,
+      "q90_shift_months": 6.363295196419333
     },
     {
       "variant": "Logistic Joint (normal)",
       "median_sat_date": "2027-02-04 00:00:00",
-      "mean_shift_months": 5.120651700195434,
-      "median_shift_months": 4.0062362930763955,
-      "q10_shift_months": 1.0244634552178473,
-      "q90_shift_months": 11.709417958887277
+      "mean_shift_months": 5.154252416224306,
+      "median_shift_months": 3.9948203227753867,
+      "q10_shift_months": 1.047924937405345,
+      "q90_shift_months": 11.74425993161607
     },
     {
       "variant": "Logistic Independent (skew)",
-      "median_sat_date": "2026-11-21 00:00:00",
-      "mean_shift_months": 6.273895724246399,
-      "median_shift_months": 1.876114951185564,
-      "q10_shift_months": -1.2600666480369032,
-      "q90_shift_months": 11.27602097042699
+      "median_sat_date": "2026-11-27 00:00:00",
+      "mean_shift_months": 8.236444615263053,
+      "median_shift_months": 1.9565222442827936,
+      "q10_shift_months": -1.0344211441448343,
+      "q90_shift_months": 11.888913667648584
     },
     {
       "variant": "Logistic Independent (normal)",
-      "median_sat_date": "2027-02-24 00:00:00",
-      "mean_shift_months": 6.775601545233323,
-      "median_shift_months": 5.205778082033563,
-      "q10_shift_months": 1.0334325807954179,
-      "q90_shift_months": 15.730309533135467
+      "median_sat_date": "2027-03-22 00:00:00",
+      "mean_shift_months": 6.737047435157459,
+      "median_shift_months": 5.01617518591194,
+      "q10_shift_months": 0.8396779265741899,
+      "q90_shift_months": 17.019193099479587
     }
   ],
   "saturation_contrasts": {
     "skew to normal": {
-      "mean": 2.299131522071897,
-      "median": 2.4258267349787044,
-      "q10": -0.242976205191528,
-      "q90": 7.84236468509804
+      "mean": 1.810785054253328,
+      "median": 2.4623744985290137,
+      "q10": -0.7195986906790446,
+      "q90": 7.927785354376991
     },
     "joint to independent": {
-      "mean": 2.326266439060336,
-      "median": 0.5168433581912172,
-      "q10": -1.0243566678171396,
-      "q90": 4.934125633406991
+      "mean": 2.784999259580022,
+      "median": 0.48930023051552385,
+      "q10": -1.2157090840572558,
+      "q90": 5.611857879219914
     },
     "Harvey to logistic": {
-      "mean": 2.0607196880149052,
-      "median": 0.8506603257120762,
-      "q10": -1.0545867350864682,
-      "q90": 5.541186283214305
+      "mean": 2.5629822420494874,
+      "median": 0.893612216723508,
+      "q10": -0.9888493444522305,
+      "q90": 5.485972908705261
     }
   },
   "category_summary": [
@@ -93,9 +93,9 @@
       "n_baselines": 6,
       "groups": "Domain Expert, High School Top Performer, Skilled Generalist",
       "human_range": "22--90\\%",
-      "sat_median": "2025-12-08 00:00:00",
-      "sat_earliest": "2024-08-09 00:00:00",
-      "sat_latest": "2026-02-20 00:00:00"
+      "sat_median": "2025-12-04 00:00:00",
+      "sat_earliest": "2024-08-10 00:00:00",
+      "sat_latest": "2026-02-18 00:00:00"
     },
     {
       "category": "Cyber",
@@ -104,9 +104,9 @@
       "n_baselines": 0,
       "groups": "",
       "human_range": "---",
-      "sat_median": "2026-08-31 00:00:00",
-      "sat_earliest": "2025-01-24 00:00:00",
-      "sat_latest": "2027-06-20 00:00:00"
+      "sat_median": "2026-09-02 00:00:00",
+      "sat_earliest": "2025-01-25 00:00:00",
+      "sat_latest": "2027-06-23 00:00:00"
     },
     {
       "category": "Trivia & Commonsense QA",
@@ -115,9 +115,9 @@
       "n_baselines": 5,
       "groups": "Average Human, Committee of Average Humans, Committee of Skilled Generalists",
       "human_range": "80--96\\%",
-      "sat_median": "2024-03-20 00:00:00",
+      "sat_median": "2024-03-14 00:00:00",
       "sat_earliest": "2022-10-19 00:00:00",
-      "sat_latest": "2027-08-14 00:00:00"
+      "sat_latest": "2027-08-08 00:00:00"
     },
     {
       "category": "Biology",
@@ -126,9 +126,9 @@
       "n_baselines": 11,
       "groups": "Domain Expert, High School Top Performer, Skilled Generalist",
       "human_range": "22--90\\%",
-      "sat_median": "2026-04-16 00:00:00",
+      "sat_median": "2026-04-18 00:00:00",
       "sat_earliest": "2024-01-26 00:00:00",
-      "sat_latest": "2028-02-06 00:00:00"
+      "sat_latest": "2028-02-09 00:00:00"
     },
     {
       "category": "Advanced Language and Writing",
@@ -137,9 +137,9 @@
       "n_baselines": 0,
       "groups": "",
       "human_range": "---",
-      "sat_median": "2027-03-13 00:00:00",
+      "sat_median": "2027-03-16 00:00:00",
       "sat_earliest": "2024-12-01 00:00:00",
-      "sat_latest": "2028-02-29 00:00:00"
+      "sat_latest": "2028-03-03 00:00:00"
     },
     {
       "category": "Autonomous SWE",
@@ -148,9 +148,9 @@
       "n_baselines": 0,
       "groups": "",
       "human_range": "---",
-      "sat_median": "2027-03-02 00:00:00",
-      "sat_earliest": "2025-07-13 00:00:00",
-      "sat_latest": "2028-04-25 00:00:00"
+      "sat_median": "2027-03-04 00:00:00",
+      "sat_earliest": "2025-07-19 00:00:00",
+      "sat_latest": "2028-05-05 00:00:00"
     },
     {
       "category": "Core AGI Progress",
@@ -159,7 +159,7 @@
       "n_baselines": 5,
       "groups": "Average Human, Committee of Average Humans, Skilled Generalist",
       "human_range": "60--100\\%",
-      "sat_median": "2026-08-26 00:00:00",
+      "sat_median": "2026-08-28 00:00:00",
       "sat_earliest": "2026-01-11 00:00:00",
       "sat_latest": "2028-07-31 00:00:00"
     },
@@ -170,9 +170,20 @@
       "n_baselines": 4,
       "groups": "Average Human, Skilled Generalist, Top Performer",
       "human_range": "55--100\\%",
-      "sat_median": "2027-09-10 00:00:00",
-      "sat_earliest": "2025-07-12 00:00:00",
-      "sat_latest": "2028-10-13 00:00:00"
+      "sat_median": "2027-09-11 00:00:00",
+      "sat_earliest": "2025-07-16 00:00:00",
+      "sat_latest": "2028-10-06 00:00:00"
+    },
+    {
+      "category": "Domain Specific Questions",
+      "n": 9,
+      "n_with_baseline": 4,
+      "n_baselines": 6,
+      "groups": "Average Human, Committee of Domain Experts, Domain Expert, High School Top Performer, Skilled Generalist",
+      "human_range": "22--94\\%",
+      "sat_median": "2027-06-09 00:00:00",
+      "sat_earliest": "2023-06-06 00:00:00",
+      "sat_latest": "2029-08-10 00:00:00"
     },
     {
       "category": "Mathematics",
@@ -182,19 +193,8 @@
       "groups": "Committee of Domain Experts, Domain Expert, High School Qualifier, High School Top Performer, Skilled Generalist",
       "human_range": "35--97\\%",
       "sat_median": "2026-08-28 12:00:00",
-      "sat_earliest": "2023-09-19 00:00:00",
-      "sat_latest": "2029-08-10 00:00:00"
-    },
-    {
-      "category": "Domain Specific Questions",
-      "n": 9,
-      "n_with_baseline": 4,
-      "n_baselines": 6,
-      "groups": "Average Human, Committee of Domain Experts, Domain Expert, High School Top Performer, Skilled Generalist",
-      "human_range": "22--94\\%",
-      "sat_median": "2027-06-06 00:00:00",
-      "sat_earliest": "2023-06-08 00:00:00",
-      "sat_latest": "2029-08-18 00:00:00"
+      "sat_earliest": "2023-09-18 00:00:00",
+      "sat_latest": "2029-08-21 00:00:00"
     },
     {
       "category": "Agentic Computer Use",
@@ -203,9 +203,9 @@
       "n_baselines": 1,
       "groups": "Skilled Generalist",
       "human_range": "72\\%",
-      "sat_median": "2026-12-25 00:00:00",
-      "sat_earliest": "2026-05-19 00:00:00",
-      "sat_latest": "2029-08-19 00:00:00"
+      "sat_median": "2026-12-26 00:00:00",
+      "sat_earliest": "2026-05-20 00:00:00",
+      "sat_latest": "2029-08-21 00:00:00"
     },
     {
       "category": "General Reasoning",
@@ -215,37 +215,37 @@
       "groups": "Average Human, Top Performer",
       "human_range": "53--100\\%",
       "sat_median": "2027-09-02 12:00:00",
-      "sat_earliest": "2026-01-16 00:00:00",
-      "sat_latest": "2030-04-11 00:00:00"
+      "sat_earliest": "2026-01-17 00:00:00",
+      "sat_latest": "2030-04-02 00:00:00"
     }
   ],
   "L_summary": {
-    "median": 0.9462724519823029,
-    "p10": 0.9320376114904511,
+    "median": 0.9461841563558584,
+    "p10": 0.9321902965121097,
     "p90": 1.0,
-    "min": 0.8671409556570828,
+    "min": 0.8668792071991052,
     "argmin": "GPQA Main Biology"
   },
   "residual_diagnostics": {
-    "n_pairs": 524,
+    "n_pairs": 554,
     "n_pairs_same_lineage": 21,
-    "mean_corr_same_lineage": 0.4478142133955566,
-    "mean_corr_across_lineage": 0.3048914293367998,
-    "median_corr_same_lineage": 0.5171102099960462,
-    "median_corr_across_lineage": 0.33855571849988025,
-    "r2_model_identity": 0.37204597800437234,
-    "r2_model_identity_adjusted": 0.2869268906238909,
-    "n_models_r2": 160,
-    "n_obs_r2": 1333,
-    "n_models": 365,
-    "per_model_mean_resid_mean": -0.054903431801265376,
-    "per_model_mean_resid_sd": 0.047879727970785886
+    "mean_corr_same_lineage": 0.44686699048749906,
+    "mean_corr_across_lineage": 0.30074244614135803,
+    "median_corr_same_lineage": 0.5122237256129827,
+    "median_corr_across_lineage": 0.3449400789181875,
+    "r2_model_identity": 0.37045055981089303,
+    "r2_model_identity_adjusted": 0.2898723903399504,
+    "n_models_r2": 156,
+    "n_obs_r2": 1367,
+    "n_models": 341,
+    "per_model_mean_resid_mean": -0.05715391192742386,
+    "per_model_mean_resid_sd": 0.049551142704554796
   },
   "lineage_collapsed_saturation": {
     "full": {
       "n_benchmarks": 97,
       "median": 0.9690721649484536,
-      "mean": 0.9640322164948455,
+      "mean": 0.9645721649484537,
       "ci": [
         0.9381443298969072,
         0.9896907216494846
@@ -255,7 +255,7 @@
     "collapsed": {
       "n_benchmarks": 77,
       "median": 0.961038961038961,
-      "mean": 0.9591672077922075,
+      "mean": 0.959978896103896,
       "ci": [
         0.935064935064935,
         0.987012987012987
