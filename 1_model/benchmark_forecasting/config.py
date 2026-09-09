@@ -16,8 +16,23 @@ os.environ.setdefault("OMP_NUM_THREADS", "1")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 INPUT_DIR = ROOT / "0_input"
-FITS_DIR = ROOT / "Fits"
-PLOTS_DIR = ROOT / "Plots"
+
+# ── Output layout (the convention shared with Multiaxis_ECI) ───────────────
+# Everything a run writes goes under 3_outputs/<data cutoff>/: the fit caches in fits/, the
+# figures and result tables by theme (forecasts/, calibration/, sensitivity/, high_level/),
+# French renders in a fr/ subfolder beside the English files. The write-ups (paper, note)
+# live under 4_writeups/; the note's curated figures are refreshed there by the scripts.
+OUTPUTS_DIR = ROOT / "3_outputs"
+WRITEUPS_DIR = ROOT / "4_writeups"
+NOTE_FIGURES_DIR = WRITEUPS_DIR / "note" / "figures"
+FITS_SUBDIR = "fits"
+
+
+def cutoff_dir(cutoff_tag: str | None) -> Path:
+    """`3_outputs/cutoffYYYYMMDD/` for a run's cutoff tag (leading underscore or not),
+    `3_outputs/no_cutoff/` when the run fits every score."""
+    tag = (cutoff_tag or "").lstrip("_")
+    return OUTPUTS_DIR / (tag or "no_cutoff")
 
 # The two consumer views of benchmark-data-pipeline, copied by `python -m benchmark_forecasting
 # sync` with the pipeline's build manifest so a run can be traced to the exact database it used.

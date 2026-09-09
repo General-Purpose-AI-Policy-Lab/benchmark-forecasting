@@ -13,9 +13,10 @@
 #
 # Fits the hierarchical Harvey model on the frontier of every benchmark, validates it by temporal
 # holdout against seven variants, draws the forecast figures per category and runs the sensitivity
-# analyses. Cached posteriors live in `Fits/`, figures and JSON results in `Plots/`.
+# analyses. Cached posteriors, figures and JSON results go under `3_outputs/<cutoff>/`; the
+# French note's curated figures are refreshed in `4_writeups/note/figures/`.
 #
-# Percent script: run it as `python 1_forecasts.py` or open it as a notebook (Jupyter reads the `# %%`
+# Percent script: run it as `python 2_analyses/forecasts.py` or open it as a notebook (Jupyter reads the `# %%`
 # cells through jupytext, VS Code natively). Input: `0_input/`, synced from benchmark-data-pipeline
 # with `python -m benchmark_forecasting sync`.
 
@@ -32,7 +33,9 @@ import json  # noqa: E402
 import sys  # noqa: E402
 from pathlib import Path  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent if "__file__" in globals() else Path.cwd()
+ROOT = Path(__file__).resolve().parents[1] if "__file__" in globals() else Path.cwd()
+if ROOT.name == "2_analyses":            # opened as a notebook from this folder
+    ROOT = ROOT.parent
 sys.path.insert(0, str(ROOT / "1_model"))
 os.chdir(ROOT)
 
@@ -45,6 +48,7 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
 import benchmark_forecasting as bf  # noqa: E402
+from benchmark_forecasting.config import NOTE_FIGURES_DIR, cutoff_dir  # noqa: E402
 
 plotting = bf.plotting
 
@@ -97,28 +101,32 @@ DATA_CUTOFF_DATE: pd.Timestamp | None = pd.to_datetime("2026-09-07")
 
 # Suffix appended to fit cache files and figure filenames when a cutoff is active.
 CUTOFF_TAG = f"_cutoff{DATA_CUTOFF_DATE.strftime('%Y%m%d')}" if DATA_CUTOFF_DATE else ""
-# Forecast figures are filed per cutoff: Plots/2-Forecasts/cutoffYYYYMMDD/ holds the
-# EN paper PDFs, with the FR note PNGs in a fr/ subfolder underneath.
-FORECAST_DIR = f"Plots/2-Forecasts/{CUTOFF_TAG.lstrip('_')}" if CUTOFF_TAG else "Plots/2-Forecasts"
+# Everything is filed under the run's cutoff folder, 3_outputs/cutoffYYYYMMDD/: the fit
+# caches in fits/, the EN paper PDFs by theme, the FR note PNGs in a fr/ subfolder beside them.
+CUTOFF_DIR = cutoff_dir(CUTOFF_TAG)
+FITS_DIR = CUTOFF_DIR / "fits"
+FORECAST_DIR = f"{CUTOFF_DIR}/forecasts"
 FORECAST_DIR_FR = f"{FORECAST_DIR}/fr"
-# Same layout for the calibration curves and the sensitivity outputs.
-CALIB_DIR = f"Plots/3-Calibration/{CUTOFF_TAG.lstrip('_')}" if CUTOFF_TAG else "Plots/3-Calibration"
+CALIB_DIR = f"{CUTOFF_DIR}/calibration"
 CALIB_DIR_FR = f"{CALIB_DIR}/fr"
-SENS_DIR = f"Plots/4-Sensitivity/{CUTOFF_TAG.lstrip('_')}" if CUTOFF_TAG else "Plots/4-Sensitivity"
+SENS_DIR = f"{CUTOFF_DIR}/sensitivity"
+HIGH_LEVEL_DIR = f"{CUTOFF_DIR}/high_level"
+# The French note's curated figures, refreshed by every run (a write-up folder, so not dated).
+NOTE_FIG_DIR = str(NOTE_FIGURES_DIR)
 
 # ---- Output directories ----
 # Created explicitly rather than relying on git having materialised them when
-# checking out tracked figures: Plots/0-Note-figures/ is gitignored, so it never
-# exists on a fresh clone and the FR figure section fails on its first savefig.
+# checking out tracked figures: a fresh clone has none of the gitignored ones and
+# the first savefig would fail.
 for _plot_dir in (
-    "Plots/0-Note-figures",
-    "Plots/1-High_level",
+    NOTE_FIG_DIR,
+    HIGH_LEVEL_DIR,
     FORECAST_DIR,
     FORECAST_DIR_FR,
     CALIB_DIR,
     CALIB_DIR_FR,
     SENS_DIR,
-    "Fits",
+    str(FITS_DIR),
 ):
     os.makedirs(_plot_dir, exist_ok=True)
 
@@ -157,6 +165,7 @@ print(bounds.loc[bounds["reason"] != "estimated"].to_string())
 idata_forecast, model_forecast = bf.fit(
     data, MODEL_CONFIG, SAMPLING_CONFIG,
     cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
+    fits_dir=FITS_DIR,
 )
 
 # %%
@@ -222,7 +231,7 @@ fig, ax, sat_summary = plotting.plot_saturation_proportion_posterior(
 )
 if SAVEFIGS:
     fig.savefig(
-        f"Plots/1-High_level/saturation_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
+        f"{HIGH_LEVEL_DIR}/saturation_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
         dpi=IMG_DPI,
         bbox_inches="tight",
     )
@@ -238,8 +247,8 @@ print(sat_summary)
 
 # %%
 for style, folder, ext in (
-    (plotting.PlotStyle(language="en", document_type="paper"), "Plots/1-High_level", "pdf"),
-    (plotting.PlotStyle(language="fr", document_type="note"), "Plots/0-Note-figures", "png"),
+    (plotting.PlotStyle(language="en", document_type="paper"), HIGH_LEVEL_DIR, "pdf"),
+    (plotting.PlotStyle(language="fr", document_type="note"), NOTE_FIG_DIR, "png"),
 ):
     fig_L, _ = plotting.plot_L_distribution(idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=style)
     if SAVEFIGS:
@@ -253,7 +262,7 @@ fig_h, _ = plotting.plot_hyperparameters(
     idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=plotting.PlotStyle(language="en", document_type="paper")
 )
 if SAVEFIGS:
-    fig_h.savefig(f"Plots/1-High_level/hyperparameters_en_paper{CUTOFF_TAG}.pdf", dpi=IMG_DPI, bbox_inches="tight")
+    fig_h.savefig(f"{HIGH_LEVEL_DIR}/hyperparameters_en_paper{CUTOFF_TAG}.pdf", dpi=IMG_DPI, bbox_inches="tight")
 plt.close(fig_h)
 
 # %% [markdown]
@@ -274,6 +283,7 @@ SAMP_ASYM = bf.SamplingConfig(
 idata_asym, _model_asym = bf.fit(
     data, CFG_ASYM, SAMP_ASYM,
     cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
+    fits_dir=FITS_DIR,
 )
 
 # %%
@@ -281,7 +291,7 @@ plot_style = plotting.PlotStyle(language=LANGUAGE, document_type=DOCUMENT_TYPE)
 plotting.plot_harvey_asymmetry(idata_asym, plot_style=plot_style)
 if SAVEFIGS:
     plt.savefig(
-        f"Plots/1-High_level/asymmetry_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
+        f"{HIGH_LEVEL_DIR}/asymmetry_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
         dpi=IMG_DPI,
         bbox_inches="tight",
     )
@@ -290,7 +300,7 @@ plt.show()
 # %% [markdown]
 # ## FR note figures
 #
-# Drawn right after the main and asymmetry fits, so a run refreshes `Plots/0-Note-figures/` and the
+# Drawn right after the main and asymmetry fits, so a run refreshes `4_writeups/note/figures/` and the
 # `fr/` forecast panels before the hour of retrodiction and ablation fits below. The FR calibration
 # curves need the retrodictions and follow them.
 
@@ -323,14 +333,14 @@ if ALSO_GENERATE_FR:
         ci_level=0.80, plot_style=fr_style,
     )
     if SAVEFIGS:
-        fig.savefig(f"Plots/0-Note-figures/saturation_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
+        fig.savefig(f"{NOTE_FIG_DIR}/saturation_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
     plt.close(fig)
     print("  FR saturation done")
 
     # Asymmetry
     fig, ax = plotting.plot_harvey_asymmetry(idata_asym, plot_style=fr_style)
     if SAVEFIGS:
-        fig.savefig(f"Plots/0-Note-figures/asymmetry_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
+        fig.savefig(f"{NOTE_FIG_DIR}/asymmetry_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
 
     plt.close(fig)
     print("  FR asymmetry done")
@@ -418,6 +428,7 @@ for name, cfg in ALL_MODEL_CONFIGS.items():
     idata_abl, model_abl = bf.fit(
         data, cfg, sampling_for(cfg),
         cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
+        fits_dir=FITS_DIR,
     )
 
     # Slug for filenames: e.g. "harvey_joint_skew"

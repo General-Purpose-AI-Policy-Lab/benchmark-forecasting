@@ -1,5 +1,5 @@
 {
-  "pipeline_dir": "/Users/jeremyandreolettigpaipolicylab/Documents/Recherche/Forecasting-pipeline/benchmark-data-pipeline",
+  "pipeline_repo": "https://github.com/General-Purpose-AI-Policy-Lab/benchmark-data-pipeline",
   "pipeline_commit": "cdb36cdc50ee82ea96906927eeba4b36cee9634f",
   "pipeline_built_at": "2026-09-08T15:17:43+00:00",
   "schema_version": "2.1",

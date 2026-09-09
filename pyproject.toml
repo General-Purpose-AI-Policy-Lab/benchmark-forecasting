@@ -31,6 +31,7 @@ where = ["1_model"]
 line-length = 100
 target-version = "py311"
 src = ["1_model", "tests"]
+extend-exclude = ["archive", "3_outputs", "4_writeups"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "W", "B", "UP"]
@@ -41,8 +42,7 @@ known-first-party = ["benchmark_forecasting"]
 
 [tool.ruff.lint.per-file-ignores]
 # Percent scripts: LaTeX captions and long labels are kept on one line on purpose.
-"1_forecasts.py" = ["E501"]
-"2_revision_analyses.py" = ["E501"]
+"2_analyses/*.py" = ["E501"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

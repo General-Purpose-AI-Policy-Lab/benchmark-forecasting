@@ -1,22 +1,25 @@
 
 # Manuscript working material: kept locally, not in the public repo. The
 # bibliography and the arXiv preprint sources are public and stay tracked;
-# LaTeX build artifacts inside Paper/Arxiv/ are caught by the rules further down.
-Paper/*
-!Paper/Benchmark_forecasting.bib
-!Paper/.latexmkrc
-!Paper/Arxiv/
+# LaTeX build artifacts inside 4_writeups/paper/Arxiv/ are caught by the rules further down.
+# The note itself (PDF) stays local; its curated figures are tracked.
+4_writeups/paper/*
+!4_writeups/paper/Benchmark_forecasting.bib
+!4_writeups/paper/.latexmkrc
+!4_writeups/paper/Arxiv/
+4_writeups/note/*.pdf
 
 # FR note figures are tracked only where they are curated or filed per cutoff:
-# Plots/0-Note-figures/ and Plots/{2-Forecasts,3-Calibration,4-Sensitivity}/cutoffYYYYMMDD/fr/.
+# 4_writeups/note/figures/ and 3_outputs/cutoffYYYYMMDD/{forecasts,calibration,sensitivity}/fr/.
 *fr_note*
-!Plots/0-Note-figures/**
-!Plots/2-Forecasts/**
-!Plots/3-Calibration/**
-!Plots/4-Sensitivity/**
+!4_writeups/note/figures/**
+!3_outputs/**/forecasts/**
+!3_outputs/**/calibration/**
+!3_outputs/**/sensitivity/**
 
-# Old directories
+# Superseded figure sets, kept locally
 **/Old/
+archive/plots_old/
 *SuppMat.zip
 
 # Temporary files
@@ -601,4 +604,5 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
-Fits/
+# Cached posteriors (NetCDF), one fits/ folder per cutoff under 3_outputs/
+3_outputs/**/fits/

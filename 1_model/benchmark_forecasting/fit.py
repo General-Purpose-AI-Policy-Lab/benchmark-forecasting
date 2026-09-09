@@ -1,13 +1,14 @@
 """MCMC fitting with a cache keyed on the model slug and a fingerprint of the fitted data."""
 
 import hashlib
+from pathlib import Path
 
 import arviz as az
 import numpy as np
 import pandas as pd
 import pymc as pm
 
-from benchmark_forecasting.config import FITS_DIR, ModelConfig, SamplingConfig
+from benchmark_forecasting.config import FITS_SUBDIR, ModelConfig, SamplingConfig, cutoff_dir
 from benchmark_forecasting.data import prepare_dataset
 from benchmark_forecasting.model import build_model, sampler_initvals
 
@@ -31,6 +32,7 @@ def fit(
     *,
     cache_tag: str | None = None,
     use_cache: bool = True,
+    fits_dir: Path | None = None,
 ) -> tuple[az.InferenceData, pm.Model]:
     """Fit the model and return (idata, model).
 
@@ -39,10 +41,13 @@ def fit(
     cache_tag : optional label appended to the slug for the NetCDF filename.
         The name always ends with ``_d<hash>``, a fingerprint of the fitted data, and carries
         ``_ta<target_accept>`` when the acceptance target is not the default 0.9:
-        ``Fits/{cfg.slug}[_{cache_tag}][_ta95]_d{hash}.nc``.
-    use_cache : if *True* (default), load from ``Fits/`` if the file exists,
+        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95]_d{hash}.nc``.
+    use_cache : if *True* (default), load from ``fits_dir`` if the file exists,
         and save there after sampling.  Set to *False* to force re-fitting.
+    fits_dir : the cache folder, normally the run's ``3_outputs/<cutoff>/fits/``
+        (``config.cutoff_dir(tag) / config.FITS_SUBDIR``); defaults to the no-cutoff one.
     """
+    fits_dir = Path(fits_dir) if fits_dir is not None else cutoff_dir(None) / FITS_SUBDIR
     model = build_model(prepared, cfg)
 
     # --- cache path ---
@@ -55,7 +60,7 @@ def fit(
         # A tighter acceptance target changes the posterior draws, so it names the cache too.
         fname = f"{fname}_ta{round(samp.target_accept * 100)}"
     fname = f"{fname}_d{data_fingerprint(prepared)}"
-    cache_path = FITS_DIR / f"{fname}.nc"
+    cache_path = fits_dir / f"{fname}.nc"
 
     if use_cache and cache_path.exists():
         print(f"  Loading cached fit: {cache_path}")
@@ -76,7 +81,7 @@ def fit(
         )
 
     if use_cache:
-        FITS_DIR.mkdir(exist_ok=True)
+        fits_dir.mkdir(parents=True, exist_ok=True)
         idata.to_netcdf(str(cache_path))
         print(f"  Saved fit: {cache_path}")
 

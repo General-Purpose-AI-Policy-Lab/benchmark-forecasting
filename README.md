@@ -4,7 +4,7 @@ Bayesian sigmoidal growth models for the frontier of AI benchmark scores: when d
 
 ## Layout
 
-Folders are numbered in processing order. `Plots/` and `Fits/` keep their historical names because the manuscripts in `Paper/` reference figure paths.
+Folders are numbered in processing order, the same convention as `Multiaxis_ECI`: inputs, model, analyses, outputs, write-ups. Everything a run writes goes under `3_outputs/<cutoff>/`, one folder per data cutoff, with the French renders in a `fr/` subfolder beside the English files.
 
 ```
 0_input/                        the pipeline's consumer views, copied by `python -m benchmark_forecasting sync`
@@ -16,16 +16,24 @@ Folders are numbered in processing order. `Plots/` and `Fits/` keep their histor
   config.py                     paths, BLAS thread pin, ModelConfig and SamplingConfig
   data.py                       load_dataset, frontier selection, asymptote_bounds
   model.py                      build_model (PyMC)
-  fit.py                        fit with the Fits/ cache, temporal_holdout
+  fit.py                        fit with the per-cutoff cache, temporal_holdout
   evaluate.py                   CRPS, RMSE, conformal coverage, saturation dates, residual diagnostics
   forecast.py                   generate_forecast
   plotting.py                   every figure, EN paper and FR note styles
   sync.py                       copy the views from the pipeline checkout
-1_forecasts.py                  main fit, forecasts, retrodiction, sensitivity analyses, all figures
-2_revision_analyses.py          robustness analyses and LaTeX tables, in stages
-Fits/                           cached posteriors (NetCDF, gitignored)
-Plots/                          figures and JSON/CSV results, one subfolder per cutoff
-Paper/                          bibliography and arXiv sources; other manuscript material stays local
+2_analyses/
+  forecasts.py                  main fit, forecasts, retrodiction, sensitivity analyses, all figures
+  revision_analyses.py          robustness analyses and LaTeX tables, in stages
+3_outputs/cutoffYYYYMMDD/       one folder per data cutoff
+  fits/                         cached posteriors (NetCDF, gitignored)
+  forecasts/ (+ fr/)            category forecast panels, EN paper PDFs and FR note PNGs
+  calibration/ (+ fr/)          calibration curves of the eight variants
+  sensitivity/ (+ tables/)      JSON/CSV results of the robustness analyses and the LaTeX tables
+  high_level/                   saturation, asymmetry, asymptote and hyperparameter figures (EN paper)
+4_writeups/
+  paper/                        bibliography and arXiv sources; other manuscript material stays local
+  note/figures/                 the French policy note's figures, refreshed by every run
+archive/plots_old/              superseded figure sets (local)
 tests/                          pytest: prior draws, synthetic posteriors, one 5-draw toy sampling
 ```
 
@@ -175,14 +183,14 @@ The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1
 uv sync                                   # dependencies, including the dev group (pytest, ruff, jupytext)
 uv pip install -e .                       # the package, importable as benchmark_forecasting
 uv run python -m benchmark_forecasting sync           # 0_input/ from ../benchmark-data-pipeline
-uv run python 1_forecasts.py                          # about one hour: 18 MCMC fits, ~150 figures
-uv run python 2_revision_analyses.py cheap figures    # stages, see below
+uv run python 2_analyses/forecasts.py                          # about one hour: 18 MCMC fits, ~150 figures
+uv run python 2_analyses/revision_analyses.py cheap figures    # stages, see below
 uv run pytest && uv run ruff check .
 ```
 
-`1_forecasts.py` fits the main model and an asymmetry model, runs the temporal holdout of the eight variants (sigmoid × structure × likelihood, cutoff 2025-01-01, at least 5 pre-cutoff frontier points per benchmark), the ablations, LOO and CQR, then draws the English paper figures (PDF) and the French note figures (PNG). Settings are at the top of the script: `MODEL_CONFIG`, `SAMPLING_CONFIG`, `LANGUAGE` / `DOCUMENT_TYPE`, `ALSO_GENERATE_FR`, `SAVEFIGS`, `DATA_CUTOFF_DATE`.
+`2_analyses/forecasts.py` fits the main model and an asymmetry model, runs the temporal holdout of the eight variants (sigmoid × structure × likelihood, cutoff 2025-01-01, at least 5 pre-cutoff frontier points per benchmark), the ablations, LOO and CQR, then draws the English paper figures (PDF) and the French note figures (PNG). Settings are at the top of the script: `MODEL_CONFIG`, `SAMPLING_CONFIG`, `LANGUAGE` / `DOCUMENT_TYPE`, `ALSO_GENERATE_FR`, `SAVEFIGS`, `DATA_CUTOFF_DATE`.
 
-`2_revision_analyses.py` takes stage names as arguments and writes `Plots/4-Sensitivity/<cutoff>/revision_analyses_<stages>_<cutoff>.json`, CSV tables and LaTeX tables (in `Plots/4-Sensitivity/<cutoff>/tables/`, or in `$TABLES_DIR` to regenerate a manuscript's tables in place):
+`2_analyses/revision_analyses.py` takes stage names as arguments and writes `3_outputs/<cutoff>/sensitivity/revision_analyses_<stages>_<cutoff>.json`, CSV tables and LaTeX tables (in `3_outputs/<cutoff>/sensitivity/tables/`, or in `$TABLES_DIR` to regenerate a manuscript's tables in place):
 
 | Stage | What it does | Cost |
 |---|---|---|
@@ -193,7 +201,7 @@ uv run pytest && uv run ruff check .
 | `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants | 8 new MCMC fits |
 | `priors` | Sensitivity to the prior on the asymptote | 4 new MCMC fits |
 
-Fits are cached in `Fits/<slug>[_<tag>][_ta95]_d<hash>.nc`, where the slug encodes the `ModelConfig`, `_ta95` marks a non-default acceptance target and the hash fingerprints the fitted data; a cache is only reused for the exact same data and configuration. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior can sit below its floor, and at the default target NUTS diverges on 20 to 40 % of their draws. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
+Fits are cached in `3_outputs/<cutoff>/fits/<slug>[_<tag>][_ta95]_d<hash>.nc`, where the slug encodes the `ModelConfig`, `_ta95` marks a non-default acceptance target and the hash fingerprints the fitted data; a cache is only reused for the exact same data and configuration. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior can sit below its floor, and at the default target NUTS diverges on 20 to 40 % of their draws. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
 
 ```python
 MODEL_CONFIG = bf.ModelConfig(

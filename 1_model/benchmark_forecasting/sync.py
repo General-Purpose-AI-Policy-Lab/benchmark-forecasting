@@ -3,6 +3,7 @@
 import json
 import logging
 import shutil
+import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -16,6 +17,19 @@ from benchmark_forecasting.config import (
 )
 
 log = logging.getLogger(__name__)
+
+
+def pipeline_repo(pipeline_dir: Path) -> str:
+    """The pipeline's git remote URL, or its folder name when it has none.
+
+    Recorded instead of the local checkout path, which would carry a user's home
+    directory into a tracked file and means nothing on another machine."""
+    try:
+        out = subprocess.run(["git", "-C", str(pipeline_dir), "remote", "get-url", "origin"],
+                             capture_output=True, text=True, check=True).stdout.strip()
+        return out or pipeline_dir.name
+    except (OSError, subprocess.CalledProcessError):
+        return pipeline_dir.name
 
 # (relative path in the pipeline repository, file name here)
 SOURCES = (
@@ -39,7 +53,7 @@ def sync(pipeline_dir: Path = PIPELINE_DIR, input_dir: Path = INPUT_DIR) -> dict
         log.info("copied %s (%d bytes)", src, src.stat().st_size)
     manifest = json.loads((input_dir / MANIFEST_FILE).read_text())
     provenance = {
-        "pipeline_dir": str(pipeline_dir),
+        "pipeline_repo": pipeline_repo(pipeline_dir),
         "pipeline_commit": manifest.get("git_commit", ""),
         "pipeline_built_at": manifest.get("built_at", ""),
         "schema_version": manifest.get("schema_version", ""),
