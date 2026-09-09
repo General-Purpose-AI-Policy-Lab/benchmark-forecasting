@@ -65,9 +65,9 @@ The sigmoidal curves model the latent mean performance $\mu_i(t)$ over time. Two
 
 The sigmoids are defined on the range $[\ell_i, L_i]$, where $\ell_i$ is a benchmark-specific lower bound (random-chance performance) and $L_i$ is the upper asymptote (final performance).
 
-The lower bound $\ell_i$ is manually gathered per benchmark (or set to 0 if unknown). See `Data/benchmarks_lower_bounds.csv` for details. It is not necessarily 0, as some benchmarks may have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
+The lower bound $\ell_i$ is the benchmark's chance level, recorded with its source in the pipeline's metadata (`0_input/metadata/benchmarks.csv` there, the `lower_bound` column of the view here). It is not necessarily 0, as some benchmarks have non-zero random-chance performance (e.g. 25% for questions with 4 choices).
 
-The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores. It is estimated for most benchmarks, and pinned to 1 (`ModelConfig.L_fixed`) where the full range is known to be attainable: ARC-AGI, ARC-AGI-2, VPCT and EBR-bench (human baselines at or near 100%) and the two FrontierMath v2 sets (every problem has been solved at least once).
+The upper bound $L_i$ is not necessarily 1, as benchmarks contain errors or inherent uncertainty that prevent perfect scores. It is estimated for most benchmarks, and pinned where the pipeline records a known ceiling (`L_fixed_from_ceiling`: ARC-AGI, ARC-AGI-2, VPCT, EBR-bench, Cybench, the two FrontierMath v2 sets and the six AISI CTF and Cyber Range sets, all at 1.0) or where a human or a model already scored 1.0 (`L_floor_observed`). `ModelConfig.L_fixed` is a manual override that the scripts do not use.
 
 The latent mean performance on benchmark $i$ at time $t$ is then the shifted sigmoid:
 
@@ -148,13 +148,13 @@ where $\xi^{\text{base}}_ {\mu}, \xi^{\text{base}}_{\sigma}$ are the mean and st
 
 #### Skewness parameters $s_i$:
 
-Skewness parameters $s_i$ follow a Normal distribution:
+Skewness parameters $s_i$ follow a Normal distribution truncated at zero:
 
 $$
-s_i \sim \text{Normal}(s_{\mu}, s_{\sigma}),
+s_i \sim \text{TruncatedNormal}(s_{\mu}, s_{\sigma};\ s_i \le 0),
 $$
 
-where $s_{\mu}, s_{\sigma}$ are the mean and standard deviation hyperparameters. The prior on $s_{\mu}$ is centered on negative values (reflecting the expectation that frontier scores tend to fall below latent capability), but is not truncated — the data is free to push $s_i$ toward zero or positive values. When `skew=False`, this parameter is omitted and the likelihood uses a symmetric Normal.
+where $s_{\mu}, s_{\sigma}$ are the mean and standard deviation hyperparameters. The prior on $s_{\mu}$ is centered on negative values (reflecting the expectation that frontier scores fall below latent capability) and is itself not truncated; the per-benchmark $s_i$ is bounded above by zero, so the residuals of every benchmark are left-skewed or symmetric, never right-skewed. When `skew=False`, this parameter is omitted and the likelihood uses a symmetric Normal.
 
 #### Harvey shape parameters $\alpha_i$:
 
@@ -172,8 +172,8 @@ where $\alpha^{\text{raw}}_ {\mu}, \alpha^{\text{raw}}_{\sigma}$ are the mean an
 
 The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1]$ with $L_{\min} = 0.75$ and a shared hyperprior on its mean (0.96, sd 0.02). Two per-benchmark constraints come from the data (`data.asymptote_bounds`, both on by default in `ModelConfig`):
 
-- `L_floor_observed`: $L_i$ is at least the best performance observed on the benchmark, its highest human baseline or its best model score in the fitted data, since a frontier cannot plateau below what has already been reached. The shared Beta is cut off below that value (an interval transform on the draw), so the population parameters keep describing the asymptotes themselves. Thirty-four benchmarks get a floor above 0.75 in the September 2026 data, twenty-one from a human baseline (LAB-Bench Protocol 0.79 to GSM8K 0.97) and thirteen from a model score; a benchmark where a human or a model scored 1.0 is pinned at 1 (Fiction.LiveBench, InterCode-CTF, NL2Bash, OTIS Mock AIME, ProofBench). In a temporal holdout the rule sees the training scores only. `L_floor_renormalised=True` turns the cut-off into a proper truncated Beta, renormalised by $1 - F(\text{floor})$ per benchmark; the population then describes a latent untruncated distribution and its mean drops from about 0.95 to 0.83, which is why it is off by default. Both are built by hand: PyMC's `Truncated` on the same model made the sampler diverge on nearly every draw.
-- `L_fixed_from_ceiling`: a benchmark with a known ceiling in the pipeline's metadata has $L_i$ pinned there instead of estimated (ARC-AGI, ARC-AGI-2, EBR-bench, VPCT, Cybench and the two FrontierMath v2 sets, all at 1.0). `ModelConfig.L_fixed` pins named benchmarks by hand and wins over both rules.
+- `L_floor_observed`: $L_i$ is at least the best performance observed on the benchmark, its highest human baseline or its best model score in the fitted data, since a frontier cannot plateau below what has already been reached. The shared Beta is cut off below that value (an interval transform on the draw), so the population parameters keep describing the asymptotes themselves. On the 2026-09-08 pipeline build, 38 benchmarks get a floor above 0.75, 14 from a human baseline and 24 from a model score, and five are pinned at 1 by a score of 1.0 (Fiction.LiveBench, InterCode-CTF, NL2Bash, OTIS Mock AIME, ProofBench); `python -m benchmark_forecasting bounds` prints the current table. In a temporal holdout the floors see the training scores only (the frontier and the centre of the prior on the inflection date are computed on the whole cutoff dataset before the split). `L_floor_renormalised=True` turns the cut-off into a proper truncated Beta, renormalised by $1 - F(\text{floor})$ per benchmark; the population then describes a latent untruncated distribution and its mean drops from about 0.95 to 0.83, which is why it is off by default. Both are built by hand: PyMC's `Truncated` on the same model made the sampler diverge on nearly every draw.
+- `L_fixed_from_ceiling`: a benchmark with a known ceiling in the pipeline's metadata has $L_i$ pinned there instead of estimated (13 benchmarks on the 2026-09-08 build: ARC-AGI, ARC-AGI-2, EBR-bench, VPCT, Cybench, the two FrontierMath v2 sets and the six AISI CTF and Cyber Range sets, all at 1.0). `ModelConfig.L_fixed` pins named benchmarks by hand and wins over both rules; the scripts do not use it.
 
 `python -m benchmark_forecasting bounds` prints the resulting table. The `Lobs` and `Lceil` tokens in a fit's file name say which rules were active, and the data fingerprint in the name covers the baselines and ceilings as well as the scores.
 
@@ -183,12 +183,12 @@ The asymptote $L_i$ of each benchmark has a Beta prior rescaled to $[L_{\min}, 1
 uv sync                                   # dependencies, including the dev group (pytest, ruff, jupytext)
 uv pip install -e .                       # the package, importable as benchmark_forecasting
 uv run python -m benchmark_forecasting sync           # 0_input/ from ../benchmark-data-pipeline
-uv run python 2_analyses/forecasts.py                          # about one hour: 18 MCMC fits, ~150 figures
+uv run python 2_analyses/forecasts.py                          # about one hour: 16 MCMC fits, ~150 figures
 uv run python 2_analyses/revision_analyses.py cheap figures    # stages, see below
 uv run pytest && uv run ruff check .
 ```
 
-`2_analyses/forecasts.py` fits the main model and an asymmetry model, runs the temporal holdout of the eight variants (sigmoid × structure × likelihood, cutoff 2025-01-01, at least 5 pre-cutoff frontier points per benchmark), the ablations, LOO and CQR, then draws the English paper figures (PDF) and the French note figures (PNG). Settings are at the top of the script: `MODEL_CONFIG`, `SAMPLING_CONFIG`, `LANGUAGE` / `DOCUMENT_TYPE`, `ALSO_GENERATE_FR`, `SAVEFIGS`, `DATA_CUTOFF_DATE`.
+`2_analyses/forecasts.py` fits the main model (also drawn as the asymmetry figure), runs the temporal holdout of the eight variants (sigmoid × structure × likelihood, cutoff 2025-01-01, at least `MIN_TRAIN_POINTS` = 5 pre-cutoff frontier points per benchmark), the ablations, LOO and CQR, then draws the English paper figures (PDF) and the French note figures (PNG). The model grid, the sampling settings and the data cutoff live in `config.py` (`ALL_MODEL_CONFIGS`, `MAIN_MODEL`, `SAMPLING_CONFIG`, `sampling_for`, `DATA_CUTOFF`), shared with the revision script; the figure switches (`LANGUAGE` / `DOCUMENT_TYPE`, `ALSO_GENERATE_FR`, `SAVEFIGS`) are at the top of the script.
 
 `2_analyses/revision_analyses.py` takes stage names as arguments and writes `3_outputs/<cutoff>/sensitivity/revision_analyses_<stages>_<cutoff>.json`, CSV tables and LaTeX tables (in `3_outputs/<cutoff>/sensitivity/tables/`, or in `$TABLES_DIR` to regenerate a manuscript's tables in place):
 
@@ -196,12 +196,12 @@ uv run pytest && uv run ruff check .
 |---|---|---|
 | `cheap` | Saturation dates and shifts across the eight variants, per-benchmark and per-category tables, posterior figures, residual dependence, lower-bound audit | cached fits only |
 | `figures` | Redraws the category forecast panels | 1 cached fit |
-| `retro` | Long-horizon retrodiction (cutoffs 2022 to 2025) | 4 new MCMC fits |
-| `retro8` | All eight variants at the 2025 cutoff (CRPS, RMSE, coverage, calibration curves) | 8 new MCMC fits |
-| `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants | 8 new MCMC fits |
+| `retro` | Long-horizon retrodiction (cutoffs 2022 to 2025) | 3 new MCMC fits (the 2025 cutoff is the main model's retrodiction of `retro8`) |
+| `retro8` | All eight variants at the 2025 cutoff (CRPS, RMSE, coverage, calibration curves) | 8 MCMC fits, the same as `forecasts.py`'s retrodictions when their caches exist |
+| `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants | reuses the `retro8` fits |
 | `priors` | Sensitivity to the prior on the asymptote | 4 new MCMC fits |
 
-Fits are cached in `3_outputs/<cutoff>/fits/<slug>[_<tag>][_ta95]_d<hash>.nc`, where the slug encodes the `ModelConfig`, `_ta95` marks a non-default acceptance target and the hash fingerprints the fitted data; a cache is only reused for the exact same data and configuration. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior can sit below its floor, and at the default target NUTS diverges on 20 to 40 % of their draws. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
+Fits are cached in `3_outputs/<cutoff>/fits/<slug>[_<tag>][_ta95][_n<draws>t<tune>][_s<seed>]_d<hash>.nc`, where the slug encodes the `ModelConfig` (including `top_n` when it is not 3), the optional tokens mark sampling settings that differ from the defaults, and the hash fingerprints the fitted data; a cache is only reused for the same data, model and sampling settings. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior can sit below its floor, and at the default target NUTS diverges on 20 to 40 % of their draws. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
 
 ```python
 MODEL_CONFIG = bf.ModelConfig(

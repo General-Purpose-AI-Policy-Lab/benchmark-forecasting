@@ -841,9 +841,7 @@ def plot_L_distribution(
     The hierarchical prior on the rescaled asymptote is Beta(mu, sigma) on
     [L_min, 1]; the curve is that Beta at the posterior medians of ``L_raw_mu`` and
     ``L_raw_sigma``, and the points are the per-benchmark posterior medians of ``L``
-    (pinned asymptotes appear as points at their fixed value).  This is the note figure
-    formerly produced by the retired 3_Plot_forecasts notebook, rebuilt from the
-    current model.
+    (pinned asymptotes appear as points at their fixed value).
     """
     from scipy import stats
 

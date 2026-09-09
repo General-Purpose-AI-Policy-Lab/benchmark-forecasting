@@ -11,10 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _tracked(suffixes):
-    out = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, text=True).stdout
-    return [ROOT / f for f in out.split("\0") if f and f.endswith(tuple(suffixes))
-            and not f.startswith(("3_outputs/", "4_writeups/", "archive/"))
-            and not f.endswith("test_layout.py")]
+    out = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, text=True,
+                         check=True).stdout
+    files = [ROOT / f for f in out.split("\0") if f and f.endswith(tuple(suffixes))
+             and not f.startswith(("3_outputs/", "4_writeups/", "archive/"))
+             and not f.endswith("test_layout.py")]
+    assert files, "git ls-files returned nothing: the locks would pass on an empty set"
+    return files
 
 
 def test_cutoff_dir_is_dated_first():
@@ -26,7 +29,8 @@ def test_cutoff_dir_is_dated_first():
 
 def test_no_stale_output_paths():
     stale = re.compile(r"(?<![\w/])(Plots|Fits|Paper)/|[\"']Fits[\"']"
-                       r"|1_forecasts\.py|2_revision_analyses\.py")
+                       r"|1_forecasts\.py|2_revision_analyses\.py|3_Plot_forecasts|0-Note-figures"
+                       r"|benchmarks_lower_bounds\.csv")
     hits = [f"{p.relative_to(ROOT)}:{i}" for p in _tracked((".py", ".md", ".toml"))
             for i, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1)
             if stale.search(line)]

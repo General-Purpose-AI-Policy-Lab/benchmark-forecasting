@@ -29,7 +29,6 @@ import os
 os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 
-import dataclasses  # noqa: E402
 import json  # noqa: E402
 import sys  # noqa: E402
 from pathlib import Path  # noqa: E402
@@ -50,42 +49,30 @@ import pandas as pd  # noqa: E402
 from scipy.stats import energy_distance  # noqa: E402
 
 import benchmark_forecasting as bf  # noqa: E402
-from benchmark_forecasting.config import cutoff_dir  # noqa: E402
+from benchmark_forecasting.config import (  # noqa: E402
+    ALL_MODEL_CONFIGS,
+    DATA_CUTOFF,
+    MAIN_MODEL,
+    MIN_TRAIN_POINTS,
+    SAMPLING_CONFIG,
+    cutoff_dir,
+    cutoff_tag,
+    sampling_for,
+    variant_slug,
+)
 
 plotting = bf.plotting
 
 STAGES = set(sys.argv[1:]) or {"cheap"}
 
-DATA_CUTOFF_DATE = pd.to_datetime("2026-09-07")  # same freeze date as 2_analyses/forecasts.py
-CUTOFF_TAG = f"cutoff{DATA_CUTOFF_DATE.strftime('%Y%m%d')}"
+DATA_CUTOFF_DATE = pd.to_datetime(DATA_CUTOFF)   # config.DATA_CUTOFF, shared with forecasts.py
+CUTOFF_TAG = cutoff_tag(DATA_CUTOFF_DATE)
 
 SATURATION_FRACTION = 0.95
 SATURATION_TARGET_DATE = pd.Timestamp("2030-01-01")
 END_DATE = pd.to_datetime("2030-03-01")
 
-SAMPLING_CONFIG = bf.SamplingConfig(draws=2000, tune=1000, target_accept=0.9, seed=42, progressbar=True)
-
-# The independent variants give each benchmark its own asymptote prior, which can sit below
-# the benchmark's floor; NUTS then diverges on 20 to 40 % of draws at the default acceptance
-# target. They are sampled with a tighter target (slower, cleaner).
-SAMPLING_CONFIG_INDEPENDENT = dataclasses.replace(SAMPLING_CONFIG, target_accept=0.95)
-
-
-def sampling_for(cfg: bf.ModelConfig) -> bf.SamplingConfig:
-    """The sampling configuration matching a model variant."""
-    return SAMPLING_CONFIG if cfg.joint else SAMPLING_CONFIG_INDEPENDENT
-
-MAIN_MODEL = "Harvey Joint (skew)"
-ALL_MODEL_CONFIGS = {
-    "Harvey Joint (skew)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True),
-    "Harvey Joint (normal)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=False),
-    "Harvey Independent (skew)": bf.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=True),
-    "Harvey Independent (normal)": bf.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=False),
-    "Logistic Joint (skew)": bf.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=True),
-    "Logistic Joint (normal)": bf.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=False),
-    "Logistic Independent (skew)": bf.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=True),
-    "Logistic Independent (normal)": bf.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=False),
-}
+# Model grid, main model and sampling settings: config.py, shared with forecasts.py.
 
 # One folder per cutoff, as in forecasts.py: 3_outputs/cutoffYYYYMMDD/.
 CUTOFF_DIR = cutoff_dir(CUTOFF_TAG)
@@ -116,7 +103,7 @@ def fmt_date(ts) -> str:
 # %%
 raw_all = bf.load_dataset()
 raw = raw_all[raw_all["release_date"] <= DATA_CUTOFF_DATE].copy()  # inclusive, as in 2_analyses/forecasts.py
-data = bf.prepare_dataset(raw, top_n=3)
+data = bf.prepare_dataset(raw, top_n=ALL_MODEL_CONFIGS[MAIN_MODEL].top_n)
 print(f"{data['benchmark'].nunique()} benchmarks, {len(data)} frontier observations "
       f"(cutoff {DATA_CUTOFF_DATE.date()})")
 
@@ -544,16 +531,15 @@ if "cheap" in STAGES:
 # %% [markdown]
 # ## Long-horizon retrodiction
 #
-# The submitted validation trains before 2025-01-01 and tests to 2026-04-01, i.e. a
-# ~15-month horizon, while the headline claim spans four years.  We push the cutoff
-# back to 2024, 2023 and 2022.  The retrospective filter (>= 3 pre-cutoff frontier
-# observations) removes any benchmark that barely existed at the time, so the
+# The submitted validation trains before 2025-01-01 and tests up to the data cutoff, a
+# horizon of about a year and a half, while the headline claim spans four years.  We push
+# the cutoff back to 2024, 2023 and 2022.  The retrospective filter (at least
+# MIN_TRAIN_POINTS pre-cutoff frontier observations) removes any benchmark that barely existed at the time, so the
 # earlier cutoffs are evaluated on progressively fewer benchmarks — a limitation of
 # the exercise that we report rather than hide.
 
 # %%
 RETRO_CUTOFFS = ["2022-01-01", "2023-01-01", "2024-01-01", "2025-01-01"]
-MIN_TRAIN_POINTS = 5  # minimum pre-cutoff frontier observations for a benchmark to be evaluated
 
 if "retro" in STAGES:
     retro_rows = []
@@ -568,7 +554,7 @@ if "retro" in STAGES:
         print(f"\n=== Retrodiction cutoff {cutoff} — {n_bench_kept} benchmarks kept ===")
         idata_retro = bf.temporal_holdout(
             raw, cutoff_date=c, cfg=ALL_MODEL_CONFIGS[MAIN_MODEL],
-            samp=SAMPLING_CONFIG, min_train_points=MIN_TRAIN_POINTS,
+            samp=SAMPLING_CONFIG, min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
         )
 
         y_pred = idata_retro.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
@@ -606,7 +592,7 @@ if "retro" in STAGES:
         fig, _ = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=paper_style)
         fig.savefig(
             f"{CALIB_DIR}/calibration_harvey_joint_skew_en_paper_retro{c.strftime('%Y%m%d')}"
-            f"{'' if MIN_TRAIN_POINTS == 3 else f'_min{MIN_TRAIN_POINTS}'}.pdf",
+            f"_min{MIN_TRAIN_POINTS}.pdf",
             dpi=300, bbox_inches="tight",
         )
         plt.close(fig)
@@ -633,7 +619,7 @@ if "retro" in STAGES:
         r"\bottomrule", r"\end{tabular}",
         r"\caption{\revised{\textbf{Retrodiction accuracy as a function of forecast horizon} for the main model "
         r"(Harvey joint, skew-normal). Each row trains on frontier scores released before the cutoff and "
-        rf"predicts every score observed between the cutoff and April 2026. The retrospective filter keeps "
+        rf"predicts every score observed between the cutoff and {DATA_CUTOFF_DATE:%B %Y}. The retrospective filter keeps "
         rf"only benchmarks with at least {MIN_TRAIN_POINTS} pre-cutoff frontier observations, which is why the earlier "
         r"cutoffs cover far fewer benchmarks: at the 2022 and 2023 cutoffs only the commonsense and "
         r"early question-answering sets existed. Nominal coverage is 80\%; the last two columns split the "
@@ -660,7 +646,7 @@ if "retro8" in STAGES:
         print(f"\n=== {name} (cutoff 2025-01-01, min_train_points={MIN_TRAIN_POINTS}) ===")
         idata_v = bf.temporal_holdout(
             raw, cutoff_date=pd.to_datetime("2025-01-01"), cfg=cfg,
-            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS,
+            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
         )
         y_pred = idata_v.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
         y_true = idata_v.predictions["y_true"].to_numpy()
@@ -678,7 +664,7 @@ if "retro8" in STAGES:
               f"CQR cov={row['cqr_coverage']:.1%}, Q={row['cqr_Q']:+.4f}, "
               f"CRPS={row['crps']:.4f}, RMSE={row['rmse']:.4f}")
 
-        slug = name.lower().replace(" (", "_").replace(")", "").replace(" ", "_")
+        slug = variant_slug(name)
         fig, _ = plotting.plot_calibration_curve(idata_v, n_points=20, plot_style=paper_style)
         fig.savefig(f"{CALIB_DIR}/calibration_{slug}_en_paper_{CUTOFF_TAG}.pdf",
                     dpi=300, bbox_inches="tight")
@@ -704,7 +690,7 @@ if "cqr" in STAGES:
     for name, cfg in ALL_MODEL_CONFIGS.items():
         idata_c = bf.temporal_holdout(
             raw, cutoff_date=pd.to_datetime("2025-01-01"), cfg=cfg,
-            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS,
+            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
         )
         g = bf.conformal_prediction_coverage_grouped(idata_c, alpha=0.20, n_repeats=100, seed=0)
         row = {

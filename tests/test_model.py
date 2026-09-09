@@ -6,7 +6,7 @@ import pymc as pm
 
 from benchmark_forecasting import config
 from benchmark_forecasting.data import prepare_dataset
-from benchmark_forecasting.fit import data_fingerprint
+from benchmark_forecasting.fit import data_fingerprint, fit, temporal_holdout
 from benchmark_forecasting.model import build_model, sampler_initvals
 
 
@@ -83,3 +83,30 @@ def test_a_short_sampling_respects_the_floor_and_keeps_the_log_likelihood():
         )
     assert "log_likelihood" in idata.groups()
     assert float(idata.posterior["L"].sel(benchmark="Human").min()) >= 0.9
+
+
+def test_fit_caches_under_the_given_folder_with_the_documented_name(tmp_path):
+    """The cache file name carries the slug, the tag, the non-default sampling settings and the
+    data fingerprint, and lands in `fits_dir`; a second call reloads it instead of sampling."""
+    prepared = prepare_dataset(_raw(), top_n=3)
+    cfg = config.ModelConfig()
+    samp = config.SamplingConfig(draws=5, tune=5, target_accept=0.95, seed=1, progressbar=False)
+    fits = tmp_path / "fits"
+    fit(prepared, cfg, samp, cache_tag="cutoff20260907", fits_dir=fits)
+    expected = fits / f"{cfg.slug}_cutoff20260907_ta95_n5t5_s1_d{data_fingerprint(prepared)}.nc"
+    assert expected.exists(), sorted(p.name for p in fits.iterdir())
+    before = expected.stat().st_mtime
+    fit(prepared, cfg, samp, cache_tag="cutoff20260907", fits_dir=fits)
+    assert expected.stat().st_mtime == before, "second call must reload the cache"
+
+
+def test_temporal_holdout_files_its_cache_under_the_run_folder(tmp_path):
+    raw = _raw()
+    samp = config.SamplingConfig(draws=5, tune=5, seed=1, progressbar=False)
+    fits = tmp_path / "fits"
+    cutoff = pd.Timestamp(raw["release_date"].max()) - pd.Timedelta(days=200)
+    idata = temporal_holdout(raw, cutoff_date=cutoff, cfg=config.ModelConfig(), samp=samp,
+                             min_train_points=2, fits_dir=fits)
+    names = sorted(p.name for p in fits.iterdir())
+    assert names and all(f"retro_{cutoff:%Y%m%d}_min2" in n for n in names), names
+    assert "predictions" in idata.groups()

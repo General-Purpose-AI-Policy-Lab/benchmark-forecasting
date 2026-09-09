@@ -28,7 +28,6 @@ import os
 os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 
-import dataclasses  # noqa: E402
 import json  # noqa: E402
 import sys  # noqa: E402
 from pathlib import Path  # noqa: E402
@@ -48,7 +47,18 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
 import benchmark_forecasting as bf  # noqa: E402
-from benchmark_forecasting.config import NOTE_FIGURES_DIR, cutoff_dir  # noqa: E402
+from benchmark_forecasting.config import (  # noqa: E402
+    ALL_MODEL_CONFIGS,
+    DATA_CUTOFF,
+    MAIN_MODEL,
+    MIN_TRAIN_POINTS,
+    NOTE_FIGURES_DIR,
+    SAMPLING_CONFIG,
+    cutoff_dir,
+    cutoff_tag,
+    sampling_for,
+    variant_slug,
+)
 
 plotting = bf.plotting
 
@@ -57,27 +67,11 @@ plotting = bf.plotting
 
 # %%
 # ---- Model ----
-# The asymptote L of each benchmark is floored at its highest human baseline and pinned where
-# the pipeline records a ceiling (see ModelConfig and data.asymptote_bounds).
-MODEL_CONFIG = bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3)
-
-SAMPLING_CONFIG = bf.SamplingConfig(
-    draws=2000,
-    tune=1000,
-    target_accept=0.9,
-    seed=42,
-    progressbar=True,
-)
-
-# The independent variants give each benchmark its own asymptote prior, which can sit below
-# the benchmark's floor; NUTS then diverges on 20 to 40 % of draws at the default acceptance
-# target. They are sampled with a tighter target (slower, cleaner).
-SAMPLING_CONFIG_INDEPENDENT = dataclasses.replace(SAMPLING_CONFIG, target_accept=0.95)
-
-
-def sampling_for(cfg: bf.ModelConfig) -> bf.SamplingConfig:
-    """The sampling configuration matching a model variant."""
-    return SAMPLING_CONFIG if cfg.joint else SAMPLING_CONFIG_INDEPENDENT
+# The main model and the sampling settings come from config.py, shared with revision_analyses.py.
+# The asymptote L of each benchmark is floored at the best performance observed on it (human
+# baseline or model score), pinned where the pipeline records a ceiling or where a score of 1.0
+# was reached (see ModelConfig and data.asymptote_bounds).
+MODEL_CONFIG = ALL_MODEL_CONFIGS[MAIN_MODEL]
 
 LANGUAGE: plotting.Language = "en"
 DOCUMENT_TYPE: plotting.DocumentType = "paper"
@@ -92,15 +86,16 @@ IMG_DPI = 300
 ALSO_GENERATE_FR = True
 
 # ---- Data cutoff ----
-# Only keep model results released *on or before* this date for fitting / forecasting.
-# Set to None to use all available data.
-# Convention: the date the pipeline's feeds were refreshed (0_input/provenance.json), so that
-# re-running later against a newer sync reproduces this run rather than silently absorbing
-# newer models.
-DATA_CUTOFF_DATE: pd.Timestamp | None = pd.to_datetime("2026-09-07")
+# Only keep model results released on or before this date (inclusive) for fitting and
+# forecasting; `config.DATA_CUTOFF`, the feed refresh date of the synced pipeline build, so that
+# re-running later against a newer sync reproduces this run rather than silently absorbing newer
+# models. None fits all available data.
+DATA_CUTOFF_DATE: pd.Timestamp | None = pd.to_datetime(DATA_CUTOFF)
 
-# Suffix appended to fit cache files and figure filenames when a cutoff is active.
-CUTOFF_TAG = f"_cutoff{DATA_CUTOFF_DATE.strftime('%Y%m%d')}" if DATA_CUTOFF_DATE else ""
+# `cutoffYYYYMMDD`: names the output folder, suffixes (with a leading underscore) the fit caches
+# and the figure files.
+CUTOFF_TAG = cutoff_tag(DATA_CUTOFF_DATE)
+CUTOFF_SUFFIX = f"_{CUTOFF_TAG}" if CUTOFF_TAG else ""
 # Everything is filed under the run's cutoff folder, 3_outputs/cutoffYYYYMMDD/: the fit
 # caches in fits/, the EN paper PDFs by theme, the FR note PNGs in a fr/ subfolder beside them.
 CUTOFF_DIR = cutoff_dir(CUTOFF_TAG)
@@ -138,7 +133,7 @@ raw = bf.load_dataset()
 provenance = json.loads((ROOT / "0_input" / "provenance.json").read_text())
 print(f"Input: pipeline commit {provenance['pipeline_commit'][:8]} built {provenance['pipeline_built_at']}")
 
-# Apply data cutoff: drop observations released on or after DATA_CUTOFF_DATE
+# Apply data cutoff: drop observations released after DATA_CUTOFF_DATE
 if DATA_CUTOFF_DATE is not None:
     n_before = len(raw)
     # Inclusive: a model released on the freeze date belongs to the frozen dataset.
@@ -164,7 +159,7 @@ print(bounds.loc[bounds["reason"] != "estimated"].to_string())
 # %%
 idata_forecast, model_forecast = bf.fit(
     data, MODEL_CONFIG, SAMPLING_CONFIG,
-    cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
+    cache_tag=CUTOFF_TAG or None,
     fits_dir=FITS_DIR,
 )
 
@@ -185,17 +180,12 @@ print(forecast_df.head().to_string())
 # ### Forecast plots by category
 
 # %%
-if "category" in data.columns:
-    categories = list(data["category"].dropna().unique())
-else:
-    categories = ["all"]
+categories = list(data["category"].dropna().unique())   # the pipeline's view always carries it
 
 plot_style = plotting.PlotStyle(language=LANGUAGE, document_type=DOCUMENT_TYPE)
 for cat in categories:
-    obs_cat = data if cat == "all" else data.loc[data["category"] == cat]
-    pred_cat = (
-        forecast_df if cat == "all" else forecast_df.loc[forecast_df["category"] == cat]
-    )
+    obs_cat = data.loc[data["category"] == cat]
+    pred_cat = forecast_df.loc[forecast_df["category"] == cat]
 
     fig, ax = plotting.plot_forecasts_by_category(
         observed=obs_cat,
@@ -207,7 +197,7 @@ for cat in categories:
     )
     if SAVEFIGS:
         fig.savefig(
-            f"{FORECAST_DIR_FR if plot_style.language == 'fr' else FORECAST_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
+            f"{FORECAST_DIR_FR if plot_style.language == 'fr' else FORECAST_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{plot_style.language}_{plot_style.document_type}{CUTOFF_SUFFIX}.{IMG_EXT}",
             dpi=IMG_DPI,
             bbox_inches="tight",
         )
@@ -231,7 +221,7 @@ fig, ax, sat_summary = plotting.plot_saturation_proportion_posterior(
 )
 if SAVEFIGS:
     fig.savefig(
-        f"{HIGH_LEVEL_DIR}/saturation_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
+        f"{HIGH_LEVEL_DIR}/saturation_{plot_style.language}_{plot_style.document_type}{CUTOFF_SUFFIX}.{IMG_EXT}",
         dpi=IMG_DPI,
         bbox_inches="tight",
     )
@@ -250,10 +240,12 @@ for style, folder, ext in (
     (plotting.PlotStyle(language="en", document_type="paper"), HIGH_LEVEL_DIR, "pdf"),
     (plotting.PlotStyle(language="fr", document_type="note"), NOTE_FIG_DIR, "png"),
 ):
+    if style.language == "fr" and not ALSO_GENERATE_FR:
+        continue
     fig_L, _ = plotting.plot_L_distribution(idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=style)
     if SAVEFIGS:
         fig_L.savefig(
-            f"{folder}/Hierarchical_L_intervals_{style.language}_{style.document_type}{CUTOFF_TAG}.{ext}",
+            f"{folder}/Hierarchical_L_intervals_{style.language}_{style.document_type}{CUTOFF_SUFFIX}.{ext}",
             dpi=IMG_DPI, bbox_inches="tight",
         )
     plt.close(fig_L)
@@ -262,36 +254,22 @@ fig_h, _ = plotting.plot_hyperparameters(
     idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=plotting.PlotStyle(language="en", document_type="paper")
 )
 if SAVEFIGS:
-    fig_h.savefig(f"{HIGH_LEVEL_DIR}/hyperparameters_en_paper{CUTOFF_TAG}.pdf", dpi=IMG_DPI, bbox_inches="tight")
+    fig_h.savefig(f"{HIGH_LEVEL_DIR}/hyperparameters_en_paper{CUTOFF_SUFFIX}.pdf", dpi=IMG_DPI, bbox_inches="tight")
 plt.close(fig_h)
 
 # %% [markdown]
 # ## Asymmetry visualization (Harvey curves vs logistic)
 
 # %%
-# Train a separate model for the asymmetry figure (kept independent from the forecast model).
-CFG_ASYM = bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3)
-
-SAMP_ASYM = bf.SamplingConfig(
-    draws=2000,
-    tune=1000,
-    target_accept=0.9,
-    seed=42,
-    progressbar=True,
-)
-
-idata_asym, _model_asym = bf.fit(
-    data, CFG_ASYM, SAMP_ASYM,
-    cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
-    fits_dir=FITS_DIR,
-)
+# The asymmetry figure reads the main fit: the Harvey curves it draws are the fitted ones.
+idata_asym = idata_forecast
 
 # %%
 plot_style = plotting.PlotStyle(language=LANGUAGE, document_type=DOCUMENT_TYPE)
 plotting.plot_harvey_asymmetry(idata_asym, plot_style=plot_style)
 if SAVEFIGS:
     plt.savefig(
-        f"{HIGH_LEVEL_DIR}/asymmetry_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
+        f"{HIGH_LEVEL_DIR}/asymmetry_{plot_style.language}_{plot_style.document_type}{CUTOFF_SUFFIX}.{IMG_EXT}",
         dpi=IMG_DPI,
         bbox_inches="tight",
     )
@@ -312,15 +290,15 @@ if ALSO_GENERATE_FR:
 
     # Forecasts
     for cat in categories:
-        obs_cat = data if cat == "all" else data.loc[data["category"] == cat]
-        pred_cat = forecast_df if cat == "all" else forecast_df.loc[forecast_df["category"] == cat]
+        obs_cat = data.loc[data["category"] == cat]
+        pred_cat = forecast_df.loc[forecast_df["category"] == cat]
         fig, ax = plotting.plot_forecasts_by_category(
             observed=obs_cat, forecast=pred_cat, baselines=baselines,
             end_date=END_DATE, category_name=cat, plot_style=fr_style,
         )
         if SAVEFIGS:
             fig.savefig(
-                f"{FORECAST_DIR_FR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_fr_note{CUTOFF_TAG}.png",
+                f"{FORECAST_DIR_FR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_fr_note{CUTOFF_SUFFIX}.png",
                 dpi=IMG_DPI, bbox_inches="tight",
             )
         plt.close(fig)
@@ -333,14 +311,14 @@ if ALSO_GENERATE_FR:
         ci_level=0.80, plot_style=fr_style,
     )
     if SAVEFIGS:
-        fig.savefig(f"{NOTE_FIG_DIR}/saturation_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
+        fig.savefig(f"{NOTE_FIG_DIR}/saturation_fr_note{CUTOFF_SUFFIX}.png", dpi=IMG_DPI, bbox_inches="tight")
     plt.close(fig)
     print("  FR saturation done")
 
     # Asymmetry
     fig, ax = plotting.plot_harvey_asymmetry(idata_asym, plot_style=fr_style)
     if SAVEFIGS:
-        fig.savefig(f"{NOTE_FIG_DIR}/asymmetry_fr_note{CUTOFF_TAG}.png", dpi=IMG_DPI, bbox_inches="tight")
+        fig.savefig(f"{NOTE_FIG_DIR}/asymmetry_fr_note{CUTOFF_SUFFIX}.png", dpi=IMG_DPI, bbox_inches="tight")
 
     plt.close(fig)
     print("  FR asymmetry done")
@@ -351,19 +329,8 @@ if ALSO_GENERATE_FR:
 # ## Retrodiction analysis
 
 # %%
-# --- Full model grid: Sigmoid × Structure × Likelihood = 8 variants ---
+# --- Full model grid: Sigmoid × Structure × Likelihood = 8 variants (config.ALL_MODEL_CONFIGS) ---
 cutoff_date = pd.to_datetime("2025-01-01")
-
-ALL_MODEL_CONFIGS = {
-    "Harvey Joint (skew)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True),
-    "Harvey Joint (normal)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=False),
-    "Harvey Independent (skew)": bf.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=True),
-    "Harvey Independent (normal)": bf.ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=False),
-    "Logistic Joint (skew)": bf.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=True),
-    "Logistic Joint (normal)": bf.ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=False),
-    "Logistic Independent (skew)": bf.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=True),
-    "Logistic Independent (normal)": bf.ModelConfig(sigmoid="logistic", joint=False, top_n=3, skew=False),
-}
 
 # --- Retrodiction (temporal holdout) for all variants ---
 retrodiction_idata = {}
@@ -374,7 +341,8 @@ for model_name, model_config in ALL_MODEL_CONFIGS.items():
         cutoff_date=cutoff_date,
         cfg=model_config,
         samp=sampling_for(model_config),
-        min_train_points=5,
+        min_train_points=MIN_TRAIN_POINTS,
+        fits_dir=FITS_DIR,
     )
     retrodiction_idata[model_name] = idata_retro
 
@@ -386,17 +354,7 @@ for model_name, idata_retro in retrodiction_idata.items():
     print("  CRPS:", bf.crps_score(idata_retro))
     print("  RMSE:", bf.point_error(idata_retro, metric="RMSE"))
     print("  MAE:", bf.point_error(idata_retro, metric="MAE"))
-    fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=plot_style)
-    slug = model_name.lower().replace(" (", "_").replace(")", "").replace(" ", "_")
-    if SAVEFIGS:
-        fig.savefig(
-            f"{CALIB_DIR_FR if plot_style.language == 'fr' else CALIB_DIR}/{slug}_{plot_style.language}_{plot_style.document_type}{CUTOFF_TAG}.{IMG_EXT}",
-            dpi=IMG_DPI,
-            bbox_inches="tight",
-        )
-    plt.close(fig)
-
-plt.show()
+# The calibration figures are drawn once, in the sensitivity block below (calibration_<slug>).
 
 # %%
 # FR calibration curves, once the retrodictions exist.
@@ -406,7 +364,7 @@ if ALSO_GENERATE_FR:
         fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=fr_style)
         if SAVEFIGS:
             fig.savefig(
-                f"{CALIB_DIR_FR}/{model_name.replace(' ', '_').lower()}_fr_note{CUTOFF_TAG}.png",
+                f"{CALIB_DIR_FR}/calibration_{variant_slug(model_name)}_fr_note{CUTOFF_SUFFIX}.png",
                 dpi=IMG_DPI, bbox_inches="tight",
             )
         plt.close(fig)
@@ -427,12 +385,11 @@ for name, cfg in ALL_MODEL_CONFIGS.items():
     print(f"\nFitting: {name}")
     idata_abl, model_abl = bf.fit(
         data, cfg, sampling_for(cfg),
-        cache_tag=CUTOFF_TAG.lstrip("_") if CUTOFF_TAG else None,
+        cache_tag=CUTOFF_TAG or None,
         fits_dir=FITS_DIR,
     )
 
-    # Slug for filenames: e.g. "harvey_joint_skew"
-    slug = name.lower().replace(" (", "_").replace(")", "").replace(" ", "_")
+    slug = variant_slug(name)   # e.g. "harvey_joint_skew"
 
     # --- Saturation figures at 90%, 95%, 99% thresholds ---
     sat_sum: dict = {}
@@ -447,7 +404,7 @@ for name, cfg in ALL_MODEL_CONFIGS.items():
         )
         if SAVEFIGS:
             fig_sat.savefig(
-                f"{SENS_DIR}/saturation_{slug}_t{int(threshold*100)}_en_paper{CUTOFF_TAG}.pdf",
+                f"{SENS_DIR}/saturation_{slug}_t{int(threshold*100)}_en_paper{CUTOFF_SUFFIX}.pdf",
                 dpi=IMG_DPI, bbox_inches="tight",
             )
         plt.close(fig_sat)
@@ -480,7 +437,7 @@ for name, cfg in ALL_MODEL_CONFIGS.items():
         )
         if SAVEFIGS:
             fig_fc.savefig(
-                f"{SENS_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{slug}_en_paper{CUTOFF_TAG}.pdf",
+                f"{SENS_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{slug}_en_paper{CUTOFF_SUFFIX}.pdf",
                 dpi=IMG_DPI, bbox_inches="tight",
             )
         plt.close(fig_fc)
@@ -490,7 +447,7 @@ for name, cfg in ALL_MODEL_CONFIGS.items():
     fig_cal, _ = plotting.plot_calibration_curve(idata_retro_abl, n_points=20, plot_style=paper_style)
     if SAVEFIGS:
         fig_cal.savefig(
-            f"{CALIB_DIR}/calibration_{slug}_en_paper{CUTOFF_TAG}.pdf",
+            f"{CALIB_DIR}/calibration_{slug}_en_paper{CUTOFF_SUFFIX}.pdf",
             dpi=IMG_DPI, bbox_inches="tight",
         )
     plt.close(fig_cal)
@@ -630,6 +587,6 @@ for name, (_idata_abl, _cfg, idata_retro_abl) in ablation_idata.items():
         print(f"    n_cal={cqr['n_calibration']}, n_test={cqr['n_test']}")
 
 # Save all ablation + CQR results to JSON
-with open(f"{SENS_DIR}/ablation_results{CUTOFF_TAG}.json", "w") as f:
+with open(f"{SENS_DIR}/ablation_results{CUTOFF_SUFFIX}.json", "w") as f:
     json.dump({**{k: v for k, v in ablation_results.items()}, **cqr_results}, f, indent=2, default=str)
-print(f"\nResults saved to {SENS_DIR}/ablation_results{CUTOFF_TAG}.json")
+print(f"\nResults saved to {SENS_DIR}/ablation_results{CUTOFF_SUFFIX}.json")

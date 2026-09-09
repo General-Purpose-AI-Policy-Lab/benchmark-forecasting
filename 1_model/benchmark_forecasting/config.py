@@ -1,4 +1,7 @@
-"""Paths, environment and the two configuration dataclasses shared by every step.
+"""Paths, environment, the two configuration dataclasses and the run settings shared by every step.
+
+The two percent scripts (`2_analyses/`) read the model grid, the sampling settings and the data
+cutoff from here, so the two cannot drift apart.
 
 Importing this module first pins BLAS to one thread: with Apple Accelerate, four PyMC chain
 processes each spawning a full thread pool oversubscribe the cores and slow NUTS down ~50x
@@ -93,6 +96,10 @@ class ModelConfig:
         parts = [self.sigmoid]
         parts.append("joint" if self.joint else "independent")
         parts.append("skew" if self.skew else "normal")
+        if self.top_n != 3:
+            # top_n shapes the priors on the growth rate and the skew (model.py), not only the
+            # frontier: a non-default value must not reuse the default's cache.
+            parts.append(f"top{self.top_n}")
         if self.L_min != 0.75:
             parts.append(f"Lmin{round(self.L_min * 100)}")
         if self.L_prior_mu != 0.96:
@@ -123,3 +130,58 @@ class SamplingConfig:
     seed: int = 42
     init: str = "adapt_diag"
     progressbar: bool = True
+
+
+# ── Run settings shared by the two analysis scripts ─────────────────────────
+# The data cutoff: only scores released on or before this date are fitted (inclusive). It is the
+# feed refresh date of the synced pipeline build (0_input/provenance.json); change it when syncing a
+# newer build and expect every fit to rerun.
+DATA_CUTOFF = "2026-09-07"
+
+
+def cutoff_tag(cutoff) -> str:
+    """`cutoffYYYYMMDD` for a date (string or Timestamp), '' for None. Names the output folder
+    (`cutoff_dir`) and suffixes the fit caches and figure files."""
+    if cutoff is None:
+        return ""
+    import pandas as pd
+    return f"cutoff{pd.Timestamp(cutoff):%Y%m%d}"
+
+
+MAIN_MODEL = "Harvey Joint (skew)"
+# The eight variants of the sensitivity grid: sigmoid × structure × likelihood, top-3 frontier.
+ALL_MODEL_CONFIGS: dict[str, ModelConfig] = {
+    "Harvey Joint (skew)": ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True),
+    "Harvey Joint (normal)": ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=False),
+    "Harvey Independent (skew)": ModelConfig(sigmoid="harvey", joint=False, top_n=3, skew=True),
+    "Harvey Independent (normal)": ModelConfig(sigmoid="harvey", joint=False, top_n=3,
+                                               skew=False),
+    "Logistic Joint (skew)": ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=True),
+    "Logistic Joint (normal)": ModelConfig(sigmoid="logistic", joint=True, top_n=3, skew=False),
+    "Logistic Independent (skew)": ModelConfig(sigmoid="logistic", joint=False, top_n=3,
+                                               skew=True),
+    "Logistic Independent (normal)": ModelConfig(sigmoid="logistic", joint=False, top_n=3,
+                                                 skew=False),
+}
+
+SAMPLING_CONFIG = SamplingConfig(draws=2000, tune=1000, target_accept=0.9, seed=42,
+                                 progressbar=True)
+# The independent variants give each benchmark its own asymptote prior, which can sit below the
+# benchmark's floor; NUTS then diverges on 20 to 40 % of draws at the default acceptance target.
+# They are sampled with a tighter target (slower, cleaner); `_ta95` in the cache name.
+SAMPLING_CONFIG_INDEPENDENT = SamplingConfig(draws=2000, tune=1000, target_accept=0.95, seed=42,
+                                             progressbar=True)
+
+
+def sampling_for(cfg: ModelConfig) -> SamplingConfig:
+    """The sampling configuration matching a model variant."""
+    return SAMPLING_CONFIG if cfg.joint else SAMPLING_CONFIG_INDEPENDENT
+
+
+# Minimum pre-cutoff frontier observations for a benchmark to enter a retrodiction.
+MIN_TRAIN_POINTS = 5
+
+
+def variant_slug(name: str) -> str:
+    """File-name slug of a variant name: 'Harvey Joint (skew)' -> 'harvey_joint_skew'."""
+    return name.lower().replace(" (", "_").replace(")", "").replace(" ", "_")

@@ -10,12 +10,11 @@
 4_writeups/note/*.pdf
 
 # FR note figures are tracked only where they are curated or filed per cutoff:
-# 4_writeups/note/figures/ and 3_outputs/cutoffYYYYMMDD/{forecasts,calibration,sensitivity}/fr/.
+# 4_writeups/note/figures/ and 3_outputs/cutoffYYYYMMDD/{forecasts,calibration}/fr/.
 *fr_note*
 !4_writeups/note/figures/**
 !3_outputs/**/forecasts/**
 !3_outputs/**/calibration/**
-!3_outputs/**/sensitivity/**
 
 # Superseded figure sets, kept locally
 **/Old/

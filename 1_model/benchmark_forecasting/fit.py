@@ -40,8 +40,10 @@ def fit(
     ----------
     cache_tag : optional label appended to the slug for the NetCDF filename.
         The name always ends with ``_d<hash>``, a fingerprint of the fitted data, and carries
-        ``_ta<target_accept>`` when the acceptance target is not the default 0.9:
-        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95]_d{hash}.nc``.
+        the sampling settings that differ from the defaults (``_ta95`` for the acceptance
+        target, ``_n<draws>t<tune>`` and ``_s<seed>``), so a cache is only reused for the same
+        data, model and sampling:
+        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95][_n..t..][_s..]_d{hash}.nc``.
     use_cache : if *True* (default), load from ``fits_dir`` if the file exists,
         and save there after sampling.  Set to *False* to force re-fitting.
     fits_dir : the cache folder, normally the run's ``3_outputs/<cutoff>/fits/``
@@ -59,6 +61,10 @@ def fit(
     if samp.target_accept != 0.9:
         # A tighter acceptance target changes the posterior draws, so it names the cache too.
         fname = f"{fname}_ta{round(samp.target_accept * 100)}"
+    if (samp.draws, samp.tune) != (2000, 1000):
+        fname = f"{fname}_n{samp.draws}t{samp.tune}"
+    if samp.seed != 42:
+        fname = f"{fname}_s{samp.seed}"
     fname = f"{fname}_d{data_fingerprint(prepared)}"
     cache_path = fits_dir / f"{fname}.nc"
 
@@ -96,8 +102,14 @@ def temporal_holdout(
     samp: SamplingConfig,
     min_train_points: int = 5,
     use_cache: bool = True,
+    fits_dir: Path | None = None,
 ) -> az.InferenceData:
-    """Train on data before cutoff_date, evaluate on data >= cutoff_date."""
+    """Train on data before cutoff_date, evaluate on data >= cutoff_date.
+
+    The frontier (top-N) and the centre of the prior on the inflection date (`days_mid`) are
+    computed on the whole cutoff dataset before the split; only the scores, floors and ceilings
+    the model sees are the training rows. `fits_dir` is the run's cache folder, as in `fit`.
+    """
     prepared = prepare_dataset(raw, top_n=cfg.top_n)
 
     train = prepared.loc[prepared["release_date"] < cutoff_date].copy()
@@ -109,13 +121,9 @@ def temporal_holdout(
     test = test.loc[test["benchmark"].isin(train["benchmark"].unique())].copy()
 
     # The training set depends on min_train_points, so it belongs in the cache key.
-    # The suffix is omitted at 3 for historical reasons: the fits saved under the plain
-    # name predate the move to a threshold of 5, and renaming them would silently pair
-    # a k=3 posterior with a k=5 label.
-    cutoff_tag = cutoff_date.strftime("%Y%m%d")
-    if min_train_points != 3:
-        cutoff_tag = f"{cutoff_tag}_min{min_train_points}"
-    idata, model = fit(train, cfg, samp, cache_tag=f"retro_{cutoff_tag}", use_cache=use_cache)
+    cutoff_tag = f"{cutoff_date.strftime('%Y%m%d')}_min{min_train_points}"
+    idata, model = fit(train, cfg, samp, cache_tag=f"retro_{cutoff_tag}", use_cache=use_cache,
+                       fits_dir=fits_dir)
 
     bench_codes = pd.Categorical(
         test["benchmark"],
