@@ -24,6 +24,9 @@ def test_shim_strips_ld64_only_when_rejected(monkeypatch):
 
 
 def test_probe_reports_a_real_compiler_result():
-    pytensor_compat.linker_accepts_ld64.cache_clear()
-    assert pytensor_compat.linker_accepts_ld64("definitely-not-a-compiler") is True
+    pytensor_compat.compiler_accepts_flag.cache_clear()
+    assert pytensor_compat.compiler_accepts_flag("definitely-not-a-compiler", "-O1") is True
+    # A flag every compiler takes compiles; a library that does not exist fails to link.
+    assert pytensor_compat.compiler_accepts_flag("clang++", "-O1") is True
+    assert pytensor_compat.compiler_accepts_flag("clang++", "-lno_such_library_zz") is False
     assert isinstance(pytensor_compat.linker_accepts_ld64("clang++"), bool)

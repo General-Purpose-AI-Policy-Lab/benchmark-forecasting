@@ -21,17 +21,22 @@ LD64 = "-ld64"
 
 
 @functools.cache
-def linker_accepts_ld64(cxx: str) -> bool:
-    """One trivial compile with `-ld64` under `cxx`; False when the linker rejects the flag."""
+def compiler_accepts_flag(cxx: str, flag: str) -> bool:
+    """One trivial compile and link under `cxx` with `flag`; False when the toolchain rejects
+    it. An unknown or missing compiler counts as accepting, so PyTensor's flags are left alone."""
     with tempfile.TemporaryDirectory() as tmp:
         src = Path(tmp) / "probe.cpp"
-        src.write_text("int main() { return 0; }\\n")
+        src.write_text("int main() { return 0; }\n")
         try:
-            r = subprocess.run([cxx, str(src), LD64, "-o", str(Path(tmp) / "probe")],
+            r = subprocess.run([cxx, str(src), flag, "-o", str(Path(tmp) / "probe")],
                                capture_output=True, text=True, timeout=120)
         except (OSError, subprocess.TimeoutExpired):
-            return True                    # unknown compiler: leave PyTensor's flags alone
+            return True
     return r.returncode == 0
+
+
+def linker_accepts_ld64(cxx: str) -> bool:
+    return compiler_accepts_flag(cxx, LD64)
 
 
 def apply() -> bool:
