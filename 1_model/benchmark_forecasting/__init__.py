@@ -4,7 +4,7 @@ The public API is re-exported here so scripts can write ``bf.fit(...)`` after
 ``import benchmark_forecasting as bf``.
 """
 
-from benchmark_forecasting import config, plotting
+from benchmark_forecasting import config, plotting, pytensor_compat
 from benchmark_forecasting.config import ModelConfig, SamplingConfig
 from benchmark_forecasting.data import (
     asymptote_bounds,
@@ -54,3 +54,7 @@ __all__ = [
     "sync",
     "temporal_holdout",
 ]
+
+# Xcode 27's linker rejects the `-ld64` flag PyTensor adds on macOS; strip it when refused.
+# Models are built at call time, so applying after the imports is early enough.
+pytensor_compat.apply()
