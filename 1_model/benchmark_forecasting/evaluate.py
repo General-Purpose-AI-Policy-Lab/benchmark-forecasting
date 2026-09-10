@@ -121,7 +121,12 @@ def conformal_prediction_coverage_grouped(
 def conformal_prediction_coverage(
     idata: az.InferenceData, *, alpha: float = 0.20
 ) -> dict[str, float]:
-    """Conformal Quantile Regression (CQR) coverage on holdout data.
+    """CQR coverage on holdout data with a POSITIONAL calibration/test split.
+
+    The first submission's Table 7. Kept as an alternative for comparison; the scripts run
+    `conformal_prediction_coverage_grouped` instead, because the holdout frame is ordered by
+    benchmark and a positional split puts different benchmarks in the two halves, which breaks
+    the exchangeability CQR relies on (no finite-sample guarantee on Q).
 
     Uses CQR (Romano et al., 2019): adjusts Bayesian credible intervals with a
     distribution-free conformal correction Q, so the final interval is

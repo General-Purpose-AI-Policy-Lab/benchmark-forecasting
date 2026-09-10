@@ -14,9 +14,12 @@ from benchmark_forecasting.model import build_model, sampler_initvals
 
 
 def data_fingerprint(prepared: pd.DataFrame) -> str:
-    """Short hash of the fitted observations and of the asymptote inputs (baselines, ceilings)."""
+    """Short hash of the fitted observations, of the asymptote inputs (baselines, ceilings) and
+    of the centre of the prior on the inflection date (`days_mid`), so a retrodiction whose
+    training window changed the prior does not reload a cache fitted under another one."""
     cols = ["benchmark", "release_date", "score"]
-    cols += [c for c in ("lower_bound", "human_max", "ceiling") if c in prepared.columns]
+    cols += [c for c in ("lower_bound", "human_max", "ceiling", "days_mid")
+             if c in prepared.columns]
     key = prepared[cols].copy()
     key["release_date"] = pd.to_datetime(key["release_date"]).dt.strftime("%Y-%m-%d")
     for c in cols[2:]:
@@ -106,17 +109,22 @@ def temporal_holdout(
 ) -> az.InferenceData:
     """Train on data before cutoff_date, evaluate on data >= cutoff_date.
 
-    The frontier (top-N) and the centre of the prior on the inflection date (`days_mid`) are
-    computed on the whole cutoff dataset before the split; only the scores, floors and ceilings
-    the model sees are the training rows. `fits_dir` is the run's cache folder, as in `fit`.
+    Everything the model sees is computed from the training rows alone: the frontier (the
+    expanding top-N is causal, so it is the same as the full frontier truncated at the cutoff)
+    and the centre of the prior on the inflection date, `days_mid`, half of the last observed
+    day per benchmark. Until 2026-09-10 that centre was taken from the whole cutoff dataset,
+    test period included, a leak of the test dates into the prior. `fits_dir` is the run's cache
+    folder, as in `fit`.
     """
-    prepared = prepare_dataset(raw, top_n=cfg.top_n)
-
-    train = prepared.loc[prepared["release_date"] < cutoff_date].copy()
+    train_raw = raw.loc[raw["release_date"] < cutoff_date]
+    train = prepare_dataset(train_raw, top_n=cfg.top_n)
     train_counts = train.groupby("benchmark")["score"].size()
     keep = train_counts[train_counts >= min_train_points].index
     train = train.loc[train["benchmark"].isin(keep)].copy()
 
+    # Test rows: the full frontier after the cutoff, on the benchmarks the model was trained on,
+    # with `days` counted from the same first training date as the model's time axis.
+    prepared = prepare_dataset(raw, top_n=cfg.top_n)
     test = prepared.loc[prepared["release_date"] >= cutoff_date].copy()
     test = test.loc[test["benchmark"].isin(train["benchmark"].unique())].copy()
 

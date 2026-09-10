@@ -17,7 +17,7 @@ Folders are numbered in processing order, the same convention as `Multiaxis_ECI`
   data.py                       load_dataset, frontier selection, asymptote_bounds
   model.py                      build_model (PyMC)
   fit.py                        fit with the per-cutoff cache, temporal_holdout
-  evaluate.py                   CRPS, RMSE, conformal coverage, saturation dates, residual diagnostics
+  evaluate.py                   CRPS, RMSE, grouped repeated CQR (the positional split kept as an alternative), saturation dates, residual diagnostics
   forecast.py                   generate_forecast
   plotting.py                   every figure, EN paper and FR note styles
   sync.py                       copy the views from the pipeline checkout
@@ -198,7 +198,7 @@ uv run pytest && uv run ruff check .
 | `figures` | Redraws the category forecast panels | 1 cached fit |
 | `retro` | Long-horizon retrodiction (cutoffs 2022 to 2025) | 3 new MCMC fits (the 2025 cutoff is the main model's retrodiction of `retro8`) |
 | `retro8` | All eight variants at the 2025 cutoff (CRPS, RMSE, coverage, calibration curves) | 8 MCMC fits, the same as `forecasts.py`'s retrodictions when their caches exist |
-| `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants | reuses the `retro8` fits |
+| `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants, the calibration table of the revised manuscript (`cqr_grouped`) | reuses the `retro8` fits |
 | `priors` | Sensitivity to the prior on the asymptote | 4 new MCMC fits |
 
 Fits are cached in `3_outputs/<cutoff>/fits/<slug>[_<tag>][_ta95][_n<draws>t<tune>][_s<seed>]_d<hash>.nc`, where the slug encodes the `ModelConfig` (including `top_n` when it is not 3), the optional tokens mark sampling settings that differ from the defaults, and the hash fingerprints the fitted data; a cache is only reused for the same data, model and sampling settings. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior can sit below its floor, and at the default target NUTS diverges on 20 to 40 % of their draws. Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.

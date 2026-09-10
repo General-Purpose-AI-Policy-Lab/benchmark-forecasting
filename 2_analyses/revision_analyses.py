@@ -651,17 +651,16 @@ if "retro8" in STAGES:
         y_pred = idata_v.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
         y_true = idata_v.predictions["y_true"].to_numpy()
         lo, hi = np.quantile(y_pred, 0.10, axis=1), np.quantile(y_pred, 0.90, axis=1)
-        cqr = bf.conformal_prediction_coverage(idata_v, alpha=0.20)
+        # Calibration itself is the `cqr` stage (grouped, repeated CQR); this table keeps the
+        # raw 80 % coverage and the accuracy scores.
         row = {
             "variant": name, "n_test": int(len(y_true)),
             "coverage80": float(np.mean((y_true >= lo) & (y_true <= hi))),
-            "cqr_coverage": cqr["cqr_coverage"], "cqr_Q": cqr["cqr_Q"],
             "crps": bf.crps_score(idata_v),
             "rmse": bf.point_error(idata_v, metric="RMSE"),
         }
         variant_rows.append(row)
         print(f"  n_test={row['n_test']}, coverage={row['coverage80']:.1%}, "
-              f"CQR cov={row['cqr_coverage']:.1%}, Q={row['cqr_Q']:+.4f}, "
               f"CRPS={row['crps']:.4f}, RMSE={row['rmse']:.4f}")
 
         slug = variant_slug(name)

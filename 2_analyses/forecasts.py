@@ -573,18 +573,19 @@ ablation_results["posteriors"] = posterior_summary
 
 # %%
 # --- CQR (Conformal Quantile Regression) on all ablation variants ---
+# The grouped, repeated version (whole benchmarks drawn at random into the calibration and test
+# halves, 100 splits): the one the revised manuscript reports (`tables/cqr_grouped`). The
+# positional split of the first submission, `bf.conformal_prediction_coverage`, is kept as an
+# alternative and not run here.
 cqr_results = {}
 for name, (_idata_abl, _cfg, idata_retro_abl) in ablation_idata.items():
-    print(f"\n=== CQR for {name} ===")
-    for alpha, level_name in [(0.20, "80")]:
-        cqr = bf.conformal_prediction_coverage(idata_retro_abl, alpha=alpha)
-        key = f"cqr_{name}_{level_name}"
-        cqr_results[key] = cqr
-        print(f"  {level_name}% level:")
-        print(f"    Bayesian coverage: {cqr['bayesian_coverage']:.1%}  (width: {cqr['bayesian_avg_width']:.4f})")
-        print(f"    CQR coverage:      {cqr['cqr_coverage']:.1%}  (width: {cqr['cqr_avg_width']:.4f})")
-        print(f"    CQR adjustment Q:  {cqr['cqr_Q']:.4f}")
-        print(f"    n_cal={cqr['n_calibration']}, n_test={cqr['n_test']}")
+    print(f"\n=== CQR (grouped, 100 benchmark splits) for {name} ===")
+    g = bf.conformal_prediction_coverage_grouped(idata_retro_abl, alpha=0.20, n_repeats=100, seed=0)
+    cqr_results[f"cqr_grouped_{name}_80"] = g
+    print(f"    Bayesian coverage (all held-out): {g['bayesian_coverage_all']:.1%}")
+    print(f"    CQR coverage: median {g['cqr_coverage']['median']:.1%} "
+          f"[{g['cqr_coverage']['q25']:.1%}, {g['cqr_coverage']['q75']:.1%}]")
+    print(f"    Q: median {g['cqr_Q']['median']:+.4f} [{g['cqr_Q']['q25']:+.4f}, {g['cqr_Q']['q75']:+.4f}]")
 
 # Save all ablation + CQR results to JSON
 with open(f"{SENS_DIR}/ablation_results{CUTOFF_SUFFIX}.json", "w") as f:
