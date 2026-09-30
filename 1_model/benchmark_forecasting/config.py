@@ -136,7 +136,7 @@ class SamplingConfig:
 # The data cutoff: only scores released on or before this date are fitted (inclusive). It is the
 # feed refresh date of the synced pipeline build (0_input/provenance.json); change it when syncing a
 # newer build and expect every fit to rerun.
-DATA_CUTOFF = "2026-09-07"
+DATA_CUTOFF = "2026-09-29"
 
 
 def cutoff_tag(cutoff) -> str:
