@@ -6,6 +6,7 @@ Goals:
 """
 
 import itertools
+from pathlib import Path
 from typing import Any, Literal
 
 import arviz as az
@@ -220,6 +221,24 @@ class PlotStyle:
 DEFAULT_STYLE = PlotStyle()
 
 
+def save_figure(fig: Figure, path: str | Path, *, dpi: int = 300, also_svg: bool = False) -> Path:
+    """Save ``fig`` to ``path``, and with ``also_svg`` a vector copy in ``svg/`` beside it.
+
+    The French note's figures are rasters because the note is written in Google Docs, which
+    does not place SVG; the vector copy under ``<dir>/svg/<stem>.svg`` is what a designer
+    rescales or recolours for the published layout, so it is written from the same figure
+    rather than traced back from the PNG.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(path, dpi=dpi, bbox_inches="tight")
+    if also_svg:
+        svg_path = path.parent / "svg" / f"{path.stem}.svg"
+        svg_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(svg_path, bbox_inches="tight")
+    return path
+
+
 def plot_calibration_curve(
     idata: az.InferenceData,
     n_points: int = 20,
@@ -327,7 +346,6 @@ def plot_forecasts_by_category(
             color=color,
             size=(80 if plot_style.document_type == "note" else 100) * plot_style.scale,
             zorder=3,
-            note_mode=plot_style.document_type == "note",
             date_offset=plot_style.baseline_date_offset,
         )
 
@@ -1198,7 +1216,6 @@ def _plot_baseline_points(
     color: str,
     size: float,
     zorder: int,
-    note_mode: bool = False,
     date_offset: float = 0.01,
 ) -> None:
     baselines = baselines.assign(
@@ -1206,16 +1223,16 @@ def _plot_baseline_points(
         marker=lambda df: _assign_marker_to_baselines(df),
         facecolor=lambda df: _assign_facecolor_to_baselines(df, color),
     )
-    # In note mode: uniform 4-branch stars, always filled (incl. High School).
-    note_star = (4, 1, 0)
+    # One marker scheme for every figure: the note used to flatten all baselines to the same
+    # 4-branch star, which made its panels disagree with the paper's on what a symbol means.
     for row in baselines.itertuples(index=False):
         ax.scatter(
             row.date,
             row.score,
             edgecolors=color,
-            facecolors=color if note_mode else row.facecolor,
+            facecolors=row.facecolor,
             s=size,
-            marker=note_star if note_mode else row.marker,
+            marker=row.marker,
             zorder=zorder,
         )
 
@@ -1535,6 +1552,7 @@ def _add_baseline_labels(
                 "Comités de généralistes",
             ),
             "Committee of Domain Experts": ("Comité d'experts", "Comités d'experts"),
+            "Committee of Top Performers": ("Comité de top experts", "Comités de top experts"),
             "High School Qualifier": ("Lycéen qualifié", "Lycéens qualifiés"),
             "High School Top Performer": ("Top lycéen", "Top lycéens"),
         },
@@ -1549,6 +1567,7 @@ def _add_baseline_labels(
                 "Expert\ncommittee",
                 "Expert\ncommittees",
             ),  # two lines: sits among steep curves
+            "Committee of Top Performers": ("Top performer committee", "Top performer committees"),
             "High School Qualifier": ("HS qualifier", "HS qualifiers"),
             "High School Top Performer": ("HS top performer", "HS top performers"),
         },

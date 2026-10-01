@@ -894,9 +894,11 @@ if "figures" in STAGES:
         (plotting.PlotStyle(language="en", document_type="paper"), "pdf"),
         (plotting.PlotStyle(language="fr", document_type="note"), "png"),
     ]:
-        # Same layout as forecasts.py: one folder per cutoff, FR figures in fr/.
-        fig_dir = f"{CUTOFF_DIR}/forecasts" + ("/fr" if style.language == "fr" else "")
-        os.makedirs(fig_dir, exist_ok=True)
+        # Same layout as forecasts.py: one folder per cutoff, FR figures in fr/ with their
+        # vector copies in fr/svg/.
+        is_fr = style.language == "fr"
+        fig_dir = f"{CUTOFF_DIR}/forecasts" + ("/fr" if is_fr else "")
+        os.makedirs(f"{fig_dir}/svg" if is_fr else fig_dir, exist_ok=True)
         for cat in FIGURE_CATEGORIES:
             obs_cat = data.loc[data["category"] == cat]
             pred_cat = forecast_fig.loc[forecast_fig["category"] == cat]
@@ -907,7 +909,7 @@ if "figures" in STAGES:
             )
             path = (f"{fig_dir}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}"
                     f"_{style.language}_{style.document_type}_{CUTOFF_TAG}.{ext}")
-            fig.savefig(path, dpi=300, bbox_inches="tight")
+            plotting.save_figure(fig, path, dpi=300, also_svg=is_fr)
             plt.close(fig)
             print(f"  wrote {path} ({n_baselines} baseline points in this category)")
 

@@ -113,14 +113,18 @@ NOTE_FIG_DIR = str(NOTE_FIGURES_DIR)
 # ---- Output directories ----
 # Created explicitly rather than relying on git having materialised them when
 # checking out tracked figures: a fresh clone has none of the gitignored ones and
-# the first savefig would fail.
+# the first savefig would fail.  Every folder holding FR figures also gets an svg/
+# subfolder, where `plotting.save_figure(..., also_svg=True)` writes the vector copy.
 for _plot_dir in (
     NOTE_FIG_DIR,
+    f"{NOTE_FIG_DIR}/svg",
     HIGH_LEVEL_DIR,
     FORECAST_DIR,
     FORECAST_DIR_FR,
+    f"{FORECAST_DIR_FR}/svg",
     CALIB_DIR,
     CALIB_DIR_FR,
+    f"{CALIB_DIR_FR}/svg",
     SENS_DIR,
     str(FITS_DIR),
 ):
@@ -197,10 +201,11 @@ for cat in categories:
         plot_style=plot_style,
     )
     if SAVEFIGS:
-        fig.savefig(
+        plotting.save_figure(
+            fig,
             f"{FORECAST_DIR_FR if plot_style.language == 'fr' else FORECAST_DIR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_{plot_style.language}_{plot_style.document_type}{CUTOFF_SUFFIX}.{IMG_EXT}",
             dpi=IMG_DPI,
-            bbox_inches="tight",
+            also_svg=plot_style.language == "fr",
         )
 plt.show()
 
@@ -245,9 +250,10 @@ for style, folder, ext in (
         continue
     fig_L, _ = plotting.plot_L_distribution(idata_forecast, L_min=MODEL_CONFIG.L_min, plot_style=style)
     if SAVEFIGS:
-        fig_L.savefig(
+        plotting.save_figure(
+            fig_L,
             f"{folder}/Hierarchical_L_intervals_{style.language}_{style.document_type}{CUTOFF_SUFFIX}.{ext}",
-            dpi=IMG_DPI, bbox_inches="tight",
+            dpi=IMG_DPI, also_svg=style.language == "fr",
         )
     plt.close(fig_L)
 
@@ -298,9 +304,10 @@ if ALSO_GENERATE_FR:
             end_date=END_DATE, category_name=cat, plot_style=fr_style,
         )
         if SAVEFIGS:
-            fig.savefig(
+            plotting.save_figure(
+                fig,
                 f"{FORECAST_DIR_FR}/forecast_{cat.replace(' & ', '_').replace(' ', '_')}_fr_note{CUTOFF_SUFFIX}.png",
-                dpi=IMG_DPI, bbox_inches="tight",
+                dpi=IMG_DPI, also_svg=True,
             )
         plt.close(fig)
     print("  FR forecasts done")
@@ -312,14 +319,18 @@ if ALSO_GENERATE_FR:
         ci_level=0.80, plot_style=fr_style,
     )
     if SAVEFIGS:
-        fig.savefig(f"{NOTE_FIG_DIR}/saturation_fr_note{CUTOFF_SUFFIX}.png", dpi=IMG_DPI, bbox_inches="tight")
+        plotting.save_figure(
+            fig, f"{NOTE_FIG_DIR}/saturation_fr_note{CUTOFF_SUFFIX}.png", dpi=IMG_DPI, also_svg=True
+        )
     plt.close(fig)
     print("  FR saturation done")
 
     # Asymmetry
     fig, ax = plotting.plot_harvey_asymmetry(idata_asym, plot_style=fr_style)
     if SAVEFIGS:
-        fig.savefig(f"{NOTE_FIG_DIR}/asymmetry_fr_note{CUTOFF_SUFFIX}.png", dpi=IMG_DPI, bbox_inches="tight")
+        plotting.save_figure(
+            fig, f"{NOTE_FIG_DIR}/asymmetry_fr_note{CUTOFF_SUFFIX}.png", dpi=IMG_DPI, also_svg=True
+        )
 
     plt.close(fig)
     print("  FR asymmetry done")
@@ -364,9 +375,10 @@ if ALSO_GENERATE_FR:
     for model_name, idata_retro in retrodiction_idata.items():
         fig, ax = plotting.plot_calibration_curve(idata_retro, n_points=20, plot_style=fr_style)
         if SAVEFIGS:
-            fig.savefig(
+            plotting.save_figure(
+                fig,
                 f"{CALIB_DIR_FR}/calibration_{variant_slug(model_name)}_fr_note{CUTOFF_SUFFIX}.png",
-                dpi=IMG_DPI, bbox_inches="tight",
+                dpi=IMG_DPI, also_svg=True,
             )
         plt.close(fig)
     print("  FR calibration done")

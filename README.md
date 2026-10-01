@@ -4,7 +4,7 @@ Bayesian sigmoidal growth models for the frontier of AI benchmark scores: when d
 
 ## Layout
 
-Folders are numbered in processing order, the same convention as `Multiaxis_ECI`: inputs, model, analyses, outputs, write-ups. Everything a run writes goes under `3_outputs/<cutoff>/`, one folder per data cutoff, with the French renders in a `fr/` subfolder beside the English files.
+Folders are numbered in processing order, the same convention as `Multiaxis_ECI`: inputs, model, analyses, outputs, write-ups. Everything a run writes goes under `3_outputs/<cutoff>/`, one folder per data cutoff, with the French renders in a `fr/` subfolder beside the English files and their vector copies in `fr/svg/`.
 
 ```
 0_input/                        the pipeline's consumer views, copied by `python -m benchmark_forecasting sync`
@@ -26,13 +26,13 @@ Folders are numbered in processing order, the same convention as `Multiaxis_ECI`
   revision_analyses.py          robustness analyses and LaTeX tables, in stages
 3_outputs/cutoffYYYYMMDD/       one folder per data cutoff
   fits/                         cached posteriors (NetCDF, gitignored)
-  forecasts/ (+ fr/)            category forecast panels, EN paper PDFs and FR note PNGs
-  calibration/ (+ fr/)          calibration curves of the eight variants
+  forecasts/ (+ fr/, fr/svg/)   category forecast panels, EN paper PDFs and FR note PNGs (+ SVG)
+  calibration/ (+ fr/, fr/svg/) calibration curves of the eight variants
   sensitivity/ (+ tables/)      JSON/CSV results of the robustness analyses and the LaTeX tables
   high_level/                   saturation, asymmetry, asymptote and hyperparameter figures (EN paper)
 4_writeups/
   paper/                        bibliography and arXiv sources; other manuscript material stays local
-  note/figures/                 the French policy note's figures, refreshed by every run
+  note/figures/ (+ svg/)        the French policy note's figures, refreshed by every run
 archive/plots_old/              superseded figure sets (local)
 tests/                          pytest: prior draws, synthetic posteriors, one 5-draw toy sampling
 ```
@@ -189,6 +189,8 @@ uv run pytest && uv run ruff check .
 ```
 
 `2_analyses/forecasts.py` fits the main model (also drawn as the asymmetry figure), runs the temporal holdout of the eight variants (sigmoid × structure × likelihood, cutoff 2025-01-01, at least `MIN_TRAIN_POINTS` = 5 pre-cutoff frontier points per benchmark), the ablations, LOO and CQR, then draws the English paper figures (PDF) and the French note figures (PNG). The model grid, the sampling settings and the data cutoff live in `config.py` (`ALL_MODEL_CONFIGS`, `MAIN_MODEL`, `SAMPLING_CONFIG`, `sampling_for`, `DATA_CUTOFF`), shared with the revision script; the figure switches (`LANGUAGE` / `DOCUMENT_TYPE`, `ALSO_GENERATE_FR`, `SAVEFIGS`) are at the top of the script.
+
+Every French figure is written twice by `plotting.save_figure`: the PNG the note is laid out with, and a vector copy under `svg/` in the same folder, for rescaling or recolouring without redrawing. On the forecast panels a human baseline is a star whose number of branches is the expertise level — three for an average human, four for a skilled generalist, five for a domain expert, six for a top performer, a committee taking the branch count of the humans it is made of — and the inline label names the group. The scheme is the same in both languages: the note used to flatten every baseline to a four-branch star, which made its panels disagree with the paper's on what a symbol means.
 
 `2_analyses/revision_analyses.py` takes stage names as arguments and writes `3_outputs/<cutoff>/sensitivity/revision_analyses_<stages>_<cutoff>.json`, CSV tables and LaTeX tables (in `3_outputs/<cutoff>/sensitivity/tables/`, or in `$TABLES_DIR` to regenerate a manuscript's tables in place):
 
