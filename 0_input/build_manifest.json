@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
-  "built_at": "2026-10-01T11:55:19+02:00",
-  "git_commit": "1616f685f3f9d9bf5b159f2a60172a21c827570a",
+  "built_at": "2026-10-01T21:22:39+02:00",
+  "git_commit": "7a1736327aa3441e0154636125b9079596f22290",
   "feeds": {
     "0_input/feed/cybench_site/cybench_leaderboard.csv": {
       "byte_size": 1179,
@@ -193,12 +193,13 @@
     "0_input/metadata/human_baselines.csv": "52bb5c744f256314e5b2dfaceb840b2d36e87720ce3dd145c1f5b05b0ee8de25",
     "0_input/metadata/organizations.csv": "da584c605aeabfa17a11a2a32f396f2ac86a1a92c5ef4e5d8f1a3f71d11695d5",
     "0_input/metadata/release_dates.csv": "8597567782873c20d261f09e0200dfd46afde71a7bf95caf5cabf262964b9c4e",
+    "0_input/metadata/score_corrections.csv": "7edb1be35c7ec49d50356f3d04c184408ba61ae9e9b4c2300695855cf4b0146b",
     "0_input/metadata/sibling_merges.csv": "fd85935b300c00a9eae14b6300e9ad0a48d4c25dfc3021a219c4dc2ad4af5bb6"
   },
   "rows": {
     "models.csv": 912,
     "benchmarks.csv": 99,
-    "scores.csv": 5588,
+    "scores.csv": 5587,
     "human_baselines.csv": 48,
     "model_names.csv": 1689,
     "excluded_benchmarks.csv": 42

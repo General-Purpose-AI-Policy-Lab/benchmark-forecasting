@@ -26,7 +26,6 @@ gpt-5.3-codex,0.5803203240249217,2026-02-05,OpenAI,AISI CTF Suites - Expert,,Epo
 gpt-5.4-2026-03-05,0.5232827268376036,2026-03-05,OpenAI,AISI CTF Suites - Expert,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
 gpt-5.4-2026-03-05_cyber,0.4852576620460583,2026-04-14,OpenAI,AISI CTF Suites - Expert,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
 gpt-5.5,0.7134080507953305,2026-04-23,OpenAI,AISI CTF Suites - Expert,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
-gpt-5.6-sol,0.95,2026-07-09,OpenAI,AISI CTF Suites - Expert,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
 claude-mythos-preview-early,0.9751202879619532,2026-04-06,Anthropic,AISI CTF Suites - Practitioner,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
 claude-opus-4-6,0.9091356167060364,2026-02-05,Anthropic,AISI CTF Suites - Practitioner,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
 claude-opus-4-7,0.8062442649171487,2026-04-16,Anthropic,AISI CTF Suites - Practitioner,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
@@ -1373,22 +1372,22 @@ o1-mini-2024-09-12_medium,0.1,2024-09-12,OpenAI,Cybench,,Cybench leaderboard,htt
 o1-preview-2024-09-12,0.1,2024-09-12,OpenAI,Cybench,,Cybench leaderboard,https://cybench.github.io/,epoch,Cyber,0.0,1.0
 o3-mini-2025-01-31,0.225,2025-01-31,OpenAI,Cybench,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,1.0
 o3-mini-2025-01-31_medium,0.225,2025-01-31,OpenAI,Cybench,,Cybench leaderboard,https://cybench.github.io/,epoch,Cyber,0.0,1.0
-claude-3-7-sonnet-20250219,0.4968421052631579,2025-02-24,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-mythos-5,0.8821052631578947,2026-06-09,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-mythos-preview,0.8747368421052631,2026-04-07,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-4-1-20250805,0.6452631578947369,2025-08-05,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-4-5-20251101,0.5326315789473685,2025-11-24,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-4-6,0.7789473684210526,2026-02-05,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-4-7,0.768421052631579,2026-04-16,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-4-8,0.8294736842105263,2026-05-28,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-sonnet-4-20250514,0.6263157894736842,2025-05-22,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-sonnet-4-5-20250929,0.7021052631578948,2025-09-29,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-sonnet-4-6,0.6863157894736842,2026-02-17,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-gpt-5.4-2026-03-05,0.8315789473684211,2026-03-05,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-gpt-5.5,0.8610526315789474,2026-04-23,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-gpt-5.5_cyber,0.8621052631578948,2026-05-07,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-gpt-5.6-sol,0.88,2026-07-09,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-muse-spark,0.4578947368421053,2026-04-08,Meta AI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-3-7-sonnet-20250219,0.145,2025-02-24,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://www.anthropic.com/claude-sonnet-4-5-system-card,epoch_cyber,Cyber,0.0,
+claude-mythos-5,0.838,2026-06-09,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-mythos-preview,0.831,2026-04-07,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-opus-4-1-20250805,0.25,2025-08-05,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://www.anthropic.com/claude-sonnet-4-5-system-card,epoch_cyber,Cyber,0.0,
+claude-opus-4-5-20251101,0.506,2025-11-24,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-opus-4-6,0.74,2026-02-05,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-opus-4-7,0.73,2026-04-16,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-opus-4-8,0.7879999999999999,2026-05-28,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+claude-sonnet-4-20250514,0.226,2025-05-22,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://www.anthropic.com/claude-sonnet-4-5-system-card,epoch_cyber,Cyber,0.0,
+claude-sonnet-4-5-20250929,0.289,2025-09-29,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://www.anthropic.com/claude-sonnet-4-5-system-card,epoch_cyber,Cyber,0.0,
+claude-sonnet-4-6,0.652,2026-02-17,Anthropic,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+gpt-5.4-2026-03-05,0.79,2026-03-05,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+gpt-5.5,0.818,2026-04-23,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+gpt-5.5_cyber,0.8190000000000001,2026-05-07,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+gpt-5.6-sol,0.836,2026-07-09,OpenAI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
+muse-spark,0.435,2026-04-08,Meta AI,CyberGym,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
 DeepSeek-V3-0324,0.648,2025-03-24,DeepSeek,DTBench,,https://conceptualreasoning.ai/dtbench,,epoch,General Reasoning,0.4,
 DeepSeek-V3.1-Terminus,0.8133,2025-09-22,DeepSeek,DTBench,,https://conceptualreasoning.ai/dtbench,,epoch,General Reasoning,0.4,
 DeepSeek-V3.1_thinking,0.8267,2025-08-21,DeepSeek,DTBench,,https://conceptualreasoning.ai/dtbench,,epoch,General Reasoning,0.4,
