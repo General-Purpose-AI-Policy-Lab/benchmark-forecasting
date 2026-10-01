@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.1",
-  "built_at": "2026-09-30T12:51:06+00:00",
-  "git_commit": "8601d1ec31b75531c16aee72f13eb3977999a78b",
+  "schema_version": "2.2",
+  "built_at": "2026-10-01T11:41:31+02:00",
+  "git_commit": "7f537125daf6d9afc5600f7452c3fb063337174e",
   "feeds": {
     "0_input/feed/cybench_site/cybench_leaderboard.csv": {
       "byte_size": 1179,
@@ -182,24 +182,25 @@
   },
   "inputs_sha256": {
     "0_input/feed/cybench_site/aliases.csv": "e1be60525c10056c6d9f5c32280b3ca53f01397554339a0e3d60603fe5f5af84",
-    "0_input/feed/epoch/aliases.csv": "1402966e4b4d10b126adaab53b5b045a2b79d3a9fddf6c2d5a341cc16fb3a749",
+    "0_input/feed/epoch/aliases.csv": "0e0f5f9e286428fa22ff29a9ff72ff840d0e18bcca4964590d5a90fb092c67c6",
     "0_input/feed/epoch_cyber/aliases.csv": "8a50339b2db89a07cc1ea7a7a5bb8e242ae06973f3378690961dad06b31c4594",
-    "0_input/feed/epoch_live/aliases.csv": "6d166e3bbe0b22b5d327b948ad6590c4f7bf2cc093e63be32e4cb508423416e5",
-    "0_input/feed/kaggle/aliases.csv": "237c46993abc0ef02cae4806314a43ff94f27c46c78ee746435f6797d3ecff46",
-    "0_input/feed/rand/aliases.csv": "1c9936a71988decb7af3673e306efc2221b4d3617ba74f25bedeb036e76e9550",
-    "0_input/feed/seal/aliases.csv": "70487f2d8da74d9d1947fa75597c638afacc096db2ae0b3290fc297576afab92",
+    "0_input/feed/epoch_live/aliases.csv": "f253f2d0f3307819dd55b9e95b272e81881dbc8499ae4477547a3a2013eb6665",
+    "0_input/feed/kaggle/aliases.csv": "390d06d870014f3826015c688c1d9bc33b355f0fbaed31d39d480ce4a93edf0d",
+    "0_input/feed/rand/aliases.csv": "4f341eebe565f13bf09755234ac72913e74804b0bbaad0ef17e596db2d1c00f0",
+    "0_input/feed/seal/aliases.csv": "bb58884d8963716a992ff2a6e2b36ac4a499ed2a9a28d62d3fde9fa6743a2a00",
+    "0_input/metadata/benchmark_release_dates.csv": "f937ab30fc9709e168b646d1b8b5d8be6d56fc8ff1af42777bf67d78e1795bb9",
     "0_input/metadata/benchmarks.csv": "6d49bbef148875b389f922fdd6db588a0b090ea45a1affb69eb5251c8aa75fcb",
     "0_input/metadata/human_baselines.csv": "52bb5c744f256314e5b2dfaceb840b2d36e87720ce3dd145c1f5b05b0ee8de25",
-    "0_input/metadata/organizations.csv": "3c3418256772a4e8bb9dc92a53716aef66f262b6a641ba4365e54c6dc2bc5f14",
+    "0_input/metadata/organizations.csv": "61ca24140dacd9155881fa964e009c7fc2888185f9221e185806dea81ee44b85",
     "0_input/metadata/release_dates.csv": "8597567782873c20d261f09e0200dfd46afde71a7bf95caf5cabf262964b9c4e",
     "0_input/metadata/sibling_merges.csv": "fd85935b300c00a9eae14b6300e9ad0a48d4c25dfc3021a219c4dc2ad4af5bb6"
   },
   "rows": {
-    "models.csv": 873,
+    "models.csv": 890,
     "benchmarks.csv": 99,
-    "scores.csv": 5465,
+    "scores.csv": 5496,
     "human_baselines.csv": 48,
-    "model_names.csv": 1658,
+    "model_names.csv": 1661,
     "excluded_benchmarks.csv": 42
   }
 }
