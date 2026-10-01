@@ -85,6 +85,17 @@ def test_a_short_sampling_respects_the_floor_and_keeps_the_log_likelihood():
     assert float(idata.posterior["L"].sel(benchmark="Human").min()) >= 0.9
 
 
+def test_the_nutpie_path_respects_the_floor_and_keeps_the_log_likelihood(tmp_path):
+    """The default sampler gets the truncated L_raw's initial values too, and the fit keeps the
+    pointwise log-likelihood the comparisons read."""
+    prepared = prepare_dataset(_raw(), top_n=3)
+    samp = config.SamplingConfig(draws=20, tune=50, seed=1, progressbar=False)
+    assert samp.sampler == "nutpie"
+    idata, _ = fit(prepared, config.ModelConfig(), samp, use_cache=False, fits_dir=tmp_path)
+    assert "log_likelihood" in idata.groups() and "diverging" in idata.sample_stats
+    assert float(idata.posterior["L"].sel(benchmark="Human").min()) >= 0.9
+
+
 def test_fit_caches_under_the_given_folder_with_the_documented_name(tmp_path):
     """The cache file name carries the slug, the tag, the non-default sampling settings and the
     data fingerprint, and lands in `fits_dir`; a second call reloads it instead of sampling."""
@@ -93,7 +104,8 @@ def test_fit_caches_under_the_given_folder_with_the_documented_name(tmp_path):
     samp = config.SamplingConfig(draws=5, tune=5, target_accept=0.95, seed=1, progressbar=False)
     fits = tmp_path / "fits"
     fit(prepared, cfg, samp, cache_tag="cutoff20260907", fits_dir=fits)
-    expected = fits / f"{cfg.slug}_cutoff20260907_ta95_n5t5_s1_d{data_fingerprint(prepared)}.nc"
+    expected = fits / (f"{cfg.slug}_cutoff20260907_ta95_n5t5_s1_nutpie"
+                       f"_d{data_fingerprint(prepared)}.nc")
     assert expected.exists(), sorted(p.name for p in fits.iterdir())
     before = expected.stat().st_mtime
     fit(prepared, cfg, samp, cache_tag="cutoff20260907", fits_dir=fits)

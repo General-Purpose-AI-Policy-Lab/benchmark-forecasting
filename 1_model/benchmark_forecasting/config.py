@@ -128,7 +128,10 @@ class SamplingConfig:
     tune: int = 1000
     target_accept: float = 0.9
     seed: int = 42
-    init: str = "adapt_diag"
+    # nutpie (compiled, numba) is the default since 2026-10-01: the 16 fits of a run took 3.0 h
+    # with PyMC's Python NUTS, the independent variants 640 to 2,200 s each. "pymc" restores it.
+    sampler: str = "nutpie"
+    init: str = "adapt_diag"      # PyMC's NUTS only; nutpie adapts its own mass matrix
     progressbar: bool = True
 
 

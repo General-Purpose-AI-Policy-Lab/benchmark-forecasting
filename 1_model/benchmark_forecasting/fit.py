@@ -44,9 +44,9 @@ def fit(
     cache_tag : optional label appended to the slug for the NetCDF filename.
         The name always ends with ``_d<hash>``, a fingerprint of the fitted data, and carries
         the sampling settings that differ from the defaults (``_ta95`` for the acceptance
-        target, ``_n<draws>t<tune>`` and ``_s<seed>``), so a cache is only reused for the same
-        data, model and sampling:
-        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95][_n..t..][_s..]_d{hash}.nc``.
+        target, ``_n<draws>t<tune>``, ``_s<seed>`` and ``_nutpie`` for any sampler but PyMC's),
+        so a cache is only reused for the same data, model and sampling:
+        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95][_n..t..][_s..][_nutpie]_d{hash}.nc``.
     use_cache : if *True* (default), load from ``fits_dir`` if the file exists,
         and save there after sampling.  Set to *False* to force re-fitting.
     fits_dir : the cache folder, normally the run's ``3_outputs/<cutoff>/fits/``
@@ -68,6 +68,9 @@ def fit(
         fname = f"{fname}_n{samp.draws}t{samp.tune}"
     if samp.seed != 42:
         fname = f"{fname}_s{samp.seed}"
+    if samp.sampler != "pymc":
+        # The draws depend on the sampler; a PyMC-era cache keeps its name.
+        fname = f"{fname}_{samp.sampler}"
     fname = f"{fname}_d{data_fingerprint(prepared)}"
     cache_path = fits_dir / f"{fname}.nc"
 
@@ -76,18 +79,31 @@ def fit(
         idata = az.from_netcdf(str(cache_path))
         return idata, model
 
-    with model:
-        idata = pm.sample(
-            draws=samp.draws,
-            tune=samp.tune,
-            return_inferencedata=True,
-            random_seed=samp.seed,
-            target_accept=samp.target_accept,
-            init=samp.init,
-            initvals=sampler_initvals(prepared, cfg),
-            progressbar=samp.progressbar,
-            idata_kwargs={"log_likelihood": True},
-        )
+    if samp.sampler == "nutpie":
+        import nutpie
+        # pm.sample(nuts_sampler="nutpie") drops `initvals`, which the truncated L_raw needs;
+        # nutpie takes them as `initial_points` (its U(-1, 1) jitter acts on the transformed
+        # value, so it stays inside the interval).
+        compiled = nutpie.compile_pymc_model(model, initial_points=sampler_initvals(prepared, cfg))
+        idata = nutpie.sample(compiled, draws=samp.draws, tune=samp.tune, chains=4,
+                              seed=samp.seed, target_accept=samp.target_accept,
+                              progress_bar=samp.progressbar, save_warmup=False)
+        pm.compute_log_likelihood(idata, model=model, progressbar=False)
+    elif samp.sampler != "pymc":
+        raise ValueError(f"unknown sampler {samp.sampler!r} (nutpie or pymc)")
+    else:
+        with model:
+            idata = pm.sample(
+                draws=samp.draws,
+                tune=samp.tune,
+                return_inferencedata=True,
+                random_seed=samp.seed,
+                target_accept=samp.target_accept,
+                init=samp.init,
+                initvals=sampler_initvals(prepared, cfg),
+                progressbar=samp.progressbar,
+                idata_kwargs={"log_likelihood": True},
+            )
 
     if use_cache:
         fits_dir.mkdir(parents=True, exist_ok=True)
