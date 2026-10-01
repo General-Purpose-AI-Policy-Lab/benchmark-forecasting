@@ -1,10 +1,10 @@
 {
   "pipeline_repo": "https://github.com/General-Purpose-AI-Policy-Lab/benchmark-data-pipeline",
-  "pipeline_commit": "7f537125daf6d9afc5600f7452c3fb063337174e",
+  "pipeline_commit": "1616f685f3f9d9bf5b159f2a60172a21c827570a",
   "pipeline_run_date": "20261001",
-  "pipeline_built_at": "2026-10-01T11:41:31+02:00",
+  "pipeline_built_at": "2026-10-01T11:55:19+02:00",
   "schema_version": "2.2",
-  "synced_at": "2026-10-01T09:45:20+00:00",
+  "synced_at": "2026-10-01T10:06:24+00:00",
   "files": [
     "dated_scores_flat.csv",
     "human_baselines.csv",
