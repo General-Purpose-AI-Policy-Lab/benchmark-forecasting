@@ -82,12 +82,18 @@ def fit(
     if samp.sampler == "nutpie":
         import nutpie
         # pm.sample(nuts_sampler="nutpie") drops `initvals`, which the truncated L_raw needs;
-        # nutpie takes them as `initial_points` (its U(-1, 1) jitter acts on the transformed
-        # value, so it stays inside the interval).
-        compiled = nutpie.compile_pymc_model(model, initial_points=sampler_initvals(prepared, cfg))
+        # nutpie takes them as `initial_points`. No jitter, like PyMC's adapt_diag: with
+        # nutpie's default U(-1, 1) jitter on every transformed value, three of four chains of
+        # the Harvey joint skew fit started where the step size collapsed to 1e-4 and every
+        # draw diverged (2026-10-01).
+        compiled = nutpie.compile_pymc_model(model, initial_points=sampler_initvals(prepared, cfg),
+                                             jitter_rvs=set())
         idata = nutpie.sample(compiled, draws=samp.draws, tune=samp.tune, chains=4,
                               seed=samp.seed, target_accept=samp.target_accept,
                               progress_bar=samp.progressbar, save_warmup=False)
+        # nutpie stores the unconstrained values too; nothing reads them.
+        idata.posterior = idata.posterior.drop_vars(
+            [v for v in idata.posterior.data_vars if v.endswith("__")])
         pm.compute_log_likelihood(idata, model=model, progressbar=False)
     elif samp.sampler != "pymc":
         raise ValueError(f"unknown sampler {samp.sampler!r} (nutpie or pymc)")
