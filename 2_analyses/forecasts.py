@@ -54,6 +54,7 @@ from benchmark_forecasting.config import (  # noqa: E402
     MIN_TRAIN_POINTS,
     NOTE_FIGURES_DIR,
     SAMPLING_CONFIG,
+    checked_data_cutoff,
     cutoff_dir,
     cutoff_tag,
     sampling_for,
@@ -87,10 +88,10 @@ ALSO_GENERATE_FR = True
 
 # ---- Data cutoff ----
 # Only keep model results released on or before this date (inclusive) for fitting and
-# forecasting; `config.DATA_CUTOFF`, the feed refresh date of the synced pipeline build, so that
+# forecasting; `config.DATA_CUTOFF`, the day the synced pipeline run happened, so that
 # re-running later against a newer sync reproduces this run rather than silently absorbing newer
 # models. None fits all available data.
-DATA_CUTOFF_DATE: pd.Timestamp | None = pd.to_datetime(DATA_CUTOFF)
+DATA_CUTOFF_DATE: pd.Timestamp | None = pd.to_datetime(checked_data_cutoff(DATA_CUTOFF))
 
 # `cutoffYYYYMMDD`: names the output folder, suffixes (with a leading underscore) the fit caches
 # and the figure files.

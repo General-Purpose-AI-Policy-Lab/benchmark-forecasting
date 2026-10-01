@@ -133,10 +133,39 @@ class SamplingConfig:
 
 
 # ── Run settings shared by the two analysis scripts ─────────────────────────
-# The data cutoff: only scores released on or before this date are fitted (inclusive). It is the
-# feed refresh date of the synced pipeline build (0_input/provenance.json); change it when syncing a
-# newer build and expect every fit to rerun.
-DATA_CUTOFF = "2026-09-29"
+# The data cutoff: only scores released on or before this date are fitted (inclusive). Its tag
+# names the run's folder and files, so it must date the data: it is the day the synced pipeline
+# run happened (`pipeline_run_date` in 0_input/provenance.json), which `checked_data_cutoff`
+# enforces for the main runs. Change it when syncing a newer run and expect every fit to rerun.
+# 2026-09-30: the run of pipeline 8601d1e, fitted as cutoff 2026-09-29 and renamed (no score of
+# that run was released on 09-30, so the fits are the same).
+DATA_CUTOFF = "2026-09-30"
+
+
+def pipeline_run_date() -> str:
+    """The date the synced pipeline run happened, YYYYMMDD (its `2_database/<date>/` folder), ''
+    before the first sync."""
+    import json
+    p = INPUT_DIR / PROVENANCE_FILE
+    return json.loads(p.read_text()).get("pipeline_run_date", "") if p.exists() else ""
+
+
+def checked_data_cutoff(cutoff: str = DATA_CUTOFF) -> str:
+    """`cutoff` once checked against the synced pipeline run; ValueError when they differ.
+
+    The main runs (2_analyses/forecasts.py, revision_analyses.py) name their outputs after the
+    cutoff, so a cutoff left behind after a sync would date a newer dataset with an older day.
+    Retrospective cutoffs (`fit.retrodiction_fit`, `bounds --cutoff`) are not checked.
+    """
+    import pandas as pd
+    run = pipeline_run_date()
+    if pd.Timestamp(cutoff).strftime("%Y%m%d") != run:
+        expected = pd.Timestamp(run).strftime("%Y-%m-%d") if run else "?"
+        raise ValueError(
+            f"DATA_CUTOFF {cutoff} does not match the synced pipeline run ({run or 'none'}, "
+            f"0_input/{PROVENANCE_FILE}): set config.DATA_CUTOFF = \"{expected}\" or resync "
+            "with `python -m benchmark_forecasting sync`")
+    return cutoff
 
 
 def cutoff_tag(cutoff) -> str:

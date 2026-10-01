@@ -2,6 +2,7 @@
 
 import json
 import logging
+import re
 import shutil
 import subprocess
 from datetime import UTC, datetime
@@ -31,20 +32,35 @@ def pipeline_repo(pipeline_dir: Path) -> str:
     except (OSError, subprocess.CalledProcessError):
         return pipeline_dir.name
 
-# (relative path in the pipeline repository, file name here)
+# (folder of the pipeline repository, file name); the file is read from the folder's latest run,
+# `<folder>/<YYYYMMDD>/` (the date the pipeline ran)
 SOURCES = (
-    (Path("3_views") / SCORES_FILE, SCORES_FILE),
-    (Path("3_views") / BASELINES_FILE, BASELINES_FILE),
-    (Path("2_database") / MANIFEST_FILE, MANIFEST_FILE),
+    ("3_views", SCORES_FILE),
+    ("3_views", BASELINES_FILE),
+    ("2_database", MANIFEST_FILE),
 )
 
 
+def latest_run(pipeline_dir: Path) -> str:
+    """The pipeline's most recent run, YYYYMMDD: the newest dated folder of its 2_database/."""
+    db = pipeline_dir / "2_database"
+    runs = sorted(p.name for p in db.iterdir()
+                  if p.is_dir() and re.fullmatch(r"\d{8}", p.name)) if db.is_dir() else []
+    if not runs:
+        raise FileNotFoundError(
+            f"{db}: no dated run, run `python -m benchmark_data build` in the pipeline first"
+        )
+    return runs[-1]
+
+
 def sync(pipeline_dir: Path = PIPELINE_DIR, input_dir: Path = INPUT_DIR) -> dict:
-    """Copy the views and the manifest, write provenance.json, return it."""
+    """Copy the views and the manifest of the pipeline's latest run, write provenance.json (with
+    that run's date, which config.DATA_CUTOFF must equal), return it."""
     pipeline_dir = Path(pipeline_dir)
     input_dir.mkdir(exist_ok=True)
-    for rel, name in SOURCES:
-        src = pipeline_dir / rel
+    run = latest_run(pipeline_dir)
+    for folder, name in SOURCES:
+        src = pipeline_dir / folder / run / name
         if not src.exists():
             raise FileNotFoundError(
                 f"{src}: run `python -m benchmark_data build` in the pipeline first"
@@ -55,6 +71,7 @@ def sync(pipeline_dir: Path = PIPELINE_DIR, input_dir: Path = INPUT_DIR) -> dict
     provenance = {
         "pipeline_repo": pipeline_repo(pipeline_dir),
         "pipeline_commit": manifest.get("git_commit", ""),
+        "pipeline_run_date": run,
         "pipeline_built_at": manifest.get("built_at", ""),
         "schema_version": manifest.get("schema_version", ""),
         "synced_at": datetime.now(UTC).isoformat(timespec="seconds"),

@@ -55,6 +55,7 @@ from benchmark_forecasting.config import (  # noqa: E402
     MAIN_MODEL,
     MIN_TRAIN_POINTS,
     SAMPLING_CONFIG,
+    checked_data_cutoff,
     cutoff_dir,
     cutoff_tag,
     sampling_for,
@@ -65,7 +66,8 @@ plotting = bf.plotting
 
 STAGES = set(sys.argv[1:]) or {"cheap"}
 
-DATA_CUTOFF_DATE = pd.to_datetime(DATA_CUTOFF)   # config.DATA_CUTOFF, shared with forecasts.py
+# config.DATA_CUTOFF, shared with forecasts.py, checked against the synced pipeline run
+DATA_CUTOFF_DATE = pd.to_datetime(checked_data_cutoff(DATA_CUTOFF))
 CUTOFF_TAG = cutoff_tag(DATA_CUTOFF_DATE)
 
 SATURATION_FRACTION = 0.95
