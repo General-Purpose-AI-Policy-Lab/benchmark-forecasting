@@ -18,19 +18,19 @@
     },
     {
       "variant": "Harvey Independent (skew)",
-      "median_sat_date": "2026-10-10 00:00:00",
-      "mean_shift_months": 3.1815602968425014,
-      "median_shift_months": 1.8425188611980383,
-      "q10_shift_months": -0.6320279386013781,
-      "q90_shift_months": 7.102454739413328
+      "median_sat_date": "2026-10-21 00:00:00",
+      "mean_shift_months": 3.1719397186138294,
+      "median_shift_months": 1.9655053881224172,
+      "q10_shift_months": -0.7480278373768479,
+      "q90_shift_months": 6.972667529256183
     },
     {
       "variant": "Harvey Independent (normal)",
-      "median_sat_date": "2027-01-05 00:00:00",
-      "mean_shift_months": 6.134098636782724,
-      "median_shift_months": 4.3863277160231045,
-      "q10_shift_months": 1.6833938506027006,
-      "q90_shift_months": 12.177114476004299
+      "median_sat_date": "2027-01-04 00:00:00",
+      "mean_shift_months": 5.899781040117629,
+      "median_shift_months": 4.185843513631368,
+      "q10_shift_months": 1.7385689184377948,
+      "q90_shift_months": 11.43466779000317
     },
     {
       "variant": "Logistic Joint (skew)",
@@ -50,39 +50,39 @@
     },
     {
       "variant": "Logistic Independent (skew)",
-      "median_sat_date": "2026-12-05 00:00:00",
-      "mean_shift_months": 6.186161478355784,
-      "median_shift_months": 3.0792351182583015,
-      "q10_shift_months": -1.4605097124379505,
-      "q90_shift_months": 10.634120023757692
+      "median_sat_date": "2026-11-20 00:00:00",
+      "mean_shift_months": 6.768385163375801,
+      "median_shift_months": 2.7259252337238036,
+      "q10_shift_months": -0.862120052112296,
+      "q90_shift_months": 12.112483608448185
     },
     {
       "variant": "Logistic Independent (normal)",
-      "median_sat_date": "2027-02-09 00:00:00",
-      "mean_shift_months": 7.421847462682524,
-      "median_shift_months": 5.354047464198257,
-      "q10_shift_months": 1.7601505131878545,
-      "q90_shift_months": 17.012432555423352
+      "median_sat_date": "2027-02-06 00:00:00",
+      "mean_shift_months": 7.127923455200706,
+      "median_shift_months": 5.299828914035652,
+      "q10_shift_months": 1.7441703651624476,
+      "q90_shift_months": 17.08713105998379
     }
   ],
   "saturation_contrasts": {
     "skew to normal": {
-      "mean": 2.6253084789084964,
-      "median": 2.2500527457665447,
-      "q10": -0.17732184676951898,
-      "q90": 8.251755850221036
+      "mean": 2.3500973011739332,
+      "median": 2.2463593799813855,
+      "q10": 0.05915240201419944,
+      "q90": 8.113699336190535
     },
     "joint to independent": {
-      "mean": 2.4295507162356604,
-      "median": 0.7678755362227361,
-      "q10": -0.9272698314393133,
-      "q90": 5.285966897671201
+      "mean": 2.4406410918967687,
+      "median": 0.6255799866360118,
+      "q10": -0.7378585065106492,
+      "q90": 4.894453662493355
     },
     "Harvey to logistic": {
-      "mean": 2.319083648077883,
-      "median": 1.1288593618366036,
-      "q10": -0.8604461764530056,
-      "q90": 5.702824459059276
+      "mean": 2.452143111185874,
+      "median": 0.9526555961112628,
+      "q10": -0.4370322536300909,
+      "q90": 5.635362520647163
     }
   },
   "category_summary": [
