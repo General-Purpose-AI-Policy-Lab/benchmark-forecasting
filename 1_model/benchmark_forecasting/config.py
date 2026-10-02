@@ -91,8 +91,10 @@ class ModelConfig:
     L_fixed: tuple[tuple[str, float], ...] = ()
     # Independent model only: integrate each benchmark's own hyperpriors out (marginal.py)
     # instead of sampling them. Same model for every other quantity; the hyperparameters have
-    # one member each and stay at their prior, and their geometry kept NUTS at the depth limit.
-    hyper_marginalised: bool = False
+    # one member each and stay at their prior, and their geometry kept NUTS at the depth limit
+    # (r-hat up to 1.75, bulk ESS 7 on the 2026-10-01 cutoff). On by default since 2026-10-02;
+    # the slug carries `marg` so a cache of the sampled hierarchy is never reloaded as this.
+    hyper_marginalised: bool = True
 
     @property
     def slug(self) -> str:
@@ -202,10 +204,11 @@ ALL_MODEL_CONFIGS: dict[str, ModelConfig] = {
 
 SAMPLING_CONFIG = SamplingConfig(draws=2000, tune=1000, target_accept=0.9, seed=42,
                                  progressbar=True)
-# The independent variants give each benchmark its own asymptote prior, which can sit below the
-# benchmark's floor; NUTS then diverges on 20 to 40 % of draws at the default acceptance target.
-# They are sampled with a tighter target (slower, cleaner); `_ta95` in the cache name.
-SAMPLING_CONFIG_INDEPENDENT = SamplingConfig(draws=2000, tune=1000, target_accept=0.95, seed=42,
+# The independent variants give each benchmark its own asymptote prior. Its marginal (the
+# hyperpriors integrated out) keeps some mass right against 1 for a benchmark whose data do not
+# bound the asymptote from above, and NUTS diverges there on 4 to 15 % of draws at 0.95. They
+# are sampled with a tighter target; `_ta99` in the cache name.
+SAMPLING_CONFIG_INDEPENDENT = SamplingConfig(draws=2000, tune=1000, target_accept=0.99, seed=42,
                                              progressbar=True)
 
 

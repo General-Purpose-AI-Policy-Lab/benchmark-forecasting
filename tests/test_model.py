@@ -146,7 +146,7 @@ def test_the_marginalised_independent_model_has_no_per_benchmark_hyperpriors():
     from dataclasses import replace
 
     prepared = prepare_dataset(_raw(), top_n=3)
-    cfg = replace(config.ModelConfig(joint=False), hyper_marginalised=True)
+    cfg = config.ModelConfig(joint=False)
     assert cfg.slug.endswith("_marg")
     model = build_model(prepared, cfg)
     names = {v.name for v in model.free_RVs}
