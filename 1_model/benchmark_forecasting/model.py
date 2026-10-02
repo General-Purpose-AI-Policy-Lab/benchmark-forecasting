@@ -141,17 +141,30 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
                 sigma=cfg.L_prior_sd / L_range,
                 dims=None if joint else "benchmark",
             )
-            L_raw_sigma = pm.HalfNormal(
-                "L_raw_sigma",
-                sigma=cfg.L_prior_sd / L_range,
-                dims=None if joint else "benchmark",
-            )
-            # Clamp sigma so that Beta(mu, sigma) parameters stay valid: sigma < sqrt(mu*(1-mu)).
-            sigma_max = pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4
+            sd0 = cfg.L_prior_sd / L_range
             if cfg.L_beta_b_min1:
-                # and so that b >= 1: no density spike at L = 1 (see config.L_beta_b_min1).
-                sigma_max = pm.math.minimum(sigma_max, L_raw_sigma_b1(L_raw_mu))
-            L_raw_sigma_safe = pm.math.minimum(L_raw_sigma, sigma_max)
+                # b >= 1 (no density spike at L = 1, see config.L_beta_b_min1): the half-normal
+                # prior of sigma truncated to [0, L_raw_sigma_b1(mu)] and renormalised, written
+                # as a fraction u of that bound. A clamp min(sigma, bound) gave the prior a flat
+                # stretch above the bound and a kink at it: one chain of four of the 2026-10-02
+                # main fit sat there, every draw divergent.
+                bound = L_raw_sigma_b1(L_raw_mu)
+                L_raw_sigma_u = pm.Uniform("L_raw_sigma_u", 0.0, 1.0,
+                                           dims=None if joint else "benchmark")
+                L_raw_sigma = pm.Deterministic("L_raw_sigma", bound * L_raw_sigma_u,
+                                               dims=None if joint else "benchmark")
+                pm.Potential("L_raw_sigma_prior", pt.sum(
+                    pm.logp(pm.HalfNormal.dist(sigma=sd0), L_raw_sigma) + pt.log(bound)
+                    - pt.log(pt.erf(bound / (sd0 * np.sqrt(2.0))))))
+                # bound < sqrt(mu (1 - mu)), so the Beta is always valid.
+                L_raw_sigma_safe = L_raw_sigma
+            else:
+                L_raw_sigma = pm.HalfNormal(
+                    "L_raw_sigma", sigma=sd0, dims=None if joint else "benchmark",
+                )
+                # Clamp sigma so that Beta(mu, sigma) stays valid: sigma < sqrt(mu*(1-mu)).
+                L_raw_sigma_safe = pm.math.minimum(
+                    L_raw_sigma, pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4)
             L_raw = pm.Beta(
                 "L_raw",
                 mu=L_raw_mu,
