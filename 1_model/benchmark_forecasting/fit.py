@@ -43,10 +43,10 @@ def fit(
     ----------
     cache_tag : optional label appended to the slug for the NetCDF filename.
         The name always ends with ``_d<hash>``, a fingerprint of the fitted data, and carries
-        the sampling settings that differ from the defaults (``_ta99`` for the acceptance
+        the sampling settings that differ from the defaults (``_ta95`` for the acceptance
         target, ``_n<draws>t<tune>``, ``_s<seed>`` and ``_nutpie`` for any sampler but PyMC's),
         so a cache is only reused for the same data, model and sampling:
-        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta99][_n..t..][_s..][_nutpie]_d{hash}.nc``.
+        ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95][_n..t..][_s..][_nutpie]_d{hash}.nc``.
     use_cache : if *True* (default), load from ``fits_dir`` if the file exists,
         and save there after sampling.  Set to *False* to force re-fitting.
     fits_dir : the cache folder, normally the run's ``3_outputs/<cutoff>/fits/``

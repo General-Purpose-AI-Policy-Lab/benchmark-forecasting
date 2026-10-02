@@ -206,9 +206,10 @@ SAMPLING_CONFIG = SamplingConfig(draws=2000, tune=1000, target_accept=0.9, seed=
                                  progressbar=True)
 # The independent variants give each benchmark its own asymptote prior. Its marginal (the
 # hyperpriors integrated out) keeps some mass right against 1 for a benchmark whose data do not
-# bound the asymptote from above, and NUTS diverges there on 4 to 15 % of draws at 0.95. They
-# are sampled with a tighter target; `_ta99` in the cache name.
-SAMPLING_CONFIG_INDEPENDENT = SamplingConfig(draws=2000, tune=1000, target_accept=0.99, seed=42,
+# bound the asymptote from above, and NUTS diverges there on 4 to 15 % of draws. They are
+# sampled at 0.95 (`_ta95` in the cache name). 0.99 is worse: on 2026-10-02 nutpie's adaptation
+# drove one Harvey chain's step size to zero and the trees to the depth limit (r-hat 1.58).
+SAMPLING_CONFIG_INDEPENDENT = SamplingConfig(draws=2000, tune=1000, target_accept=0.95, seed=42,
                                              progressbar=True)
 
 
