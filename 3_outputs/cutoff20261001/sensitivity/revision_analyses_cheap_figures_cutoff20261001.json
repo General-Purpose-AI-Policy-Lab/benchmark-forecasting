@@ -2,7 +2,7 @@
   "saturation_shifts": [
     {
       "variant": "Harvey Joint (skew)",
-      "median_sat_date": "2026-09-04 00:00:00",
+      "median_sat_date": "2026-08-29 00:00:00",
       "mean_shift_months": 0.0,
       "median_shift_months": 0.0,
       "q10_shift_months": 0.0,
@@ -11,78 +11,78 @@
     {
       "variant": "Harvey Joint (normal)",
       "median_sat_date": "2026-12-14 00:00:00",
-      "mean_shift_months": 4.08814524038996,
-      "median_shift_months": 3.4443012921114797,
-      "q10_shift_months": 1.686882714989194,
-      "q90_shift_months": 8.245682377835289
+      "mean_shift_months": 4.11074021241122,
+      "median_shift_months": 3.3584006143931417,
+      "q10_shift_months": 1.7211440809368563,
+      "q90_shift_months": 8.360404719082974
     },
     {
       "variant": "Harvey Independent (skew)",
-      "median_sat_date": "2026-10-25 00:00:00",
-      "mean_shift_months": 3.185686258049573,
-      "median_shift_months": 1.6149000277977352,
-      "q10_shift_months": -0.8510740623801862,
-      "q90_shift_months": 6.846984686030432
+      "median_sat_date": "2026-10-10 00:00:00",
+      "mean_shift_months": 3.1815602968425014,
+      "median_shift_months": 1.8425188611980383,
+      "q10_shift_months": -0.6320279386013781,
+      "q90_shift_months": 7.102454739413328
     },
     {
       "variant": "Harvey Independent (normal)",
-      "median_sat_date": "2027-01-02 00:00:00",
-      "mean_shift_months": 5.793351708548217,
-      "median_shift_months": 4.215026332214175,
-      "q10_shift_months": 1.5861495424817824,
-      "q90_shift_months": 10.995306203730014
+      "median_sat_date": "2027-01-05 00:00:00",
+      "mean_shift_months": 6.134098636782724,
+      "median_shift_months": 4.3863277160231045,
+      "q10_shift_months": 1.6833938506027006,
+      "q90_shift_months": 12.177114476004299
     },
     {
       "variant": "Logistic Joint (skew)",
-      "median_sat_date": "2026-12-22 00:00:00",
-      "mean_shift_months": 3.282389100190979,
-      "median_shift_months": 2.2493120497392916,
-      "q10_shift_months": 0.3739473555549242,
-      "q90_shift_months": 6.3635745279163105
+      "median_sat_date": "2026-12-23 00:00:00",
+      "mean_shift_months": 3.446227709176932,
+      "median_shift_months": 2.6450180127005853,
+      "q10_shift_months": 0.39126202221590106,
+      "q90_shift_months": 6.584824320028602
     },
     {
       "variant": "Logistic Joint (normal)",
-      "median_sat_date": "2027-02-07 00:00:00",
-      "mean_shift_months": 5.56192090258849,
-      "median_shift_months": 4.38870021631725,
-      "q10_shift_months": 1.660905847125335,
-      "q90_shift_months": 12.243648203115916
+      "median_sat_date": "2027-02-09 00:00:00",
+      "mean_shift_months": 5.648497088132737,
+      "median_shift_months": 4.137931992768729,
+      "q10_shift_months": 1.752191381142468,
+      "q90_shift_months": 12.387404107239526
     },
     {
       "variant": "Logistic Independent (skew)",
-      "median_sat_date": "2026-11-23 00:00:00",
-      "mean_shift_months": 5.812883203038536,
-      "median_shift_months": 2.3645167524823525,
-      "q10_shift_months": -0.9249002026477449,
-      "q90_shift_months": 11.773249442999157
+      "median_sat_date": "2026-12-05 00:00:00",
+      "mean_shift_months": 6.186161478355784,
+      "median_shift_months": 3.0792351182583015,
+      "q10_shift_months": -1.4605097124379505,
+      "q90_shift_months": 10.634120023757692
     },
     {
       "variant": "Logistic Independent (normal)",
-      "median_sat_date": "2027-02-06 00:00:00",
-      "mean_shift_months": 6.999594587943239,
-      "median_shift_months": 5.2559927203689245,
-      "q10_shift_months": 1.6903164237857646,
-      "q90_shift_months": 17.143582607385294
+      "median_sat_date": "2027-02-09 00:00:00",
+      "mean_shift_months": 7.421847462682524,
+      "median_shift_months": 5.354047464198257,
+      "q10_shift_months": 1.7601505131878545,
+      "q90_shift_months": 17.012432555423352
     }
   ],
   "saturation_contrasts": {
     "skew to normal": {
-      "mean": 2.540513469547704,
-      "median": 2.3692224186959336,
-      "q10": 0.09289157426705126,
-      "q90": 8.115806689032185
+      "mean": 2.6253084789084964,
+      "median": 2.2500527457665447,
+      "q10": -0.17732184676951898,
+      "q90": 8.251755850221036
     },
     "joint to independent": {
-      "mean": 2.2147651286025334,
-      "median": 0.5923930610071655,
-      "q10": -0.831747371760382,
-      "q90": 4.929808121599805
+      "mean": 2.4295507162356604,
+      "median": 0.7678755362227361,
+      "q10": -0.9272698314393133,
+      "q90": 5.285966897671201
     },
     "Harvey to logistic": {
-      "mean": 2.147401146693373,
-      "median": 0.9314988737219598,
-      "q10": -0.48705689230524074,
-      "q90": 5.215439032689467
+      "mean": 2.319083648077883,
+      "median": 1.1288593618366036,
+      "q10": -0.8604461764530056,
+      "q90": 5.702824459059276
     }
   },
   "category_summary": [
@@ -93,9 +93,9 @@
       "n_baselines": 6,
       "groups": "Domain Expert, High School Top Performer, Skilled Generalist",
       "human_range": "22--90\\%",
-      "sat_median": "2025-11-18 00:00:00",
-      "sat_earliest": "2024-08-04 00:00:00",
-      "sat_latest": "2026-01-30 00:00:00"
+      "sat_median": "2025-11-16 00:00:00",
+      "sat_earliest": "2024-08-03 00:00:00",
+      "sat_latest": "2026-01-27 00:00:00"
     },
     {
       "category": "Cyber",
@@ -104,9 +104,9 @@
       "n_baselines": 0,
       "groups": "",
       "human_range": "---",
-      "sat_median": "2026-08-26 00:00:00",
-      "sat_earliest": "2025-01-23 00:00:00",
-      "sat_latest": "2027-06-08 00:00:00"
+      "sat_median": "2026-08-24 00:00:00",
+      "sat_earliest": "2025-01-22 00:00:00",
+      "sat_latest": "2027-05-28 00:00:00"
     },
     {
       "category": "Trivia & Commonsense QA",
@@ -116,8 +116,8 @@
       "groups": "Average Human, Committee of Average Humans, Committee of Skilled Generalists",
       "human_range": "80--96\\%",
       "sat_median": "2024-03-19 00:00:00",
-      "sat_earliest": "2022-10-08 00:00:00",
-      "sat_latest": "2027-09-16 00:00:00"
+      "sat_earliest": "2022-10-04 00:00:00",
+      "sat_latest": "2027-08-30 00:00:00"
     },
     {
       "category": "Biology",
@@ -126,9 +126,9 @@
       "n_baselines": 11,
       "groups": "Domain Expert, High School Top Performer, Skilled Generalist",
       "human_range": "22--90\\%",
-      "sat_median": "2026-04-01 00:00:00",
-      "sat_earliest": "2024-01-25 00:00:00",
-      "sat_latest": "2027-12-13 00:00:00"
+      "sat_median": "2026-03-26 00:00:00",
+      "sat_earliest": "2024-01-24 00:00:00",
+      "sat_latest": "2027-12-07 00:00:00"
     },
     {
       "category": "Autonomous SWE",
@@ -137,9 +137,9 @@
       "n_baselines": 1,
       "groups": "Committee of Domain Experts",
       "human_range": "83\\%",
-      "sat_median": "2027-01-05 00:00:00",
-      "sat_earliest": "2025-07-14 00:00:00",
-      "sat_latest": "2028-01-15 00:00:00"
+      "sat_median": "2027-01-02 12:00:00",
+      "sat_earliest": "2025-07-13 00:00:00",
+      "sat_latest": "2028-01-14 00:00:00"
     },
     {
       "category": "Core AGI Progress",
@@ -148,9 +148,9 @@
       "n_baselines": 5,
       "groups": "Average Human, Committee of Average Humans, Skilled Generalist",
       "human_range": "60--100\\%",
-      "sat_median": "2026-08-14 00:00:00",
-      "sat_earliest": "2026-01-10 00:00:00",
-      "sat_latest": "2028-02-12 00:00:00"
+      "sat_median": "2026-08-10 00:00:00",
+      "sat_earliest": "2026-01-09 00:00:00",
+      "sat_latest": "2028-02-06 00:00:00"
     },
     {
       "category": "Advanced Language and Writing",
@@ -159,9 +159,9 @@
       "n_baselines": 0,
       "groups": "",
       "human_range": "---",
-      "sat_median": "2027-02-22 00:00:00",
-      "sat_earliest": "2024-11-28 00:00:00",
-      "sat_latest": "2028-02-17 00:00:00"
+      "sat_median": "2027-02-05 00:00:00",
+      "sat_earliest": "2024-11-26 00:00:00",
+      "sat_latest": "2028-02-09 00:00:00"
     },
     {
       "category": "Domain Specific Questions",
@@ -170,9 +170,9 @@
       "n_baselines": 5,
       "groups": "Average Human, Domain Expert, High School Top Performer, Skilled Generalist",
       "human_range": "22--94\\%",
-      "sat_median": "2026-07-09 00:00:00",
-      "sat_earliest": "2023-06-11 00:00:00",
-      "sat_latest": "2028-07-09 00:00:00"
+      "sat_median": "2026-07-07 00:00:00",
+      "sat_earliest": "2023-06-08 00:00:00",
+      "sat_latest": "2028-06-29 00:00:00"
     },
     {
       "category": "Multimodal Understanding",
@@ -181,9 +181,9 @@
       "n_baselines": 4,
       "groups": "Average Human, Skilled Generalist, Top Performer",
       "human_range": "55--100\\%",
-      "sat_median": "2027-05-13 00:00:00",
-      "sat_earliest": "2025-07-15 00:00:00",
-      "sat_latest": "2028-08-31 00:00:00"
+      "sat_median": "2027-05-08 12:00:00",
+      "sat_earliest": "2025-07-08 00:00:00",
+      "sat_latest": "2028-08-19 00:00:00"
     },
     {
       "category": "Mathematics",
@@ -192,9 +192,9 @@
       "n_baselines": 6,
       "groups": "Committee of Domain Experts, Domain Expert, High School Qualifier, High School Top Performer, Skilled Generalist",
       "human_range": "35--97\\%",
-      "sat_median": "2026-08-10 00:00:00",
-      "sat_earliest": "2023-09-16 00:00:00",
-      "sat_latest": "2029-07-01 00:00:00"
+      "sat_median": "2026-08-09 00:00:00",
+      "sat_earliest": "2023-09-12 00:00:00",
+      "sat_latest": "2029-06-11 00:00:00"
     },
     {
       "category": "Agentic Computer Use",
@@ -203,9 +203,9 @@
       "n_baselines": 1,
       "groups": "Skilled Generalist",
       "human_range": "72\\%",
-      "sat_median": "2026-11-29 00:00:00",
-      "sat_earliest": "2026-05-12 00:00:00",
-      "sat_latest": "2029-07-15 00:00:00"
+      "sat_median": "2026-11-23 00:00:00",
+      "sat_earliest": "2026-05-07 00:00:00",
+      "sat_latest": "2029-07-21 00:00:00"
     },
     {
       "category": "General Reasoning",
@@ -214,38 +214,38 @@
       "n_baselines": 4,
       "groups": "Average Human, Top Performer",
       "human_range": "53--100\\%",
-      "sat_median": "2027-08-28 00:00:00",
-      "sat_earliest": "2026-01-19 00:00:00",
-      "sat_latest": "2030-02-06 00:00:00"
+      "sat_median": "2027-08-26 12:00:00",
+      "sat_earliest": "2026-01-18 00:00:00",
+      "sat_latest": "2030-01-26 00:00:00"
     }
   ],
   "L_summary": {
-    "median": 0.9499902267767403,
-    "p10": 0.924387848210228,
+    "median": 0.9473843671096998,
+    "p10": 0.9206136958145141,
     "p90": 1.0,
-    "min": 0.860325851337007,
+    "min": 0.8581762517219047,
     "argmin": "GPQA Main Biology"
   },
   "residual_diagnostics": {
-    "n_pairs": 531,
+    "n_pairs": 530,
     "n_pairs_same_lineage": 21,
-    "mean_corr_same_lineage": 0.4398956775761129,
-    "mean_corr_across_lineage": 0.30730611517087153,
-    "median_corr_same_lineage": 0.48875134711833085,
-    "median_corr_across_lineage": 0.34821052478515446,
-    "r2_model_identity": 0.36164913137889465,
-    "r2_model_identity_adjusted": 0.27038034550788037,
+    "mean_corr_same_lineage": 0.46535672188223853,
+    "mean_corr_across_lineage": 0.3044528209181541,
+    "median_corr_same_lineage": 0.5263107134841501,
+    "median_corr_across_lineage": 0.3489917046127759,
+    "r2_model_identity": 0.3624049512473367,
+    "r2_model_identity_adjusted": 0.271244229397413,
     "n_models_r2": 173,
     "n_obs_r2": 1376,
     "n_models": 375,
-    "per_model_mean_resid_mean": -0.05565083742414324,
-    "per_model_mean_resid_sd": 0.04642727857422658
+    "per_model_mean_resid_mean": -0.05616530761333034,
+    "per_model_mean_resid_sd": 0.046366760512819766
   },
   "lineage_collapsed_saturation": {
     "full": {
       "n_benchmarks": 99,
       "median": 0.9797979797979798,
-      "mean": 0.9753005050505049,
+      "mean": 0.9759381313131313,
       "ci": [
         0.9595959595959596,
         0.98989898989899
@@ -255,7 +255,7 @@
     "collapsed": {
       "n_benchmarks": 79,
       "median": 0.9746835443037974,
-      "mean": 0.9729161392405062,
+      "mean": 0.973632911392405,
       "ci": [
         0.9493670886075949,
         0.9873417721518988
@@ -433,6 +433,7 @@
       "CadEval": 0.12,
       "GDPval": 0.12349,
       "ExploitBench": 0.1292682926829268,
+      "CyberGym": 0.145,
       "Visual Task Assessment (VISTA)": 0.1518,
       "Surface Evolver Bench": 0.15625,
       "SWE Atlas": 0.1614,
@@ -451,7 +452,6 @@
       "MultiChallenge": 0.3635,
       "MCP Atlas": 0.402,
       "AISI CTF Suites - Practitioner": 0.414809774415946,
-      "CyberGym": 0.4578947368421053,
       "Lech Mazur Writing": 0.605
     }
   }
