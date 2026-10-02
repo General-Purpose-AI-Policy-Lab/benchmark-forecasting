@@ -86,6 +86,11 @@ class ModelConfig:
     # benchmarks (population mean 0.83 instead of 0.95 on the September 2026 data).
     L_floor_renormalised: bool = False
     L_fixed_from_ceiling: bool = True
+    # Keep the Beta of L at b >= 1 by bounding its sd (model.L_raw_sigma_b1): below 1 the
+    # density spikes at L = 1, and the hierarchy put 17 % of its prior there (P(L > 0.999) =
+    # 5 %), 26 % of the joint posterior too. A benchmark whose asymptote is known to be 1 is
+    # pinned instead (L_fixed_from_ceiling, or a score of 1). User decision, 2026-10-02.
+    L_beta_b_min1: bool = True
     # A tuple of pairs rather than a dict so the frozen dataclass stays hashable. Benchmarks
     # absent from the fitted data (e.g. in a retrodiction subset) are ignored.
     L_fixed: tuple[tuple[str, float], ...] = ()
@@ -118,6 +123,8 @@ class ModelConfig:
             parts.append("Ltrunc")
         if self.L_fixed_from_ceiling:
             parts.append("Lceil")
+        if self.L_beta_b_min1:
+            parts.append("Lb1")
         if self.hyper_marginalised and not self.joint:
             parts.append("marg")
         if self.L_fixed:

@@ -83,9 +83,11 @@ def _table(logit: bool, x_lo: float, x_hi: float, **kw) -> LogDensityTable:
     return LogDensityTable(float(y[0]), float(y[1] - y[0]), f, np.gradient(f, y))
 
 
-def _beta_child(clamp):
+def _beta_child(clamp, b_min1=False):
     def lp(x, mu, sig):
         s = np.minimum(sig, np.sqrt(mu * (1 - mu)) - 1e-4) if clamp else sig
+        if b_min1:
+            s = np.minimum(s, (1 - mu) * np.sqrt(mu / (2 - mu)) * (1 - 1e-6))
         a, b = _beta_ms(mu, s)
         return stats.beta.logpdf(x, a, b)
     return lp
@@ -105,13 +107,14 @@ def _gamma_mu(mean, sd):
 
 
 @cache
-def L_raw_table(mu_raw: float, sd_raw: float) -> LogDensityTable:
+def L_raw_table(mu_raw: float, sd_raw: float, b_min1: bool = False) -> LogDensityTable:
     """L_raw ~ Beta(L_raw_mu, min(L_raw_sigma, sqrt(mu(1-mu)) - 1e-4)),
-    L_raw_mu ~ Beta(mu_raw, sd_raw), L_raw_sigma ~ HalfNormal(sd_raw)."""
+    L_raw_mu ~ Beta(mu_raw, sd_raw), L_raw_sigma ~ HalfNormal(sd_raw); with `b_min1` the sd is
+    also kept where the Beta's b stays >= 1 (model.L_raw_sigma_b1)."""
     a, b = _beta_ms(mu_raw, sd_raw)
     return _table(True, 1e-14, 1 - 1e-14, sigma_scale=sd_raw,
                   mu_logpdf=lambda mu: stats.beta.logpdf(mu, a, b), mu_lo=0.0, mu_hi=1.0,
-                  child_logpdf=_beta_child(clamp=True))
+                  child_logpdf=_beta_child(clamp=True, b_min1=b_min1))
 
 
 @cache

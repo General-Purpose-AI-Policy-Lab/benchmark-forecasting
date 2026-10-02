@@ -97,8 +97,9 @@ def test_asymptote_bounds_switches_and_manual_pins():
 
 
 def test_slug_names_the_asymptote_rules():
-    assert config.ModelConfig().slug == "harvey_joint_skew_Lobs_Lceil"
-    plain = config.ModelConfig(L_floor_observed=False, L_fixed_from_ceiling=False)
+    assert config.ModelConfig().slug == "harvey_joint_skew_Lobs_Lceil_Lb1"
+    plain = config.ModelConfig(L_floor_observed=False, L_fixed_from_ceiling=False,
+                               L_beta_b_min1=False)
     assert plain.slug == "harvey_joint_skew"
 
 

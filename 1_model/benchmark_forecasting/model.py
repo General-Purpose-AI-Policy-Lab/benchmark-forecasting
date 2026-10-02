@@ -54,6 +54,13 @@ def sampler_initvals(prepared: pd.DataFrame, cfg: ModelConfig) -> dict[str, np.n
     return init
 
 
+def L_raw_sigma_b1(mu):
+    """The largest sd of a Beta of mean `mu` whose b = (1 - mu) kappa stays >= 1 (a hair below,
+    so rounding cannot cross it): kappa = mu (1 - mu) / sd^2 - 1 >= 1 / (1 - mu), i.e.
+    sd <= (1 - mu) sqrt(mu / (2 - mu)). Works on numpy arrays and pytensor tensors."""
+    return (1 - mu) * (mu / (2 - mu)) ** 0.5 * (1 - 1e-6)
+
+
 def marginalised(cfg: ModelConfig) -> bool:
     """Whether build_model integrates the per-benchmark hyperpriors out (independent only)."""
     return cfg.hyper_marginalised and not cfg.joint
@@ -125,7 +132,8 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
             # marginal of the floored Beta; the uniform only supplies the [floor, 1] interval.
             L_raw = pm.Uniform("L_raw", lower=floor_raw, upper=1.0, dims="benchmark")
             pm.Potential("L_raw_prior", pt.sum(hermite_logp(
-                pt.log(L_raw) - pt.log1p(-L_raw), L_raw_table(_mu_raw, _sd_raw))))
+                pt.log(L_raw) - pt.log1p(-L_raw),
+                L_raw_table(_mu_raw, _sd_raw, b_min1=cfg.L_beta_b_min1))))
         else:
             L_raw_mu = pm.Beta(
                 "L_raw_mu",
@@ -139,10 +147,11 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
                 dims=None if joint else "benchmark",
             )
             # Clamp sigma so that Beta(mu, sigma) parameters stay valid: sigma < sqrt(mu*(1-mu)).
-            L_raw_sigma_safe = pm.math.minimum(
-                L_raw_sigma,
-                pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
-            )
+            sigma_max = pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4
+            if cfg.L_beta_b_min1:
+                # and so that b >= 1: no density spike at L = 1 (see config.L_beta_b_min1).
+                sigma_max = pm.math.minimum(sigma_max, L_raw_sigma_b1(L_raw_mu))
+            L_raw_sigma_safe = pm.math.minimum(L_raw_sigma, sigma_max)
             L_raw = pm.Beta(
                 "L_raw",
                 mu=L_raw_mu,
