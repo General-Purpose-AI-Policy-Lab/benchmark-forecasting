@@ -122,3 +122,38 @@ def test_temporal_holdout_files_its_cache_under_the_run_folder(tmp_path):
     names = sorted(p.name for p in fits.iterdir())
     assert names and all(f"retro_{cutoff:%Y%m%d}_min2" in n for n in names), names
     assert "predictions" in idata.groups()
+
+
+def test_marginal_priors_keep_the_hierarchical_means():
+    """The independent model's marginalised priors (marginal.py) integrate to one and keep the
+    mean the hierarchy implies: E[child] = E[hyper-mean] when no clamp binds."""
+    from scipy import special
+
+    from benchmark_forecasting import marginal
+    from benchmark_forecasting.model import K_TABLE
+
+    for tab, mean, logit in ((marginal.gamma_table(**K_TABLE), 0.005, False),
+                             (marginal.L_raw_table(0.84, 0.08), 0.84, True)):
+        y = tab.y0 + tab.h * np.arange(tab.f.size)
+        x = special.expit(y) if logit else np.exp(y)
+        py = np.exp(tab.f) * (x * (1 - x) if logit else x)
+        mass = np.trapezoid(py, y)
+        assert 0.99 < mass <= 1.001
+        assert abs(np.trapezoid(py * x, y) / mass - mean) < 0.01 * mean
+
+
+def test_the_marginalised_independent_model_has_no_per_benchmark_hyperpriors():
+    from dataclasses import replace
+
+    prepared = prepare_dataset(_raw(), top_n=3)
+    cfg = replace(config.ModelConfig(joint=False), hyper_marginalised=True)
+    assert cfg.slug.endswith("_marg")
+    model = build_model(prepared, cfg)
+    names = {v.name for v in model.free_RVs}
+    assert names == {"L_raw", "tau", "k", "alpha_raw", "xi_base", "s_neg"}
+    point = model.initial_point()
+    init = sampler_initvals(prepared, cfg)
+    assert set(init) == {"L_raw", "k", "xi_base", "alpha_raw", "s_neg"}
+    assert np.isfinite(model.compile_logp()(point))
+    # the joint model ignores the flag
+    assert replace(config.ModelConfig(), hyper_marginalised=True).slug == config.ModelConfig().slug

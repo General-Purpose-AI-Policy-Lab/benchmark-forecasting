@@ -8,6 +8,21 @@ from pymc.distributions.transforms import Interval
 
 from benchmark_forecasting.config import ModelConfig
 from benchmark_forecasting.data import _ensure_constant_per_benchmark, asymptote_bounds
+from benchmark_forecasting.marginal import (
+    L_raw_table,
+    gamma_table,
+    hermite_logp,
+    neg_skew_table,
+)
+
+# The marginal priors of an independent model with its hyperpriors integrated out
+# (cfg.hyper_marginalised): the tables, keyed on the hyperprior constants of build_model.
+K_TABLE = dict(mean=0.005, sd=0.002, sigma_scale=0.005, clamp=False, x_lo=1e-30, x_hi=0.2)
+ALPHA_TABLE = dict(mean=1.5, sd=0.5, sigma_scale=0.5, clamp=False, x_lo=1e-4, x_hi=30.0)
+
+
+def _xi_table(top_n: int) -> dict:
+    return dict(mean=0.05 + top_n / 50, sd=0.02, sigma_scale=0.05, clamp=True, x_lo=1e-5, x_hi=2.0)
 
 
 def sampler_initvals(prepared: pd.DataFrame, cfg: ModelConfig) -> dict[str, np.ndarray]:
@@ -23,7 +38,25 @@ def sampler_initvals(prepared: pd.DataFrame, cfg: ModelConfig) -> dict[str, np.n
     )
     floor_raw = np.where(bounds["L_fixed"].notna().to_numpy(), 0.0, floor_raw)
     mu_raw = (cfg.L_prior_mu - cfg.L_min) / (1.0 - cfg.L_min)
-    return {"L_raw": np.where(mu_raw > floor_raw, mu_raw, (floor_raw + 1.0) / 2.0)}
+    init = {"L_raw": np.where(mu_raw > floor_raw, mu_raw, (floor_raw + 1.0) / 2.0)}
+    if marginalised(cfg):
+        # The flat variables carrying the marginal priors start where the hierarchical model
+        # starts: k, xi and alpha at their hyperprior means, s at -1 (its truncated normal's
+        # starting point). At s = -3.5 the numba gradient of the skew-normal likelihood was NaN
+        # on MMLU at the start (log Phi of a very negative argument), and nutpie refused it.
+        n = len(floor_raw)
+        init["k"] = np.full(n, K_TABLE["mean"])
+        init["xi_base"] = np.full(n, _xi_table(cfg.top_n)["mean"])
+        if cfg.sigmoid == "harvey":
+            init["alpha_raw"] = np.full(n, ALPHA_TABLE["mean"])
+        if cfg.skew:
+            init["s_neg"] = np.full(n, 1.0)
+    return init
+
+
+def marginalised(cfg: ModelConfig) -> bool:
+    """Whether build_model integrates the per-benchmark hyperpriors out (independent only)."""
+    return cfg.hyper_marginalised and not cfg.joint
 
 
 def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
@@ -52,6 +85,9 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
 
     joint = cfg.joint
     top_n = cfg.top_n
+    marg = marginalised(cfg)
+    if marg and cfg.L_floor_renormalised:
+        raise ValueError("hyper_marginalised does not implement L_floor_renormalised")
 
     with pm.Model(coords=coords) as model:
         # Upper asymptote L: scaled Beta
@@ -75,23 +111,6 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
                 f"hyperprior on L_raw_mu requires L_prior_sd < {_sd_max * L_range:.4f}."
             )
 
-        L_raw_mu = pm.Beta(
-            "L_raw_mu",
-            mu=(cfg.L_prior_mu - L_min) / L_range,
-            sigma=cfg.L_prior_sd / L_range,
-            dims=None if joint else "benchmark",
-        )
-        L_raw_sigma = pm.HalfNormal(
-            "L_raw_sigma",
-            sigma=cfg.L_prior_sd / L_range,
-            dims=None if joint else "benchmark",
-        )
-        # Clamp sigma so that Beta(mu, sigma) parameters stay valid: sigma < sqrt(mu*(1-mu)).
-        L_raw_sigma_safe = pm.math.minimum(
-            L_raw_sigma,
-            pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
-        )
-
         # Floored Beta: the population Beta on [L_min, 1], restricted per benchmark to [floor, 1]
         # by an Interval transform.  By default the density is not renormalised, so the shared
         # parameters keep describing the asymptotes themselves; cfg.L_floor_renormalised adds the
@@ -101,15 +120,38 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
         is_fixed = bounds["L_fixed"].notna().to_numpy()
         floor_raw = (bounds["L_floor"].to_numpy(dtype=float) - L_min) / L_range
         floor_raw = np.where(is_fixed, 0.0, np.clip(floor_raw, 0.0, 1.0 - 1e-6))
-        L_raw = pm.Beta(
-            "L_raw",
-            mu=L_raw_mu,
-            sigma=L_raw_sigma_safe,
-            dims="benchmark",
-            default_transform=Interval(
-                bounds_fn=lambda *_: (pt.constant(floor_raw), pt.constant(1.0))
-            ),
-        )
+        if marg:
+            # Independent model, hyperpriors integrated out (marginal.py): L_raw carries the
+            # marginal of the floored Beta; the uniform only supplies the [floor, 1] interval.
+            L_raw = pm.Uniform("L_raw", lower=floor_raw, upper=1.0, dims="benchmark")
+            pm.Potential("L_raw_prior", pt.sum(hermite_logp(
+                pt.log(L_raw) - pt.log1p(-L_raw), L_raw_table(_mu_raw, _sd_raw))))
+        else:
+            L_raw_mu = pm.Beta(
+                "L_raw_mu",
+                mu=(cfg.L_prior_mu - L_min) / L_range,
+                sigma=cfg.L_prior_sd / L_range,
+                dims=None if joint else "benchmark",
+            )
+            L_raw_sigma = pm.HalfNormal(
+                "L_raw_sigma",
+                sigma=cfg.L_prior_sd / L_range,
+                dims=None if joint else "benchmark",
+            )
+            # Clamp sigma so that Beta(mu, sigma) parameters stay valid: sigma < sqrt(mu*(1-mu)).
+            L_raw_sigma_safe = pm.math.minimum(
+                L_raw_sigma,
+                pm.math.sqrt(L_raw_mu * (1 - L_raw_mu)) - 1e-4,
+            )
+            L_raw = pm.Beta(
+                "L_raw",
+                mu=L_raw_mu,
+                sigma=L_raw_sigma_safe,
+                dims="benchmark",
+                default_transform=Interval(
+                    bounds_fn=lambda *_: (pt.constant(floor_raw), pt.constant(1.0))
+                ),
+            )
         floored = np.flatnonzero(floor_raw > 0)
         if cfg.L_floor_renormalised and floored.size:
             kappa = L_raw_mu * (1 - L_raw_mu) / L_raw_sigma_safe**2 - 1
@@ -142,9 +184,13 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
         idx = pm.Data("idx_obs", d["benchmark_idx"].to_numpy(), dims="obs")
 
         # Growth rate
-        k_mu = pm.Gamma("k_mu", mu=0.005, sigma=0.002, dims=None if joint else "benchmark")
-        k_sigma = pm.HalfNormal("k_sigma", sigma=0.005, dims=None if joint else "benchmark")
-        k = pm.Gamma("k", mu=k_mu, sigma=k_sigma, dims="benchmark")
+        if marg:
+            k = pm.HalfFlat("k", dims="benchmark")
+            pm.Potential("k_prior", pt.sum(hermite_logp(pt.log(k), gamma_table(**K_TABLE))))
+        else:
+            k_mu = pm.Gamma("k_mu", mu=0.005, sigma=0.002, dims=None if joint else "benchmark")
+            k_sigma = pm.HalfNormal("k_sigma", sigma=0.005, dims=None if joint else "benchmark")
+            k = pm.Gamma("k", mu=k_mu, sigma=k_sigma, dims="benchmark")
 
         logits = k[idx] * (t - tau[idx])
 
@@ -152,15 +198,20 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
         if cfg.sigmoid == "logistic":
             sigmoid = pm.math.sigmoid(logits)
         elif cfg.sigmoid == "harvey":
-            alpha_raw_mu = pm.Gamma(
-                "alpha_raw_mu", mu=1.5, sigma=0.5, dims=None if joint else "benchmark"
-            )
-            alpha_raw_sigma = pm.HalfNormal(
-                "alpha_raw_sigma", sigma=0.5, dims=None if joint else "benchmark"
-            )
-            alpha_raw = pm.Gamma(
-                "alpha_raw", mu=alpha_raw_mu, sigma=alpha_raw_sigma, dims="benchmark"
-            )
+            if marg:
+                alpha_raw = pm.HalfFlat("alpha_raw", dims="benchmark")
+                pm.Potential("alpha_raw_prior", pt.sum(hermite_logp(
+                    pt.log(alpha_raw), gamma_table(**ALPHA_TABLE))))
+            else:
+                alpha_raw_mu = pm.Gamma(
+                    "alpha_raw_mu", mu=1.5, sigma=0.5, dims=None if joint else "benchmark"
+                )
+                alpha_raw_sigma = pm.HalfNormal(
+                    "alpha_raw_sigma", sigma=0.5, dims=None if joint else "benchmark"
+                )
+                alpha_raw = pm.Gamma(
+                    "alpha_raw", mu=alpha_raw_mu, sigma=alpha_raw_sigma, dims="benchmark"
+                )
             alpha = pm.Deterministic("alpha", alpha_raw + 1.0, dims="benchmark")
 
             base = pm.math.maximum(1 - (1 - alpha[idx]) * pm.math.exp(-logits), 1e-10)
@@ -171,18 +222,25 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
         mu = pm.Deterministic("mu", lower[idx] + (L[idx] - lower[idx]) * sigmoid, dims="obs")
 
         # Heteroscedastic noise: increases away from bounds
-        xi_base_mu = pm.Gamma(
-            "xi_base_mu",
-            mu=0.05 + top_n / 50,
-            sigma=0.02,
-            dims=None if joint else "benchmark",
-        )
-        xi_base_sigma = pm.HalfNormal(
-            "xi_base_sigma", sigma=0.05, dims=None if joint else "benchmark"
-        )
-        # Clamp sigma so that Gamma(mu, sigma) stays valid (alpha = (mu/sigma)^2 > 0).
-        xi_base_sigma_safe = pm.math.minimum(xi_base_sigma, xi_base_mu - 1e-6)
-        xi_base = pm.Gamma("xi_base", mu=xi_base_mu, sigma=xi_base_sigma_safe, dims="benchmark")
+        if marg:
+            xi_base = pm.HalfFlat("xi_base", dims="benchmark")
+            pm.Potential("xi_base_prior", pt.sum(hermite_logp(
+                pt.log(xi_base), gamma_table(**_xi_table(top_n)))))
+        else:
+            xi_base_mu = pm.Gamma(
+                "xi_base_mu",
+                mu=0.05 + top_n / 50,
+                sigma=0.02,
+                dims=None if joint else "benchmark",
+            )
+            xi_base_sigma = pm.HalfNormal(
+                "xi_base_sigma", sigma=0.05, dims=None if joint else "benchmark"
+            )
+            # Clamp sigma so that Gamma(mu, sigma) stays valid (alpha = (mu/sigma)^2 > 0).
+            xi_base_sigma_safe = pm.math.minimum(xi_base_sigma, xi_base_mu - 1e-6)
+            xi_base = pm.Gamma(
+                "xi_base", mu=xi_base_mu, sigma=xi_base_sigma_safe, dims="benchmark"
+            )
 
         variance_shape = pm.math.sqrt(pm.math.maximum((mu - lower[idx]) * (L[idx] - mu), 0.0))
         max_variance = (L[idx] - lower[idx]) / 2.0
@@ -192,11 +250,19 @@ def build_model(prepared: pd.DataFrame, cfg: ModelConfig) -> pm.Model:
 
         if cfg.skew:
             # Skewness (negative values = scores below latent curve)
-            s_mu = pm.Normal(
-                "s_mu", mu=-2 - top_n / 2, sigma=0.5, dims=None if joint else "benchmark"
-            )
-            s_sigma = pm.HalfNormal("s_sigma", sigma=1.0, dims=None if joint else "benchmark")
-            s = pm.TruncatedNormal("s", mu=s_mu, sigma=s_sigma, upper=0, dims="benchmark")
+            if marg:
+                s_neg = pm.HalfFlat("s_neg", dims="benchmark")
+                pm.Potential("s_prior", pt.sum(hermite_logp(
+                    pt.log(s_neg), neg_skew_table(-2 - top_n / 2, 0.5, 1.0))))
+                s = pm.Deterministic("s", -s_neg, dims="benchmark")
+            else:
+                s_mu = pm.Normal(
+                    "s_mu", mu=-2 - top_n / 2, sigma=0.5, dims=None if joint else "benchmark"
+                )
+                s_sigma = pm.HalfNormal(
+                    "s_sigma", sigma=1.0, dims=None if joint else "benchmark"
+                )
+                s = pm.TruncatedNormal("s", mu=s_mu, sigma=s_sigma, upper=0, dims="benchmark")
 
             pm.SkewNormal(
                 "y",

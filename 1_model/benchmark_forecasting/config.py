@@ -89,6 +89,10 @@ class ModelConfig:
     # A tuple of pairs rather than a dict so the frozen dataclass stays hashable. Benchmarks
     # absent from the fitted data (e.g. in a retrodiction subset) are ignored.
     L_fixed: tuple[tuple[str, float], ...] = ()
+    # Independent model only: integrate each benchmark's own hyperpriors out (marginal.py)
+    # instead of sampling them. Same model for every other quantity; the hyperparameters have
+    # one member each and stay at their prior, and their geometry kept NUTS at the depth limit.
+    hyper_marginalised: bool = False
 
     @property
     def slug(self) -> str:
@@ -112,6 +116,8 @@ class ModelConfig:
             parts.append("Ltrunc")
         if self.L_fixed_from_ceiling:
             parts.append("Lceil")
+        if self.hyper_marginalised and not self.joint:
+            parts.append("marg")
         if self.L_fixed:
             # Count plus a short digest of the (benchmark, value) pairs, so two different pinned
             # sets never share a cache file.
