@@ -638,8 +638,8 @@ if "retro" in STAGES:
         lines.append(
             f"{r['cutoff'][:7]} & {r['horizon_years']:.1f} yr & {int(r['n_benchmarks'])} & "
             f"{int(r['n_train'])} & {int(r['n_test'])} & {r['crps']:.3f} & {r['rmse']:.3f} & "
-            f"{r['coverage80'] * 100:.1f}\\% & {r['frac_above_interval'] * 100:.1f}\\% & "
-            f"{r['frac_below_interval'] * 100:.1f}\\% \\\\"
+            f"{r['coverage80'] * 100:.1f}\\% & {round(r['frac_above_interval'] * r['n_test'])} & "
+            f"{round(r['frac_below_interval'] * r['n_test'])} \\\\"
         )
     lines += [
         r"\bottomrule", r"\end{tabular}",
@@ -648,9 +648,9 @@ if "retro" in STAGES:
         rf"predicts every score observed between the cutoff and {DATA_CUTOFF_DATE:%B %Y}. The retrospective filter keeps "
         rf"only benchmarks with at least {MIN_TRAIN_POINTS} pre-cutoff frontier observations, which is why the earlier "
         r"cutoffs cover far fewer benchmarks: at the 2023 cutoff only the commonsense and "
-        r"early question-answering sets and GSM8K existed. Nominal coverage is 80\%; the last two columns split the "
-        r"remaining observations into those falling above the upper bound of the 80\% credible interval and "
-        r"those falling below its lower bound, so a large asymmetry means the model erred in one "
+        r"early question-answering sets and GSM8K existed. Nominal coverage is 80\%; the last two columns count the held-out "
+        r"observations falling above the upper bound of the 80\% credible interval and those falling below "
+        r"its lower bound, so a large asymmetry over many observations means the model erred in one "
         r"direction.}}",
         r"\label{tab:retro_horizons}", r"\end{table}",
     ]
