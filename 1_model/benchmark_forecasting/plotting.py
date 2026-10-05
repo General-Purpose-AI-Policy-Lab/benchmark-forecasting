@@ -792,6 +792,7 @@ def plot_L_intervals(
     ci_level: float = 0.80,
     plot_style: PlotStyle = DEFAULT_STYLE,
     n_columns: int = 1,
+    x_min: float = 0.75,
 ) -> tuple[Figure, np.ndarray]:
     """Forest plot of the per-benchmark upper asymptote $L$.
 
@@ -801,7 +802,9 @@ def plot_L_intervals(
 
     `n_columns` splits the ranking into side-by-side panels that read top to bottom, then
     left to right, on a shared axis: one panel per ~100 benchmarks is taller than a page.
-    Returns the figure and the array of panel axes.
+    The axis starts at `x_min`, the floor of the asymptote's prior, so the intervals are not
+    squeezed against 100%; a best score below it is drawn as an arrow at the left edge with
+    its value. Returns the figure and the array of panel axes.
     """
     if "L" not in idata.posterior:
         raise ValueError("Requires the deterministic 'L' in idata.posterior.")
@@ -839,36 +842,50 @@ def plot_L_intervals(
         # y = 0 at the bottom, so the chunk is drawn in ascending order of median.
         idx = chunk[::-1]
         y = np.arange(len(idx))
+        # Every other row shaded, so a name can be followed to its interval across the panel.
+        for row in y[::2]:
+            ax.axhspan(row - 0.5, row + 0.5, color=plot_style.grid_color, alpha=0.07, lw=0,
+                       zorder=0)
         ax.hlines(
             y,
             lower[idx],
             upper[idx],
             color=plot_style.palette[2],
-            linewidth=1.6,
+            linewidth=2.4,
             alpha=0.9,
             zorder=2,
+            label=f"{int(ci_level * 100)}% CI" if plot_style.language == "en"
+            else f"IC {int(ci_level * 100)} %",
         )
         ax.scatter(
             median[idx],
             y,
-            s=14,
+            s=20,
             color=plot_style.base_color,
             zorder=3,
             label="Posterior median" if plot_style.language == "en" else "Médiane a posteriori",
         )
         if best_observed is not None:
+            best = best_observed[idx]
+            inside = best >= x_min
             ax.scatter(
-                best_observed[idx],
-                y,
-                s=16,
+                best[inside],
+                y[inside],
+                s=60,
                 marker="|",
-                linewidths=1.6,
+                linewidths=2.0,
                 color=plot_style.accent_color,
                 zorder=4,
                 label="Best score observed"
                 if plot_style.language == "en"
                 else "Meilleur score observé",
             )
+            # Below the axis: an arrow at the left edge, with the score written next to it.
+            for yy, b in zip(y[~inside], best[~inside], strict=True):
+                ax.scatter(x_min + 0.004, yy, s=22, marker="<", color=plot_style.accent_color,
+                           zorder=4, clip_on=False)
+                ax.text(x_min + 0.010, yy, f"{b * 100:.0f}%", va="center", ha="left",
+                        fontsize=6 * plot_style.scale, color=plot_style.accent_color, zorder=4)
 
         ax.set_yticks(y)
         ax.set_yticklabels(
@@ -878,7 +895,10 @@ def plot_L_intervals(
         # Same row pitch in every panel, the shorter one leaving its gap at the bottom.
         ax.set_ylim(len(idx) - n_rows - 1, len(idx))
 
+        ax.set_xlim(x_min, 1.005)
+        ax.set_xticks([t for t in (0.8, 0.9, 1.0) if t > x_min])
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
+        ax.tick_params(axis="x", labelsize=plot_style.tick_labelsize)
         ax.grid(True, axis="x")
         ax.grid(False, axis="y")
         for side in ("top", "right", "left"):
@@ -887,7 +907,7 @@ def plot_L_intervals(
 
     xlabel = "Asymptote supérieure $L$" if plot_style.language == "fr" else "Upper asymptote $L$"
     if n_columns == 1:
-        axes[0].set_xlabel(xlabel)
+        axes[0].set_xlabel(xlabel, fontsize=9 * plot_style.scale)
         axes[0].legend(loc="lower left", fontsize=8 * plot_style.scale)
         fig.tight_layout()
     else:
@@ -895,7 +915,7 @@ def plot_L_intervals(
         # legend would sit on its lowest rows.
         handles, labels = axes[0].get_legend_handles_labels()
         fig.tight_layout(rect=(0, 0.06, 1, 1))
-        fig.supxlabel(xlabel, y=0.03)
+        fig.supxlabel(xlabel, y=0.03, fontsize=9 * plot_style.scale)
         fig.legend(handles, labels, loc="lower center", ncol=len(labels),
                    fontsize=8 * plot_style.scale, frameon=False, bbox_to_anchor=(0.5, -0.01))
     return fig, axes
@@ -1101,7 +1121,7 @@ def plot_hyperparameters(
     ylabel = "Probability density" if plot_style.language == "en" else "Densité de probabilité"
 
     for ax, (title, draws, ref_label) in zip(axes_flat, panels, strict=False):
-        ax.hist(
+        heights, edges, _ = ax.hist(
             draws,
             bins=50,
             density=True,
@@ -1111,8 +1131,11 @@ def plot_hyperparameters(
             linewidth=0.4,
         )
         median = float(np.median(draws))
-        ax.axvline(
+        # Stops just above the bars, leaving the headroom above them to the legend.
+        ax.vlines(
             median,
+            0.0,
+            1.08 * heights.max(),
             color=plot_style.accent_color,
             linewidth=2.0,
             label=f"{median:.3g}",
@@ -1132,7 +1155,23 @@ def plot_hyperparameters(
         ax.grid(True, axis="x")
         for side in ("top", "right", "left"):
             ax.spines[side].set_visible(False)
-        ax.legend(fontsize=7.5 * plot_style.scale, loc="upper right")
+        # The legend goes in the upper corner over the emptier side of the histogram, above the
+        # bars: headroom is added to the y-axis so that it never sits on the peak.
+        x0, x1 = ax.get_xlim()
+        centres = 0.5 * (edges[:-1] + edges[1:])
+        side = 0.4 * (x1 - x0)
+        left = heights[centres <= x0 + side].max(initial=0.0)
+        right = heights[centres >= x1 - side].max(initial=0.0)
+        if ref_label is not None:
+            # The dashed reference line runs the full height: keep the legend off its side.
+            if ref_value <= x0 + side:
+                left = np.inf
+            elif ref_value >= x1 - side:
+                right = np.inf
+        n_entries = 1 if ref_label is None else 2
+        ax.set_ylim(0.0, heights.max() * (1.25 if n_entries == 1 else 1.5))
+        loc = "upper left" if left < right else "upper right"
+        ax.legend(fontsize=7.5 * plot_style.scale, loc=loc)
 
     for ax in axes_flat[len(panels) :]:
         ax.set_visible(False)
