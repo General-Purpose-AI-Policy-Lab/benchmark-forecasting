@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
-  "built_at": "2026-10-01T21:22:39+02:00",
-  "git_commit": "7a1736327aa3441e0154636125b9079596f22290",
+  "built_at": "2026-10-05T14:37:13+02:00",
+  "git_commit": "67a830e5e22bdafc0db2a75a1557fd26cb4f9618",
   "feeds": {
     "0_input/feed/cybench_site/cybench_leaderboard.csv": {
       "byte_size": 1179,
@@ -189,19 +189,21 @@
     "0_input/feed/rand/aliases.csv": "4f341eebe565f13bf09755234ac72913e74804b0bbaad0ef17e596db2d1c00f0",
     "0_input/feed/seal/aliases.csv": "bb58884d8963716a992ff2a6e2b36ac4a499ed2a9a28d62d3fde9fa6743a2a00",
     "0_input/metadata/benchmark_release_dates.csv": "f937ab30fc9709e168b646d1b8b5d8be6d56fc8ff1af42777bf67d78e1795bb9",
-    "0_input/metadata/benchmarks.csv": "6d49bbef148875b389f922fdd6db588a0b090ea45a1affb69eb5251c8aa75fcb",
+    "0_input/metadata/benchmarks.csv": "482887a8097e15aef6e8f4b431d693d5cda55f0dfa4870d77f37bcb3488a03b8",
     "0_input/metadata/human_baselines.csv": "52bb5c744f256314e5b2dfaceb840b2d36e87720ce3dd145c1f5b05b0ee8de25",
     "0_input/metadata/organizations.csv": "da584c605aeabfa17a11a2a32f396f2ac86a1a92c5ef4e5d8f1a3f71d11695d5",
     "0_input/metadata/release_dates.csv": "8597567782873c20d261f09e0200dfd46afde71a7bf95caf5cabf262964b9c4e",
-    "0_input/metadata/score_corrections.csv": "7edb1be35c7ec49d50356f3d04c184408ba61ae9e9b4c2300695855cf4b0146b",
+    "0_input/metadata/score_corrections.csv": "1b26d1210c06316b7a88922d677db62b241f10243e7792167e5ea3a32e092f0d",
+    "0_input/metadata/score_drop_rules.csv": "84205f6316431f6d354d6fd482fb7da33d9f463ac54f57bec609b1cf5f4aca50",
+    "0_input/metadata/score_variant_fixes.csv": "fdc2cc57dbe4fbb77bd1a8ac9d5b46ed4ab23365f961cdd7e5c89d8d80417e4e",
     "0_input/metadata/sibling_merges.csv": "fd85935b300c00a9eae14b6300e9ad0a48d4c25dfc3021a219c4dc2ad4af5bb6"
   },
   "rows": {
-    "models.csv": 912,
-    "benchmarks.csv": 99,
-    "scores.csv": 5587,
+    "models.csv": 950,
+    "benchmarks.csv": 98,
+    "scores.csv": 5213,
     "human_baselines.csv": 48,
-    "model_names.csv": 1689,
-    "excluded_benchmarks.csv": 42
+    "model_names.csv": 1771,
+    "excluded_benchmarks.csv": 43
   }
 }
