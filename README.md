@@ -21,6 +21,9 @@ Folders are numbered in processing order, the same convention as `Multiaxis_ECI`
   forecast.py                   generate_forecast
   plotting.py                   every figure, EN paper and FR note styles
   sync.py                       copy the views from the pipeline checkout
+  marginal.py                   independent variants: per-benchmark hyperpriors integrated out by quadrature
+  pytensor_compat.py            macOS linker workaround
+  __main__.py                   the CLI: sync, bounds, prune-fits, thin-fits
 2_analyses/
   forecasts.py                  main fit, forecasts, retrodiction, sensitivity analyses, all figures
   revision_analyses.py          robustness analyses and LaTeX tables, in stages
@@ -194,7 +197,7 @@ uv run pytest && uv run ruff check .
 
 Every French figure is written twice by `plotting.save_figure`: the PNG the note is laid out with, and a vector copy under `svg/` in the same folder, for rescaling or recolouring without redrawing. On the forecast panels a human baseline is a star whose number of branches is the expertise level — three for an average human, four for a skilled generalist, five for a domain expert, six for a top performer, a committee taking the branch count of the humans it is made of — and the inline label names the group. The scheme is the same in both languages, so the note's panels and the paper's agree on what a symbol means.
 
-`2_analyses/revision_analyses.py` takes stage names as arguments and writes `3_outputs/<cutoff>/sensitivity/revision_analyses_<stages>_<cutoff>.json`, CSV tables and LaTeX tables (in `3_outputs/<cutoff>/sensitivity/tables/`, or in `$TABLES_DIR` to regenerate a manuscript's tables in place):
+`2_analyses/revision_analyses.py` takes stage names as arguments and writes `3_outputs/<cutoff>/sensitivity/revision_analyses_<stages>_<cutoff>.json`, CSV tables and LaTeX tables (in `3_outputs/<cutoff>/sensitivity/tables/`, or in `$TABLES_DIR` to regenerate a manuscript's tables in place). Only the full run's JSON (all six stages) is tracked; a partial run writes one named after its stage subset:
 
 | Stage | What it does | Cost |
 |---|---|---|
@@ -203,9 +206,15 @@ Every French figure is written twice by `plotting.save_figure`: the PNG the note
 | `retro` | Long-horizon retrodiction (cutoffs 2023 to 2025; 2022 keeps only three benchmarks) | 2 new MCMC fits (the 2025 cutoff is the main model's retrodiction of `retro8`) |
 | `retro8` | All eight variants at the 2025 cutoff (CRPS, RMSE, coverage, calibration curves) | 8 MCMC fits, the same as `forecasts.py`'s retrodictions when their caches exist |
 | `cqr` | Grouped repeated CQR, 100 random benchmark splits × 8 variants, the paper's calibration table (`cqr_grouped`) | reuses the `retro8` fits |
-| `priors` | Sensitivity to the prior on the asymptote | 4 new MCMC fits |
+| `priors` | Sensitivity to the prior on the asymptote | 3 new MCMC fits (the main row reuses the main fit) |
 
-Fits are sampled with nutpie (compiled NUTS; `SamplingConfig(sampler="pymc")` restores PyMC's own, which took 3.0 h for the 16 fits of a run) and cached in `3_outputs/<cutoff>/fits/<slug>[_<tag>][_ta<target>][_n<draws>t<tune>][_s<seed>][_nutpie]_d<hash>.nc`, where the slug encodes the `ModelConfig` (including `top_n` when it is not 3), the optional tokens mark sampling settings that differ from the defaults, and the hash fingerprints the fitted data; a cache is only reused for the same data, model and sampling settings. Saving a fit deletes the same fit's caches of older data (other hashes), which nothing can reload, and reloading a cache touches it; `python -m benchmark_forecasting prune-fits [--cutoff cutoffYYYYMMDD] [--dry-run]` applies the same rule to a whole folder, keeping per fit only the last used file (9.8 GB of 23 at cutoff 2026-10-01). A fit keeps one draw in four (`fit.SAVE_THIN`), in the cache and in what `fit` returns: the draws are strongly autocorrelated, so on the 104 fits of cutoff 2026-10-01 thinning left each fit's largest r-hat unchanged (median ratio 1.000) and its smallest bulk and tail effective sample sizes too (median ratio 1.00, 0.71 at worst); only the parameters that mix well lose effective draws (median ESS 5,000 to 1,800, still far above need), and the largest Monte Carlo error of a posterior median grows by 7% (median over fits, from 6% of a posterior sd), while the caches take a quarter of the disk. The divergences of every sampled draw stay in `sample_stats.attrs` (`bf.n_divergent` reads them). `python -m benchmark_forecasting thin-fits` thins the caches sampled before. The independent variants are sampled with `target_accept=0.95` (`SAMPLING_CONFIG_INDEPENDENT` in the scripts): each benchmark's own asymptote prior keeps some mass right against 1, and where the data do not bound the asymptote from above NUTS still diverges on 4 to 15 % of their draws; 0.99 made it worse (a chain's step size collapsed to zero). Temporal-holdout fits keep only the benchmarks with enough pre-cutoff points, which leaves the shared hyperpriors weakly identified, so every holdout fit, joint or independent, is sampled with `target_accept=0.99`, 2,000 warmup steps and 5,000 draws (`SAMPLING_CONFIG_HOLDOUT`, cache tokens `_ta99_n5000t2000`). Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
+Fits are sampled with nutpie (compiled NUTS; `SamplingConfig(sampler="pymc")` restores PyMC's own, which took 3.0 h for the 16 fits of a run) and cached in `3_outputs/<cutoff>/fits/<slug>[_<tag>][_ta<target>][_n<draws>t<tune>][_s<seed>][_nutpie]_d<hash>.nc`, where the slug encodes the `ModelConfig` (including `top_n` when it is not 3), the optional tokens mark sampling settings that differ from the defaults, and the hash fingerprints the fitted data; a cache is only reused for the same data, model and sampling settings.
+
+Saving a fit deletes the same fit's caches of older data (other hashes), which nothing can reload, and reloading a cache touches it; `python -m benchmark_forecasting prune-fits [--cutoff cutoffYYYYMMDD] [--dry-run]` applies the same rule to a whole folder, keeping per fit only the last used file (it freed 9.8 of 23 GB at cutoff 2026-10-01). A fit keeps one draw in four (`fit.SAVE_THIN`), in the cache and in what `fit` returns: the draws are strongly autocorrelated, so on the 104 fits of cutoff 2026-10-01 thinning left each fit's largest r-hat unchanged (median ratio 1.000) and its smallest bulk and tail effective sample sizes too (median ratio 1.00, 0.71 at worst); only the parameters that mix well lose effective draws (median ESS 5,000 to 1,800, still far above need), and the largest Monte Carlo error of a posterior median grows by 7% (median over fits, from 6% of a posterior sd), while the caches take a quarter of the disk. The divergences of every sampled draw stay in `sample_stats.attrs` (`bf.n_divergent` reads them). `python -m benchmark_forecasting thin-fits` thins the caches sampled before.
+
+The independent variants are sampled with `target_accept=0.95` (`config.SAMPLING_CONFIG_INDEPENDENT`, via `config.sampling_for`): each benchmark's own asymptote prior keeps some mass right against 1, and where the data do not bound the asymptote from above NUTS still diverges on 4 to 15 % of their draws; 0.99 made it worse (a chain's step size collapsed to zero). Temporal-holdout fits keep only the benchmarks with enough pre-cutoff points, which leaves the shared hyperpriors weakly identified, so every holdout fit, joint or independent, is sampled with `target_accept=0.99`, 2,000 warmup steps and 5,000 draws (`config.SAMPLING_CONFIG_HOLDOUT`, cache tokens `_ta99_n5000t2000`).
+
+Sampling needs `VECLIB_MAXIMUM_THREADS=1` and `OMP_NUM_THREADS=1` before numpy is imported (the scripts and `config.py` set them): with Apple Accelerate, four chain processes oversubscribe the cores and a 3-minute fit takes hours. Never run two samplings at once on one machine.
 
 ```python
 MODEL_CONFIG = bf.ModelConfig(
@@ -218,7 +227,7 @@ MODEL_CONFIG = bf.ModelConfig(
 )
 ```
 
-## Benchmark set (October 2026)
+## Benchmark set (pipeline run 20261001)
 
 98 benchmarks in 12 capability categories, as included by the pipeline: Autonomous SWE (14), Cyber (13), Biology (11), General Reasoning (9), Domain Specific Questions (8), Mathematics (8), Multimodal Understanding (8), Agentic Computer Use (7), Advanced Language and Writing (5), Chemistry (5), Core AGI Progress (5), Trivia & Commonsense QA (5). The inclusion criteria and every exclusion are documented in the pipeline (`docs/decisions.md` and `2_database/excluded_benchmarks.csv` there).
 

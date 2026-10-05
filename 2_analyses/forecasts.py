@@ -12,8 +12,8 @@
 # # Benchmark forecasts
 #
 # Fits the hierarchical Harvey model on the frontier of every benchmark, validates it by temporal
-# holdout against seven variants, draws the forecast figures per category and runs the sensitivity
-# analyses. Cached posteriors, figures and JSON results go under `3_outputs/<cutoff>/`; the
+# holdout of the eight variants (`config.ALL_MODEL_CONFIGS`), with ablations, LOO and CQR, draws
+# the forecast figures per category and runs the sensitivity analyses. Cached posteriors, figures and JSON results go under `3_outputs/<cutoff>/`; the
 # French note's curated figures are refreshed in `4_writeups/note/figures/`.
 #
 # Percent script: run it as `python 2_analyses/forecasts.py` or open it as a notebook (Jupyter reads the `# %%`

@@ -172,7 +172,7 @@ def checked_data_cutoff(cutoff: str = DATA_CUTOFF) -> str:
 
     The main runs (2_analyses/forecasts.py, revision_analyses.py) name their outputs after the
     cutoff, so a cutoff left behind after a sync would date a newer dataset with an older day.
-    Retrospective cutoffs (`fit.retrodiction_fit`, `bounds --cutoff`) are not checked.
+    Retrospective cutoffs (`fit.temporal_holdout`, `bounds --cutoff`) are not checked.
     """
     import pandas as pd
     run = pipeline_run_date()

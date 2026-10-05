@@ -15,7 +15,7 @@
 # their shifts across the eight model variants, long-horizon retrodiction, prior sensitivity on the
 # asymptote, cross-benchmark residual dependence, posterior figures, and an audit of the lower
 # bounds. Runs in stages (`cheap`, `figures`, `retro`, `retro8`, `cqr`, `priors`) passed as
-# arguments; results go to `3_outputs/<cutoff>/sensitivity/` and LaTeX tables to `$TABLES_DIR`.
+# arguments; results go to `3_outputs/<cutoff>/sensitivity/` and LaTeX tables to `sensitivity/tables/` (or `$TABLES_DIR`).
 #
 # Percent script: run it as `python 2_analyses/revision_analyses.py` or open it as a notebook (Jupyter reads the `# %%`
 # cells through jupytext, VS Code natively). Input: `0_input/`, synced from benchmark-data-pipeline
