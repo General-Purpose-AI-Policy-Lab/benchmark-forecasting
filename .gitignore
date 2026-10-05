@@ -5,6 +5,7 @@
 # The note itself (PDF) stays local; its curated figures are tracked.
 4_writeups/paper/*
 !4_writeups/paper/Benchmark_forecasting.bib
+!4_writeups/paper/plainnat_trunc.bst
 !4_writeups/paper/.latexmkrc
 !4_writeups/paper/Arxiv/
 4_writeups/note/*.pdf
