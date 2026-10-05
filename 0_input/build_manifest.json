@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "built_at": "2026-10-05T14:37:13+02:00",
-  "git_commit": "67a830e5e22bdafc0db2a75a1557fd26cb4f9618",
+  "git_commit": "956c91b89d2468cf1ceba90a49f60e11cc256a35",
   "feeds": {
     "0_input/feed/cybench_site/cybench_leaderboard.csv": {
       "byte_size": 1179,
