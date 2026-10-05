@@ -792,7 +792,6 @@ def plot_L_intervals(
     ci_level: float = 0.80,
     plot_style: PlotStyle = DEFAULT_STYLE,
     n_columns: int = 1,
-    x_min: float = 0.75,
 ) -> tuple[Figure, np.ndarray]:
     """Forest plot of the per-benchmark upper asymptote $L$.
 
@@ -802,9 +801,8 @@ def plot_L_intervals(
 
     `n_columns` splits the ranking into side-by-side panels that read top to bottom, then
     left to right, on a shared axis: one panel per ~100 benchmarks is taller than a page.
-    The axis starts at `x_min`, the floor of the asymptote's prior, so the intervals are not
-    squeezed against 100%; a best score below it is drawn as an arrow at the left edge with
-    its value. Returns the figure and the array of panel axes.
+    A thin line joins each benchmark's best score to its median asymptote, the progress the
+    model still expects. Returns the figure and the array of panel axes.
     """
     if "L" not in idata.posterior:
         raise ValueError("Requires the deterministic 'L' in idata.posterior.")
@@ -867,10 +865,11 @@ def plot_L_intervals(
         )
         if best_observed is not None:
             best = best_observed[idx]
-            inside = best >= x_min
+            ax.hlines(y, best, median[idx], color=plot_style.gray_color, linewidth=0.8,
+                      alpha=0.45, zorder=1)
             ax.scatter(
-                best[inside],
-                y[inside],
+                best,
+                y,
                 s=60,
                 marker="|",
                 linewidths=2.0,
@@ -880,25 +879,19 @@ def plot_L_intervals(
                 if plot_style.language == "en"
                 else "Meilleur score observé",
             )
-            # Below the axis: an arrow at the left edge, with the score written next to it.
-            for yy, b in zip(y[~inside], best[~inside], strict=True):
-                ax.scatter(x_min + 0.004, yy, s=22, marker="<", color=plot_style.accent_color,
-                           zorder=4, clip_on=False)
-                ax.text(x_min + 0.010, yy, f"{b * 100:.0f}%", va="center", ha="left",
-                        fontsize=6 * plot_style.scale, color=plot_style.accent_color, zorder=4)
 
         ax.set_yticks(y)
         ax.set_yticklabels(
             [plot_style._benchmark_name(benchmarks[i]) for i in idx],
-            fontsize=6.5 * plot_style.scale,
+            fontsize=5.5 * plot_style.scale,
         )
         # Same row pitch in every panel, the shorter one leaving its gap at the bottom.
         ax.set_ylim(len(idx) - n_rows - 1, len(idx))
 
-        ax.set_xlim(x_min, 1.005)
-        ax.set_xticks([t for t in (0.8, 0.9, 1.0) if t > x_min])
+        ax.set_xlim(0.0, 1.02)
+        ax.set_xticks(np.linspace(0.0, 1.0, 6))
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
-        ax.tick_params(axis="x", labelsize=plot_style.tick_labelsize)
+        ax.tick_params(axis="x", labelsize=7 * plot_style.scale)
         ax.grid(True, axis="x")
         ax.grid(False, axis="y")
         for side in ("top", "right", "left"):
@@ -914,7 +907,7 @@ def plot_L_intervals(
         # One label and one legend for the shared axis, below the panels: inside one, the
         # legend would sit on its lowest rows.
         handles, labels = axes[0].get_legend_handles_labels()
-        fig.tight_layout(rect=(0, 0.06, 1, 1))
+        fig.tight_layout(rect=(0, 0.06, 1, 1), w_pad=0.3)
         fig.supxlabel(xlabel, y=0.03, fontsize=9 * plot_style.scale)
         fig.legend(handles, labels, loc="lower center", ncol=len(labels),
                    fontsize=8 * plot_style.scale, frameon=False, bbox_to_anchor=(0.5, -0.01))
