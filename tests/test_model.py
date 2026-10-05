@@ -1,12 +1,23 @@
 """The model respects the asymptote bounds and the cache key sees the inputs that matter."""
 
+import os
+
+import arviz as az
 import numpy as np
 import pandas as pd
 import pymc as pm
 
 from benchmark_forecasting import config
 from benchmark_forecasting.data import prepare_dataset
-from benchmark_forecasting.fit import data_fingerprint, fit, temporal_holdout
+from benchmark_forecasting.fit import (
+    data_fingerprint,
+    fit,
+    n_divergent,
+    prune_stale_fits,
+    temporal_holdout,
+    thin_cached_fits,
+    thin_idata,
+)
 from benchmark_forecasting.model import build_model, sampler_initvals
 
 
@@ -96,7 +107,7 @@ def test_the_nutpie_path_respects_the_floor_and_keeps_the_log_likelihood(tmp_pat
     assert float(idata.posterior["L"].sel(benchmark="Human").min()) >= 0.9
 
 
-def test_fit_caches_under_the_given_folder_with_the_documented_name(tmp_path):
+def test_fit_caches_under_the_given_folder_with_the_documented_name(tmp_path, capsys):
     """The cache file name carries the slug, the tag, the non-default sampling settings and the
     data fingerprint, and lands in `fits_dir`; a second call reloads it instead of sampling."""
     prepared = prepare_dataset(_raw(), top_n=3)
@@ -107,9 +118,40 @@ def test_fit_caches_under_the_given_folder_with_the_documented_name(tmp_path):
     expected = fits / (f"{cfg.slug}_cutoff20260907_ta95_n5t5_s1_nutpie"
                        f"_d{data_fingerprint(prepared)}.nc")
     assert expected.exists(), sorted(p.name for p in fits.iterdir())
-    before = expected.stat().st_mtime
+    capsys.readouterr()
     fit(prepared, cfg, samp, cache_tag="cutoff20260907", fits_dir=fits)
-    assert expected.stat().st_mtime == before, "second call must reload the cache"
+    assert "Loading cached fit" in capsys.readouterr().out, "second call must reload the cache"
+    assert [p.name for p in fits.iterdir()] == [expected.name]
+
+
+def test_a_new_fit_deletes_the_same_fit_on_older_data(tmp_path):
+    """Saving a fit removes its caches of other fingerprints, and only those."""
+    prepared = prepare_dataset(_raw(), top_n=3)
+    cfg = config.ModelConfig()
+    samp = config.SamplingConfig(draws=5, tune=5, seed=1, progressbar=False)
+    fits = tmp_path / "fits"
+    fits.mkdir()
+    stem = f"{cfg.slug}_cutoff20260907_n5t5_s1_nutpie"
+    (fits / f"{stem}_d000000.nc").write_bytes(b"old data")
+    (fits / f"{stem}_ta95_d000000.nc").write_bytes(b"another fit")
+    fit(prepared, cfg, samp, cache_tag="cutoff20260907", fits_dir=fits)
+    assert sorted(p.name for p in fits.iterdir()) == sorted(
+        [f"{stem}_d{data_fingerprint(prepared)}.nc", f"{stem}_ta95_d000000.nc"])
+
+
+def test_prune_keeps_each_fits_last_used_cache(tmp_path):
+    """Per fit the most recently used file stays; other fits and non-cache files are untouched."""
+    files = {"a_s1_d111111.nc": 1, "a_s1_d222222.nc": 3, "a_s1_d333333.nc": 2,
+             "b_d444444.nc": 1, "notes.nc": 1}
+    for name, t in files.items():
+        (tmp_path / name).write_bytes(b"x")
+        os.utime(tmp_path / name, (t, t))
+    assert [p.name for p in prune_stale_fits(tmp_path, dry_run=True)] == [
+        "a_s1_d111111.nc", "a_s1_d333333.nc"]
+    assert len(list(tmp_path.iterdir())) == 5, "a dry run deletes nothing"
+    prune_stale_fits(tmp_path)
+    assert sorted(p.name for p in tmp_path.iterdir()) == [
+        "a_s1_d222222.nc", "b_d444444.nc", "notes.nc"]
 
 
 def test_temporal_holdout_files_its_cache_under_the_run_folder(tmp_path):
@@ -157,3 +199,39 @@ def test_the_marginalised_independent_model_has_no_per_benchmark_hyperpriors():
     assert np.isfinite(model.compile_logp()(point))
     # the joint model ignores the flag
     assert replace(config.ModelConfig(), hyper_marginalised=True).slug == config.ModelConfig().slug
+
+
+def _idata(chains=2, draws=8):
+    rng = np.random.default_rng(0)
+    diverging = np.zeros((chains, draws), dtype=bool)
+    diverging[0, 1] = diverging[1, 2] = diverging[1, 3] = True  # all on dropped draws
+    return az.from_dict(posterior={"L": rng.normal(size=(chains, draws, 3))},
+                        log_likelihood={"y": rng.normal(size=(chains, draws, 5))},
+                        sample_stats={"diverging": diverging})
+
+
+def test_thinning_keeps_one_draw_in_four_and_the_full_divergence_count():
+    """Every draw-indexed group is thinned alike, once, and the divergences of the whole run stay
+    readable (a count over the kept draws would miss those that were dropped)."""
+    idata = _idata()
+    thinned = thin_idata(idata, 4)
+    for group in ("posterior", "log_likelihood", "sample_stats"):
+        assert thinned[group].sizes["draw"] == 2, group
+    np.testing.assert_array_equal(thinned.posterior["L"].values,
+                                  idata.posterior["L"].values[:, ::4])
+    assert int(thinned.sample_stats["diverging"].sum()) == 0
+    assert n_divergent(thinned) == n_divergent(idata) == 3
+    assert thin_idata(thinned, 4) is thinned, "a thinned fit is not thinned again"
+
+
+def test_cached_fits_are_thinned_in_place_once(tmp_path):
+    """The migration rewrites a cache thinned under its own name and date, and skips it after."""
+    path = tmp_path / "a_s1_d123456.nc"
+    _idata().to_netcdf(str(path))
+    os.utime(path, (100, 100))
+    assert thin_cached_fits(tmp_path, 4) == [path]
+    reloaded = az.from_netcdf(str(path))
+    assert reloaded.posterior.sizes["draw"] == 2 and n_divergent(reloaded) == 3
+    assert path.stat().st_mtime == 100, "thinning is not a use"
+    assert thin_cached_fits(tmp_path, 4) == []
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["a_s1_d123456.nc"]

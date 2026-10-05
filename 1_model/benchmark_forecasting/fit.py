@@ -1,6 +1,8 @@
 """MCMC fitting with a cache keyed on the model slug and a fingerprint of the fitted data."""
 
 import hashlib
+import os
+import re
 from pathlib import Path
 
 import arviz as az
@@ -28,6 +30,96 @@ def data_fingerprint(prepared: pd.DataFrame) -> str:
     return hashlib.md5(payload.encode()).hexdigest()[:6]
 
 
+# One draw in four is kept: the draws are strongly autocorrelated, so this costs little effective
+# sample size, and the caches take a quarter of the disk (23 GB at cutoff 2026-10-01 before).
+SAVE_THIN = 4
+
+
+def thin_idata(idata: az.InferenceData, thin: int = SAVE_THIN) -> az.InferenceData:
+    """Keep one draw in `thin` in every group indexed by draw, once.
+
+    The divergences counted over every sampled draw are kept in ``sample_stats.attrs``
+    (`n_divergent_sampled`, with `n_draws_sampled` and `thin`), since a count over the kept draws
+    would be about a quarter of it; `n_divergent` reads them. A fit already thinned is returned
+    as it is.
+    """
+    stats = idata.sample_stats if "sample_stats" in idata.groups() else None
+    if thin <= 1 or (stats is not None and "thin" in stats.attrs):
+        return idata
+    full = {"thin": thin, "n_draws_sampled": int(idata.posterior.sizes["chain"]
+                                                 * idata.posterior.sizes["draw"])}
+    if stats is not None and "diverging" in stats:
+        full["n_divergent_sampled"] = int(stats["diverging"].sum())
+    groups = {}
+    for name in idata.groups():
+        ds = idata[name]
+        groups[name] = ds.isel(draw=slice(None, None, thin)) if "draw" in ds.dims else ds
+    thinned = az.InferenceData(**groups)
+    if "sample_stats" in thinned.groups():
+        thinned.sample_stats.attrs.update(full)
+    return thinned
+
+
+def n_divergent(idata: az.InferenceData) -> int:
+    """Divergent transitions over every sampled draw, thinned or not; -1 without the stat."""
+    stats = idata.sample_stats if "sample_stats" in idata.groups() else None
+    if stats is None or "diverging" not in stats:
+        return -1
+    return int(stats.attrs.get("n_divergent_sampled", stats["diverging"].sum()))
+
+
+def thin_cached_fits(fits_dir: Path, thin: int = SAVE_THIN) -> list[Path]:
+    """Thin every cache of `fits_dir` that is not yet, in place (written to a temporary file,
+    then swapped in, so a reader never sees a half-written cache). Returns the thinned files."""
+    done = []
+    for path in sorted(Path(fits_dir).glob("*.nc")):
+        if _cache_stem(path) is None:
+            continue
+        idata = az.from_netcdf(str(path))
+        thinned = thin_idata(idata, thin)
+        if thinned is idata:
+            continue
+        thinned.load()
+        mtime = path.stat().st_mtime
+        tmp = path.with_suffix(".nc.tmp")
+        thinned.to_netcdf(str(tmp))
+        os.replace(tmp, path)
+        os.utime(path, (mtime, mtime))  # thinning is not a use, `prune_stale_fits` reads this
+        done.append(path)
+    return done
+
+
+def _cache_stem(path: Path) -> str | None:
+    """The cache name without its data fingerprint, or None if `path` is not a cache file."""
+    m = re.fullmatch(r"(.+)_d[0-9a-f]+\.nc", path.name)
+    return m.group(1) if m else None
+
+
+def prune_stale_fits(fits_dir: Path, *, dry_run: bool = False) -> list[Path]:
+    """Delete the caches no data can reload: per fit (the cache name without its fingerprint),
+    every file but the last used one.
+
+    The fingerprint changes with the fitted data and the data only moves forward, so of the
+    files one fit left over successive data refreshes only the last used can match the current
+    data; the others are never read again (9.8 GB of 23 at cutoff 2026-10-01). `fit` touches a
+    cache when it reloads it, so the modification time is the last use. A fit no longer run at
+    all keeps its last file. Returns the deleted (or, with `dry_run`, deletable) files.
+    """
+    by_stem: dict[str, list[Path]] = {}
+    for path in Path(fits_dir).glob("*.nc"):
+        stem = _cache_stem(path)
+        if stem is not None:
+            by_stem.setdefault(stem, []).append(path)
+    stale = []
+    for paths in by_stem.values():
+        paths.sort(key=lambda q: q.stat().st_mtime, reverse=True)
+        stale += paths[1:]
+    if not dry_run:
+        for path in stale:
+            path.unlink()
+    return sorted(stale)
+
+
 def fit(
     prepared: pd.DataFrame,
     cfg: ModelConfig,
@@ -48,7 +140,8 @@ def fit(
         so a cache is only reused for the same data, model and sampling:
         ``{fits_dir}/{cfg.slug}[_{cache_tag}][_ta95][_n..t..][_s..][_nutpie]_d{hash}.nc``.
     use_cache : if *True* (default), load from ``fits_dir`` if the file exists,
-        and save there after sampling.  Set to *False* to force re-fitting.
+        and save there after sampling, deleting the same fit's caches of older data (other
+        fingerprints, see `prune_stale_fits`).  Set to *False* to force re-fitting.
     fits_dir : the cache folder, normally the run's ``3_outputs/<cutoff>/fits/``
         (``config.cutoff_dir(tag) / config.FITS_SUBDIR``); defaults to the no-cutoff one.
     """
@@ -76,7 +169,8 @@ def fit(
 
     if use_cache and cache_path.exists():
         print(f"  Loading cached fit: {cache_path}")
-        idata = az.from_netcdf(str(cache_path))
+        idata = thin_idata(az.from_netcdf(str(cache_path)))  # a cache from before SAVE_THIN
+        os.utime(cache_path)  # mark it used, for `prune_stale_fits`
         return idata, model
 
     if samp.sampler == "nutpie":
@@ -111,10 +205,18 @@ def fit(
                 idata_kwargs={"log_likelihood": True},
             )
 
+    # Thinned before the cache, so a fit returns the same draws whether sampled or reloaded.
+    idata = thin_idata(idata)
     if use_cache:
         fits_dir.mkdir(parents=True, exist_ok=True)
         idata.to_netcdf(str(cache_path))
         print(f"  Saved fit: {cache_path}")
+        # The same fit on older data is now unreachable (its fingerprint no longer matches).
+        stem = _cache_stem(cache_path)
+        for old in fits_dir.glob("*.nc"):
+            if old != cache_path and _cache_stem(old) == stem:
+                old.unlink()
+                print(f"  Removed stale fit: {old.name}")
 
     return idata, model
 

@@ -23,7 +23,7 @@ from benchmark_forecasting.evaluate import (
     saturated_proportion,
     saturation_dates,
 )
-from benchmark_forecasting.fit import data_fingerprint, fit, temporal_holdout
+from benchmark_forecasting.fit import data_fingerprint, fit, n_divergent, temporal_holdout
 from benchmark_forecasting.forecast import generate_forecast
 from benchmark_forecasting.model import build_model, sampler_initvals
 from benchmark_forecasting.sync import sync
@@ -40,6 +40,7 @@ __all__ = [
     "data_fingerprint",
     "fit",
     "generate_forecast",
+    "n_divergent",
     "load_baselines",
     "load_dataset",
     "model_base_key",
