@@ -606,3 +606,6 @@ TSWLatexianTemp*
 #*Notes.bib
 # Cached posteriors (NetCDF), one fits/ folder per cutoff under 3_outputs/
 3_outputs/**/fits/
+
+# arXiv submission archive, rebuilt by 4_writeups/paper/Arxiv/build.sh bundle
+4_writeups/paper/Arxiv/arxiv_submission.zip
