@@ -1,0 +1,16 @@
+\begin{table}[ht]
+\centering
+\footnotesize
+\caption{\revised{\textbf{Sensitivity to the prior on the upper asymptote.} $L_{\min}$ is the hard floor of the asymptote and sd, on the scale of the asymptote, is both the standard deviation of the hyperprior on its population mean and the scale of the half-normal prior on its spread. Relaxing the prior leaves the projected proportion saturated by 2030 unchanged. The last column reports the minimum effective sample size and the number of divergent transitions; the variant that samples least well is Low floor ($L_{\min}{=}0.50$).}}
+\label{tab:prior_sensitivity}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Prior on $L$ & Sat.\ by 2030 & 80\% CI & Median $L$ & $L$ 10--90\% & ESS / div. \\
+\midrule
+Main ($L_{\min}{=}0.75$, sd 0.02) & 98.0\% & [95.9, 99.0] & 0.947 & [0.927, 1.000] & 732 / 15 \\
+Low floor ($L_{\min}{=}0.50$) & 98.0\% & [95.9, 99.0] & 0.950 & [0.923, 1.000] & 114 / 68 \\
+Weak prior (sd 0.05) & 98.0\% & [95.9, 99.0] & 0.942 & [0.918, 1.000] & 725 / 12 \\
+Low floor + weaker prior (sd 0.10) & 98.0\% & [95.9, 99.0] & 0.941 & [0.909, 1.000] & 598 / 23 \\
+\bottomrule
+\end{tabular}
+\end{table}

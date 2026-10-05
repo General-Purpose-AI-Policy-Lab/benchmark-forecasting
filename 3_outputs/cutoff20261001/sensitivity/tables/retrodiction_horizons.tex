@@ -1,0 +1,15 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{\revised{\textbf{Retrodiction accuracy as a function of forecast horizon} for the main model (Harvey joint, skew-normal). Each row trains on frontier scores released before the cutoff and predicts every score observed between the cutoff and October 2026. The retrospective filter keeps only benchmarks with at least 5 pre-cutoff frontier observations, which is why the earlier cutoffs cover far fewer benchmarks: at the 2023 cutoff only the commonsense and early question-answering sets and GSM8K existed. Nominal coverage is 80\%; the last two columns split the remaining observations into those falling above the upper bound of the 80\% credible interval and those falling below its lower bound, so a large asymmetry means the model erred in one direction.}}
+\label{tab:retro_horizons}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+Train cutoff & Horizon & Benchmarks & $n_{\text{train}}$ & $n_{\text{test}}$ & CRPS & RMSE & 80\% cov. & Above & Below \\
+\midrule
+2023-01 & 3.7 yr & 8 & 57 & 88 & 0.043 & 0.070 & 70.5\% & 2.3\% & 27.3\% \\
+2024-01 & 2.7 yr & 11 & 114 & 131 & 0.091 & 0.187 & 61.1\% & 37.4\% & 1.5\% \\
+2025-01 & 1.7 yr & 49 & 561 & 417 & 0.056 & 0.109 & 73.9\% & 25.4\% & 0.7\% \\
+\bottomrule
+\end{tabular}
+\end{table}

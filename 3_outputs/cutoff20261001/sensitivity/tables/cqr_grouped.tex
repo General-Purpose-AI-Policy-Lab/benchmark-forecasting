@@ -1,20 +1,20 @@
 \begin{table}[ht]
 \centering
 \small
+\caption{\revised{\textbf{Held-out accuracy and distribution-free calibration.} CRPS and RMSE are out-of-sample scores on the 2025 holdout (lower is better); bold marks the variants a paired comparison cannot separate from the best. $Q$ is the Conformalized Quantile Regression adjustment~\citep{romano_conformalized_2019} that would be needed for a finite-sample coverage guarantee. Bayesian coverage is the fraction of all held-out observations inside the nominal 80\% credible interval, and CQR cov.\ the coverage of the adjusted intervals. Calibration and test halves are formed by assigning whole benchmarks at random, so the quantity measured is whether intervals calibrated on some benchmarks cover on others; $Q$ and CQR cov.\ are medians over 100 random assignments.}}
+\label{tab:cqr_results}
 \begin{tabular}{@{}lccccc@{}}
 \toprule
 Model variant & CRPS & RMSE & $Q$ & Bayes.\ cov. & CQR cov. \\
 \midrule
-Harvey joint (skew) & \textbf{0.056} & \textbf{0.108} & $+0.013$ & 73.4\% & 79.4\% \\
-Harvey joint (normal) & \textbf{0.056} & \textbf{0.108} & $+0.003$ & 78.7\% & 80.3\% \\
-Harvey indep. (skew) & 0.060 & 0.112 & $+0.023$ & 72.9\% & 80.1\% \\
-Harvey indep. (normal) & 0.059 & \textbf{0.109} & $-0.008$ & 85.0\% & 80.7\% \\
-Logistic joint (skew) & 0.058 & \textbf{0.110} & $+0.020$ & 70.6\% & 79.6\% \\
-Logistic joint (normal) & 0.059 & \textbf{0.112} & $+0.006$ & 76.6\% & 79.8\% \\
-Logistic indep. (skew) & 0.063 & 0.116 & $+0.029$ & 66.9\% & 80.6\% \\
-Logistic indep. (normal) & 0.059 & \textbf{0.107} & $-0.001$ & 80.3\% & 79.8\% \\
+Harvey joint (skew) & 0.056 & 0.109 & $+0.012$ & 73.9\% & 75.9\% \\
+Harvey joint (normal) & \textbf{0.055} & \textbf{0.106} & $+0.001$ & 78.2\% & 76.8\% \\
+Harvey indep. (skew) & 0.059 & 0.113 & $+0.018$ & 72.4\% & 77.1\% \\
+Harvey indep. (normal) & 0.058 & \textbf{0.108} & $-0.008$ & 84.9\% & 81.9\% \\
+Logistic joint (skew) & 0.058 & 0.112 & $+0.017$ & 71.0\% & 76.5\% \\
+Logistic joint (normal) & 0.058 & 0.110 & $+0.007$ & 76.0\% & 78.2\% \\
+Logistic indep. (skew) & 0.062 & 0.117 & $+0.023$ & 67.1\% & 76.8\% \\
+Logistic indep. (normal) & 0.059 & \textbf{0.107} & $+0.001$ & 79.6\% & 79.0\% \\
 \bottomrule
 \end{tabular}
-\caption{\revised{\textbf{Held-out accuracy and distribution-free calibration.} CRPS and RMSE are out-of-sample scores on the 2025 holdout (lower is better); bold marks the variants a paired comparison cannot separate from the best. $Q$ is the Conformalized Quantile Regression adjustment~\citep{romano_conformalized_2019} that would be needed for a finite-sample coverage guarantee. Bayesian coverage is the fraction of all held-out observations inside the nominal 80\% credible interval, and CQR cov.\ the coverage of the adjusted intervals. Calibration and test halves are formed by assigning whole benchmarks at random, so the quantity measured is whether intervals calibrated on some benchmarks cover on others; $Q$ and CQR cov.\ are medians over 100 random assignments.}}
-\label{tab:cqr_results}
 \end{table}
