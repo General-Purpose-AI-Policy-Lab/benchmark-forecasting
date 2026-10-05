@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
+from matplotlib.legend import Legend
 
 DashStyle = str | tuple[float, tuple[float, ...]]
 
@@ -47,6 +48,14 @@ class PlotStyle:
         self.scale: float = self.scale_by_document_type[self.document_type]
 
         self.linewidth: float = 1.5 * self.scale
+
+        # The paper sets two panels side by side (a 7-inch figure printed about 2.7 inches wide),
+        # so its tick and axis labels are larger than the note's to stay legible in print.
+        paper = self.document_type == "paper"
+        self.tick_labelsize: float = (10 if paper else 8) * self.scale
+        self.axis_labelsize: float = 11 * self.scale
+        # Axis titles of the category panels and calibration curves (the note's are larger).
+        self.panel_labelsize: float = (11 if paper else 13) * self.scale
 
         self.figsize = (7, 4)
 
@@ -118,9 +127,20 @@ class PlotStyle:
         }
         # Human-baseline labels whose position is forced rather than chosen by the
         # occlusion search: {(benchmark, group): "below"} puts the label right under its
-        # marker (used where the automatic search keeps landing on neighbouring curves).
+        # marker, "above" right over it, "left" or "right" level with it on that side (used
+        # where the automatic search keeps landing on neighbouring curves or far from its
+        # marker). "separate" keeps the
+        # marker out of a grouped label, so that it gets its own label next to it (used
+        # where the label at the group's centre covers one of its markers).
         self.baseline_label_overrides = {
             ("FrontierMath Tiers 1-3 v2", "Committee of Domain Experts"): "below",
+            ("SimpleBench", "Average Human"): "left",
+            ("ARC-AGI", "Average Human"): "separate",
+            ("ARC-AGI-2", "Average Human"): "separate",
+            ("MMLU", "Average Human"): "right",
+            ("SimpleQA Verified", "Skilled Generalist"): "left",
+            ("Visual Task Assessment (VISTA)", "Skilled Generalist"): "separate",
+            ("BlueprintBench 2", "Skilled Generalist"): "separate",
         }
         # A baseline marker is dated where the forecast curve reaches its score minus this
         # offset (in score units).  The curve approaches its asymptote L <= 1 without ever
@@ -135,7 +155,7 @@ class PlotStyle:
         self.benchmark_name_overrides = {
             "FrontierMath Tiers 1-3 v2": "FM v2",
             "FrontierMath Tier 4 v2": "FM Tier 4 v2",
-            "FrontierMath Erdos": "FM Erdos",
+            "FrontierMath Erdos": "FM Erdős",  # the pipeline name drops the accent
             "Mystery Game Puzzles": "M. Game Puzzles",
             # Cyber: the AISI series names are too long for a legend of thirteen entries.
             "AISI CTF Suites - Apprentice": "AISI CTF Apprentice",
@@ -191,8 +211,8 @@ class PlotStyle:
             "font.size": 12 * self.scale,
             "axes.titlesize": (14 if self.document_type == "note" else 16) * self.scale,
             "axes.labelsize": 13 * self.scale,
-            "xtick.labelsize": 8 * self.scale,
-            "ytick.labelsize": 8 * self.scale,
+            "xtick.labelsize": self.tick_labelsize,
+            "ytick.labelsize": self.tick_labelsize,
             "legend.fontsize": 10,
             "legend.title_fontsize": 10 * self.scale,
             "figure.titlesize": 16 * self.scale,
@@ -279,10 +299,11 @@ def plot_calibration_curve(
         linewidth=plot_style.linewidth,
         zorder=1,
     )
-    ax.set_xlabel("Expected coverage")
+    ax.set_xlabel("Expected coverage", fontsize=plot_style.panel_labelsize)
     ax.set_xlim(0, 1)
-    ax.set_ylabel("Observed coverage")
+    ax.set_ylabel("Observed coverage", fontsize=plot_style.panel_labelsize)
     ax.set_ylim(0, 1)
+    ax.tick_params(axis="both", labelsize=plot_style.tick_labelsize)
     ax.grid(True)
     ax.legend(["Empirical", "Perfect"], loc="lower right", fontsize=10 * plot_style.scale)
     return fig, ax
@@ -351,14 +372,19 @@ def plot_forecasts_by_category(
 
     extra_months = plot_style.xlim_extra_months.get(str(category_name), 0)
     ax.set_xlim(right=end_date + pd.DateOffset(months=extra_months))
-    ax.xaxis.set_major_locator(mdates.YearLocator())
+    # A year label every year collides on panels spanning a decade once the tick labels are
+    # sized for print; those get one every two years.
+    x_lo, x_hi = ax.get_xlim()
+    ax.xaxis.set_major_locator(mdates.YearLocator(2 if (x_hi - x_lo) / 365.25 > 7 else 1))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax.set_xlabel("")
 
     ax.set_ylim(0.0, 1.05)
     ax.set_yticks(np.linspace(0.0, 1.0, 6))
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f"{y * 100:.0f}%"))
-    ax.set_ylabel("Performance")
+    # Sizes are set here rather than read from rcParams, which hold whichever PlotStyle was
+    # instantiated last (the scripts build the paper and note styles before drawing either).
+    ax.set_ylabel("Performance", fontsize=plot_style.panel_labelsize)
 
     ax.grid(True)
     ax.spines["top"].set_visible(False)
@@ -367,6 +393,7 @@ def plot_forecasts_by_category(
     ax.spines["bottom"].set_color(plot_style.base_color)
 
     ax.tick_params(axis="y", left=False, right=False)
+    ax.tick_params(axis="both", labelsize=plot_style.tick_labelsize)
 
     if plot_style.language == "fr":
         ax.set_title(plot_style._category_name(str(category_name)), pad=8)
@@ -525,8 +552,8 @@ def plot_harvey_asymmetry(
     )
 
     # --- Formatting (match reference) ---
-    ax.set_xlabel(xlabel, fontsize=11 * plot_style.scale)
-    ax.set_ylabel(ylabel, fontsize=11 * plot_style.scale)
+    ax.set_xlabel(xlabel, fontsize=plot_style.axis_labelsize)
+    ax.set_ylabel(ylabel, fontsize=plot_style.axis_labelsize)
     if plot_style.language == "fr":
         ax.set_title(title, pad=8)
 
@@ -544,7 +571,8 @@ def plot_harvey_asymmetry(
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f"{y * 100:.0f}%"))
 
     ax.tick_params(
-        axis="both", which="major", labelsize=10 * plot_style.scale, left=False, right=False
+        axis="both", which="major", labelsize=max(10 * plot_style.scale, plot_style.tick_labelsize),
+        left=False, right=False
     )
 
     plt.tight_layout()
@@ -695,12 +723,12 @@ def plot_saturation_proportion_posterior(
     if plot_style.language == "fr":
         legend_median = f"Médiane: {median_prop:.1%}"
         legend_ci = f"IC {int(ci_level * 100)}%: [{ci_lo:.1%}, {ci_hi:.1%}]"
-        xlabel = f"Proportion de benchmarks > {saturation_fraction:.0%} de L"
+        xlabel = f"Proportion de benchmarks saturés d'ici {target_ts.year}"
         ylabel = "Densité de probabilité"
     elif plot_style.language == "en":
         legend_median = f"Median: {median_prop:.1%}"
         legend_ci = f"{int(ci_level * 100)}% CI: [{ci_lo:.1%}, {ci_hi:.1%}]"
-        xlabel = f"Proportion of benchmarks > {saturation_fraction:.0%} of L"
+        xlabel = f"Proportion of benchmarks saturated by {target_ts.year}"
         ylabel = "Probability density"
     else:
         raise ValueError(f"language must be 'en' or 'fr', got {plot_style.language!r}")
@@ -724,8 +752,8 @@ def plot_saturation_proportion_posterior(
     )
 
     # Labels / title / subtitle
-    ax.set_xlabel(xlabel, fontsize=11 * plot_style.scale)
-    ax.set_ylabel(ylabel, fontsize=11 * plot_style.scale)
+    ax.set_xlabel(xlabel, fontsize=plot_style.axis_labelsize)
+    ax.set_ylabel(ylabel, fontsize=plot_style.axis_labelsize)
     # Grid & spines
     ax.grid(True)
     ax.spines["top"].set_visible(False)
@@ -734,7 +762,8 @@ def plot_saturation_proportion_posterior(
     ax.spines["bottom"].set_color(plot_style.base_color)
 
     ax.tick_params(
-        axis="both", which="major", labelsize=10 * plot_style.scale, left=False, right=False
+        axis="both", which="major", labelsize=max(10 * plot_style.scale, plot_style.tick_labelsize),
+        left=False, right=False
     )
 
     # X as percent, bounds like the reference
@@ -762,12 +791,17 @@ def plot_L_intervals(
     prepared_frontier: pd.DataFrame | None = None,
     ci_level: float = 0.80,
     plot_style: PlotStyle = DEFAULT_STYLE,
-) -> tuple[Figure, Axes]:
+    n_columns: int = 1,
+) -> tuple[Figure, np.ndarray]:
     """Forest plot of the per-benchmark upper asymptote $L$.
 
     Benchmarks are ordered by posterior median.  When `prepared_frontier` is given,
     the best score observed so far is overlaid, which shows how much of the
     asymptote is already attained (and how much is extrapolation).
+
+    `n_columns` splits the ranking into side-by-side panels that read top to bottom, then
+    left to right, on a shared axis: one panel per ~100 benchmarks is taller than a page.
+    Returns the figure and the array of panel axes.
     """
     if "L" not in idata.posterior:
         raise ValueError("Requires the deterministic 'L' in idata.posterior.")
@@ -783,7 +817,6 @@ def plot_L_intervals(
     upper = np.percentile(values, hi_q, axis=1)
 
     order = np.argsort(median)
-    y = np.arange(len(benchmarks))
 
     best_observed = None
     if prepared_frontier is not None:
@@ -791,60 +824,81 @@ def plot_L_intervals(
             prepared_frontier.groupby("benchmark")["score"].max().reindex(benchmarks).to_numpy()
         )
 
-    fig, ax = plt.subplots(figsize=(7, 0.19 * len(benchmarks) + 1.4))
+    # Highest asymptotes first: the first panel takes the top of the ranking.
+    chunks = np.array_split(order[::-1], n_columns)
+    n_rows = max(len(c) for c in chunks)
+    # Side-by-side panels are meant to fit one page, so their rows are packed tighter.
+    row_height = 0.19 if n_columns == 1 else 0.14
+    fig, axes = plt.subplots(
+        1, n_columns, sharex=True, squeeze=False,
+        figsize=(7, row_height * n_rows + 1.4),
+    )
+    axes = axes[0]
 
-    ax.hlines(
-        y,
-        lower[order],
-        upper[order],
-        color=plot_style.palette[2],
-        linewidth=1.6,
-        alpha=0.9,
-        zorder=2,
-    )
-    ax.scatter(
-        median[order],
-        y,
-        s=14,
-        color=plot_style.base_color,
-        zorder=3,
-        label="Posterior median" if plot_style.language == "en" else "Médiane a posteriori",
-    )
-    if best_observed is not None:
-        ax.scatter(
-            best_observed[order],
+    for ax, chunk in zip(axes, chunks, strict=True):
+        # y = 0 at the bottom, so the chunk is drawn in ascending order of median.
+        idx = chunk[::-1]
+        y = np.arange(len(idx))
+        ax.hlines(
             y,
-            s=16,
-            marker="|",
-            linewidths=1.6,
-            color=plot_style.accent_color,
-            zorder=4,
-            label="Best score observed"
-            if plot_style.language == "en"
-            else "Meilleur score observé",
+            lower[idx],
+            upper[idx],
+            color=plot_style.palette[2],
+            linewidth=1.6,
+            alpha=0.9,
+            zorder=2,
         )
+        ax.scatter(
+            median[idx],
+            y,
+            s=14,
+            color=plot_style.base_color,
+            zorder=3,
+            label="Posterior median" if plot_style.language == "en" else "Médiane a posteriori",
+        )
+        if best_observed is not None:
+            ax.scatter(
+                best_observed[idx],
+                y,
+                s=16,
+                marker="|",
+                linewidths=1.6,
+                color=plot_style.accent_color,
+                zorder=4,
+                label="Best score observed"
+                if plot_style.language == "en"
+                else "Meilleur score observé",
+            )
 
-    ax.set_yticks(y)
-    ax.set_yticklabels(
-        [plot_style._benchmark_name(benchmarks[i]) for i in order],
-        fontsize=6.5 * plot_style.scale,
-    )
-    ax.set_ylim(-1, len(benchmarks))
+        ax.set_yticks(y)
+        ax.set_yticklabels(
+            [plot_style._benchmark_name(benchmarks[i]) for i in idx],
+            fontsize=6.5 * plot_style.scale,
+        )
+        # Same row pitch in every panel, the shorter one leaving its gap at the bottom.
+        ax.set_ylim(len(idx) - n_rows - 1, len(idx))
 
-    if plot_style.language == "fr":
-        ax.set_xlabel("Asymptote supérieure $L$")
+        ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
+        ax.grid(True, axis="x")
+        ax.grid(False, axis="y")
+        for side in ("top", "right", "left"):
+            ax.spines[side].set_visible(False)
+        ax.tick_params(axis="y", length=0)
+
+    xlabel = "Asymptote supérieure $L$" if plot_style.language == "fr" else "Upper asymptote $L$"
+    if n_columns == 1:
+        axes[0].set_xlabel(xlabel)
+        axes[0].legend(loc="lower left", fontsize=8 * plot_style.scale)
+        fig.tight_layout()
     else:
-        ax.set_xlabel("Upper asymptote $L$")
-
-    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x * 100:.0f}%"))
-    ax.grid(True, axis="x")
-    ax.grid(False, axis="y")
-    for side in ("top", "right", "left"):
-        ax.spines[side].set_visible(False)
-    ax.tick_params(axis="y", length=0)
-    ax.legend(loc="lower left", fontsize=8 * plot_style.scale)
-    fig.tight_layout()
-    return fig, ax
+        # One label and one legend for the shared axis, below the panels: inside one, the
+        # legend would sit on its lowest rows.
+        handles, labels = axes[0].get_legend_handles_labels()
+        fig.tight_layout(rect=(0, 0.06, 1, 1))
+        fig.supxlabel(xlabel, y=0.03)
+        fig.legend(handles, labels, loc="lower center", ncol=len(labels),
+                   fontsize=8 * plot_style.scale, frameon=False, bbox_to_anchor=(0.5, -0.01))
+    return fig, axes
 
 
 def plot_L_distribution(
@@ -1377,6 +1431,7 @@ def _choose_label_placements(
     dx: float,
     fontsize: float,
     plot_style: PlotStyle,
+    curves: pd.DataFrame | None = None,
 ) -> list[tuple[float, float, str]]:
     """Pick each label's side and height so it hides as little of the panel as possible.
 
@@ -1413,6 +1468,18 @@ def _choose_label_placements(
         np.array([[m["date_num"], m["score"]] for m in markers], dtype=float)
     )
     axes_box = ax.get_window_extent()
+    # Samples of the posterior mean curves: a label on a trajectory hides it as surely as one
+    # on the scores, but a curve is a dense line of samples, so each one weighs less.
+    curve_px = np.empty((0, 2))
+    if curves is not None and len(curves) and "mu_mean" in curves.columns:
+        curve_px = ax.transData.transform(
+            np.column_stack(
+                [
+                    mdates.date2num(pd.to_datetime(curves["release_date"])),
+                    curves["mu_mean"].to_numpy(dtype=float),
+                ]
+            )
+        )
 
     def _count_inside(points: np.ndarray, box: tuple[float, float, float, float]) -> int:
         if not len(points):
@@ -1439,6 +1506,15 @@ def _choose_label_placements(
         if ann.get("place") == "below":
             # Forced placement: centred right under the marker, no alternatives.
             return [(date_num, ann["score"] - 0.9 * label_h, "center", 0.0)]
+        if ann.get("place") == "left":
+            # Forced placement: level with the marker, ending just left of it.
+            return [(date_num - dx, ann["score"], "right", 0.0)]
+        if ann.get("place") == "right":
+            # Forced placement: level with the marker, starting just right of it.
+            return [(date_num + dx, ann["score"], "left", 0.0)]
+        if ann.get("place") == "above":
+            # Forced placement: centred right above the marker, no alternatives.
+            return [(date_num, ann["score"] + 0.9 * label_h, "center", 0.0)]
         near_right = date_num > x_lo_num + 0.70 * x_range
         if ann.get("grouped", False):
             # A grouped label names a cluster, so centring it on the centroid reads best;
@@ -1463,15 +1539,21 @@ def _choose_label_placements(
                 ),
             ]
         out: list[tuple[float, float, str, float]] = []
-        # One label height is the largest vertical move worth making: beyond that the
-        # leader line has to cross a trajectory band, where it is the same colour as the
-        # curve and disappears, leaving the label floating with nothing to attach it to.
-        for step in (0.0, 1.0, -1.0):
+        # Moves of one label height are cheap; two are allowed but priced higher, since the
+        # leader line then crosses more of the panel and can vanish into a band of its colour.
+        for step in (0.0, 1.0, -1.0, 2.0, -2.0):
             y = label_ys[i] + step * label_h
             if not (y_lo + label_h * 0.5 <= y <= y_hi - label_h * 0.4):
                 continue
             for x_num, ha, x_pen in xs:
-                out.append((x_num, y, ha, x_pen + abs(step) * 0.6))
+                far = 0.8 if abs(step) > 1 else 0.0
+                out.append((x_num, y, ha, x_pen + abs(step) * 0.6 + far))
+        # Centred right above or below the marker, for markers flanked by data on both sides.
+        if not ann.get("grouped", False):
+            above, below = ann["score"] + 0.9 * label_h, ann["score"] - 0.9 * label_h
+            for y, pen in ((above, 0.4), (below, 0.5)):
+                if y_lo + label_h * 0.5 <= y <= y_hi - label_h * 0.4:
+                    out.append((date_num, y, "center", pen))
         return out
 
     # Worst offender first: it gets the pick of the placements, and later labels work
@@ -1489,6 +1571,12 @@ def _choose_label_placements(
 
     chosen: list[tuple[float, float, str] | None] = [None] * len(annotations)
     placed_boxes: list[tuple[float, float, float, float]] = []
+    # The benchmark legend is drawn before the labels; a label must not sit on it.
+    renderer = ax.figure.canvas.get_renderer()
+    for artist in {*ax.artists, ax.get_legend()}:
+        if isinstance(artist, Legend):
+            e = artist.get_window_extent(renderer)
+            placed_boxes.append((e.x0, e.x1, e.y0, e.y1))
 
     for i in order:
         best: tuple[float, tuple[float, float, str], tuple[float, float, float, float]] | None = (
@@ -1499,6 +1587,7 @@ def _choose_label_placements(
             cost = (
                 3.0 * _count_inside(obs_px, box)
                 + 4.0 * _count_inside(marker_px, box)
+                + 0.25 * _count_inside(curve_px, box)
                 + 40.0 * sum(_overlap(box, other) for other in placed_boxes)
                 # Priced so that a label only leaves its marker's own height to clear at
                 # least two data points: moving is worth it, drifting is not.
@@ -1563,10 +1652,7 @@ def _add_baseline_labels(
             "Top Performer": ("Top performer", "Top performers"),
             "Committee of Average Humans": ("Avg. human committee", "Avg. human committees"),
             "Committee of Skilled Generalists": ("Generalist committee", "Generalist committees"),
-            "Committee of Domain Experts": (
-                "Expert\ncommittee",
-                "Expert\ncommittees",
-            ),  # two lines: sits among steep curves
+            "Committee of Domain Experts": ("Expert committee", "Expert committees"),
             "Committee of Top Performers": ("Top performer committee", "Top performer committees"),
             "High School Qualifier": ("HS qualifier", "HS qualifiers"),
             "High School Top Performer": ("HS top performer", "HS top performers"),
@@ -1617,7 +1703,23 @@ def _add_baseline_labels(
         by_group.setdefault(ann["group"], []).append(ann)
 
     annotations: list[dict[str, Any]] = []
-    for _group, members in by_group.items():
+    overrides = plot_style.baseline_label_overrides
+    for _group, members in list(by_group.items()):
+        # Markers flagged "separate" leave the group and are labelled one by one.
+        apart = [m for m in members if overrides.get((m["benchmark"], m["group"])) == "separate"]
+        members = [m for m in members if m not in apart]
+        for m in apart:
+            annotations.append(
+                {
+                    "date_num": m["date_num"],
+                    "score": m["score"],
+                    "label": m["singular"],
+                    "color": m["color"],
+                    "place": None,
+                }
+            )
+        if not members:
+            continue
         if len(members) == 1:
             m = members[0]
             annotations.append(
@@ -1770,6 +1872,7 @@ def _add_baseline_labels(
         dx=dx,
         fontsize=fontsize,
         plot_style=plot_style,
+        curves=preds,
     )
 
     for ann, (label_x_num, label_y, ha) in zip(annotations, placements, strict=True):

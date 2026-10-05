@@ -226,6 +226,23 @@ def sampling_for(cfg: ModelConfig) -> SamplingConfig:
     return SAMPLING_CONFIG if cfg.joint else SAMPLING_CONFIG_INDEPENDENT
 
 
+# Temporal holdouts fit only the benchmarks with enough pre-cutoff points (8 to 49), so the
+# population standard deviations of the joint fits are weakly identified and their posterior is a
+# funnel: at 0.9 or 0.95 one chain in four could enter its neck and diverge on most of its draws
+# (2023 holdout: r-hat up to 1.13 to 1.53 depending on the seed, 2026-10-05). A smaller step
+# (0.99) and a longer warmup let the four chains explore it for the 2023 and 2024 holdouts at
+# this seed (r-hat 1.01 and 1.02, under 1 % divergent). The 2025 holdouts then mixed slowly
+# (r-hat up to 1.07 with 2,000 draws), hence 5,000 draws; every holdout fit uses these settings
+# (`_ta99_n5000t2000`).
+SAMPLING_CONFIG_HOLDOUT = SamplingConfig(draws=5000, tune=2000, target_accept=0.99, seed=42,
+                                         progressbar=True)
+
+
+def holdout_sampling_for(cfg: ModelConfig) -> SamplingConfig:
+    """The sampling configuration of a temporal-holdout fit (same for every variant)."""
+    return SAMPLING_CONFIG_HOLDOUT
+
+
 # Minimum pre-cutoff frontier observations for a benchmark to enter a retrodiction.
 MIN_TRAIN_POINTS = 5
 

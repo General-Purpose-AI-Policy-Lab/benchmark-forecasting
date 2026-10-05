@@ -58,6 +58,7 @@ from benchmark_forecasting.config import (  # noqa: E402
     checked_data_cutoff,
     cutoff_dir,
     cutoff_tag,
+    holdout_sampling_for,
     sampling_for,
     variant_slug,
 )
@@ -95,11 +96,29 @@ def tex_escape(s: str) -> str:
     return str(s).replace("&", r"\&").replace("_", r"\_").replace("%", r"\%").replace("#", r"\#")
 
 
+# Benchmark names as typeset in the tables, where the pipeline's ASCII name loses a diacritic.
+TEX_BENCHMARK_NAMES = {"FrontierMath Erdos": r"FrontierMath Erd\H{o}s"}
+
+
 def fmt_date(ts) -> str:
     ts = pd.Timestamp(ts)
     if ts.year >= 2100:
         return ">2100"
     return ts.strftime("%Y-%m")
+
+
+def write_table(path: str, lines: list[str]) -> None:
+    """Write a LaTeX table, moving its caption and label above the tabular.
+
+    The tables are assembled with the caption after the rows; NeurIPS style puts table
+    captions above the table, so the caption block is moved just before the tabular.
+    """
+    start = next(i for i, x in enumerate(lines) if x.startswith(r"\caption{"))
+    end = next(i for i, x in enumerate(lines) if x.startswith(r"\label{"))
+    block, rest = lines[start:end + 1], lines[:start] + lines[end + 1:]
+    at = next(i for i, x in enumerate(rest) if x.startswith(r"\begin{tabular}"))
+    with open(path, "w") as f:
+        f.write("\n".join(rest[:at] + block + rest[at:]) + "\n")
 
 
 # %%
@@ -191,9 +210,12 @@ if "cheap" in STAGES:
     label = {"skew to normal": r"Skew-normal $\rightarrow$ normal likelihood",
              "joint to independent": r"Joint $\rightarrow$ independent",
              "Harvey to logistic": r"Harvey $\rightarrow$ logistic"}
+    def months(x: float) -> str:
+        return f"{x:+.1f} " + ("month" if abs(round(x, 1)) == 1.0 else "months")
+
     for k, v in contrasts.items():
         lines.append(
-            f"{label[k]} & {v['mean']:+.1f} & {v['median']:+.1f} & "
+            f"{label[k]} & {months(v['mean'])} & {months(v['median'])} & "
             f"[{v['q10']:+.1f}, {v['q90']:+.1f}] \\\\"
         )
     lines += [
@@ -204,8 +226,7 @@ if "cheap" in STAGES:
         r"Per-benchmark dates are reported in Supp.\ Table~\ref{tab:benchmark_details}.}}",
         r"\label{tab:saturation_shifts}", r"\end{table}",
     ]
-    with open(f"{TABLES_DIR}/saturation_shifts.tex", "w") as f:
-        f.write("\n".join(lines) + "\n")
+    write_table(f"{TABLES_DIR}/saturation_shifts.tex", lines)
     print(f"\nWrote {TABLES_DIR}/saturation_shifts.tex")
 
 # %% [markdown]
@@ -248,8 +269,8 @@ if "cheap" in STAGES:
         r"\begin{longtable}{@{}lccccl@{}}",
         r"\caption{\revised{\textbf{Per-benchmark summary.} Lower bound $\ell$ is random-chance performance where "
         r"it is well defined (see Appendix~\ref{app:lower_bounds}); $L$ is the posterior upper asymptote "
-        r"(median and 80\% CI); the saturation date is when the posterior median trajectory reaches 95\% "
-        r"of the score range, with its 80\% credible interval. $n$ counts frontier observations used for "
+        r"(median and 80\% CI); the saturation date is the posterior median of the date at which the "
+        r"trajectory reaches 95\% of the score range, with its 80\% credible interval. $n$ counts frontier observations used for "
         rf"fitting, and ``Best obs.'' is the highest score recorded up to {DATA_CUTOFF_DATE:%B %Y}. Rows are grouped by "
         r"capability category.}}"
         r"\label{tab:benchmark_details} \\",
@@ -263,8 +284,8 @@ if "cheap" in STAGES:
         lines.append(rf"\multicolumn{{6}}{{@{{}}l}}{{\itshape {tex_escape(cat)}}} \\")
         for bench, row in sub.iterrows():
             lines.append(
-                f"{tex_escape(bench)} & {int(row['n_obs'])} & "
-                f"{row['lower_bound']:.2f} & {row['best_observed']:.2f} & "
+                f"{TEX_BENCHMARK_NAMES.get(bench, tex_escape(bench))} & {int(row['n_obs'])} & "
+                f"{row['lower_bound']:.3f} & {row['best_observed']:.2f} & "
                 f"{row['L_median']:.2f} [{row['L_lower']:.2f}, {row['L_upper']:.2f}] & "
                 f"{fmt_date(row['sat_median'])} [{fmt_date(row['sat_lower'])}, {fmt_date(row['sat_upper'])}] \\\\"
             )
@@ -351,8 +372,7 @@ if "cheap" in STAGES:
         r"Appendix~\ref{app:benchmarks}.}}",
         r"\label{tab:category_summary}", r"\end{table}",
     ]
-    with open(f"{TABLES_DIR}/category_summary.tex", "w") as f:
-        f.write("\n".join(lines) + "\n")
+    write_table(f"{TABLES_DIR}/category_summary.tex", lines)
     print(f"Wrote {TABLES_DIR}/category_summary.tex")
     results["category_summary"] = cats.to_dict(orient="records")
 
@@ -365,7 +385,10 @@ if "cheap" in STAGES:
     fig.savefig(f"{HIGH_LEVEL_DIR}/hyperparameters_en_paper_{CUTOFF_TAG}.pdf", dpi=300, bbox_inches="tight")
     plt.close(fig)
 
-    fig, _ = plotting.plot_L_intervals(idata_main, prepared_frontier=data, plot_style=paper_style)
+    # Two panels: a single column of ~100 benchmarks is taller than a page.
+    fig, _ = plotting.plot_L_intervals(
+        idata_main, prepared_frontier=data, plot_style=paper_style, n_columns=2
+    )
     fig.savefig(f"{HIGH_LEVEL_DIR}/L_intervals_en_paper_{CUTOFF_TAG}.pdf", dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"Wrote hyperparameter and L-interval figures to {HIGH_LEVEL_DIR}/")
@@ -535,13 +558,14 @@ if "cheap" in STAGES:
 #
 # The submitted validation trains before 2025-01-01 and tests up to the data cutoff, a
 # horizon of about a year and a half, while the headline claim spans four years.  We push
-# the cutoff back to 2024, 2023 and 2022.  The retrospective filter (at least
+# the cutoff back to 2024 and 2023.  The 2022 cutoff is left out: only three benchmarks have
+# MIN_TRAIN_POINTS pre-cutoff points then, too few to say anything.  The retrospective filter (at least
 # MIN_TRAIN_POINTS pre-cutoff frontier observations) removes any benchmark that barely existed at the time, so the
 # earlier cutoffs are evaluated on progressively fewer benchmarks — a limitation of
 # the exercise that we report rather than hide.
 
 # %%
-RETRO_CUTOFFS = ["2022-01-01", "2023-01-01", "2024-01-01", "2025-01-01"]
+RETRO_CUTOFFS = ["2023-01-01", "2024-01-01", "2025-01-01"]
 
 if "retro" in STAGES:
     retro_rows = []
@@ -556,7 +580,7 @@ if "retro" in STAGES:
         print(f"\n=== Retrodiction cutoff {cutoff} — {n_bench_kept} benchmarks kept ===")
         idata_retro = bf.temporal_holdout(
             raw, cutoff_date=c, cfg=ALL_MODEL_CONFIGS[MAIN_MODEL],
-            samp=SAMPLING_CONFIG, min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
+            samp=holdout_sampling_for(ALL_MODEL_CONFIGS[MAIN_MODEL]), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
         )
 
         y_pred = idata_retro.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
@@ -623,15 +647,14 @@ if "retro" in STAGES:
         r"(Harvey joint, skew-normal). Each row trains on frontier scores released before the cutoff and "
         rf"predicts every score observed between the cutoff and {DATA_CUTOFF_DATE:%B %Y}. The retrospective filter keeps "
         rf"only benchmarks with at least {MIN_TRAIN_POINTS} pre-cutoff frontier observations, which is why the earlier "
-        r"cutoffs cover far fewer benchmarks: at the 2022 and 2023 cutoffs only the commonsense and "
-        r"early question-answering sets existed. Nominal coverage is 80\%; the last two columns split the "
+        r"cutoffs cover far fewer benchmarks: at the 2023 cutoff only the commonsense and "
+        r"early question-answering sets and GSM8K existed. Nominal coverage is 80\%; the last two columns split the "
         r"remaining observations into those falling above the upper bound of the 80\% credible interval and "
         r"those falling below its lower bound, so a large asymmetry means the model erred in one "
         r"direction.}}",
         r"\label{tab:retro_horizons}", r"\end{table}",
     ]
-    with open(f"{TABLES_DIR}/retrodiction_horizons.tex", "w") as f:
-        f.write("\n".join(lines) + "\n")
+    write_table(f"{TABLES_DIR}/retrodiction_horizons.tex", lines)
     print(f"Wrote {TABLES_DIR}/retrodiction_horizons.tex")
     results["retrodiction_horizons"] = retro.to_dict(orient="records")
 
@@ -648,7 +671,7 @@ if "retro8" in STAGES:
         print(f"\n=== {name} (cutoff 2025-01-01, min_train_points={MIN_TRAIN_POINTS}) ===")
         idata_v = bf.temporal_holdout(
             raw, cutoff_date=pd.to_datetime("2025-01-01"), cfg=cfg,
-            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
+            samp=holdout_sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
         )
         y_pred = idata_v.predictions.stack(sample=("chain", "draw"))["y"].to_numpy()
         y_true = idata_v.predictions["y_true"].to_numpy()
@@ -691,7 +714,7 @@ if "cqr" in STAGES:
     for name, cfg in ALL_MODEL_CONFIGS.items():
         idata_c = bf.temporal_holdout(
             raw, cutoff_date=pd.to_datetime("2025-01-01"), cfg=cfg,
-            samp=sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
+            samp=holdout_sampling_for(cfg), min_train_points=MIN_TRAIN_POINTS, fits_dir=FITS_DIR,
         )
         g = bf.conformal_prediction_coverage_grouped(idata_c, alpha=0.20, n_repeats=100, seed=0)
         row = {
@@ -768,8 +791,7 @@ if "cqr" in STAGES:
         r"and CQR cov.\ are medians over 100 random assignments.}}",
         r"\label{tab:cqr_results}", r"\end{table}",
     ]
-    with open(f"{TABLES_DIR}/cqr_grouped.tex", "w") as f:
-        f.write("\n".join(lines) + "\n")
+    write_table(f"{TABLES_DIR}/cqr_grouped.tex", lines)
     print(f"\nWrote {TABLES_DIR}/cqr_grouped.tex")
 
 # %% [markdown]
@@ -789,7 +811,7 @@ PRIOR_VARIANTS = {
     "Main ($L_{\\min}{=}0.75$, sd 0.02)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True),
     "Low floor ($L_{\\min}{=}0.50$)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50),
     "Weak prior (sd 0.05)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_prior_sd=0.05),
-    "Low floor + weak prior": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50, L_prior_sd=0.10),
+    "Low floor + weaker prior (sd 0.10)": bf.ModelConfig(sigmoid="harvey", joint=True, top_n=3, skew=True, L_min=0.50, L_prior_sd=0.10),
 }
 
 if "priors" in STAGES:
@@ -814,7 +836,7 @@ if "priors" in STAGES:
         # A widened prior can degrade sampling, so the diagnostics belong in the table.
         rhat_max = float(np.nanmax(az.rhat(idata_p).to_array().max().to_numpy()))
         ess_min = float(np.nanmin(az.ess(idata_p).to_array().min().to_numpy()))
-        n_div = int(idata_p.sample_stats["diverging"].sum()) if "diverging" in idata_p.sample_stats else -1
+        n_div = bf.n_divergent(idata_p)  # over every sampled draw, the caches being thinned
 
         row = {
             "variant": name, "L_min": cfg.L_min, "L_prior_sd": cfg.L_prior_sd,
@@ -851,19 +873,27 @@ if "priors" in STAGES:
             f"[{r['L_p10']:.3f}, {r['L_p90']:.3f}] & "
             f"{int(r['ess_min'])} / {int(r['n_divergences'])} \\\\"
         )
+    # The caption states what the rows show rather than what they showed once.
+    sat_main = prior_rows[0]["sat_median"]
+    if all(abs(r["sat_median"] - sat_main) < 1e-9 for r in prior_rows):
+        effect = "leaves the projected proportion saturated by 2030 unchanged"
+    elif min(r["sat_median"] for r in prior_rows) >= sat_main:
+        effect = ("does not lower the projected proportion saturated by 2030; it raises it slightly, because "
+                  "weaker priors let some asymptotes fall, which narrows the score range a benchmark has to cover")
+    else:
+        effect = "changes the projected proportion saturated by 2030 as shown"
+    worst = min(prior_rows, key=lambda r: r["ess_min"])
     lines += [
         r"\bottomrule", r"\end{tabular}",
         r"\caption{\revised{\textbf{Sensitivity to the prior on the upper asymptote.} $L_{\min}$ is the hard floor "
-        r"of the asymptote and sd is the standard deviation of the hyperprior on $\mu_L$. Relaxing the "
-        r"prior does not lower the projected proportion saturated by 2030; it raises it slightly, because "
-        r"weaker priors let some asymptotes fall, which narrows the score range a benchmark has to cover. "
+        r"of the asymptote and sd, on the scale of the asymptote, is both the standard deviation of the "
+        r"hyperprior on its population mean and the scale of the half-normal prior on its spread. Relaxing the "
+        rf"prior {effect}. "
         r"The last column reports the minimum effective sample size and the number of divergent "
-        r"transitions: the most relaxed variant samples poorly and its figures should be read with that "
-        r"in mind.}}",
+        rf"transitions; the variant that samples least well is {worst['variant']}.}}}}",
         r"\label{tab:prior_sensitivity}", r"\end{table}",
     ]
-    with open(f"{TABLES_DIR}/prior_sensitivity.tex", "w") as f:
-        f.write("\n".join(lines) + "\n")
+    write_table(f"{TABLES_DIR}/prior_sensitivity.tex", lines)
     print(f"Wrote {TABLES_DIR}/prior_sensitivity.tex")
     results["prior_sensitivity"] = priors.to_dict(orient="records")
 

@@ -57,6 +57,7 @@ from benchmark_forecasting.config import (  # noqa: E402
     checked_data_cutoff,
     cutoff_dir,
     cutoff_tag,
+    holdout_sampling_for,
     sampling_for,
     variant_slug,
 )
@@ -352,7 +353,7 @@ for model_name, model_config in ALL_MODEL_CONFIGS.items():
         raw,
         cutoff_date=cutoff_date,
         cfg=model_config,
-        samp=sampling_for(model_config),
+        samp=holdout_sampling_for(model_config),
         min_train_points=MIN_TRAIN_POINTS,
         fits_dir=FITS_DIR,
     )

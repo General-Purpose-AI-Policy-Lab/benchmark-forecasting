@@ -96,3 +96,25 @@ def test_save_figure_writes_no_svg_by_default(tmp_path):
     plotting.save_figure(fig, png, dpi=50)
     plt.close(fig)
     assert png.exists() and not (png.parent / "svg").exists()
+
+
+def test_asymptote_panels_split_the_ranking_top_to_bottom_then_left_to_right():
+    """Two panels hold every benchmark once, the first one the highest asymptotes."""
+    import arviz as az
+    import numpy as np
+
+    names = [f"B{i}" for i in range(5)]
+    # Benchmark i has its asymptote near 0.8 + 0.04 i, so the ranking is B4, B3, ..., B0.
+    draws = 0.8 + 0.04 * np.arange(5)[None, None, :] + np.zeros((1, 10, 5))
+    idata = az.from_dict(posterior={"L": draws}, coords={"benchmark": names},
+                         dims={"L": ["benchmark"]})
+    fig, axes = plotting.plot_L_intervals(idata, n_columns=2)
+
+    def top_to_bottom(ax):
+        return [t.get_text() for t in ax.get_yticklabels()][::-1]
+
+    assert len(axes) == 2
+    assert top_to_bottom(axes[0]) + top_to_bottom(axes[1]) == ["B4", "B3", "B2", "B1", "B0"]
+    # Same row pitch in both panels despite their different lengths.
+    assert np.ptp(axes[0].get_ylim()) == np.ptp(axes[1].get_ylim())
+    plt.close(fig)
