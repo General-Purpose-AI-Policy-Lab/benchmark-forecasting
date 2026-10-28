@@ -359,17 +359,14 @@ if "cheap" in STAGES:
         )
     lines += [
         r"\bottomrule", r"\end{tabular}",
-        r"\caption{\revised{\textbf{Projected saturation by capability category}, ordered by the latest date "
-        r"within the category. "
-        r"$n$ is the number of benchmarks in the category. The human-baseline column spans every human "
-        r"baseline recorded for the category's benchmarks, from crowdworkers to domain experts and expert "
-        r"committees, so a wide range reflects that mixture of populations rather than disagreement "
-        r"between measurements of the same quantity; Appendix~\ref{app:human_baselines} lists each "
-        r"baseline with its expertise level, and a dash means that no human baseline is available for any "
-        r"benchmark in the category. The last two columns give the earliest and latest posterior median "
-        r"saturation date among the category's benchmarks. Benchmarks are "
-        r"listed individually in Supp.\ Table~\ref{tab:benchmark_details} and described in "
-        r"Appendix~\ref{app:benchmarks}.}}",
+        r"\caption{\revised{\textbf{Projected saturation by capability category}, ordered by the latest "
+        r"date in each category. $n$ is the number of benchmarks. The human baseline column gives the "
+        r"lowest and highest human score recorded on the category's benchmarks, from crowdworkers to expert "
+        r"committees: a wide range comes from these different populations, not from measurements that "
+        r"disagree. A dash means that no benchmark in the category has a human baseline "
+        r"(Appendix~\ref{app:human_baselines} lists them all). The last two columns give the earliest and "
+        r"latest median saturation date in the category. Supp.\ Table~\ref{tab:benchmark_details} lists "
+        r"the benchmarks one by one, and Appendix~\ref{app:benchmarks} describes them.}}",
         r"\label{tab:category_summary}", r"\end{table}",
     ]
     write_table(f"{TABLES_DIR}/category_summary.tex", lines)
