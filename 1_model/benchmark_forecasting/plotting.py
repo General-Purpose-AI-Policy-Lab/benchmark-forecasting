@@ -187,6 +187,10 @@ class PlotStyle:
             # Fonts
             "font.family": "sans-serif",
             "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
+            # Embed fonts as TrueType (42) rather than matplotlib's default Type 3, which
+            # conference templates such as NeurIPS reject in the compiled PDF.
+            "pdf.fonttype": 42,
+            "ps.fonttype": 42,
             # Colors
             "axes.labelcolor": self.base_color,
             "xtick.color": self.base_color,

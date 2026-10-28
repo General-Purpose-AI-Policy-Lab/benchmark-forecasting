@@ -1,5 +1,5 @@
-"""Locks on the figure conventions: one baseline-marker scheme for every figure, and a
-vector copy beside every French raster."""
+"""Locks on the figure conventions: one baseline-marker scheme for every figure, a
+vector copy beside every French raster, and no Type 3 fonts in the PDFs."""
 
 import matplotlib
 import pandas as pd
@@ -118,3 +118,14 @@ def test_asymptote_panels_split_the_ranking_top_to_bottom_then_left_to_right():
     # Same row pitch in both panels despite their different lengths.
     assert np.ptp(axes[0].get_ylim()) == np.ptp(axes[1].get_ylim())
     plt.close(fig)
+
+
+def test_pdf_figures_embed_truetype_fonts(tmp_path):
+    """NeurIPS and similar templates reject Type 3 fonts, matplotlib's PDF default."""
+    plotting.PlotStyle(language="en", document_type="paper")
+    fig, ax = plt.subplots()
+    ax.set_title("Benchmark")
+    path = tmp_path / "fig.pdf"
+    fig.savefig(path)
+    plt.close(fig)
+    assert b"/Type3" not in path.read_bytes()
