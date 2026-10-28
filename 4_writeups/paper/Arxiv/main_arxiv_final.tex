@@ -430,7 +430,7 @@ Each model family enters a benchmark once per release day, with its best score a
 \subsection{What the Hierarchy Does}
 \label{app:inference_intuition}
 
-The joint model estimates how growth rates, asymptotes, shapes and noise levels are distributed across the 98 benchmarks, and draws the parameters of each benchmark toward that distribution, especially when they have little data. For instance, rather than fixing by hand the parameters of a Beta prior on the upper asymptote, we give these parameters a prior of their own and infer the Beta distribution of asymptotes from the data.
+Fitting each benchmark separately means a benchmark with five data points is described only by those five points. The joint model instead estimates how growth rates, asymptotes, shapes and noise levels are distributed across the 98 benchmarks, and draws the parameters of each benchmark toward that distribution, especially when they have little data. For instance, rather than fixing by hand the parameters of a Beta prior on the upper asymptote, we give these parameters a prior of their own and infer the Beta distribution of asymptotes from the data.
 
 This is not an assumption that benchmarks behave alike. The population distribution has an estimated spread, and all the parameters are still estimated for each benchmark. Nevertheless, pooling propagates error as well as information, which is why we report the independent fits throughout, and check in Supp.\ Table~\ref{tab:saturation_shifts} that removing the hierarchy moves saturation dates later by only 2.4 months on average (median 0.7 months).
 
