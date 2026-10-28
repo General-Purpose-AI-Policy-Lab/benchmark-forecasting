@@ -1,7 +1,7 @@
 \begin{table}[ht]
 \centering
 \small
-\caption{\revised{\textbf{Retrodiction accuracy as a function of forecast horizon} for the main model (Harvey joint, skew-normal). Each row trains on frontier scores released before the cutoff and predicts every score observed between the cutoff and October 2026. The retrospective filter keeps only benchmarks with at least 5 pre-cutoff frontier observations, which is why the earlier cutoffs cover far fewer benchmarks: at the 2023 cutoff only the commonsense and early question-answering sets and GSM8K existed. Nominal coverage is 80\%; the last two columns count the held-out observations falling above the upper bound of the 80\% credible interval and those falling below its lower bound, so a large asymmetry over many observations means the model erred in one direction.}}
+\caption{\revised{\textbf{Retrodiction accuracy as a function of forecast horizon} for the main model (Harvey joint, skew-normal). Each row trains on frontier scores released before the cutoff and predicts every score observed between the cutoff and October 2026. Earlier cutoffs cover far fewer benchmarks because a benchmark needs at least 5 frontier observations before the cutoff; in 2023, only the commonsense and early question-answering sets and GSM8K qualified. Nominal coverage is 80\%; the last two columns count the held-out observations falling above the upper bound of the 80\% credible interval and those falling below its lower bound, so a large asymmetry over many observations means the model erred in one direction.}}
 \label{tab:retro_horizons}
 \begin{tabular}{@{}lccccccccc@{}}
 \toprule
