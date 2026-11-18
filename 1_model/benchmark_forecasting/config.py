@@ -156,7 +156,7 @@ class SamplingConfig:
 # names the run's folder and files, so it must date the data: it is the day the synced pipeline
 # run happened (`pipeline_run_date` in 0_input/provenance.json), which `checked_data_cutoff`
 # enforces for the main runs. Change it when syncing a newer run and expect every fit to rerun.
-DATA_CUTOFF = "2026-10-01"
+DATA_CUTOFF = "2026-11-18"
 
 
 def pipeline_run_date() -> str:
