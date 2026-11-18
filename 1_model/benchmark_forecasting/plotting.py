@@ -17,6 +17,7 @@ import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 from matplotlib.legend import Legend
+from matplotlib.lines import Line2D
 
 DashStyle = str | tuple[float, tuple[float, ...]]
 
@@ -64,11 +65,13 @@ class PlotStyle:
         self.gray_color = "#6c757d"
         self.grid_color = "#5F86A5"
 
-        # Fourteen colours for up to thirteen benchmarks per category.  The first three keep
-        # their roles in the other figures (navy median, green logistic, steel-blue bands); the
-        # rest follow Paul Tol's colour-blind-safe muted and light schemes, ordered so that
-        # neighbours differ in lightness as well as hue (deuteranopia and protanopia confuse
-        # red with green but not dark with light).
+        # Seventeen colours, one per benchmark of the largest category (Cyber).  The first three
+        # keep their roles in the other figures (navy median, green logistic, steel-blue bands);
+        # the next eleven follow Paul Tol's colour-blind-safe muted and light schemes, ordered so
+        # that neighbours differ in lightness as well as hue (deuteranopia and protanopia confuse
+        # red with green but not dark with light); the last three (Tol's vibrant magenta, a grey
+        # and black) only serve a category of more than fourteen benchmarks, whose colours
+        # repeated before.
         self.palette = [
             "#1f4788",  # navy
             "#117733",  # green
@@ -84,6 +87,9 @@ class PlotStyle:
             "#661100",  # brown
             "#BBCC33",  # pear
             "#332288",  # indigo
+            "#EE3377",  # magenta
+            "#777777",  # grey
+            "#000000",  # black
         ]
 
         # Display names only (data keeps the bare benchmark name).  Benchmarks whose
@@ -99,11 +105,38 @@ class PlotStyle:
         self.legend_loc_overrides = {
             "General Reasoning": "lower right",
             "Mathematics": "lower right",
-            "Cyber": "lower right",
         }
         # Extra months added to the right x-limit of a category panel, so a forced legend corner
         # sits in empty space instead of on the curves (the curves still stop at end_date).
-        self.xlim_extra_months = {"Cyber": 15, "General Reasoning": 4}
+        self.xlim_extra_months = {"General Reasoning": 4}
+        # Categories whose legend is too long for any corner of the panel (fourteen entries
+        # or more cover the curves wherever they go): the legend is drawn under the axes, in
+        # ``legend_below_columns`` columns read top to bottom.  A category may name groups,
+        # (title, {benchmark: label}): each fills a column of its own under its title, with
+        # the title's words dropped from the labels; the benchmarks of no group fill the
+        # remaining columns in the plot's order (left to right by saturation date), under
+        # ``legend_below_other`` when the category has groups.
+        self.legend_below = {
+            "Autonomous SWE": [],
+            "Cyber": [
+                ("UK AISI", {
+                    "AISI CTF Suites - Technical Non-Expert": "CTF Non-Expert",
+                    "AISI CTF Suites - Apprentice": "CTF Apprentice",
+                    "AISI CTF Suites - Practitioner": "CTF Practitioner",
+                    "AISI CTF Suites - Expert": "CTF Expert",
+                    "AISI Cyber Ranges - The Last Ones": "Range: The Last Ones",
+                    "AISI Cyber Ranges - Cooling Tower": "Range: Cooling Tower",
+                }),
+                ("US CAISI", {
+                    "CAISI CVE-Bench": "CVE-Bench",
+                    "CAISI Cybench": "Cybench",
+                    "CAISI CTF-Archive": "CTF-Archive",
+                    "CAISI CTF-Archive-Diamond": "CTF-Archive-Diamond",
+                }),
+            ],
+        }
+        self.legend_below_columns = 3
+        self.legend_below_other = {"en": "Other", "fr": "Autres"}
         # Legend columns per category: two columns halve the height of a long legend so a forced
         # lower-right corner stays under the late-saturating bands.
         self.legend_ncol_overrides = {"General Reasoning": 2}
@@ -323,9 +356,14 @@ def plot_forecasts_by_category(
     plot_style: PlotStyle = DEFAULT_STYLE,
 ) -> tuple[Figure, Axes]:
     """Plot one category: multiple benchmarks with observed data, forecast, and baselines."""
-    fig, ax = plt.subplots(figsize=plot_style.figsize)
-
     benchmarks_ordered = _benchmark_plot_order(observed, forecast)
+    # A legend under the axes (plot_style.legend_below) gets its own band of the figure, so
+    # the panel keeps the size it has in the other categories.
+    below = _legend_below_columns(str(category_name), benchmarks_ordered, observed, plot_style)
+    width, height = plot_style.figsize
+    band = (0.24 * max(len(c[1]) + bool(c[0]) for c in below) + 0.25) if below else 0.0
+    fig, ax = plt.subplots(figsize=(width, height + band))
+
     benchmark_colors = {
         bench: color
         for bench, color in zip(benchmarks_ordered, itertools.cycle(plot_style.palette))
@@ -409,25 +447,59 @@ def plot_forecasts_by_category(
         borderaxespad=plot_style.legend_borderaxespad_overrides.get(str(category_name), 0.5),
         columnspacing=plot_style.legend_columnspacing_overrides.get(str(category_name), 2.0),
     )
-    forced = plot_style.legend_loc_overrides.get(str(category_name))
-    loc = (
-        forced
-        if forced
-        else _pick_legend_loc(fig, ax, observed, forecast, plot_style, legend_kwargs)
-    )
-    bench_legend = ax.legend(loc=loc, **legend_kwargs)
-    for text in bench_legend.get_texts():
-        text.set_color(plot_style.base_color)
-    for line in bench_legend.get_lines():
-        line.set_linewidth(2.0)
-        line.set_linestyle("-")
-        line.set_alpha(1.0)
-    ax.add_artist(bench_legend)
+    legend_columns: list[Legend] = []
+    if below:
+        # One legend per column, side by side under the x axis, each with its optional title.
+        for i, (title, entries) in enumerate(below):
+            column = ax.legend(
+                handles=[
+                    Line2D([0], [0], color=benchmark_colors[bench], linewidth=2.0)
+                    for bench, _ in entries
+                ],
+                labels=[label for _, label in entries],
+                title=title,
+                loc="upper left",
+                bbox_to_anchor=(i / len(below), -0.13),
+                title_fontsize=10,
+                fancybox=False,
+                handlelength=1.5,
+                borderaxespad=0.0,
+                alignment="left",
+            )
+            column.get_title().set_color(plot_style.base_color)
+            column.get_title().set_fontweight(600)
+            for text in column.get_texts():
+                text.set_color(plot_style.base_color)
+            ax.add_artist(column)
+            # add_artist clips to the axes and tight_layout would shrink the panel to fit
+            # the column in: it sits under the axes, in the band kept free for it, and
+            # counts again after the layout so that a tight bounding box keeps it.
+            column.set_clip_on(False)
+            column.set_in_layout(False)
+            legend_columns.append(column)
+        ax.legend_ = None  # every column is an artist of its own; none is drawn twice
+    else:
+        forced = plot_style.legend_loc_overrides.get(str(category_name))
+        loc = (
+            forced
+            if forced
+            else _pick_legend_loc(fig, ax, observed, forecast, plot_style, legend_kwargs)
+        )
+        bench_legend = ax.legend(loc=loc, **legend_kwargs)
+        for text in bench_legend.get_texts():
+            text.set_color(plot_style.base_color)
+        for line in bench_legend.get_lines():
+            line.set_linewidth(2.0)
+            line.set_linestyle("-")
+            line.set_alpha(1.0)
+        ax.add_artist(bench_legend)
 
     # Inline baseline labels (note and paper figures).  These come after tight_layout
     # because the label placement measures occlusion in pixels: deciding before the
     # layout is settled would optimise a geometry the reader never sees.
-    fig.tight_layout()
+    fig.tight_layout(rect=(0.0, band / (height + band), 1.0, 1.0))
+    for column in legend_columns:
+        column.set_in_layout(True)
     _add_baseline_labels(
         ax,
         baselines=baselines,
@@ -1953,6 +2025,36 @@ def _add_baseline_labels(
             zorder=10,
             clip_on=True,
         )
+
+
+def _legend_below_columns(
+    category: str, ordered: list[str], observed: pd.DataFrame, plot_style: PlotStyle
+) -> list[tuple[str | None, list[tuple[str, str]]]]:
+    """Columns of a legend drawn under the panel: [(title, [(benchmark, label), ...]), ...].
+
+    Empty when the category keeps its legend on the panel (not in ``plot_style.legend_below``).
+    Each group of the category is one titled column; the benchmarks of no group fill the
+    remaining columns evenly, top to bottom, in the plot's order.  Only benchmarks with
+    observed points are listed, as only those are drawn.
+    """
+    groups = plot_style.legend_below.get(category)
+    if groups is None:
+        return []
+    drawn = [b for b in ordered if (observed["benchmark"].astype(str) == b).any()]
+    columns: list[tuple[str | None, list[tuple[str, str]]]] = []
+    grouped: set[str] = set()
+    for title, labels in groups:
+        entries = [(b, labels[b]) for b in drawn if b in labels]
+        if entries:
+            columns.append((title, entries))
+            grouped.update(b for b, _ in entries)
+    rest = [(b, plot_style._legend_label(b).replace("\n", " ")) for b in drawn if b not in grouped]
+    n_free = max(plot_style.legend_below_columns - len(columns), 1)
+    per_column = -(-len(rest) // n_free)  # ceiling division
+    other = plot_style.legend_below_other[plot_style.language] if columns else None
+    for i in range(0, len(rest), per_column or 1):
+        columns.append((other if i == 0 else None, rest[i : i + per_column]))
+    return columns
 
 
 def _benchmark_plot_order(observed: pd.DataFrame, forecast: pd.DataFrame) -> list[str]:
