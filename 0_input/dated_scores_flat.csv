@@ -1361,13 +1361,6 @@ gpt-5.5,0.26,2026-04-23,OpenAI,CyScenarioBench,,Epoch AI cyber ECI (values partl
 gpt-5.6-sol,0.27,2026-07-09,OpenAI,CyScenarioBench,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
 gpt-6-astra,0.59,2026-09-03,OpenAI,CyScenarioBench,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
 muse-spark_thinking,0.0,2026-04-08,Meta AI,CyScenarioBench,,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-haiku-4-5-20251001,0.0,2025-10-15,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-haiku-5-5,0.033,2026-10-07,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-mythos-5-1,0.617,2026-09-01,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-5,0.53,2026-07-24,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-opus-5-5,0.676,2026-09-22,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-sonnet-5,0.007,2026-06-30,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
-claude-sonnet-5-5,0.461,2026-09-28,Anthropic,CyScenarioBench (Anthropic),,Epoch AI cyber ECI (values partly read off published plots),https://epoch.ai/data/cyber/processed_data_for_eci.csv,epoch_cyber,Cyber,0.0,
 Llama-3.1-405B-Instruct,0.075,2024-07-23,Meta AI,Cybench,,Cybench leaderboard,https://cybench.github.io/,epoch,Cyber,0.0,1.0
 Meta-Llama-3-70B-Instruct,0.05,2024-04-18,Meta AI,Cybench,,Cybench leaderboard,https://cybench.github.io/,epoch,Cyber,0.0,1.0
 Mixtral-8x22B-Instruct-v0.1,0.075,2024-04-17,Mistral AI,Cybench,,Cybench leaderboard,https://cybench.github.io/,epoch,Cyber,0.0,1.0
