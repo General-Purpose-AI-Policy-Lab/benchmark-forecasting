@@ -131,22 +131,20 @@ def test_pdf_figures_embed_truetype_fonts(tmp_path):
     assert b"/Type3" not in path.read_bytes()
 
 
-def test_a_long_legend_goes_under_the_panel_in_columns():
-    """Cyber: one titled column per evaluator, the other benchmarks in the remaining one; a
-    category that is not listed keeps its legend on the panel."""
+def test_a_long_legend_goes_beside_the_panel():
+    """Cyber: the benchmarks of each evaluator under its title, the others last; a category that
+    is not listed keeps its legend on the panel."""
     style = plotting.PlotStyle(language="en", document_type="paper")
     order = ["NL2Bash", "CAISI Cybench", "AISI CTF Suites - Expert", "Cybench", "Absent"]
     observed = pd.DataFrame({"benchmark": order[:4]})
-    columns = plotting._legend_below_columns("Cyber", order, observed, style)
-    assert columns == [
-        ("UK AISI", [("AISI CTF Suites - Expert", "CTF Expert")]),
-        ("US CAISI", [("CAISI Cybench", "Cybench")]),
-        ("Other", [("NL2Bash", "NL2Bash"), ("Cybench", "Cybench")]),
+    assert plotting._legend_outside_entries("Cyber", order, observed, style) == [
+        (None, "UK AISI"), ("AISI CTF Suites - Expert", "CTF Expert"),
+        (None, "US CAISI"), ("CAISI Cybench", "Cybench"),
+        (None, "Other"), ("NL2Bash", "NL2Bash"), ("Cybench", "Cybench"),
     ]
-    assert plotting._legend_below_columns("Mathematics", order, observed, style) == []
-    # No group: three untitled columns filled top to bottom in the plot's order.
-    names = [f"b{i}" for i in range(7)]
-    free = plotting._legend_below_columns(
-        "Autonomous SWE", names, pd.DataFrame({"benchmark": names}), style)
-    assert [(t, [b for b, _ in e]) for t, e in free] == [
-        (None, ["b0", "b1", "b2"]), (None, ["b3", "b4", "b5"]), (None, ["b6"])]
+    assert plotting._legend_outside_entries("Mathematics", order, observed, style) == []
+    # No group: the benchmarks in the plot's order, without any title.
+    names = [f"b{i}" for i in range(4)]
+    assert plotting._legend_outside_entries(
+        "Autonomous SWE", names, pd.DataFrame({"benchmark": names}), style
+    ) == [(n, n) for n in names]
