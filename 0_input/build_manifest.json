@@ -1,7 +1,7 @@
 {
   "schema_version": "2.3",
-  "built_at": "2026-11-18T10:39:57+01:00",
-  "git_commit": "628c515868975814f7bf4ed6752c141adbf49f10",
+  "built_at": "2026-11-18T10:47:52+01:00",
+  "git_commit": "ed95c6468852af37686e254c9be42a717fed078f",
   "feeds": {
     "0_input/feed/board_rows/board_rows.csv": {
       "byte_size": 3472,
@@ -1258,7 +1258,7 @@
     "0_input/metadata/benchmarks.csv": "6fefac9a43c2104158f7fd5ac2d2b14a31a6a3420d708ec47621cc675e1fd5b4",
     "0_input/metadata/human_baselines.csv": "42607e4d5f2fb3e5147dc4320b2343aa86dc01ca3f2a444ccec476412774acca",
     "0_input/metadata/model_exclusions.csv": "abd1c703d84954e9f3c6d38b36e8df2d024f91e34dd240d0868c79fef718f982",
-    "0_input/metadata/organizations.csv": "3f90f0dec7e64ab180264685c34241743197acc6cf20eef2620b4c04411c9334",
+    "0_input/metadata/organizations.csv": "dd2b94543adf0a6c0960e3fad60855e0f1a4d613498bb890cc84b7ec3f1f0840",
     "0_input/metadata/release_dates.csv": "2f4a25e14324bf1fd6a4f8262797b7a3f6868491a2fc5da630901cec4f34c114",
     "0_input/metadata/score_corrections.csv": "da5c5c692053c21005d57f53f946d81ce05cb0e7b91d422004b1a69c2723a957",
     "0_input/metadata/score_drop_kept.csv": "f94240dbf2166fc36fd970b17cd6bd48ada7976846e29235aff80ecfc2ab45d2",

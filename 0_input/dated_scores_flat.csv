@@ -2273,7 +2273,7 @@ glm-5.3_max,0.366,2026-08-14,Z.ai (Zhipu AI),GDP.pdf v1.1,,https://surgehq.ai/be
 gpt-6-astra_max,0.504,2026-09-03,OpenAI,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
 gpt-6.1-sol_max,0.516,2026-09-29,OpenAI,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
 grok-4.7_xhigh,0.488,2026-09-21,xAI,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
-hy4-preview_high,0.35,2026-08-28,,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
+hy4-preview_high,0.35,2026-08-28,Tencent,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
 inkling-2-small_xhigh,0.436,2026-11-05,Thinking Machines,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
 kimi-k3.1-pro_max,0.466,2026-10-23,Moonshot,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
 kimi-k3_max,0.3979999999999999,2026-07-16,Moonshot,GDP.pdf v1.1,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,epoch,Domain Specific Questions,0.0,
