@@ -1,7 +1,7 @@
 {
   "schema_version": "2.3",
-  "built_at": "2026-11-18T12:10:14+01:00",
-  "git_commit": "4a0c84cbe48a0b133dc8f929fe4f1f37cd3244a1",
+  "built_at": "2026-11-18T12:13:57+01:00",
+  "git_commit": "040204df8c421206c83b343171f9fa17de62fa9f",
   "feeds": {
     "0_input/feed/board_rows/board_rows.csv": {
       "byte_size": 3472,
@@ -1254,8 +1254,8 @@
     "0_input/feed/kaggle/aliases.csv": "390d06d870014f3826015c688c1d9bc33b355f0fbaed31d39d480ce4a93edf0d",
     "0_input/feed/rand/aliases.csv": "4f341eebe565f13bf09755234ac72913e74804b0bbaad0ef17e596db2d1c00f0",
     "0_input/feed/seal/aliases.csv": "dac0e901e1c839e5ce74744d3af945565288c19339e345798d849fea9946b6fe",
-    "0_input/metadata/benchmark_release_dates.csv": "2ab62cc2651cdccf1d444cc6879a95ed877290f4bcfa9fe1206994ea6d973ac1",
-    "0_input/metadata/benchmarks.csv": "466dc098236b4359371a0ef3fdac3ab41b1e9df3d0ad12486e8b61a02307b15f",
+    "0_input/metadata/benchmark_release_dates.csv": "73fd215dd084f8af4db575193c141dd5c81ecbb0b67268c848069d3ae4474daf",
+    "0_input/metadata/benchmarks.csv": "cd0be734fc3af32f61633de83a6cecf0801af7eed2c837e7f436f104f4ac1fc0",
     "0_input/metadata/human_baselines.csv": "42607e4d5f2fb3e5147dc4320b2343aa86dc01ca3f2a444ccec476412774acca",
     "0_input/metadata/model_exclusions.csv": "abd1c703d84954e9f3c6d38b36e8df2d024f91e34dd240d0868c79fef718f982",
     "0_input/metadata/organizations.csv": "dd2b94543adf0a6c0960e3fad60855e0f1a4d613498bb890cc84b7ec3f1f0840",
@@ -1268,10 +1268,10 @@
   },
   "rows": {
     "models.csv": 1043,
-    "benchmarks.csv": 106,
-    "scores.csv": 6040,
+    "benchmarks.csv": 103,
+    "scores.csv": 6028,
     "human_baselines.csv": 56,
-    "model_names.csv": 2013,
-    "excluded_benchmarks.csv": 50
+    "model_names.csv": 2012,
+    "excluded_benchmarks.csv": 53
   }
 }
