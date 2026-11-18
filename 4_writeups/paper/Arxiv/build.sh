@@ -40,6 +40,8 @@ if [[ "${1:-}" == "bundle" ]]; then
     cp "$OUTDIR/$JOB.bbl" "$STAGE/$JOB.bbl"
     mkdir -p "$STAGE/4_writeups/paper/Arxiv"
     cp "$OUTDIR/arxiv.sty" "$STAGE/4_writeups/paper/Arxiv/"
+    # The scan looks for the \bibliographystyle file even though the .bbl is shipped.
+    cp 4_writeups/paper/plainnat_trunc.bst "$STAGE/4_writeups/paper/"
     # Every figure and table the source pulls in, from the file list pdflatex -recorder writes
     # (the .log wraps long paths, so it cannot be grepped reliably).
     grep -oE '^INPUT (\./)?3_outputs/.+\.(pdf|tex)$' "$OUTDIR/$JOB.fls" | sed -E 's/^INPUT (\.\/)?//' \
